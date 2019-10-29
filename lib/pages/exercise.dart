@@ -26,11 +26,18 @@ class _ExerciseState extends State<Exercise> {
           Container(
             height: height * 0.10,
           ),
-          FittedBox(
-            fit: BoxFit.contain,
-            child: Text('Planks'),
+          Container(
+            height: height *0.05,
+            child: FittedBox(
+              fit: BoxFit.cover,
+              child: Text('Planks'),
 
-          )
+            ),
+          ),
+
+          Container(
+            height: height * 0.10,
+          ),
         ],
       ),
     );
