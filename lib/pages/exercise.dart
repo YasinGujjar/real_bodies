@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:real_bodies/theme/palette.dart';
 
 class Exercise extends StatefulWidget {
 
@@ -27,7 +28,7 @@ class _ExerciseState extends State<Exercise> {
             height: height * 0.10,
           ),
           Container(
-            height: height *0.05,
+            height: height * 0.05,
             child: FittedBox(
               fit: BoxFit.cover,
               child: Text('Planks Exercise'),
@@ -38,6 +39,18 @@ class _ExerciseState extends State<Exercise> {
           Container(
             height: height * 0.10,
           ),
+          Container(
+            height: height * 0.40,
+            width:  width * 0.95,
+            color: Palette.accentColor,
+            child: Text('Video'),
+          ),
+          Container(
+            height: height * 0.33,
+            width: width * 0.90,
+            color: Colors.amber,
+            child: Center(child: Text('Mango')),
+          )
         ],
       ),
     );
