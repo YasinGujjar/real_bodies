@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import "package:flutter_swiper/flutter_swiper.dart";
-import "package:onboarding_flow/models/walkthrough.dart";
+import 'package:real_bodies/models/walkthrough.dart';
+import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:onboarding_flow/ui/widgets/custom_flat_button.dart';
+
 
 class WalkthroughScreen extends StatefulWidget {
   final SharedPreferences prefs;

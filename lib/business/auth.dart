@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:onboarding_flow/models/user.dart';
 import 'package:flutter/services.dart';
+import 'package:real_bodies/models/user.dart';
 
 enum authProblems { UserNotFound, PasswordNotValid, NetworkError, UnknownError }
 

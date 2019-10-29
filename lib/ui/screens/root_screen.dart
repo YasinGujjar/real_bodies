@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:onboarding_flow/ui/screens/welcome_screen.dart';
-import 'package:onboarding_flow/ui/screens/main_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:real_bodies/ui/screens/main_screen.dart';
+import 'package:real_bodies/ui/screens/welcome_screen.dart';
 
 class RootScreen extends StatefulWidget {
   @override

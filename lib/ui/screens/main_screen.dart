@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:onboarding_flow/business/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:onboarding_flow/models/user.dart';
+import 'package:real_bodies/business/auth.dart';
+import 'package:real_bodies/models/user.dart';
 
 class MainScreen extends StatefulWidget {
   final FirebaseUser firebaseUser;
