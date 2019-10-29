@@ -30,7 +30,7 @@ class _ExerciseState extends State<Exercise> {
             height: height *0.05,
             child: FittedBox(
               fit: BoxFit.cover,
-              child: Text('Planks'),
+              child: Text('Planks Exercise'),
 
             ),
           ),
