@@ -38,23 +38,46 @@ with TickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 100,
-      width: 100,
-      child:
-      AnimatedBuilder(
-        animation: _animationController,
-        builder:
-        (BuildContext context, Widget child)
-    {
-      return CustomPaint(
-        painter: CustomTimerPainter(
-          animation: _animationController,
-          backgroundColor: Colors.cyan,
-          color: Palette.orange,
-        ),);
-    },
-    ),
+    return  Stack(
+        children: <Widget>[
+           Container(
+            height: 200,
+            width: 200,
+            child:
+            AnimatedBuilder(
+              animation: _animationController,
+              builder:
+              (BuildContext context, Widget child)
+        {
+            return CustomPaint(
+              painter: CustomTimerPainter(
+                animation: _animationController,
+                backgroundColor: Colors.cyan,
+                color: Palette.orange,
+              ),
+            );
+        },
+        ),
+        ),
+
+
+            Positioned.fill(
+              child: Center(
+                child: FittedBox(
+                  fit: BoxFit.contain,
+                  child: Text(
+                    "0:00",
+                    style: TextStyle(
+                        fontSize: 40.0,
+                        color: Colors.black),
+                  ),
+                ),
+              ),
+            ),
+
+
+      ],
+
     );
   }
 }
@@ -76,7 +99,7 @@ class CustomTimerPainter extends CustomPainter{
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
       ..color = backgroundColor
-      ..strokeWidth = 5.0
+      ..strokeWidth = 8.0
       ..strokeCap = StrokeCap.butt
       ..style = PaintingStyle.stroke;
 
