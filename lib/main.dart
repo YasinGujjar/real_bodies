@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:real_bodies/pages/exercise.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/pages/count_down_timer.dart';
 
 
 void main() => runApp(MyApp());
