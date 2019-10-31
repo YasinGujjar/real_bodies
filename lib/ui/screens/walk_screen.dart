@@ -18,46 +18,128 @@ child: Column( children: <Widget>[
   Padding(
     padding: const EdgeInsets.only(left: 15.0,right: 15.0),
       child: Card(
-                elevation: 5.0,
-                child: ListTile(
+                elevation: 10.0,
+                child: new InkWell(
+                  splashColor: Colors.blue,
+    onTap: () {
+      print("tapped");
+    },
+    child: Container(
+      child: ListTile(
                     title: Text('     Lose Weight',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.w800),),
                    subtitle: Text('       Burn fat & get lean'),
                     /* leading:
                         const Icon(Icons.), */
                   ),
+    ),
+  ),
+                
               ),
   ),
   Padding(
     padding: const EdgeInsets.only(left: 15.0,right: 15.0),
       child: Card(
-                elevation: 5.0,
+               
+                 elevation: 10.0,
+                child: new InkWell(
+                  splashColor: Colors.blue,
+    onTap: () {
+      print("tapped");
+    },
+    child: Container(
                 child: ListTile(
                     title: Text('     Get Fitter',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.w800),),
                    subtitle: Text('       Tone up & feel healthy'),
                     /* leading:
                         const Icon(Icons.), */
                   ),
+    ),
+                ),
               ),
   ),
   Padding(
     padding: const EdgeInsets.only(left:15.0,right: 15.0),
       child: Card(
-                elevation: 5.0,
+                elevation: 10.0,
+                child: new InkWell(
+                  splashColor: Colors.blue,
+    onTap: () {
+      print("tapped");
+    },
+    child: Container(
                 child: ListTile(
                     title: Text('     Gain Muscle',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.w800),),
                    subtitle: Text('       Build mass & Strenght'),
                     /* leading:
                         const Icon(Icons.), */
                   ),
+    ),),
               ),
   ),
 ],),
           )
     ),
   Walkthrough(
-    icon: Icons.layers,
-    title: "Step 2",
-    description: "How old are You?",
+    icon: Icons.pregnant_woman,
+    title: "What's your gender?",
+    description: "Select",
+    extraWidget: Container(
+child: Align(
+  alignment: Alignment.topCenter,
+  child:   Row( children: <Widget>[
+    
+    Padding(
+      padding: const EdgeInsets.only(left: 0.0,right: 0.0),
+        child: Card(
+                  elevation: 10.0,
+                  
+                  child: new InkWell(
+                    splashColor: Colors.blue,
+      onTap: () {
+        print("tapped");
+      },
+      child: Container(
+        width: 120.0,
+        height: 120.0,
+        child: ListTile(
+                      title: Text('Male',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.w800),),
+                   
+                      /* leading:
+                          const Icon(Icons.), */
+                    ),
+      ),
+    ),
+                  
+                ),
+    ),
+     Padding(
+      padding: const EdgeInsets.only(left: 15.0,right: 0.0),
+        child: Card(
+                 
+                   elevation: 10.0,
+                  child: new InkWell(
+                    splashColor: Colors.blue,
+      onTap: () {
+        print("tapped");
+      },
+      child: Container(
+        width: 120.0,
+        height: 120.0,
+                  child: ListTile(
+                      title: Text('Female',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.w800),),
+                     subtitle: Text(' '),
+                      /* leading:
+                          const Icon(Icons.), */
+                    ),
+      ),
+                  ),
+                ),
+    ), 
+    
+  ],),
+),
+          )
+
   ),
   Walkthrough(
     icon: Icons.account_circle,
@@ -88,6 +170,7 @@ child: Column( children: <Widget>[
 class _WalkthroughScreenState extends State<WalkthroughScreen> {
   @override
   Widget build(BuildContext context) {
+   
     return Scaffold(
       body: Swiper.children(
         autoplay: false,
@@ -111,6 +194,8 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
   }
 
   List<Widget> _getPages(BuildContext context) {
+     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     List<Widget> widgets = [];
     for (int i = 0; i < widget.pages.length; i++) {
       Walkthrough page = widget.pages[i];
@@ -119,8 +204,13 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
           color: Color.fromRGBO(15, 120, 212, 1.0),
           child: ListView(
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 70.0),
+              Container(
+              
+                height: height * 0.35,
+                child: Column(
+                  children: <Widget>[
+Padding(
+                padding: const EdgeInsets.only(top: 10.0),
                 child: Icon(
                   page.icon,
                   size: 125.0,
@@ -129,7 +219,7 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
               ),
               Padding(
                 padding:
-                    const EdgeInsets.only(top: 50.0, right: 15.0, left: 15.0),
+                    const EdgeInsets.only(top: 10.0, right: 15.0, left: 15.0),
                 child: Text(
                   page.title,
                   softWrap: true,
@@ -144,7 +234,7 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Text(
                   page.description,
                   softWrap: true,
@@ -158,9 +248,17 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: page.extraWidget,
+                  ],
+                ),
+              ),
+              
+              Container(
+                 color: Colors.blueGrey,
+                 height: height * 0.45,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: page.extraWidget,
+                ),
               )
             ],
           ),
