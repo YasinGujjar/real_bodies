@@ -1,4 +1,4 @@
-import 'dart:core';
+/* import 'dart:core';
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 import 'package:real_bodies/business/auth.dart';
@@ -222,3 +222,4 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
+ */

@@ -2,32 +2,84 @@ import 'package:flutter/material.dart';
 import "package:flutter_swiper/flutter_swiper.dart";
 import 'package:real_bodies/models/walkthrough.dart';
 import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+//import 'package:shared_preferences/shared_preferences.dart';
 
 
 class WalkthroughScreen extends StatefulWidget {
-  final SharedPreferences prefs;
+ // final SharedPreferences prefs;
   final List<Walkthrough> pages = [
   Walkthrough(
-      icon: Icons.developer_mode,
-      title: "Flutter Onboarding",
+      icon: Icons.fitness_center,
+      title: "What's your gaol?",
       description:
-          "Build your onboarding flow in seconds.",
+          "Select one",
+          extraWidget: Container(
+child: Column( children: <Widget>[
+  Padding(
+    padding: const EdgeInsets.only(left: 15.0,right: 15.0),
+      child: Card(
+                elevation: 5.0,
+                child: ListTile(
+                    title: Text('     Lose Weight',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.w800),),
+                   subtitle: Text('       Burn fat & get lean'),
+                    /* leading:
+                        const Icon(Icons.), */
+                  ),
+              ),
+  ),
+  Padding(
+    padding: const EdgeInsets.only(left: 15.0,right: 15.0),
+      child: Card(
+                elevation: 5.0,
+                child: ListTile(
+                    title: Text('     Get Fitter',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.w800),),
+                   subtitle: Text('       Tone up & feel healthy'),
+                    /* leading:
+                        const Icon(Icons.), */
+                  ),
+              ),
+  ),
+  Padding(
+    padding: const EdgeInsets.only(left:15.0,right: 15.0),
+      child: Card(
+                elevation: 5.0,
+                child: ListTile(
+                    title: Text('     Gain Muscle',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.w800),),
+                   subtitle: Text('       Build mass & Strenght'),
+                    /* leading:
+                        const Icon(Icons.), */
+                  ),
+              ),
+  ),
+],),
+          )
     ),
   Walkthrough(
     icon: Icons.layers,
-    title: "Firebase Auth",
-    description: "Use Firebase for user management.",
+    title: "Step 2",
+    description: "How old are You?",
   ),
   Walkthrough(
     icon: Icons.account_circle,
-    title: "Facebook Login",
+    title: "Step 3",
     description:
-        "Leverage Facebook to log in user easily.",
+        "How old are you?",
+  ),
+   Walkthrough(
+    icon: Icons.account_circle,
+    title: "Step 4",
+    description:
+        "How tall are you?",
+  ),
+   Walkthrough(
+    icon: Icons.account_circle,
+    title: "Step 5",
+    description:
+        "How much do you weight ?",
   ),
   ];
 
-  WalkthroughScreen({this.prefs});
+ // WalkthroughScreen({this.prefs});
 
   @override
   _WalkthroughScreenState createState() => _WalkthroughScreenState();
@@ -64,7 +116,7 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
       Walkthrough page = widget.pages[i];
       widgets.add(
         new Container(
-          color: Color.fromRGBO(212, 20, 15, 1.0),
+          color: Color.fromRGBO(15, 120, 212, 1.0),
           child: ListView(
             children: <Widget>[
               Padding(
@@ -153,8 +205,8 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
                   fontWeight: FontWeight.w700,
                   textColor: Colors.white,
                   onPressed: () {
-                    widget.prefs.setBool('seen', true);
-                    Navigator.of(context).pushNamed("/root");
+                   // widget.prefs.setBool('seen', true);
+                   // Navigator.of(context).pushNamed("/root");
                   },
                   splashColor: Colors.black12,
                   borderColor: Colors.white,

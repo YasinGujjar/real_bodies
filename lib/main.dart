@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:real_bodies/pages/exercise.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/screens/walk_screen.dart';
 
 
 void main() => runApp(MyApp());
@@ -21,9 +21,9 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.cyan,
+        //primarySwatch: Palette.accentColor,
       ),
-      home: Exercise(),
+      home: WalkthroughScreen(),
     );
   }
 }
