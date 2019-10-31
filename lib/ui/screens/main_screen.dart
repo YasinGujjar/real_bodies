@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+/* import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:real_bodies/business/auth.dart';
 import 'package:real_bodies/models/user.dart';
 
 class MainScreen extends StatefulWidget {
-  final FirebaseUser firebaseUser;
+ final FirebaseUser firebaseUser;
 
   MainScreen({this.firebaseUser});
 
@@ -91,3 +91,4 @@ class _MainScreenState extends State<MainScreen> {
     Auth.signOut();
   }
 }
+ */

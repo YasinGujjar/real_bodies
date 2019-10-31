@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/* import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:real_bodies/ui/screens/main_screen.dart';
 import 'package:real_bodies/ui/screens/welcome_screen.dart';
@@ -31,3 +31,4 @@ class _RootScreenState extends State<RootScreen> {
     );
   }
 }
+ */
