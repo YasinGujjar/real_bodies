@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:real_bodies/theme/palette.dart';
-import 'package:real_bodies/pages/count_down_timer.dart';
+import 'package:real_bodies/ui/widgets/count_down_timer.dart';
 
 class Exercise extends StatefulWidget {
   @override
