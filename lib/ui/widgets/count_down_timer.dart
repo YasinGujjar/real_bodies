@@ -26,6 +26,7 @@ with TickerProviderStateMixin
 {
   AnimationController _floatBtnAnimController;
   bool _isPlaying = false;
+  bool _animationCompleted = false;
  AnimationController _animationController;
 
 
@@ -39,20 +40,35 @@ with TickerProviderStateMixin
  @override
   void initState() {
     super.initState();
+    _floatBtnAnimController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
 
    _animationController = AnimationController(
        vsync: this,
        duration: Duration(seconds: 5),
+   )..addListener(_stopAnimation);
+   _animationController.reverse(
+       from: _animationController.value == 0.0
+           ? 1.0
+           : _animationController.value
    );
-    _floatBtnAnimController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+
   }
+
 
 @override
   void dispose() {
   _floatBtnAnimController.dispose();
   _animationController.dispose();
     super.dispose();
+  }
+
+  void _stopAnimation() {
+   if(_animationController.isCompleted){
+     setState(() {
+ _handleOnPressed();
+     });
+   }
   }
 
   void _handleOnPressed() {
@@ -87,7 +103,9 @@ with TickerProviderStateMixin
                           builder: (context, child) {
                             return FloatingActionButton(
                               child:
-                              AnimatedIcon(icon: AnimatedIcons.play_pause, progress: _floatBtnAnimController),                                backgroundColor: Colors.redAccent,
+                              AnimatedIcon(icon: AnimatedIcons.play_pause,
+                                  progress: _floatBtnAnimController),
+                                backgroundColor: Colors.redAccent,
                         foregroundColor: Colors.white,
                         elevation: 5.0,
                                 onPressed: (){
@@ -102,10 +120,6 @@ with TickerProviderStateMixin
                                             ? 1.0
                                             : _animationController.value);
                                   }
-
-
-
-
 
                                 });
 //                            return FloatingActionButton.extended(
