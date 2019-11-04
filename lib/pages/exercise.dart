@@ -16,6 +16,7 @@ class _ExerciseState extends State<Exercise> with
 
 
 
+
   @override
   void initState() {
     super.initState();
@@ -37,6 +38,8 @@ class _ExerciseState extends State<Exercise> with
           ? _floatBtnAnimController.forward()
           : _floatBtnAnimController.reverse();
     });
+ //CountDownTimer().startStopTimer();
+
   }
 
 
@@ -102,29 +105,31 @@ class _ExerciseState extends State<Exercise> with
             ),
             child: Row(
               children: <Widget>[
+//                Expanded(
+//                  child: Center(
+//                    child: FittedBox(
+//                      fit: BoxFit.cover,
+//                      child: FloatingActionButton(
+//                        child: AnimatedIcon(icon: AnimatedIcons.pause_play, progress: _floatBtnAnimController),
+//                        backgroundColor: Colors.redAccent,
+//                        foregroundColor: Colors.white,
+//                        elevation: 5.0,
+//                        onPressed: () => _handleOnPressed(),
+//                      ),
+//                    ),
+//                  ),
+//                ),
                 Expanded(
-                  child: Center(
-                    child: FittedBox(
-                      fit: BoxFit.cover,
-                      child: FloatingActionButton(
-                        child: AnimatedIcon(icon: AnimatedIcons.pause_play, progress: _floatBtnAnimController),
-                        backgroundColor: Colors.redAccent,
-                        foregroundColor: Colors.white,
-                        elevation: 5.0,
-                        onPressed: () => _handleOnPressed(),
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Center(
-                    child: FittedBox(
-                      fit: BoxFit.cover,
+                  flex: 2,
+
+//                    child: FittedBox(
+//                      fit: BoxFit.contain,
                       child: CountDownTimer(),
-                    ),
-                  ),
+                 //   ),
+
                 ),
                 Expanded(
+                  flex: 1,
                   child: Center(
                     child: FittedBox(
                       fit: BoxFit.cover, //as small fill for as large

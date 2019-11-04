@@ -7,80 +7,204 @@ class CountDownTimer extends StatefulWidget {
 
  // CountDownTimer ({Key key/*, this.duration}*/}) : super(key: key);          // Key take holds of state remove it to see if it affects
 
-  int duration = 0;                                 // define Duration object to get the full duration
+  final int duration = 0;                                 // define Duration object to get the full duration
                                                     // use widget.duration to access it in the state class
 
-
+final _CountDownTimerState ct = new _CountDownTimerState();
 
 
   @override
   _CountDownTimerState createState() => _CountDownTimerState();
+
+  void startStopTimer(){
+   // ct._startStopTimer();
+  }
 }
 
 class _CountDownTimerState extends State<CountDownTimer>
 with TickerProviderStateMixin
 {
-
+  AnimationController _floatBtnAnimController;
+  bool _isPlaying = false;
+  bool _animationCompleted = false;
  AnimationController _animationController;
+
+
+
+ String get timerString {
+   Duration duration = _animationController.duration * _animationController.value;
+   return '${duration.inMinutes}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
+ }
+
 
  @override
   void initState() {
     super.initState();
+    _floatBtnAnimController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
 
    _animationController = AnimationController(
        vsync: this,
        duration: Duration(seconds: 5),
+   )..addListener(_stopAnimation);
+   _animationController.reverse(
+       from: _animationController.value == 0.0
+           ? 1.0
+           : _animationController.value
    );
 
-   _animationController.repeat();
+  }
+
+
+@override
+  void dispose() {
+  _floatBtnAnimController.dispose();
+  _animationController.dispose();
+    super.dispose();
+  }
+
+  void _stopAnimation() {
+   if(_animationController.isCompleted){
+     setState(() {
+ _handleOnPressed();
+     });
+   }
+  }
+
+  void _handleOnPressed() {
+    setState(() {
+      _isPlaying = !_isPlaying;
+      _isPlaying
+          ? _floatBtnAnimController.forward()
+          : _floatBtnAnimController.reverse();
+    });
+
   }
 
 
   @override
   Widget build(BuildContext context) {
-    return  Stack(
-        children: <Widget>[
-           Container(
-            height: 200,
-            width: 200,
-            child:
-            AnimatedBuilder(
-              animation: _animationController,
-              builder:
-              (BuildContext context, Widget child)
-        {
-            return CustomPaint(
-              painter: CustomTimerPainter(
-                animation: _animationController,
-                backgroundColor: Colors.cyan,
-                color: Palette.orange,
-              ),
-            );
-        },
-        ),
-        ),
+    return  AnimatedBuilder(
+        animation: _animationController,
+        builder: (context, child) {
+          return
+          Container(
+            height: 400,
+            width: 400,
+            child: Row(
+              children:<Widget>[
+
+                Expanded(
+                  child: Center(
+                    child: FittedBox(
+                      fit: BoxFit.cover,
+                      child: AnimatedBuilder(
+                          animation: _animationController,
+                          builder: (context, child) {
+                            return FloatingActionButton(
+                              child:
+                              AnimatedIcon(icon: AnimatedIcons.play_pause,
+                                  progress: _floatBtnAnimController),
+                                backgroundColor: Colors.redAccent,
+                        foregroundColor: Colors.white,
+                        elevation: 5.0,
+                                onPressed: (){
 
 
-            Positioned.fill(
-              child: Center(
-                child: FittedBox(
-                  fit: BoxFit.contain,
-                  child: Text(
-                    "0:00",
-                    style: TextStyle(
-                        fontSize: 40.0,
-                        color: Colors.black),
+                                _handleOnPressed();
+                                if (_animationController.isAnimating)
+                                    _animationController.stop();
+                                  else {
+                                    _animationController.reverse(
+                                        from: _animationController.value == 0.0
+                                            ? 1.0
+                                            : _animationController.value);
+                                  }
+
+                                });
+//                            return FloatingActionButton.extended(
+//                                onPressed: () {
+//                                  if (_animationController.isAnimating)
+//                                    _animationController.stop();
+//                                  else {
+//                                    _animationController.reverse(
+//                                        from: _animationController.value == 0.0
+//                                            ? 1.0
+//                                            : _animationController.value);
+//                                  }
+//                                },
+//
+//                                icon: Icon(_animationController.isAnimating
+//                                    ? Icons.pause
+//                                    : Icons.play_arrow),
+//                                label: Text(
+//                                    _animationController.isAnimating ? "Pause" : "Play"));
+                          }),
+                    ),
                   ),
                 ),
+
+
+                Expanded(
+                  child: Center(
+                    child: FittedBox(
+                      fit: BoxFit.cover,
+                      child: Stack(
+                      children: <Widget>[
+                        Container(
+                          height: 200,
+                          width: 200,
+                          child:
+                          AnimatedBuilder(
+                            animation: _animationController,
+                            builder:
+                                (BuildContext context, Widget child) {
+                              return CustomPaint(
+                                painter: CustomTimerPainter(
+                                  animation: _animationController,
+                                  backgroundColor: Palette.light,
+                                  color: Palette.orange,
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+
+
+                        Positioned.fill(
+                          child: Center(
+                            child: FittedBox(
+                              fit: BoxFit.contain,
+                              child: Text(
+                                timerString,
+                                style: TextStyle(
+                                    fontSize: 40.0,
+                                    color: Colors.black),
+                              ),
+                            ),
+                          ),
+                        ),
+
+
+
+
+                      ],
+
               ),
+                    ),
+                  ),
+                ),
+
+
+            ],
             ),
+          );
 
-
-      ],
-
+        }
     );
   }
-}
+  }
+//}
 
 //class for painting
 
@@ -99,7 +223,7 @@ class CustomTimerPainter extends CustomPainter{
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
       ..color = backgroundColor
-      ..strokeWidth = 8.0
+      ..strokeWidth = 10.0
       ..strokeCap = StrokeCap.butt
       ..style = PaintingStyle.stroke;
 
@@ -118,5 +242,4 @@ class CustomTimerPainter extends CustomPainter{
   }
 
 }
-
 

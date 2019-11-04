@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:real_bodies/models/walkthrough.dart';
 import 'package:real_bodies/pages/exercise.dart';
+import 'package:real_bodies/pages/food_diary_today.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/screens/walk_screen.dart';
 import 'package:real_bodies/ui/widgets/count_down_timer.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.cyan,
       ),
-      home: WalkthroughScreen(),
+      home: FoodDiaryToday(),
     );
   }
 }
