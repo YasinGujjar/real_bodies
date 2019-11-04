@@ -1,9 +1,10 @@
-/* import 'dart:core';
+import 'dart:core';
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 import 'package:real_bodies/business/auth.dart';
 import 'package:real_bodies/business/validator.dart';
 import 'package:real_bodies/models/user.dart';
+import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_alert_dialog.dart';
 import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
@@ -34,19 +35,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     _nameField = new CustomTextField(
       baseColor: Colors.grey,
-      borderColor: Colors.grey[400],
+       borderColor: Colors.grey[400],
       errorColor: Colors.red,
       controller: _fullname,
       hint: "Full Name",
-      validator: Validator.validateName,
+      //validator: Validator.validateName,
     );
     _phoneField = new CustomTextField(
       baseColor: Colors.grey,
-      borderColor: Colors.grey[400],
+       borderColor: Colors.grey[400],
+       //borderColor: Color(0xff3a0f9d),
       errorColor: Colors.red,
       controller: _number,
       hint: "Phone Number",
-      validator: Validator.validateNumber,
+     // validator: Validator.validateNumber,
       inputType: TextInputType.number,
     );
     _emailField = new CustomTextField(
@@ -56,7 +58,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       controller: _email,
       hint: "E-mail Adress",
       inputType: TextInputType.emailAddress,
-      validator: Validator.validateEmail,
+     // validator: Validator.validateEmail,
     );
     _passwordField = CustomTextField(
       baseColor: Colors.grey,
@@ -65,7 +67,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       controller: _password,
       obscureText: true,
       hint: "Password",
-      validator: Validator.validatePassword,
+     // validator: Validator.validatePassword,
     );
   }
 
@@ -74,96 +76,107 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return WillPopScope(
       onWillPop: onBackPress,
       child: Scaffold(
-        body: Stack(
-          children: <Widget>[
-            Stack(
-              alignment: Alignment.topLeft,
-              children: <Widget>[
-                ListView(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 70.0, bottom: 10.0, left: 10.0, right: 10.0),
-                      child: Text(
-                        "Create new account",
-                        softWrap: true,
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: Color.fromRGBO(212, 20, 15, 1.0),
-                          decoration: TextDecoration.none,
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: "OpenSans",
+        body: Container(
+           decoration: BoxDecoration(
+          color: Colors.white,
+          image: DecorationImage(
+            colorFilter: new ColorFilter.mode(
+                Colors.black.withOpacity(0.2), BlendMode.dstATop),
+            image: AssetImage('assets/images/fit2.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+          child: Stack(
+            children: <Widget>[
+              Stack(
+                alignment: Alignment.topLeft,
+                children: <Widget>[
+                  ListView(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            top: 70.0, bottom: 10.0, left: 10.0, right: 10.0),
+                        child: Text(
+                          "Create new account",
+                          softWrap: true,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color: Palette.mainPurple,
+                            decoration: TextDecoration.none,
+                            fontSize: 24.0,
+                            fontWeight: FontWeight.w700,
+                            fontFamily: "OpenSans",
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsets.only(top: 20.0, left: 15.0, right: 15.0),
-                      child: _nameField,
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsets.only(top: 10.0, left: 15.0, right: 15.0),
-                      child: _phoneField,
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsets.only(top: 10.0, left: 15.0, right: 15.0),
-                      child: _emailField,
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsets.only(top: 10.0, left: 15.0, right: 15.0),
-                      child: _passwordField,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 25.0, horizontal: 40.0),
-                      child: CustomFlatButton(
-                        title: "Sign Up",
-                        fontSize: 22,
-                        fontWeight: FontWeight.w700,
-                        textColor: Colors.white,
-                        onPressed: () {
-                          _signUp(
-                              fullname: _fullname.text,
-                              email: _email.text,
-                              number: _number.text,
-                              password: _password.text);
-                        },
-                        splashColor: Colors.black12,
-                        borderColor: Color.fromRGBO(59, 89, 152, 1.0),
-                        borderWidth: 0,
-                        color: Color.fromRGBO(59, 89, 152, 1.0),
+                      Padding(
+                        padding:
+                            EdgeInsets.only(top: 20.0, left: 15.0, right: 15.0),
+                        child: _nameField,
                       ),
-                    ),
-                  ],
-                ),
-                SafeArea(
-                  child: IconButton(
-                    icon: Icon(Icons.arrow_back),
-                    onPressed: onBackPress,
+                      Padding(
+                        padding:
+                            EdgeInsets.only(top: 10.0, left: 15.0, right: 15.0),
+                        child: _phoneField,
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsets.only(top: 10.0, left: 15.0, right: 15.0),
+                        child: _emailField,
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsets.only(top: 10.0, left: 15.0, right: 15.0),
+                        child: _passwordField,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 25.0, horizontal: 40.0),
+                        child: CustomFlatButton(
+                          title: "Sign Up",
+                          fontSize: 22,
+                          fontWeight: FontWeight.w700,
+                          textColor: Colors.white,
+                          onPressed: () {
+                            /* _signUp(
+                                fullname: _fullname.text,
+                                email: _email.text,
+                                number: _number.text,
+                                password: _password.text); */
+                          },
+                          splashColor: Colors.black12,
+                          borderColor: Palette.mainPurple,
+                          borderWidth: 0,
+                          color: Palette.mainPurple,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
-            ),
-            Offstage(
-              offstage: !_blackVisible,
-              child: GestureDetector(
-                onTap: () {},
-                child: AnimatedOpacity(
-                  opacity: _blackVisible ? 1.0 : 0.0,
-                  duration: Duration(milliseconds: 400),
-                  curve: Curves.ease,
-                  child: Container(
-                    height: MediaQuery.of(context).size.height,
-                    color: Colors.black54,
+                  SafeArea(
+                    child: IconButton(
+                      icon: Icon(Icons.arrow_back),
+                      onPressed: onBackPress,
+                    ),
+                  ),
+                ],
+              ),
+              Offstage(
+                offstage: !_blackVisible,
+                child: GestureDetector(
+                  onTap: () {},
+                  child: AnimatedOpacity(
+                    opacity: _blackVisible ? 1.0 : 0.0,
+                    duration: Duration(milliseconds: 400),
+                    curve: Curves.ease,
+                    child: Container(
+                      height: MediaQuery.of(context).size.height,
+                      color: Colors.black54,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -175,7 +188,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     });
   }
 
-  void _signUp(
+  /* void _signUp(
       {String fullname,
       String number,
       String email,
@@ -206,9 +219,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
         );
       }
     }
-  }
+  } */
 
-  void _showErrorAlert({String title, String content, VoidCallback onPressed}) {
+  /* void _showErrorAlert({String title, String content, VoidCallback onPressed}) {
     showDialog(
       barrierDismissible: false,
       context: context,
@@ -220,6 +233,5 @@ class _SignUpScreenState extends State<SignUpScreen> {
         );
       },
     );
-  }
+  } */
 }
- */

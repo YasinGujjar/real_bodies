@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import "package:flutter_swiper/flutter_swiper.dart";
 import 'package:real_bodies/models/walkthrough.dart';
 import 'package:real_bodies/theme/my_flutter_app_icons.dart';
+import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/screens/welcome_screen.dart';
+import 'package:real_bodies/ui/widgets/category_item.dart';
 import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
 import 'package:real_bodies/ui/widgets/info_text_field.dart';
 //import 'package:shared_preferences/shared_preferences.dart';
@@ -111,9 +114,12 @@ class WalkthroughScreen extends StatefulWidget {
               mainAxisAlignment: MainAxisAlignment.center,
 
               children: <Widget>[
-                headerCategoryItem('Male', MyFlutterApp.male, onPressed: () {}),
-                headerCategoryItem('Female', MyFlutterApp.female,
-                    onPressed: () {}),
+                CategoryItem(name: 'Male',icon: MyFlutterApp.male,onPressed: () {
+                  print("Hoo gyaaaaa");
+                } ),
+                CategoryItem(name: 'Female',icon: MyFlutterApp.female,onPressed: () {
+                  print("Hoo gyaaaaa");
+                } ),
               ],
             ),
           ),
@@ -217,7 +223,7 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
       Walkthrough page = widget.pages[i];
       widgets.add(
         new Container(
-          color: Color.fromRGBO(58, 15, 157, 1.0),
+          color: Palette.mainPurple,
           child: ListView(
             children: <Widget>[
               Container(
@@ -281,7 +287,7 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
     }
     widgets.add(
       new Container(
-        color: Color.fromRGBO(15, 120, 212, 1.0),
+        color: Palette.mainPurple,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -296,7 +302,7 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
                 padding:
                     const EdgeInsets.only(top: 50.0, right: 15.0, left: 15.0),
                 child: Text(
-                  "Jump straight into the action.",
+                  "Welcome to Fitness App",
                   softWrap: true,
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -319,11 +325,15 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
                   onPressed: () {
                     // widget.prefs.setBool('seen', true);
                     // Navigator.of(context).pushNamed("/root");
+                     Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => WelcomeScreen()),
+  );
                   },
                   splashColor: Colors.black12,
                   borderColor: Colors.white,
                   borderWidth: 2,
-                  color: Color.fromRGBO(15, 120, 212, 1.0),
+                  color: Color.fromRGBO(58, 15, 157, 1.0),
                 ),
               ),
             ],
@@ -334,40 +344,6 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
     return widgets;
   }
 }
-
-//for Gender
-Widget headerCategoryItem(String name, IconData icon, {onPressed}) {
-  return Container(
-    margin: EdgeInsets.only(left: 15),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        Container(
-            margin: EdgeInsets.only(bottom: 10),
-            width: 116,
-            height: 116,
-            child: FloatingActionButton(
-              shape: CircleBorder(),
-              heroTag: name,
-              onPressed: onPressed,
-              backgroundColor: Colors.white,
-              splashColor: Colors.blue,
-              child: Icon(icon, size: 45, color: Colors.black87),
-            )),
-        Text(
-          name,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20.0,
-            fontWeight: FontWeight.w800,
-          ),
-        )
-      ],
-    ),
-  );
-}
-
 
 
 

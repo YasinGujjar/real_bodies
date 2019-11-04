@@ -1,9 +1,10 @@
-/* import "package:flutter/material.dart";
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import "package:flutter/material.dart";
+//import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:flutter/services.dart';
 import 'package:real_bodies/business/auth.dart';
 import 'package:real_bodies/business/validator.dart';
 import 'package:real_bodies/models/user.dart';
+import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_alert_dialog.dart';
 import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
@@ -35,7 +36,7 @@ class _SignInScreenState extends State<SignInScreen> {
       controller: _email,
       hint: "E-mail Adress",
       inputType: TextInputType.emailAddress,
-      validator: Validator.validateEmail,
+     // validator: Validator.validateEmail,
     );
     _passwordField = CustomTextField(
       baseColor: Colors.grey,
@@ -44,7 +45,7 @@ class _SignInScreenState extends State<SignInScreen> {
       controller: _password,
       obscureText: true,
       hint: "Password",
-      validator: Validator.validatePassword,
+     // validator: Validator.validatePassword,
     );
   }
 
@@ -53,117 +54,145 @@ class _SignInScreenState extends State<SignInScreen> {
     return WillPopScope(
       onWillPop: onBackPress,
       child: Scaffold(
-        body: Stack(
-          children: <Widget>[
-            Stack(
-              alignment: Alignment.topLeft,
-              children: <Widget>[
-                ListView(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 70.0, bottom: 10.0, left: 10.0, right: 10.0),
-                      child: Text(
-                        "Sign In",
-                        softWrap: true,
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: Color.fromRGBO(212, 20, 15, 1.0),
-                          decoration: TextDecoration.none,
-                          fontSize: 24.0,
+        body: Container(
+          decoration: BoxDecoration(
+          color: Colors.white,
+          image: DecorationImage(
+            colorFilter: new ColorFilter.mode(
+                Colors.black.withOpacity(0.2), BlendMode.dstATop),
+            image: AssetImage('assets/images/fit2.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+          child: Stack(
+            children: <Widget>[
+              Stack(
+                alignment: Alignment.topLeft,
+                children: <Widget>[
+                  ListView(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            top: 70.0, bottom: 10.0, left: 10.0, right: 10.0),
+                        child: Text(
+                          "Sign In",
+                          softWrap: true,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color: Palette.mainPurple,
+                            decoration: TextDecoration.none,
+                            fontSize: 24.0,
+                            fontWeight: FontWeight.w700,
+                            fontFamily: "OpenSans",
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            top: 20.0, bottom: 10.0, left: 15.0, right: 15.0),
+                        child: _emailField,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            top: 10.0, bottom: 20.0, left: 15.0, right: 15.0),
+                        child: _passwordField,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 14.0, horizontal: 40.0),
+                        child: CustomFlatButton(
+                          title: "Log In",
+                          fontSize: 22,
                           fontWeight: FontWeight.w700,
-                          fontFamily: "OpenSans",
+                          textColor: Colors.white,
+                          onPressed: () {
+                            /* _emailLogin(
+                                email: _email.text,
+                                password: _password.text,
+                                context: context);
+ */                        },
+                          splashColor: Colors.black12,
+                          borderColor: Palette.mainPurple,
+                          borderWidth: 0,
+                          color: Palette.mainPurple,
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          top: 20.0, bottom: 10.0, left: 15.0, right: 15.0),
-                      child: _emailField,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          top: 10.0, bottom: 20.0, left: 15.0, right: 15.0),
-                      child: _passwordField,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 14.0, horizontal: 40.0),
-                      child: CustomFlatButton(
-                        title: "Log In",
-                        fontSize: 22,
-                        fontWeight: FontWeight.w700,
-                        textColor: Colors.white,
-                        onPressed: () {
-                          _emailLogin(
-                              email: _email.text,
-                              password: _password.text,
-                              context: context);
-                        },
-                        splashColor: Colors.black12,
-                        borderColor: Color.fromRGBO(212, 20, 15, 1.0),
-                        borderWidth: 0,
-                        color: Color.fromRGBO(212, 20, 15, 1.0),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text(
-                        "OR",
-                        softWrap: true,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          decoration: TextDecoration.none,
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.w300,
-                          fontFamily: "OpenSans",
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(
+                          "OR",
+                          softWrap: true,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.black,
+                            decoration: TextDecoration.none,
+                            fontSize: 15.0,
+                            fontWeight: FontWeight.w300,
+                            fontFamily: "OpenSans",
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 14.0, horizontal: 40.0),
-                      child: CustomFlatButton(
-                        title: "Facebook Login",
-                        fontSize: 22,
-                        fontWeight: FontWeight.w700,
-                        textColor: Colors.white,
-                        onPressed: () {
-                          _facebookLogin(context: context);
-                        },
-                        splashColor: Colors.black12,
-                        borderColor: Color.fromRGBO(59, 89, 152, 1.0),
-                        borderWidth: 0,
-                        color: Color.fromRGBO(59, 89, 152, 1.0),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 14.0, horizontal: 40.0),
+                        child: CustomFlatButton(
+                          title: "Facebook Login",
+                          fontSize: 22,
+                          fontWeight: FontWeight.w700,
+                          textColor: Colors.white,
+                          onPressed: () {
+                           // _facebookLogin(context: context);
+                          },
+                          splashColor: Colors.black12,
+                          borderColor: Color.fromRGBO(59, 89, 152, 1.0),
+                          borderWidth: 0,
+                          color: Color.fromRGBO(59, 89, 152, 1.0),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                SafeArea(
-                  child: IconButton(
-                    icon: Icon(Icons.arrow_back),
-                    onPressed: onBackPress,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 2.0, horizontal: 40.0),
+                        child: CustomFlatButton(
+                          title: "Gmail Login",
+                          fontSize: 22,
+                          fontWeight: FontWeight.w700,
+                          textColor: Colors.white,
+                          onPressed: () {
+                           // _facebookLogin(context: context);
+                          },
+                          splashColor: Colors.black12,
+                          borderColor: Color.fromRGBO(212, 70, 56, 1.0),
+                          borderWidth: 0,
+                          color: Color.fromRGBO(212, 70, 56, 1.0),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
-            ),
-            Offstage(
-              offstage: !_blackVisible,
-              child: GestureDetector(
-                onTap: () {},
-                child: AnimatedOpacity(
-                  opacity: _blackVisible ? 1.0 : 0.0,
-                  duration: Duration(milliseconds: 400),
-                  curve: Curves.ease,
-                  child: Container(
-                    height: MediaQuery.of(context).size.height,
-                    color: Colors.black54,
+                  SafeArea(
+                    child: IconButton(
+                      icon: Icon(Icons.arrow_back),
+                      onPressed: onBackPress,
+                    ),
+                  ),
+                ],
+              ),
+              Offstage(
+                offstage: !_blackVisible,
+                child: GestureDetector(
+                  onTap: () {},
+                  child: AnimatedOpacity(
+                    opacity: _blackVisible ? 1.0 : 0.0,
+                    duration: Duration(milliseconds: 400),
+                    curve: Curves.ease,
+                    child: Container(
+                      height: MediaQuery.of(context).size.height,
+                      color: Colors.black54,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -175,7 +204,7 @@ class _SignInScreenState extends State<SignInScreen> {
     });
   }
 
-  void _emailLogin(
+  /* void _emailLogin(
       {String email, String password, BuildContext context}) async {
     if (Validator.validateEmail(email) &&
         Validator.validatePassword(password)) {
@@ -245,6 +274,6 @@ class _SignInScreenState extends State<SignInScreen> {
         );
       },
     );
-  }
+  }*/
 }
- */
+ 
