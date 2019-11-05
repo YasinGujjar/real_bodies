@@ -120,7 +120,7 @@ class _DesktopState extends State<Desktop> {
           Padding(
             padding: const EdgeInsets.only(left: 15.0),
             child: Container(
-              height: 300.0,
+              height: 215.0,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
@@ -163,7 +163,7 @@ class _DesktopState extends State<Desktop> {
                   _buildCard(
                       'Dieting Plan', '3.8', 'assets/images/food2.jpg','food'),
                        _buildCard(
-                      'Nuterients Food', '3.8', 'assets/images/food2.jpg','food'),
+                      'Nuterients Food', '3.8', 'assets/images/food.jpg','food'),
                 ],
               ),
             ),

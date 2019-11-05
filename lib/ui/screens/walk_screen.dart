@@ -134,7 +134,7 @@ class WalkthroughScreen extends StatefulWidget {
             child: Row(
               // crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[InfoTextField(postfix: "CM",controller:_infooldcontroller ,)],
+              children: <Widget>[InfoTextField(postfix: " CM",controller:_infooldcontroller ,)],
             ),
           ),
         )),
@@ -148,10 +148,10 @@ class WalkthroughScreen extends StatefulWidget {
             child: Row(
               // crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[InfoTextField(postfix: "CM",controller:_infoftcontroller ,),Padding(
+              children: <Widget>[InfoTextField(postfix: " Ft.",controller:_infoftcontroller ,),Padding(
                 padding: const EdgeInsets.all(6.0),
               ),
-             InfoTextField(postfix: "CM",controller:_infoincontroller ,)
+             InfoTextField(postfix: " In.",controller:_infoincontroller ,)
               ],
 
             ),
@@ -168,7 +168,7 @@ class WalkthroughScreen extends StatefulWidget {
             child: Row(
               // crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[InfoTextField(postfix: "CM",controller:_infoweightcontroller ,)],
+              children: <Widget>[InfoTextField(postfix: " Kg",controller:_infoweightcontroller ,)],
             ),
           ),
         )
@@ -196,7 +196,7 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
     return Scaffold(
       body: Swiper.children(
         autoplay: false,
-        index: 5,
+        index: 0,
         loop: false,
         pagination: new SwiperPagination(
           margin: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 40.0),

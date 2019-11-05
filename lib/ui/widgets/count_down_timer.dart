@@ -106,7 +106,7 @@ with TickerProviderStateMixin
                               child:
                               AnimatedIcon(icon: AnimatedIcons.play_pause,
                                   progress: _floatBtnAnimController),
-                                backgroundColor: Colors.redAccent,
+                                backgroundColor: Palette.mainPurple,
                         foregroundColor: Colors.white,
                         elevation: 5.0,
                                 onPressed: (){
@@ -163,8 +163,8 @@ with TickerProviderStateMixin
                               return CustomPaint(
                                 painter: CustomTimerPainter(
                                   animation: _animationController,
-                                  backgroundColor: Palette.light,
-                                  color: Palette.orange,
+                                  backgroundColor: Palette.lightPurple,
+                                  color: Palette.mainPurple,
                                 ),
                               );
                             },
@@ -225,7 +225,7 @@ class CustomTimerPainter extends CustomPainter{
     Paint paint = Paint()
       ..color = backgroundColor
       ..strokeWidth = 10.0
-      ..strokeCap = StrokeCap.butt
+      ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
 
     canvas.drawCircle(size.center(Offset.zero), size.width / 2.0, paint);

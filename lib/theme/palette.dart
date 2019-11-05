@@ -12,7 +12,8 @@ class Palette{
   static Color light = Color(0xffffccbc);
   static Color lightPink = Color(0x88FF8A80);
   static Color darkPink = Color(0xffFF5252);
-
+  static Color darkPurple = Color(0xff311b92);
+static Color lightPurple = Color(0xffb39ddb);
   static Color greyBackground = Color(0xffcfd8dc);
 
 

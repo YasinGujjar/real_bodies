@@ -51,7 +51,7 @@ class _CategoryItemState extends State<CategoryItem> {
               onPressed: widget.onPressed,
               backgroundColor: Palette.greyBackground,
               splashColor: Colors.blue,
-              child: Icon(widget.icon, size: 45, color: Colors.black87),
+              child: Icon(widget.icon, size: 45, color: Palette.mainPurple),
             )),
         Text(
           widget.name,

@@ -58,7 +58,8 @@ class _ExerciseState extends State<Exercise> with
             height: height * 0.05,
             child: FittedBox(
               fit: BoxFit.cover,
-              child: Text('Planks Exercise'),
+              child: Text(' Exercise',
+              style: TextStyle(color: Palette.mainPurple,fontWeight: FontWeight.w600),),
             ),
           ),
           Container(
@@ -136,7 +137,7 @@ class _ExerciseState extends State<Exercise> with
                       child: FloatingActionButton(
                         heroTag: 'nextbtn',
                         child: Icon(Icons.arrow_forward),
-                        backgroundColor: Colors.redAccent,
+                        backgroundColor: Palette.mainPurple,
                         foregroundColor: Colors.white,
                         elevation: 5.0,
 

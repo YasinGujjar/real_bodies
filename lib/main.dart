@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: FoodDiaryToday(),//MyHomePage(title: 'Demo'),
+      home: WalkthroughScreen(),//MyHomePage(title: 'Demo'),
     );
   }
 }

@@ -52,6 +52,8 @@ class _InfoTextFieldState extends State<InfoTextField> {
             ),
             keyboardType: TextInputType.number,
             cursorColor: Colors.white,
+            maxLength: 2,
+            maxLengthEnforced:true,
             
             style: new TextStyle(
                 fontSize: 40.0,
