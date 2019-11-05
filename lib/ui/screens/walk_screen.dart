@@ -116,10 +116,10 @@ class WalkthroughScreen extends StatefulWidget {
               children: <Widget>[
                 CategoryItem(name: 'Male',icon: MyFlutterApp.male,onPressed: () {
                   print("Hoo gyaaaaa");
-                } ),
+                },color: Colors.white,elevation: 20.0,),
                 CategoryItem(name: 'Female',icon: MyFlutterApp.female,onPressed: () {
                   print("Hoo gyaaaaa");
-                } ),
+                } ,color: Colors.white,elevation: 20.0,),
               ],
             ),
           ),
