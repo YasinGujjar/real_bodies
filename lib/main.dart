@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: WalkthroughScreen(),
+      home: FoodDiaryToday(),//MyHomePage(title: 'Demo'),
     );
   }
 }
@@ -109,7 +109,14 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        //heroTag: "btn",
+        onPressed: (){
+
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Exercise()),
+          );
+        },
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.

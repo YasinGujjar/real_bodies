@@ -134,6 +134,7 @@ class _ExerciseState extends State<Exercise> with
                     child: FittedBox(
                       fit: BoxFit.cover, //as small fill for as large
                       child: FloatingActionButton(
+                        heroTag: 'nextbtn',
                         child: Icon(Icons.arrow_forward),
                         backgroundColor: Colors.redAccent,
                         foregroundColor: Colors.white,

@@ -102,6 +102,7 @@ with TickerProviderStateMixin
                           animation: _animationController,
                           builder: (context, child) {
                             return FloatingActionButton(
+                              heroTag: 'startStopbtn',
                               child:
                               AnimatedIcon(icon: AnimatedIcons.play_pause,
                                   progress: _floatBtnAnimController),
