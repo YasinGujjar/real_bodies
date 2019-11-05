@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import 'package:real_bodies/pages/exercise.dart';
+import 'package:real_bodies/pages/food_diary_today.dart';
 import 'package:real_bodies/theme/palette.dart';
 
 
@@ -52,21 +54,21 @@ class _DesktopState extends State<Desktop> {
                   'Action ',
                   style: TextStyle(
                       fontFamily: 'Opensans',
-                      fontSize: 50.0,
+                      fontSize: 35.0,
                       color:Palette.mainPurple ),
                 ),
                 Text(
                   'is the foundational',
                   style: TextStyle(
                     fontFamily: 'Opensans',
-                    fontSize: 50.0,
+                    fontSize: 35.0,
                   ),
                 ),
                 Text(
                   'key to all success',
                   style: TextStyle(
                     fontFamily: 'Opensans',
-                    fontSize: 50.0,
+                    fontSize: 35.0,
                   ),
                 )
               ],
@@ -123,11 +125,11 @@ class _DesktopState extends State<Desktop> {
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   _buildCard(
-                      'Full Body', '4.1', 'assets/images/fit2.jpg'),
+                      'Full Body', '4.1', 'assets/images/fit2.jpg','exercise'),
                   _buildCard(
-                      'Biceps, Triceps', '3.8', 'assets/images/fit.jpg'),
+                      'Biceps, Triceps', '3.8', 'assets/images/fit.jpg','exercise'),
                        _buildCard(
-                      'Flexibility Exercise', '3.8', 'assets/images/flex.jpg'),
+                      'Flexibility Exercise', '3.8', 'assets/images/flex.jpg','exercise'),
                 ],
               ),
             ),
@@ -152,16 +154,16 @@ class _DesktopState extends State<Desktop> {
            Padding(
             padding: const EdgeInsets.only(left: 15.0),
             child: Container(
-              height: 300.0,
+              height: 215.0,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   _buildCard(
-                      'Food Log', '4.1', 'assets/images/food3.jpg'),
+                      'Food Log', '4.1', 'assets/images/food3.jpg','food'),
                   _buildCard(
-                      'Dieting Plan', '3.8', 'assets/images/food2.jpg'),
+                      'Dieting Plan', '3.8', 'assets/images/food2.jpg','food'),
                        _buildCard(
-                      'Nuterients Food', '3.8', 'assets/images/food2.jpg'),
+                      'Nuterients Food', '3.8', 'assets/images/food2.jpg','food'),
                 ],
               ),
             ),
@@ -186,14 +188,14 @@ class _DesktopState extends State<Desktop> {
            Padding(
             padding: const EdgeInsets.only(left: 15.0),
             child: Container(
-              height: 300.0,
+              height: 240.0,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   _buildCard(
-                      'Full Body', '4.1', 'assets/images/blog.jpg'),
+                      'Full Body', '4.1', 'assets/images/blog.jpg','blog'),
                   _buildCard(
-                      'Biceps, Triceps', '3.8', 'assets/images/blog2.jpg'),
+                      'Biceps, Triceps', '3.8', 'assets/images/blog2.jpg','blog'),
                        
                 ],
               ),
@@ -204,13 +206,24 @@ class _DesktopState extends State<Desktop> {
     );
   }
 
-  _buildCard(String title, String rating, String imgPath) {
+  _buildCard(String title, String rating, String imgPath, String page) {
     return Padding(
         padding: EdgeInsets.all(10.0),
         child: InkWell(
           onTap: () {
-           /*  Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => DetailPage())); */
+            if (page=="exercise")
+            {
+               Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => Exercise())); 
+             }
+            if (page=="food")
+            { Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => FoodDiaryToday())); 
+            }
+            if (page=="blog")
+            { /* Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => Exercise()));  */
+            } 
           },
           child: Stack(
             children: <Widget>[

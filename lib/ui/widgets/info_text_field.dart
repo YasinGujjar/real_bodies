@@ -47,7 +47,7 @@ class _InfoTextFieldState extends State<InfoTextField> {
                    ),  
               hintText: "0",
               hintStyle: TextStyle(color: Colors.grey),
-              errorText: validate ? "You must be 12 years or older" : null,
+              errorText: validate ? "Invalid" : null,
               
             ),
             keyboardType: TextInputType.number,
