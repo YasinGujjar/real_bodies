@@ -5,6 +5,7 @@ import 'package:real_bodies/business/auth.dart';
 import 'package:real_bodies/business/validator.dart';
 import 'package:real_bodies/models/user.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/screens/desktop.dart';
 import 'package:real_bodies/ui/widgets/custom_alert_dialog.dart';
 import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
@@ -143,6 +144,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 email: _email.text,
                                 number: _number.text,
                                 password: _password.text); */
+                                Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => Desktop()),
+  );
                           },
                           splashColor: Colors.black12,
                           borderColor: Palette.mainPurple,
