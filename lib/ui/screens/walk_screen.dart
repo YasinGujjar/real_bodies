@@ -196,7 +196,7 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
     return Scaffold(
       body: Swiper.children(
         autoplay: false,
-        index: 0,
+        index: 5,
         loop: false,
         pagination: new SwiperPagination(
           margin: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 40.0),
