@@ -201,24 +201,21 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
           height: height * 0.35,
           width: width * 0.97,
           decoration: BoxDecoration(
-            color: Colors.grey,
+            color: Palette.greyBackground,
             borderRadius: BorderRadius.all(
               Radius.circular(10.0),
             ),
           ),
           child: Column(
             children: <Widget>[
+              SizedBox(height: 10,),
               Expanded(
                 child: Row(
                   children: <Widget>[
                     Expanded(
                       child: FittedBox(
                         fit: BoxFit.contain,
-                        child: CategoryItem(name: 'BreakFast',icon: Icons.ac_unit, color: Colors.black, elevation: 0.0,onPressed: (){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Exercise()),
-                          );
+                        child: CategoryItem(name: 'BreakFast',icon: Icons.ac_unit, color: Colors.black, elevation: 0.0,onPressed: ()=>{
                         }, )
                       ),
                     ),
@@ -237,6 +234,7 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                   ],
                 ),
               ),
+              SizedBox(height: 10,),
               Expanded(
                 child: Row(
                   children: <Widget>[
@@ -258,9 +256,13 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                           child: CategoryItem(name: 'BreakFast',icon: Icons.ac_unit, color: Colors.black, elevation: 0.0, )
                       ),
                     ),
+
                   ],
                 ),
               ),
+              SizedBox(height: 9,),
+
+
             ],
           ),
         ),
