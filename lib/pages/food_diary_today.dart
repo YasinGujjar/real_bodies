@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:real_bodies/models/chart_data.dart';
 import 'package:real_bodies/pages/exercise.dart';
+import 'package:real_bodies/theme/my_flutter_app_icons.dart';
 //import 'package:real_bodies/models/chart_data.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart' as LiquidIndicator;
@@ -158,7 +159,9 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                 width: width * 0.95,
                   child: Align(
                 alignment: Alignment.centerLeft,
-                  child: Text("Today's targest ")),),
+                  child: Text("Today's targest",style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),)),),
               Container(height: height * 0.05,
               width: width * 0.95,
               child: LiquidIndicator.LiquidLinearProgressIndicator(
@@ -180,7 +183,9 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
           width: width * 0.95,
           child: Align(
               alignment: Alignment.centerLeft,
-              child: Text("Nutrients Details")),),
+              child: Text("Nutrients Details",style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),)),),
         Container(
           height: height * 0.32,
           width: width * 0.97,
@@ -219,7 +224,9 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
           width: width * 0.95,
           child: Align(
               alignment: Alignment.centerLeft,
-              child: Text("Log Food")),),
+              child: Text("Log Food",style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),)),),
         Container(
           height: height * 0.35,
           width: width * 0.97,
@@ -238,20 +245,20 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                     Expanded(
                       child: FittedBox(
                         fit: BoxFit.contain,
-                        child: CategoryItem(name: 'BreakFast',icon: Icons.ac_unit, color: Colors.black, elevation: 3.0,onPressed: ()=>{
+                        child: CategoryItem(name: 'BreakFast',icon: MyFlutterApp.free_breakfast, color: Colors.black, elevation: 3.0,onPressed: ()=>{
                         }, )
                       ),
                     ),
                     Expanded(
                       child: FittedBox(
                           fit: BoxFit.contain,
-                          child: CategoryItem(name: 'Lunch',icon: Icons.ac_unit, color: Colors.black, elevation: 3.0, )
+                          child: CategoryItem(name: 'Lunch',icon: MyFlutterApp.food, color: Colors.black, elevation: 3.0, )
                       ),
                     ),
                     Expanded(
                       child: FittedBox(
                           fit: BoxFit.contain,
-                          child: CategoryItem(name: 'Dinner',icon: Icons.ac_unit, color: Colors.black, elevation: 3.0, )
+                          child: CategoryItem(name: 'Dinner',icon: MyFlutterApp.dinner, color: Colors.black, elevation: 3.0, )
                       ),
                     ),
                   ],
@@ -264,19 +271,19 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                     Expanded(
                       child: FittedBox(
                           fit: BoxFit.contain,
-                          child: CategoryItem(name: 'Morning\n Snacks',icon: Icons.ac_unit, color: Colors.black, elevation: 3.0, )
+                          child: CategoryItem(name: 'Morning\n Snacks',icon: MyFlutterApp.fast_food, color: Colors.black, elevation: 3.0, )
                       ),
                     ),
                     Expanded(
                       child: FittedBox(
                           fit: BoxFit.contain,
-                          child: CategoryItem(name: 'Afternoon\n Snacks',icon: Icons.ac_unit, color: Colors.black, elevation: 3.0, )
+                          child: CategoryItem(name: 'Afternoon\n  Snacks',icon: MyFlutterApp.fast_food, color: Colors.black, elevation: 3.0, )
                       ),
                     ),
                     Expanded(
                       child: FittedBox(
                           fit: BoxFit.contain,
-                          child: CategoryItem(name: 'Evening\n Snacks',icon: Icons.ac_unit, color: Colors.black, elevation: 3.0, )
+                          child: CategoryItem(name: 'Evening\nSnacks',icon: MyFlutterApp.fast_food, color: Colors.black, elevation: 3.0, )
                       ),
                     ),
 
