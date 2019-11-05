@@ -94,34 +94,57 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
     return Scaffold(
       appBar: AppBar(
 
+
         backgroundColor: Palette.mainPurple,
-        title: Center(child: Text('Diary') ),
-      ),
-    body:                  //87
-    Column(
-      children: <Widget>[
-        Container(
-          height: height * 0.06,
+           title:  Container(
+         // height: height * 0.06,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
 
-                 FittedBox(
-                  fit: BoxFit.cover,
-                  child: IconButton(icon: Icon(Icons.arrow_back_ios),
-                      color: Colors.black,
-                      onPressed: ()=>{}),
-                ),
-              Text('Today', style: TextStyle(color: Colors.black),),
+              FittedBox(
+                fit: BoxFit.cover,
+                child: IconButton(icon: Icon(Icons.arrow_back_ios),
+                    color: Colors.white,
+                    onPressed: ()=>{}),
+              ),
+              Text('Today', style: TextStyle(color: Colors.white),),
               FittedBox(
                 fit: BoxFit.cover,
                 child: IconButton(icon: Icon(Icons.arrow_forward_ios),
-                    color: Colors.black,
+                    color: Colors.white,
                     onPressed: ()=>{}),
               ),
             ],
           ),
         ),
+
+      ),
+    body:                  //87
+    Column(
+      children: <Widget>[
+//        Container(
+//          height: height * 0.06,
+//          child: Row(
+//            mainAxisAlignment: MainAxisAlignment.center,
+//            children: <Widget>[
+//
+//                 FittedBox(
+//                  fit: BoxFit.cover,
+//                  child: IconButton(icon: Icon(Icons.arrow_back_ios),
+//                      color: Colors.black,
+//                      onPressed: ()=>{}),
+//                ),
+//              Text('Today', style: TextStyle(color: Colors.black),),
+//              FittedBox(
+//                fit: BoxFit.cover,
+//                child: IconButton(icon: Icon(Icons.arrow_forward_ios),
+//                    color: Colors.black,
+//                    onPressed: ()=>{}),
+//              ),
+//            ],
+//          ),
+//        ),
         Container(height: height * 0.02,),
         Container(
             // height: height * 0.15,
@@ -136,14 +159,14 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                   child: Align(
                 alignment: Alignment.centerLeft,
                   child: Text("Today's targest ")),),
-              Container(height: height * 0.08,
+              Container(height: height * 0.05,
               width: width * 0.95,
               child: LiquidIndicator.LiquidLinearProgressIndicator(
                 value: 0.50, // Defaults to 0.5.
                 valueColor: AlwaysStoppedAnimation(Palette.darkPink), // Defaults to the current Theme's accentColor.
                 backgroundColor: Palette.lightPink, // Defaults to the current Theme's backgroundColor.
                 borderColor: Colors.red,
-                borderWidth: 3.0,
+                borderWidth: 2.0,
                 borderRadius: 12.0,
                 direction: Axis.horizontal, // The direction the liquid moves (Axis.vertical = bottom to top, Axis.horizontal = left to right). Defaults to Axis.horizontal.
                 center: Text("1000/2000 calories", style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
@@ -151,7 +174,7 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
             ],
           ),
         ),
-        Container(height: height * 0.015,),
+        Container(height: height * 0.025,),
 
         Container(height: height * 0.03,
           width: width * 0.95,
@@ -159,7 +182,7 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
               alignment: Alignment.centerLeft,
               child: Text("Nutrients Details")),),
         Container(
-          height: height * 0.25,
+          height: height * 0.32,
           width: width * 0.97,
 
           child: charts.PieChart(
@@ -173,7 +196,7 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                   desiredMaxRows: 2,
                   cellPadding: EdgeInsets.only(right: 2.0, bottom: 2.0),
                   entryTextStyle: charts.TextStyleSpec(
-                    color: charts.MaterialPalette.purple.shadeDefault,
+                    color: charts.MaterialPalette.black.darker,
                     fontFamily: 'Georgia',
                     fontSize: 10,
                   ),
@@ -201,7 +224,7 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
           height: height * 0.35,
           width: width * 0.97,
           decoration: BoxDecoration(
-            color: Palette.greyBackground,
+           // color: Palette.greyBackground,
             borderRadius: BorderRadius.all(
               Radius.circular(10.0),
             ),
@@ -215,20 +238,20 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                     Expanded(
                       child: FittedBox(
                         fit: BoxFit.contain,
-                        child: CategoryItem(name: 'BreakFast',icon: Icons.ac_unit, color: Colors.black, elevation: 0.0,onPressed: ()=>{
+                        child: CategoryItem(name: 'BreakFast',icon: Icons.ac_unit, color: Colors.black, elevation: 3.0,onPressed: ()=>{
                         }, )
                       ),
                     ),
                     Expanded(
                       child: FittedBox(
                           fit: BoxFit.contain,
-                          child: CategoryItem(name: 'BreakFast',icon: Icons.ac_unit, color: Colors.black, elevation: 0.0, )
+                          child: CategoryItem(name: 'Lunch',icon: Icons.ac_unit, color: Colors.black, elevation: 3.0, )
                       ),
                     ),
                     Expanded(
                       child: FittedBox(
                           fit: BoxFit.contain,
-                          child: CategoryItem(name: 'BreakFast',icon: Icons.ac_unit, color: Colors.black, elevation: 0.0, )
+                          child: CategoryItem(name: 'Dinner',icon: Icons.ac_unit, color: Colors.black, elevation: 3.0, )
                       ),
                     ),
                   ],
@@ -241,19 +264,19 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                     Expanded(
                       child: FittedBox(
                           fit: BoxFit.contain,
-                          child: CategoryItem(name: 'BreakFast',icon: Icons.ac_unit, color: Colors.black, elevation: 0.0, )
+                          child: CategoryItem(name: 'Morning\n Snacks',icon: Icons.ac_unit, color: Colors.black, elevation: 3.0, )
                       ),
                     ),
                     Expanded(
                       child: FittedBox(
                           fit: BoxFit.contain,
-                          child: CategoryItem(name: 'BreakFast',icon: Icons.ac_unit, color: Colors.black, elevation: 0.0, )
+                          child: CategoryItem(name: 'Afternoon\n Snacks',icon: Icons.ac_unit, color: Colors.black, elevation: 3.0, )
                       ),
                     ),
                     Expanded(
                       child: FittedBox(
                           fit: BoxFit.contain,
-                          child: CategoryItem(name: 'BreakFast',icon: Icons.ac_unit, color: Colors.black, elevation: 0.0, )
+                          child: CategoryItem(name: 'Evening\n Snacks',icon: Icons.ac_unit, color: Colors.black, elevation: 3.0, )
                       ),
                     ),
 
