@@ -6,11 +6,13 @@ class Palette{
   static Color accentColor =  Color(0xff4fc3f7);
   static Color secondaryColor = Colors.black;
   static Color orange = Colors.deepOrange;
-<<<<<<< HEAD
+
   static Color mainPurple=Color.fromRGBO(58, 15, 157, 1.0);
-=======
+
   static Color light = Color(0xffffccbc);
->>>>>>> 63813f046eadb3379f94fde1879d5cb5d1bdaa9a
+  static Color lightPink = Color(0x88FF8A80);
+  static Color darkPink = Color(0xffFF5252);
+
 
 
 }

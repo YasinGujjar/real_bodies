@@ -27,6 +27,8 @@ dependencies:
   flutter_swiper: ^1.1.6
   vector_math: ^2.0.8
   material_design_icons_flutter: ^3.2.4595
+  liquid_progress_indicator: ^0.3.2
+  charts_flutter: ^0.8.1
   #firebase_auth: ^0.6.6
   #flutter_facebook_login: ^1.1.1
   #shared_preferences: any
