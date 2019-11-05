@@ -105,7 +105,7 @@ class _DesktopState extends State<Desktop> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('Most Popular',
+                  Text('Fitness Courses',
                       style: TextStyle(
                         fontFamily: 'Opensans',
                         fontSize: 20.0,
@@ -128,6 +128,73 @@ class _DesktopState extends State<Desktop> {
                       'Biceps, Triceps', '3.8', 'assets/images/fit.jpg'),
                        _buildCard(
                       'Flexibility Exercise', '3.8', 'assets/images/flex.jpg'),
+                ],
+              ),
+            ),
+          ),
+           Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text('Food Diary',
+                      style: TextStyle(
+                        fontFamily: 'Opensans',
+                        fontSize: 20.0,
+                      )),
+                  Icon(Icons.more_horiz, color: Colors.black)
+                ],
+              ),
+            ),
+          ),
+           Padding(
+            padding: const EdgeInsets.only(left: 15.0),
+            child: Container(
+              height: 300.0,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  _buildCard(
+                      'Food Log', '4.1', 'assets/images/food3.jpg'),
+                  _buildCard(
+                      'Dieting Plan', '3.8', 'assets/images/food2.jpg'),
+                       _buildCard(
+                      'Nuterients Food', '3.8', 'assets/images/food2.jpg'),
+                ],
+              ),
+            ),
+          ),
+           Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text('Blog',
+                      style: TextStyle(
+                        fontFamily: 'Opensans',
+                        fontSize: 20.0,
+                      )),
+                  Icon(Icons.more_horiz, color: Colors.black)
+                ],
+              ),
+            ),
+          ),
+           Padding(
+            padding: const EdgeInsets.only(left: 15.0),
+            child: Container(
+              height: 300.0,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  _buildCard(
+                      'Full Body', '4.1', 'assets/images/blog.jpg'),
+                  _buildCard(
+                      'Biceps, Triceps', '3.8', 'assets/images/blog2.jpg'),
+                       
                 ],
               ),
             ),
