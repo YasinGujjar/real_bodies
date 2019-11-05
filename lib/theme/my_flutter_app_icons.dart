@@ -16,6 +16,22 @@
 ///         Author:    MFG Labs
 ///         License:   SIL (http://scripts.sil.org/OFL)
 ///         Homepage:  http://www.mfglabs.com/
+/// * Material Design Icons, Copyright (C) Google, Inc
+///         Author:    Google
+///         License:   Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
+///         Homepage:  https://design.google.com/icons/
+/// * Linecons, Copyright (C) 2013 by Designmodo
+///         Author:    Designmodo for Smashing Magazine
+///         License:   CC BY ()
+///         Homepage:  http://designmodo.com/linecons-free/
+/// * Maki, Copyright (C) Mapbox, LCC
+///         Author:    Mapbox
+///         License:   BSD (https://github.com/mapbox/maki/blob/gh-pages/LICENSE.txt)
+///         Homepage:  http://mapbox.com/maki/
+/// * Linearicons Free, Copyright (C) Linearicons.com
+///         Author:    Perxis
+///         License:   CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+///         Homepage:  https://linearicons.com
 ///
 import 'package:flutter/widgets.dart';
 
@@ -26,4 +42,8 @@ class MyFlutterApp {
 
   static const IconData female = const IconData(0xe800, fontFamily: _kFontFam);
   static const IconData male = const IconData(0xe801, fontFamily: _kFontFam);
+  static const IconData free_breakfast = const IconData(0xe802, fontFamily: _kFontFam);
+  static const IconData food = const IconData(0xe803, fontFamily: _kFontFam);
+  static const IconData fast_food = const IconData(0xe815, fontFamily: _kFontFam);
+  static const IconData dinner = const IconData(0xe847, fontFamily: _kFontFam);
 }

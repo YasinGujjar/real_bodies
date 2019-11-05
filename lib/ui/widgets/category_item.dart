@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:real_bodies/theme/palette.dart';
 
 class CategoryItem extends StatefulWidget {
   final String name;
@@ -48,7 +49,7 @@ class _CategoryItemState extends State<CategoryItem> {
               elevation: widget.elevation,
               heroTag: widget.name,
               onPressed: widget.onPressed,
-              backgroundColor: Colors.white,
+              backgroundColor: Palette.greyBackground,
               splashColor: Colors.blue,
               child: Icon(widget.icon, size: 45, color: Colors.black87),
             )),

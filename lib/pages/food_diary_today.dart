@@ -201,7 +201,7 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
           height: height * 0.35,
           width: width * 0.97,
           decoration: BoxDecoration(
-            color: Palette.greyBackground,
+            color: Colors.white,
             borderRadius: BorderRadius.all(
               Radius.circular(10.0),
             ),
