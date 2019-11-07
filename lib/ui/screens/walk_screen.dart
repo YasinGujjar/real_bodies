@@ -11,13 +11,13 @@ import 'package:real_bodies/ui/widgets/info_text_field.dart';
 
 class WalkthroughScreen extends StatefulWidget {
   // final SharedPreferences prefs;
-  
- 
+
   static TextEditingController _infooldcontroller = new TextEditingController();
   static TextEditingController _infoftcontroller = new TextEditingController();
   static TextEditingController _infoincontroller = new TextEditingController();
-  static TextEditingController _infoweightcontroller = new TextEditingController();
-  //InfoTextField _info;
+  static TextEditingController _infoweightcontroller =
+      new TextEditingController();
+ 
 
   final List<Walkthrough> pages = [
     Walkthrough(
@@ -35,6 +35,7 @@ class WalkthroughScreen extends StatefulWidget {
                     splashColor: Colors.blue,
                     onTap: () {
                       print("tapped");
+                     
                     },
                     child: Container(
                       child: ListTile(
@@ -114,12 +115,28 @@ class WalkthroughScreen extends StatefulWidget {
               mainAxisAlignment: MainAxisAlignment.center,
 
               children: <Widget>[
-                CategoryItem(name: 'Male',icon: MyFlutterApp.male,onPressed: () {
-                  print("Hoo gyaaaaa");
-                },color: Colors.white,elevation: 20.0,),
-                CategoryItem(name: 'Female',icon: MyFlutterApp.female,onPressed: () {
-                  print("Hoo gyaaaaa");
-                } ,color: Colors.white,elevation: 20.0,),
+                CategoryItem(
+                  name: 'Male',
+                  icon: MyFlutterApp.male,
+                  onPressed: () {
+                    
+                  },
+                  color: Colors.white,
+                  elevation: 20.0,
+                  bgColor: Colors.white,
+                  click: Colors.white,
+                ),
+                CategoryItem(
+                  name: 'Female',
+                  icon: MyFlutterApp.female,
+                  onPressed: () {
+                    print("Hoo gyaaaaa");
+                  },
+                  color: Colors.white,
+                  elevation: 20.0,
+                  bgColor: Colors.white,
+                  click:Colors.white,
+                ),
               ],
             ),
           ),
@@ -134,45 +151,60 @@ class WalkthroughScreen extends StatefulWidget {
             child: Row(
               // crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[InfoTextField(postfix: " CM",controller:_infooldcontroller ,)],
+              children: <Widget>[
+                InfoTextField(
+                  postfix: " CM",
+                  controller: _infooldcontroller,
+                )
+              ],
             ),
           ),
         )),
     Walkthrough(
-      icon: Icons.person,
-      title: "How tall are you?",
-      description: "In Ft.",
-      extraWidget:  Container(
+        icon: Icons.person,
+        title: "How tall are you?",
+        description: "In Ft.",
+        extraWidget: Container(
           child: Align(
             alignment: Alignment.topCenter,
             child: Row(
               // crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[InfoTextField(postfix: " Ft.",controller:_infoftcontroller ,),Padding(
-                padding: const EdgeInsets.all(6.0),
-              ),
-             InfoTextField(postfix: " In.",controller:_infoincontroller ,)
+              children: <Widget>[
+                InfoTextField(
+                  postfix: " Ft.",
+                  controller: _infoftcontroller,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                ),
+                InfoTextField(
+                  postfix: " In.",
+                  controller: _infoincontroller,
+                )
               ],
-
             ),
           ),
-        )
-    ),
+        )),
     Walkthrough(
-      icon: Icons.person,
-      title: "How much do you weight ?",
-      description: "In Kg",
-      extraWidget:  Container(
+        icon: Icons.person,
+        title: "How much do you weight ?",
+        description: "In Kg",
+        extraWidget: Container(
           child: Align(
             alignment: Alignment.topCenter,
             child: Row(
               // crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[InfoTextField(postfix: " Kg",controller:_infoweightcontroller ,)],
+              children: <Widget>[
+                InfoTextField(
+                  postfix: " Kg",
+                  controller: _infoweightcontroller,
+                )
+              ],
             ),
           ),
-        )
-    ),
+        )),
   ];
 
   // WalkthroughScreen({this.prefs});
@@ -182,21 +214,19 @@ class WalkthroughScreen extends StatefulWidget {
 }
 
 class _WalkthroughScreenState extends State<WalkthroughScreen> {
-  final TextEditingController _infocontroller = new TextEditingController();
-  InfoTextField _info;
+  int index;
+
   @override
   void initState() {
     super.initState();
-    _info = new InfoTextField(
-      controller: _infocontroller,
-    );
+    index = 2;
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
       body: Swiper.children(
         autoplay: false,
-        index: 0,
+        //index: index,
         loop: false,
         pagination: new SwiperPagination(
           margin: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 40.0),
@@ -325,10 +355,11 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
                   onPressed: () {
                     // widget.prefs.setBool('seen', true);
                     // Navigator.of(context).pushNamed("/root");
-                     Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => WelcomeScreen()),
-  );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => WelcomeScreen()),
+                    );
+                   
                   },
                   splashColor: Colors.black12,
                   borderColor: Colors.white,
@@ -344,6 +375,3 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
     return widgets;
   }
 }
-
-
-

@@ -7,6 +7,8 @@ class CategoryItem extends StatefulWidget {
   final VoidCallback onPressed;
   final Color color;
   final double elevation;
+  final Color bgColor;
+   Color click;
 
   
 
@@ -16,6 +18,8 @@ class CategoryItem extends StatefulWidget {
       this.onPressed,
       this.color,
       this.elevation,
+      this.bgColor,
+      this.click,
      });
 
   _CategoryItemState createState() => _CategoryItemState();
@@ -45,12 +49,16 @@ class _CategoryItemState extends State<CategoryItem> {
             width: 116,
             height: 116,
             child: FloatingActionButton(
-              shape: CircleBorder(),
+              shape: CircleBorder(side: BorderSide(color: widget.click, width: 4.0)),
               elevation: widget.elevation,
               heroTag: widget.name,
-              onPressed: widget.onPressed,
-              backgroundColor: Palette.greyBackground,
+              onPressed:(){
+                
+                  
+              },
+              backgroundColor:widget.bgColor,
               splashColor: Colors.blue,
+              
               child: Icon(widget.icon, size: 45, color: Palette.mainPurple),
             )),
         Text(
