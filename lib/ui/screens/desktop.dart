@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'package:real_bodies/pages/exercise.dart';
 import 'package:real_bodies/pages/food_diary_today.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/screens/user_profile.dart';
 
 
 class Desktop extends StatefulWidget {
@@ -26,10 +27,23 @@ class _DesktopState extends State<Desktop> {
                 Stack(
                   children: <Widget>[
                     Container(height: 60.0, width: 60.0),
-                    Container(
-                      height: 50.0,
-                      width: 50.0,
-                      
+                    InkWell(
+                       splashColor: Colors.blue,
+                       borderRadius: BorderRadius.circular(15.0),
+                    onTap: () {
+                      print("tapped");
+                       Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => UserProfile())); 
+                    },
+                                          child: Container(
+                        height: 50.0,
+                        width: 50.0,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(image: AssetImage('assets/images/fit2.jpg'),
+                          fit: BoxFit.cover),
+                          borderRadius: BorderRadius.circular(25.0)
+                        ),
+                      ),
                     ),
                     Positioned(
                       left: 5.0,
@@ -37,6 +51,15 @@ class _DesktopState extends State<Desktop> {
                       child: Container(
                         height: 15.0,
                         width: 15.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(7.5),
+                          color: Colors.green,
+                          border: Border.all(
+                            color: Colors.white,
+                            style: BorderStyle.solid,
+                            width: 1.0
+                          )
+                        ),
                       
                       ),
                     )
