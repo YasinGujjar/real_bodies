@@ -5,6 +5,8 @@ import 'package:real_bodies/business/auth.dart';
 import 'package:real_bodies/business/validator.dart';
 import 'package:real_bodies/models/user.dart';
 import 'package:real_bodies/theme/palette.dart';
+//import 'package:real_bodies/ui/screens/add_food.dart';
+import 'package:real_bodies/ui/screens/addfood.dart';
 import 'package:real_bodies/ui/screens/desktop.dart';
 import 'package:real_bodies/ui/widgets/custom_alert_dialog.dart';
 import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
@@ -148,6 +150,10 @@ class _SignInScreenState extends State<SignInScreen> {
                           textColor: Colors.white,
                           onPressed: () {
                            // _facebookLogin(context: context);
+                            Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => AddNewFood()),
+  );
                           },
                           splashColor: Colors.black12,
                           borderColor: Color.fromRGBO(59, 89, 152, 1.0),
@@ -165,6 +171,10 @@ class _SignInScreenState extends State<SignInScreen> {
                           textColor: Colors.white,
                           onPressed: () {
                            // _facebookLogin(context: context);
+                           /* Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => AddFood()),
+  ); */
                            
                           },
                           splashColor: Colors.black12,

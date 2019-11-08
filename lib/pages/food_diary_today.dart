@@ -83,6 +83,8 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Palette.mainPurple,
+         automaticallyImplyLeading: false,
+    centerTitle: true,
           title: Center(
             child: Container(
               // height: height * 0.06,
@@ -269,6 +271,8 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 color: Colors.black,
                                 elevation: 3.0,
                                 onPressed: () => {},
+                                 bgColor: Palette.greyBackground,
+                                 click: Palette.greyBackground,
                               )),
                         ),
                         Expanded(
@@ -279,6 +283,8 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 icon: MyFlutterApp.food,
                                 color: Colors.black,
                                 elevation: 3.0,
+                                bgColor: Palette.greyBackground,
+                                  click: Palette.greyBackground,
                               )),
                         ),
                         Expanded(
@@ -289,6 +295,8 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 icon: MyFlutterApp.dinner,
                                 color: Colors.black,
                                 elevation: 3.0,
+                                 bgColor: Palette.greyBackground,
+                                   click: Palette.greyBackground,
                               )),
                         ),
                       ],
@@ -308,6 +316,8 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 icon: MyFlutterApp.fast_food,
                                 color: Colors.black,
                                 elevation: 3.0,
+                                 bgColor: Palette.greyBackground,
+                                   click: Palette.greyBackground,
                               )),
                         ),
                         Expanded(
@@ -318,6 +328,8 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 icon: MyFlutterApp.fast_food,
                                 color: Colors.black,
                                 elevation: 3.0,
+                                 bgColor: Palette.greyBackground,
+                                   click: Palette.greyBackground,
                               )),
                         ),
                         Expanded(
@@ -328,6 +340,8 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 icon: MyFlutterApp.fast_food,
                                 color: Colors.black,
                                 elevation: 3.0,
+                                 bgColor: Palette.greyBackground,
+                                   click: Palette.greyBackground,
                               )),
                         ),
                       ],
