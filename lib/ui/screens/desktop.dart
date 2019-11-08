@@ -214,7 +214,7 @@ class _DesktopState extends State<Desktop> {
             if (page=="exercise")
             {
                Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => Exercise())); 
+                .push(MaterialPageRoute(builder: (context) => Exercise()));
              }
             if (page=="food")
             { Navigator.of(context)
