@@ -4,15 +4,19 @@ import 'package:real_bodies/theme/palette.dart';
 class MiddleSliverAppBar extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
 
+
   MiddleSliverAppBar({@required this.expandedHeight});
 
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
+   // overlapsContent = true;
+    print('shrink offset $shrinkOffset');
     return
       Stack(
-     // fit: StackFit.expand,
-     // overflow: Overflow.visible,
+      fit: StackFit.expand,
+      overflow: Overflow.visible,
+
       children: [
 
     Container(
@@ -29,7 +33,30 @@ class MiddleSliverAppBar extends SliverPersistentHeaderDelegate {
 
     ),
     ),
+
 // SizedBox(height: 200,),
+// Positioned(
+//          top: (expandedHeight - shrinkOffset) * 0.85  ,
+//         // left: MediaQuery.of(context).size.width / 4,
+//          child: Opacity(
+//            opacity: ((shrinkOffset >40)? 0 :1 - (shrinkOffset   / expandedHeight)  ),
+//
+////            child: Card(
+////              elevation: 10,
+////              child: SizedBox(
+////                height:  expandedHeight,
+////                width:  MediaQuery.of(context).size.width / 2,
+////                child: FlutterLogo(),
+////              ),
+//    child: Container(
+//      height: 20,
+//    width: MediaQuery.of(context).size.width ,
+//    color: Colors.white,
+//    ),
+//
+//
+//        ),
+//        ),
 //
 //           Container(
 //             height: 20,
@@ -67,8 +94,8 @@ class MiddleSecondSliverAppBar extends SliverPersistentHeaderDelegate {
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return
       Stack(
-        // fit: StackFit.expand,
-        // overflow: Overflow.visible,
+         fit: StackFit.expand,
+        overflow: Overflow.visible,
         children: [
 
           Container(
@@ -85,6 +112,32 @@ class MiddleSecondSliverAppBar extends SliverPersistentHeaderDelegate {
 
             ),
           ),
+
+
+
+          Positioned(
+            top: (expandedHeight - shrinkOffset)  * 0.89  ,
+            // left: MediaQuery.of(context).size.width / 4,
+            child: Opacity(
+              opacity: ((shrinkOffset >15)? 0 :1 - (shrinkOffset   / expandedHeight)  ),
+
+//            child: Card(
+//              elevation: 10,
+//              child: SizedBox(
+//                height:  expandedHeight,
+//                width:  MediaQuery.of(context).size.width / 2,
+//                child: FlutterLogo(),
+//              ),
+              child: Container(
+                height: 10,
+                width: MediaQuery.of(context).size.width ,
+                color: Colors.white,
+              ),
+
+
+            ),
+          ),
+
 // SizedBox(height: 200,),
 //
 //           Container(

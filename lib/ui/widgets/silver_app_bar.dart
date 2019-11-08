@@ -38,19 +38,25 @@ class MySliverAppBar extends SliverPersistentHeaderDelegate {
           ),
         ),
 //        Positioned(
-//          //top: expandedHeight - shrinkOffset ,
-//          //left: MediaQuery.of(context).size.width / 4,
-////          child: Opacity(
-////            opacity: (1 - shrinkOffset / expandedHeight),
+//          top: expandedHeight - shrinkOffset  ,
+//         // left: MediaQuery.of(context).size.width / 4,
+//          child: Opacity(
+//            opacity: (1 - shrinkOffset / expandedHeight),
+////            child: Card(
+////              elevation: 10,
+////              child: SizedBox(
+////                height:  expandedHeight,
+////                width:  MediaQuery.of(context).size.width / 2,
+////                child: FlutterLogo(),
+////              ),
+//    child: Container(
+//      height: 20,
+//    width: MediaQuery.of(context).size.width ,
+//    color: Colors.blue,
+//    ),
 //
-//             // elevation: 10,
-//              child: SizedBox(
-//                height: 400, // expandedHeight,
-//                width: 800, // MediaQuery.of(context).size.width / 2,
-//                child: FlutterLogo(),
-//              ),
 //
-//         // ),
+//        ),
 //        ),
       ],
     );

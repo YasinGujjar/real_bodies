@@ -25,9 +25,10 @@ class MyApp extends StatelessWidget {
         // "hot reload" (press "r" in the console where you ran "flutter run",
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.black,
+       // canvasColor: Colors.transparent,
       ),
-      home: DailyWorkOutPlan(),//MyHomePage(title: 'Demo'),
+      home: WalkthroughScreen(),//MyHomePage(title: 'Demo'),
     );
   }
 }

@@ -15,16 +15,16 @@ class _DailyWorkOutPlanState extends State<DailyWorkOutPlan> {
   @override
   Widget build(BuildContext context) {
 
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+  //  double width = MediaQuery.of(context).size.width;
+  //  double height = MediaQuery.of(context).size.height;
     return SafeArea(
    child: Material(
 
 
-      child:    Container(
-        color: Colors.white,
+   //   child:    Container(
+       // color: Colors.transparent,
+       // color: Colors.blue,
         child: CustomScrollView(
-
 
 
           slivers:[
@@ -40,12 +40,14 @@ class _DailyWorkOutPlanState extends State<DailyWorkOutPlan> {
             SliverPersistentHeader(
               delegate: MiddleSliverAppBar(expandedHeight: 70),
               //delegate: ,
+              floating: false,
              pinned: true,
             ),
             SliverPersistentHeader(
               delegate: MiddleSecondSliverAppBar(expandedHeight: 28),
               //delegate: ,
               pinned: true,
+              floating: false,
             ),
 
         SliverList(
@@ -83,32 +85,32 @@ class _DailyWorkOutPlanState extends State<DailyWorkOutPlan> {
 
                      Container(
 
-                       color: Colors.white,
+                       color: Colors.black,
                        child: Column(
                          children: <Widget>[
                            Container(
                              height: 200,
-                             color: Colors.blue,
+                             color: Colors.white,
                            ),
                            Container(
                              height: 200,
-                             color: Colors.blue,
+                             color: Colors.white,
                            ),
                            Container(
                              height: 200,
-                             color: Colors.blue,
+                             color: Colors.white,
                            ),
                            Container(
                              height: 200,
-                             color: Colors.blue,
+                             color: Colors.white,
                            ),
                            Container(
                              height: 200,
-                             color: Colors.blue,
+                             color: Colors.white,
                            ),
                            Container(
                              height: 200,
-                             color: Colors.blue,
+                             color: Colors.white,
                            ),
                          ],
                        ),
@@ -127,7 +129,7 @@ class _DailyWorkOutPlanState extends State<DailyWorkOutPlan> {
 
 
         ),
-      ),
+     // ),
    ),
     );
   }
