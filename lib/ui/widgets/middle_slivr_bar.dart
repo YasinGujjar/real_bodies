@@ -3,15 +3,14 @@ import 'package:real_bodies/theme/palette.dart';
 
 class MiddleSliverAppBar extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
+  final String title;
 
-
-  MiddleSliverAppBar({@required this.expandedHeight});
+  MiddleSliverAppBar({@required this.expandedHeight, this.title});
 
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
    // overlapsContent = true;
-    print('shrink offset $shrinkOffset');
     return
       Stack(
       fit: StackFit.expand,
@@ -30,6 +29,11 @@ class MiddleSliverAppBar extends SliverPersistentHeaderDelegate {
         borderRadius: BorderRadius.only(topLeft: Radius.elliptical(70,40),topRight: Radius.elliptical(70,40)),
 
       ),
+        child: Center(
+          child: Text(title,style: TextStyle(
+            color: Colors.white
+          ),),
+        ),
 
     ),
     ),
@@ -92,6 +96,8 @@ class MiddleSecondSliverAppBar extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
+    print('shrink offset $shrinkOffset');
+
     return
       Stack(
          fit: StackFit.expand,
@@ -119,7 +125,7 @@ class MiddleSecondSliverAppBar extends SliverPersistentHeaderDelegate {
             top: (expandedHeight - shrinkOffset)  * 0.89  ,
             // left: MediaQuery.of(context).size.width / 4,
             child: Opacity(
-              opacity: ((shrinkOffset >15)? 0 :1 - (shrinkOffset   / expandedHeight)  ),
+              opacity: ((shrinkOffset >5)? 0 :1 - (shrinkOffset   / expandedHeight)  ),
 
 //            child: Card(
 //              elevation: 10,

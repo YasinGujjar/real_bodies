@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:real_bodies/pages/daily_workout_plan.dart';
 import 'package:real_bodies/pages/exercise.dart';
 import 'package:real_bodies/pages/food_diary_today.dart';
 import 'package:real_bodies/theme/palette.dart';
@@ -150,7 +151,7 @@ class _DesktopState extends State<Desktop> {
                   _buildCard(
                       'Full Body', '4.1', 'assets/images/fit2.jpg','exercise'),
                   _buildCard(
-                      'Biceps, Triceps', '3.8', 'assets/images/fit.jpg','exercise'),
+                      'Biceps, Triceps', '3.8', 'assets/images/fit.jpg','workout'),
                        _buildCard(
                       'Flexibility Exercise', '3.8', 'assets/images/flex.jpg','exercise'),
                 ],
@@ -247,6 +248,11 @@ class _DesktopState extends State<Desktop> {
             { /* Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => Exercise()));  */
             } 
+            if(page=="workout")
+            {
+               Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => DailyWorkOutPlan())); 
+            }
           },
           child: Stack(
             children: <Widget>[

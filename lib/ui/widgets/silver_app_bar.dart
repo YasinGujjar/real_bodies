@@ -25,7 +25,7 @@ class MySliverAppBar extends SliverPersistentHeaderDelegate {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                Text(
-                "MySliverAppBar",
+                "Full Body Workout",
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w700,
