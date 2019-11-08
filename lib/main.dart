@@ -4,6 +4,7 @@ import 'package:real_bodies/pages/daily_workout_plan.dart';
 import 'package:real_bodies/pages/exercise.dart';
 import 'package:real_bodies/pages/food_diary_today.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/screens/user_profile.dart';
 import 'package:real_bodies/ui/screens/walk_screen.dart';
 import 'package:real_bodies/ui/widgets/count_down_timer.dart';
 
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: DailyWorkOutPlan(),//MyHomePage(title: 'Demo'),
+      home: UserProfile(),//MyHomePage(title: 'Demo'),
     );
   }
 }
