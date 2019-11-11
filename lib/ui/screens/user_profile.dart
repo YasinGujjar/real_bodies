@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/screens/modal_trigger.dart';
+import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
 
 class UserProfile extends StatefulWidget {
   @override
@@ -11,13 +13,13 @@ class _UserProfileState extends State<UserProfile> {
   Widget build(BuildContext context) {
    double width=MediaQuery.of(context).size.width;
     return Scaffold(
-    appBar: new AppBar(
+    /* appBar: new AppBar(
         backgroundColor: Palette.mainPurple,
         elevation: 9.0,
         //      iconTheme: new IconThemeData(color: Colors.blue), //set color of icon
         title: Text('User Profile'),
         centerTitle: true,
-      ),
+      ), */
        body:
        ListView(
 children: <Widget>[
@@ -100,14 +102,19 @@ children: <Widget>[
                 child: Card(
                  // elevation: 10.0,
                  child: Container(
-                     height: 200.0,
+                     height: 150.0,
+                     width: width,
                     // color: Palette.greyBackground,
-                        
+                   // child: Theme(
+           // data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
+            child: ModalTrigger(),
+        //  ),
 
                     ),
                   
                 ),
               ),
+              SizedBox(height: 400.0,),
           ]
              ),
 ]
@@ -167,7 +174,57 @@ class CategoryListItem extends StatelessWidget {
   final String categoryName;
   final String value;
   final bool selected;
-
+_showModalBottomSheet(context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return Container(
+          height: 150,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+          ),
+          child: Column(
+          //  crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+                    SizedBox(height: 20.0,),
+                    Padding(
+                     padding: EdgeInsets.only(
+                        bottom: MediaQuery.of(context).viewInsets.bottom),
+                      child: DecoratedTextField(
+                       // autofocus: true,
+                      ),
+                    ),
+                     CustomFlatButton(
+                  title: "Save",
+                  fontSize: 22,
+                  fontWeight: FontWeight.w700,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    // widget.prefs.setBool('seen', true);
+                    // Navigator.of(context).pushNamed("/root");
+                   /*  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => WelcomeScreen()),
+                    ); */
+                    Navigator.pop(context);
+                  },
+                  splashColor: Colors.black12,
+                  borderColor: Colors.white,
+                  borderWidth: 2,
+                  color: Color.fromRGBO(58, 15, 157, 1.0),
+                ),
+            ],
+          ),
+        );
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -191,26 +248,40 @@ class CategoryListItem extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          InkWell(
-             splashColor: Colors.blue,
-                    onTap: () {
-                      print("tapped Edit");
-                    },
-                      child: Container(
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                //  color: Colors.white,
-                  borderRadius: BorderRadius.circular(50),
-                  border: Border.all(
-                      color: selected ? Colors.transparent : Colors.grey[200],
-                      width: 1.5)),
-              child: Icon(
-                categoryIcon,
-                color: Palette.mainPurple,
-                size: 30,
-              ),
-            ),
+          Material(
+            color: Colors.transparent,
+                      child: InkWell(
+                         borderRadius: BorderRadius.circular(35.0),
+               splashColor: Colors.blue,
+                      onTap: () {
+                        print("tapped Edit");
+                         _showModalBottomSheet(context);
+                      },
+                        child: Container(
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  //  color: Colors.white,
+                    borderRadius: BorderRadius.circular(50),
+                    border: Border.all(
+                        color: selected ? Colors.transparent : Colors.grey[200],
+                        width: 1.5)),
+                       /*  child: Material(
+                                                child: InkWell(
+        customBorder: new CircleBorder(),
+        onTap: () {},
+        splashColor: Colors.red, */
+        child: Icon(
+                  categoryIcon,
+                  color: Palette.mainPurple,
+                  size: 30,
+                ),
+    //),
+     //                 ),
+
+               
+              ),),
           ),
+          
           SizedBox(height: 10),
           Text(
             categoryName,
@@ -235,4 +306,25 @@ class CategoryListItem extends StatelessWidget {
     );
   }
 }
- 
+//Dcorated Textfiled for bottom sheet
+class DecoratedTextField extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      alignment: Alignment.center,
+      padding: const EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.grey[300],
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: TextField(
+        decoration:
+            InputDecoration.collapsed(hintText: 'Enter the new credential'),
+           // autofocus: true,
+      ),
+    );
+  }
+}
+

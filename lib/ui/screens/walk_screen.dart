@@ -15,8 +15,7 @@ class WalkthroughScreen extends StatefulWidget {
   static TextEditingController _infooldcontroller = new TextEditingController();
   static TextEditingController _infoftcontroller = new TextEditingController();
   static TextEditingController _infoincontroller = new TextEditingController();
-  static TextEditingController _infoweightcontroller =
-      new TextEditingController();
+  static TextEditingController _infoweightcontroller = new TextEditingController();
  
 
   final List<Walkthrough> pages = [

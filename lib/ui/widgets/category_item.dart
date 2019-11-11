@@ -61,11 +61,13 @@ class _CategoryItemState extends State<CategoryItem> {
               
               child: Icon(widget.icon, size: 45, color: Palette.mainPurple),
             )),
+
         Text(
-          widget.name,
+         widget.name,
           style: TextStyle(
             color: widget.color,
             fontSize: 20.0,
+            
             fontWeight: FontWeight.w800,
           ),
         )
