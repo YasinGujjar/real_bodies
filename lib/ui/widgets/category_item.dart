@@ -52,10 +52,7 @@ class _CategoryItemState extends State<CategoryItem> {
               shape: CircleBorder(side: BorderSide(color: widget.click, width: 4.0)),
               elevation: widget.elevation,
               heroTag: widget.name,
-              onPressed:(){
-                
-                  
-              },
+              onPressed: widget.onPressed,
               backgroundColor:widget.bgColor,
               splashColor: Colors.blue,
               

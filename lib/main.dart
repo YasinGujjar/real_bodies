@@ -3,6 +3,7 @@ import 'package:real_bodies/models/walkthrough.dart';
 import 'package:real_bodies/pages/daily_workout_plan.dart';
 import 'package:real_bodies/pages/exercise.dart';
 import 'package:real_bodies/pages/food_diary_today.dart';
+import 'package:real_bodies/pages/starting_pages.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/screens/gender_page.dart';
 import 'package:real_bodies/ui/screens/goal_page.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: GenderPage(),//MyHomePage(title: 'Demo'),
+      home: StartingPages(),//MyHomePage(title: 'Demo'),
     );
   }
 }

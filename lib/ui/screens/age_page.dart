@@ -5,6 +5,9 @@ import 'package:real_bodies/ui/widgets/category_item.dart';
 import 'package:real_bodies/ui/widgets/info_text_field.dart';
  
  class AgePage extends StatefulWidget {
+   final  PageController pageController;
+   AgePage({this.pageController});
+
    @override
    _AgePageState createState() => _AgePageState();
  }
@@ -15,8 +18,7 @@ import 'package:real_bodies/ui/widgets/info_text_field.dart';
    Widget build(BuildContext context) {
       double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-     return Scaffold(
-            body: Container(
+     return  Container(
             color: Palette.mainPurple,
             child: ListView(
               children: <Widget>[
@@ -74,15 +76,22 @@ import 'package:real_bodies/ui/widgets/info_text_field.dart';
            child: Container(
           child: Align(
             alignment: Alignment.topCenter,
-            child: Row(
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                InfoTextField(
-                  postfix: " CM",
-                  controller: _infooldcontroller,
-                )
-              ],
+            child: FittedBox(
+              fit: BoxFit.contain,
+              child: Row(
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+
+
+                     InfoTextField(
+                      pageController: widget.pageController,
+                      postfix: " CM",
+                      controller: _infooldcontroller,
+                    ),
+
+                ],
+              ),
             ),
           ),
         )
@@ -90,7 +99,7 @@ import 'package:real_bodies/ui/widgets/info_text_field.dart';
                 )
               ],
             ),
-          ),
+
      );
    }
  }
