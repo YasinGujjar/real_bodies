@@ -4,8 +4,10 @@ import 'package:real_bodies/pages/daily_workout_plan.dart';
 import 'package:real_bodies/pages/exercise.dart';
 import 'package:real_bodies/pages/food_diary_today.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/screens/expansion_panel.dart';
 import 'package:real_bodies/ui/screens/gender_page.dart';
 import 'package:real_bodies/ui/screens/goal_page.dart';
+import 'package:real_bodies/ui/screens/sign_up_screen.dart';
 import 'package:real_bodies/ui/screens/user_profile.dart';
 import 'package:real_bodies/ui/screens/walk_screen.dart';
 import 'package:real_bodies/ui/widgets/count_down_timer.dart';
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: GenderPage(),//MyHomePage(title: 'Demo'),
+      home: UserProfile(),//MyHomePage(title: 'Demo'),
     );
   }
 }

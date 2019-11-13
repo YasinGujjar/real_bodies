@@ -49,6 +49,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       errorColor: Colors.red,
       controller: _number,
       hint: "Phone Number",
+      
      // validator: Validator.validateNumber,
       inputType: TextInputType.number,
     );

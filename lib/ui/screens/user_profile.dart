@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/screens/expansion_panel.dart';
 import 'package:real_bodies/ui/screens/modal_trigger.dart';
 import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
 
@@ -63,7 +64,7 @@ children: <Widget>[
                       ],
                     ),
                      Padding(
-                padding: const EdgeInsets.only(left: 5.0, right: 5.0),
+                padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                 child: Card(
                   elevation: 5.0,
                  child: Container(
@@ -79,6 +80,26 @@ children: <Widget>[
                   
                 ),
               ),
+              
+             /*   Padding(
+                padding: const EdgeInsets.only(left: 5.0, right: 5.0),
+                child: Card(
+                 // elevation: 10.0,
+                 child: Container(
+                     height: 150.0,
+                     width: width,
+                    // color: Palette.greyBackground,
+                   // child: Theme(
+           // data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
+            
+        //  ),
+
+                    ),
+                  
+                ),
+              ), */
+              SizedBox(height: 0.0,),
+              ExpansionPanelsDemo(),
                Padding(
                 padding: const EdgeInsets.only(left: 5.0, right: 5.0),
                 child: Card(
@@ -97,24 +118,6 @@ children: <Widget>[
                   
                 ),
               ),
-               Padding(
-                padding: const EdgeInsets.only(left: 5.0, right: 5.0),
-                child: Card(
-                 // elevation: 10.0,
-                 child: Container(
-                     height: 150.0,
-                     width: width,
-                    // color: Palette.greyBackground,
-                   // child: Theme(
-           // data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
-            child: ModalTrigger(),
-        //  ),
-
-                    ),
-                  
-                ),
-              ),
-              SizedBox(height: 400.0,),
           ]
              ),
 ]
