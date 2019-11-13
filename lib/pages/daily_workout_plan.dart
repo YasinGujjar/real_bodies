@@ -29,30 +29,36 @@ class _DailyWorkOutPlanState extends State<DailyWorkOutPlan> {
          // color: Colors.transparent,
          // color: Colors.blue,
           child:
-             Column(
-               children: <Widget>[
-                 Container(
-                   height: height * 0.85,
+             Container(
+               height: height,
+               width: width,
+               child: Column(
 
-                   child: CustomScrollView(
-
-
-                      slivers:[
-
-                        SliverPersistentHeader(
-                          delegate: MySliverAppBar(expandedHeight: 200),
-                          pinned: true,
-                        ),
+                 children: <Widget>[
+                   Expanded(
+                     flex: 8,
+                     child: Container(
 
 
+                       child: CustomScrollView(
 
 
-                        SliverPersistentHeader(
-                          delegate: MiddleSliverAppBar(expandedHeight: 80, title:'30 minutes'),
-                          //delegate: ,
-                          floating: false,
-                         pinned: true,
-                        ),
+                          slivers:[
+
+                            SliverPersistentHeader(
+                              delegate: MySliverAppBar(expandedHeight: 200),
+                              pinned: true,
+                            ),
+
+
+
+
+                            SliverPersistentHeader(
+                              delegate: MiddleSliverAppBar(expandedHeight: 80, title:'30 minutes'),
+                              //delegate: ,
+                              floating: false,
+                             pinned: true,
+                            ),
 //                    SliverPersistentHeader(
 //                      delegate: MiddleSecondSliverAppBar(expandedHeight: 28),
 //                      //delegate: ,
@@ -61,12 +67,12 @@ class _DailyWorkOutPlanState extends State<DailyWorkOutPlan> {
 //
 //                    ),
 
-                    SliverList(
+                        SliverList(
 
-                        delegate: SliverChildListDelegate(
-                          [
+                            delegate: SliverChildListDelegate(
+                              [
 
-                            Container(
+                                Container(
 
 //                 decoration: BoxDecoration(
 //                   color: Palette.mainPurple,
@@ -74,172 +80,177 @@ class _DailyWorkOutPlanState extends State<DailyWorkOutPlan> {
 //
 //                 ),
 
-                            child:
+                                child:
 
-                              Column(
-                               children: <Widget>[
-                     SizedBox(
-                       height: 5,
-                     ),
+                                  Column(
+                                   children: <Widget>[
+                         SizedBox(
+                           height: 5,
+                         ),
 
 
-                                 Container(
-                                  // height: height - height *0.20,
-                                  // color: Colors.white,
-                                //   height: 20,
+                                     Container(
+                                      // height: height - height *0.20,
+                                      // color: Colors.white,
+                                    //   height: 20,
 //                       decoration: BoxDecoration(
 //                         color: Colors.white,
 //                         borderRadius: BorderRadius.only(topLeft: Radius.elliptical(70,40),topRight: Radius.elliptical(70,40)),
 //
 //                       ),
-                                 ),
-
-                                 Container(
-                                   width: width,
-
-                                   color: Colors.white,
-                                   child: Column(
-                                     children: <Widget>[
-                                     Card(
-                                     elevation: 0.0,
-                                     margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-                                     child: Container(
-                                       decoration: BoxDecoration(//color: Color.fromRGBO(64, 75, 96, .9),
-                                       border: Border.all(color: Colors.grey, width: 2.5),
-                                       borderRadius: BorderRadius.circular(25.0),),
-                                       child: makeListTile2,
                                      ),
-                                   ),
-                                     ],
-                                   ),
-                                 ),
-                                 Container(
-                                   width: width,
 
-                                   color: Colors.white,
-                                   child: Column(
-                                     children: <Widget>[
-                                       Card(
+                                     Container(
+                                       width: width,
+
+                                       color: Colors.white,
+                                       child: Column(
+                                         children: <Widget>[
+                                         Card(
                                          elevation: 0.0,
                                          margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
                                          child: Container(
-                                           decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9),
-                                               borderRadius: BorderRadius.circular(25.0),
-
-                                         ),
-                                           child: makeListTile,
-                                         ),
-                                       ),
-                                     ],
-                                   ),
-                                 ),
-                                 Container(
-                                   width: width,
-
-                                   color: Colors.white,
-                                   child: Column(
-                                     children: <Widget>[
-                                       Card(
-                                         elevation: 0.0,
-                                         margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-                                         child: Container(
-                                           decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-                                           child: makeListTile,
+                                           decoration: BoxDecoration(//color: Color.fromRGBO(64, 75, 96, .9),
+                                           border: Border.all(color: Colors.grey, width: 2.5),
+                                           borderRadius: BorderRadius.circular(25.0),),
+                                           child: makeListTile2,
                                          ),
                                        ),
-                                     ],
-                                   ),
-                                 ),
-                                 Container(
-                                   width: width,
-
-                                   color: Colors.white,
-                                   child: Column(
-                                     children: <Widget>[
-                                       Card(
-                                         elevation: 0.0,
-                                         margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-                                         child: Container(
-                                           decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-                                           child: makeListTile,
-                                         ),
+                                         ],
                                        ),
-                                     ],
-                                   ),
-                                 ),
-                                 Container(
-                                   width: width,
+                                     ),
+                                     Container(
+                                       width: width,
 
-                                   color: Colors.white,
-                                   child: Column(
-                                     children: <Widget>[
-                                       Card(
-                                         elevation: 0.0,
-                                         margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-                                         child: Container(
-                                           decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-                                           child: makeListTile,
-                                         ),
+                                       color: Colors.white,
+                                       child: Column(
+                                         children: <Widget>[
+                                           Card(
+                                             elevation: 0.0,
+                                             margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+                                             child: Container(
+                                               decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9),
+                                                   borderRadius: BorderRadius.circular(25.0),
+
+                                             ),
+                                               child: makeListTile,
+                                             ),
+                                           ),
+                                         ],
                                        ),
-                                     ],
-                                   ),
-                                 ),
-                                 Container(
-                                   width: width,
+                                     ),
+                                     Container(
+                                       width: width,
 
-                                   color: Colors.white,
-                                   child: Column(
-                                     children: <Widget>[
-                                       Card(
-                                         elevation: 0.0,
-                                         margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-                                         child: Container(
-                                           decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-                                           child: makeListTile,
-                                         ),
+                                       color: Colors.white,
+                                       child: Column(
+                                         children: <Widget>[
+                                           Card(
+                                             elevation: 0.0,
+                                             margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+                                             child: Container(
+                                               decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+                                               child: makeListTile,
+                                             ),
+                                           ),
+                                         ],
                                        ),
-                                     ],
-                                   ),
+                                     ),
+                                     Container(
+                                       width: width,
+
+                                       color: Colors.white,
+                                       child: Column(
+                                         children: <Widget>[
+                                           Card(
+                                             elevation: 0.0,
+                                             margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+                                             child: Container(
+                                               decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+                                               child: makeListTile,
+                                             ),
+                                           ),
+                                         ],
+                                       ),
+                                     ),
+                                     Container(
+                                       width: width,
+
+                                       color: Colors.white,
+                                       child: Column(
+                                         children: <Widget>[
+                                           Card(
+                                             elevation: 0.0,
+                                             margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+                                             child: Container(
+                                               decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+                                               child: makeListTile,
+                                             ),
+                                           ),
+                                         ],
+                                       ),
+                                     ),
+                                     Container(
+                                       width: width,
+
+                                       color: Colors.white,
+                                       child: Column(
+                                         children: <Widget>[
+                                           Card(
+                                             elevation: 0.0,
+                                             margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+                                             child: Container(
+                                               decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+                                               child: makeListTile,
+                                             ),
+                                           ),
+                                         ],
+                                       ),
+                                     ),
+
+
+
+                                   ],
                                  ),
+                                ),
 
 
-
-                               ],
-                             ),
+                            ],
                             ),
-
-
-                        ],
                         ),
-                    ),
 
 ],
 
 
-                    ),
-                 ),
-                 Container(
-                   height: height * 0.11,
-                   color: Colors.white,
-                   child: Center(
-                     child:  Container(
-                       height: 50,
-                       width: width * 0.80,
-                       child: FlatButton(
-                         shape: new RoundedRectangleBorder(
-                             borderRadius: new BorderRadius.circular(30.0),
+                        ),
+                     ),
+                   ),
+                   Expanded(
+                     flex: 1,
+                     child: Container(
+
+                       color: Colors.white,
+                       child: Center(
+                         child:  Container(
+                           height: 50,
+                           width: width * 0.80,
+                           child: FlatButton(
+                             shape: new RoundedRectangleBorder(
+                                 borderRadius: new BorderRadius.circular(30.0),
+                             ),
+                             onPressed: () {},
+                             color: Palette.mainPurple,
+                             textColor: Colors.white,
+                             child: Text("Start".toUpperCase(),
+                                 style: TextStyle(fontSize: 14,
+                                 fontWeight: FontWeight.bold)),
+                           ),
                          ),
-                         onPressed: () {},
-                         color: Palette.mainPurple,
-                         textColor: Colors.white,
-                         child: Text("Start".toUpperCase(),
-                             style: TextStyle(fontSize: 14,
-                             fontWeight: FontWeight.bold)),
                        ),
                      ),
                    ),
-                 ),
-               ],
+                 ],
+               ),
              ),
 
 

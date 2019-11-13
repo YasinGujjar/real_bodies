@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/screens/modal_trigger.dart';
 import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
+import 'package:real_bodies/ui/widgets/weight_chart.dart';
 
 class UserProfile extends StatefulWidget {
   @override
@@ -114,7 +115,12 @@ children: <Widget>[
                   
                 ),
               ),
-              SizedBox(height: 400.0,),
+              SizedBox(height: 10.0,),
+            Container(
+              child: WeightChart(),
+              height: 200,
+              width: 400,
+            ),
           ]
              ),
 ]
