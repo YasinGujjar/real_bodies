@@ -18,7 +18,7 @@ class _WeightChartState extends State<WeightChart> {
        new LinearSales(0, 5),
        new LinearSales(1, 25),
        new LinearSales(2, 100),
-       new LinearSales(3, 75),
+       new LinearSales(200, 75),
      ];
 
        seriesList.add(charts.Series(

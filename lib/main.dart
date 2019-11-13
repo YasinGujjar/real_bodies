@@ -7,13 +7,10 @@ import 'package:real_bodies/pages/food_diary_today.dart';
 import 'package:real_bodies/pages/search_food.dart';
 import 'package:real_bodies/pages/starting_pages.dart';
 import 'package:real_bodies/theme/palette.dart';
-<<<<<<< HEAD
 import 'package:real_bodies/ui/screens/expansion_panel.dart';
-=======
-import 'package:real_bodies/ui/screens/desktop.dart';
->>>>>>> 1709812b5a83442c6b747403695e32b588a17cf5
 import 'package:real_bodies/ui/screens/gender_page.dart';
 import 'package:real_bodies/ui/screens/goal_page.dart';
+import 'package:real_bodies/ui/screens/sign_in_screen.dart';
 import 'package:real_bodies/ui/screens/sign_up_screen.dart';
 import 'package:real_bodies/ui/screens/user_profile.dart';
 import 'package:real_bodies/ui/screens/walk_screen.dart';
@@ -41,11 +38,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-<<<<<<< HEAD
-      home: UserProfile(),//MyHomePage(title: 'Demo'),
-=======
-      home: WalkthroughScreen(),//MyHomePage(title: 'Demo'),
->>>>>>> 1709812b5a83442c6b747403695e32b588a17cf5
+      home: SignInScreen(),//MyHomePage(title: 'Demo'),
     );
   }
 }

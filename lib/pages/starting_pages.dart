@@ -26,6 +26,7 @@ class _StartingPagesState extends State<StartingPages> {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: PageView(
+        physics:new NeverScrollableScrollPhysics(),
            controller: pageController,
         children: <Widget>[
 

@@ -86,6 +86,7 @@ import 'package:real_bodies/ui/widgets/info_text_field.dart';
 
                      InfoTextField(
                       pageController: widget.pageController,
+                      pagename: "old",
                       postfix: " CM",
                       controller: _infooldcontroller,
                     ),

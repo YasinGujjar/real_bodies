@@ -50,17 +50,25 @@ children: <Widget>[
                             top: 120.0,
                             left: 20.0,
                             
-                            child: Container(
+                            child: GestureDetector(
+                                                          child: Hero
                               
-                              height: 80.0,
-                              width: 80.0,
-                              decoration: BoxDecoration(
-                                   borderRadius: BorderRadius.circular(45.0),
+                              (
+                                tag: 'my-hero-animation-tag',
+                                                            child: Container(
                                   
-                                 image: DecorationImage(
-                                   image: ExactAssetImage('assets/images/fit2.jpg'),
+                                  height: 80.0,
+                                  width: 80.0,
+                                  decoration: BoxDecoration(
+                                       borderRadius: BorderRadius.circular(45.0),
+                                      
+                                     image: DecorationImage(
+                                       image: ExactAssetImage('assets/images/fit2.jpg'),
       fit: BoxFit.cover,
-                                 ) ),
+                                     ) ),
+                                ),
+                              ),
+                              onTap: () => _showSecondPage(context),
                             ))
                       ],
                     ),
@@ -101,43 +109,58 @@ children: <Widget>[
               ), */
               SizedBox(height: 0.0,),
               ExpansionPanelsDemo(),
-               Padding(
-                padding: const EdgeInsets.only(left: 5.0, right: 5.0),
-                child: Card(
-                //  elevation: 10.0,
-                 child: Container(
-                     height: 250.0,
-                    // color: Palette.greyBackground,
-                        child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: categories(),
-                          ),
-                        ),
+             
+                // child: Card(
+                  //elevation: 10.0,
+                Padding(
+                  padding: const EdgeInsets.only(left:20.0,right: 20.0),
+                  child: Card(
+                    elevation: 5.0,
+                                      child: Container(
+                      
+                         height: 250.0,
+                         width: width,
+                        // color: Palette.greyBackground,
+                           
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: WeightChart(),
+                                ),
+                              
+                            
 
-                    ),
-                  
+                        ),
+                  ),
                 ),
-              ),
-<<<<<<< HEAD
-=======
-              SizedBox(height: 10.0,),
-            Container(
-              child: WeightChart(),
-              height: 200,
-              width: 400,
-            ),
->>>>>>> 1709812b5a83442c6b747403695e32b588a17cf5
+                SizedBox(height:20.0),
+                  
+                
+              
           ]
              ),
 ]
 ),   
     );
   }
+ void _showSecondPage(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => Scaffold(
+          body: Center(
+            child: Hero(
+              tag: 'my-hero-animation-tag',
+              child: Image.asset('assets/images/fit2.jpg'),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
 }
 
 //list
-Widget categories() {
+/* Widget categories() {
   return Container(
     height: 185,
     child: ListView(
@@ -171,10 +194,10 @@ Widget categories() {
       ],
     ),
   );
-}
+} */
 
 //class
-class CategoryListItem extends StatelessWidget {
+/* class CategoryListItem extends StatelessWidget {
   const CategoryListItem({
     Key key,
     @required this.categoryIcon,
@@ -318,7 +341,7 @@ _showModalBottomSheet(context) {
       ),
     );
   }
-}
+} */
 //Dcorated Textfiled for bottom sheet
 class DecoratedTextField extends StatelessWidget {
   @override

@@ -80,6 +80,7 @@ import 'package:real_bodies/ui/widgets/info_text_field.dart';
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 InfoTextField(
+                  pagename: "weight",
                   pageController: widget.pageController,
                   postfix: " Kg",
                   controller: _infoweightcontroller,

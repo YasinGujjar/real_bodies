@@ -111,7 +111,7 @@ import 'package:real_bodies/theme/palette.dart';
                     splashColor: Colors.blue,
                     onTap: () {
                       print("tapped");
-                      widget.pageController.animateToPage(2, duration: Duration(milliseconds: 400), curve: Curves.easeInCubic);
+                      widget.pageController.animateToPage(1, duration: Duration(milliseconds: 400), curve: Curves.easeInCubic);
 
                     },
                     child: Container(

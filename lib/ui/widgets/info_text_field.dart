@@ -4,13 +4,15 @@ class InfoTextField extends StatefulWidget {
   final String postfix;
   final TextEditingController controller;
   final  PageController pageController;
+  final String pagename;
 
 
 
   InfoTextField(
       {this.postfix,
       this.controller,
-        this.pageController
+        this.pageController,
+        this.pagename
      });
 
   _InfoTextFieldState createState() => _InfoTextFieldState();
@@ -39,6 +41,7 @@ class _InfoTextFieldState extends State<InfoTextField> {
           width: 60,
           height: 60,
           child: TextField(
+            
             controller: widget.controller,
             textAlign: TextAlign.center,
             decoration: InputDecoration(
@@ -73,7 +76,20 @@ class _InfoTextFieldState extends State<InfoTextField> {
             });
             },
             onSubmitted: (text){
-              widget.pageController.animateToPage(3, duration: Duration(milliseconds: 400), curve: Curves.easeInCubic);
+              if(widget.pagename=="old")
+              {
+ widget.pageController.animateToPage(3, duration: Duration(milliseconds: 400), curve: Curves.easeInCubic);
+              }
+               if(widget.pagename=="weight")
+              {
+ widget.pageController.animateToPage(4, duration: Duration(milliseconds: 400), curve: Curves.easeInCubic);
+              }
+               if(widget.pagename=="height")
+              {
+                 widget.pageController.animateToPage(5, duration: Duration(milliseconds: 400), curve: Curves.easeInCubic);
+              }
+
+             
 
             },
           ),
