@@ -54,23 +54,23 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
 //       );
 //     }
 
-    List<charts.Series<LinearSales, int>> _createSampleData() {
-      final data = [
-        new LinearSales(0, 100),
-        new LinearSales(1, 75),
-        new LinearSales(2, 25),
-        new LinearSales(3, 5),
-      ];
-
-      return [
-        new charts.Series<LinearSales, int>(
-          id: 'Sales',
-          domainFn: (LinearSales sales, _) => sales.year,
-          measureFn: (LinearSales sales, _) => sales.sales,
-          data: data,
-        )
-      ];
-    }
+//    List<charts.Series<LinearSales, int>> _createSampleData() {
+//      final data = [
+//        new LinearSales(0, 100),
+//        new LinearSales(1, 75),
+//        new LinearSales(2, 25),
+//        new LinearSales(3, 5),
+//      ];
+//
+//      return [
+//        new charts.Series<LinearSales, int>(
+//          id: 'Sales',
+//          domainFn: (LinearSales sales, _) => sales.year,
+//          measureFn: (LinearSales sales, _) => sales.sales,
+//          data: data,
+//        )
+//      ];
+//    }
 
     _seriesPieData = List<charts.Series<ChartData, String>>();
     _generateData();

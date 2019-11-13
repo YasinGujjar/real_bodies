@@ -5,6 +5,8 @@ import 'package:real_bodies/ui/widgets/category_item.dart';
 import 'package:real_bodies/ui/widgets/info_text_field.dart';
  
  class WeightPage extends StatefulWidget {
+   final  PageController pageController;
+   WeightPage({this.pageController});
    @override
    _WeightPageState createState() => _WeightPageState();
  }
@@ -15,8 +17,7 @@ import 'package:real_bodies/ui/widgets/info_text_field.dart';
    Widget build(BuildContext context) {
       double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-     return Scaffold(
-            body: Container(
+     return  Container(
             color: Palette.mainPurple,
             child: ListView(
               children: <Widget>[
@@ -79,6 +80,7 @@ import 'package:real_bodies/ui/widgets/info_text_field.dart';
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 InfoTextField(
+                  pageController: widget.pageController,
                   postfix: " Kg",
                   controller: _infoweightcontroller,
                 )
@@ -90,7 +92,7 @@ import 'package:real_bodies/ui/widgets/info_text_field.dart';
                 )
               ],
             ),
-          ),
+
      );
    }
  }

@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:real_bodies/theme/palette.dart';
  
  class GoalPage extends StatefulWidget {
+ //  final void Function(int) onAddButtonTapped;
+  final  PageController pageController;
+
+  GoalPage({this.pageController});
+
+
+
+
    @override
    _GoalPageState createState() => _GoalPageState();
  }
@@ -77,7 +85,8 @@ import 'package:real_bodies/theme/palette.dart';
                     splashColor: Colors.blue,
                     onTap: () {
                       print("tapped");
-                     
+                      widget.pageController.animateToPage(1, duration: Duration(milliseconds: 400), curve: Curves.easeInCubic);
+
                     },
                     child: Container(
                       child: ListTile(
@@ -102,6 +111,8 @@ import 'package:real_bodies/theme/palette.dart';
                     splashColor: Colors.blue,
                     onTap: () {
                       print("tapped");
+                      widget.pageController.animateToPage(2, duration: Duration(milliseconds: 400), curve: Curves.easeInCubic);
+
                     },
                     child: Container(
                       child: ListTile(
@@ -126,6 +137,8 @@ import 'package:real_bodies/theme/palette.dart';
                     splashColor: Colors.blue,
                     onTap: () {
                       print("tapped");
+                      widget.pageController.animateToPage(1, duration: Duration(milliseconds: 400), curve: Curves.easeInCubic);
+
                     },
                     child: Container(
                       child: ListTile(

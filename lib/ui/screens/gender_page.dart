@@ -4,6 +4,9 @@ import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/category_item.dart';
  
  class GenderPage extends StatefulWidget {
+   final  PageController pageController;
+   GenderPage({this.pageController});
+
    @override
    _GenderPageState createState() => _GenderPageState();
  }
@@ -13,8 +16,7 @@ import 'package:real_bodies/ui/widgets/category_item.dart';
    Widget build(BuildContext context) {
       double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-     return Scaffold(
-            body: Container(
+     return Container(
             color: Palette.mainPurple,
             child: ListView(
               children: <Widget>[
@@ -81,7 +83,8 @@ import 'package:real_bodies/ui/widgets/category_item.dart';
                     name: 'Male',
                     icon: MyFlutterApp.male,
                     onPressed: () {
-                      
+                      widget.pageController.animateToPage(2, duration: Duration(milliseconds: 400), curve: Curves.easeInCubic);
+
                     },
                     color: Colors.white,
                     elevation: 20.0,
@@ -93,6 +96,8 @@ import 'package:real_bodies/ui/widgets/category_item.dart';
                     icon: MyFlutterApp.female,
                     onPressed: () {
                       print("Hoo gyaaaaa");
+                      widget.pageController.animateToPage(2, duration: Duration(milliseconds: 400), curve: Curves.easeInCubic);
+
                     },
                     color: Colors.white,
                     elevation: 20.0,
@@ -107,7 +112,7 @@ import 'package:real_bodies/ui/widgets/category_item.dart';
                 )
               ],
             ),
-          ),
-     );
+          );
+
    }
  }

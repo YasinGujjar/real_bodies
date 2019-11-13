@@ -3,6 +3,7 @@ import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/screens/expansion_panel.dart';
 import 'package:real_bodies/ui/screens/modal_trigger.dart';
 import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
+import 'package:real_bodies/ui/widgets/weight_chart.dart';
 
 class UserProfile extends StatefulWidget {
   @override
@@ -118,6 +119,15 @@ children: <Widget>[
                   
                 ),
               ),
+<<<<<<< HEAD
+=======
+              SizedBox(height: 10.0,),
+            Container(
+              child: WeightChart(),
+              height: 200,
+              width: 400,
+            ),
+>>>>>>> 1709812b5a83442c6b747403695e32b588a17cf5
           ]
              ),
 ]
