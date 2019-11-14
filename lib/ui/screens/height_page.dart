@@ -83,6 +83,7 @@ import 'package:real_bodies/ui/widgets/info_text_field.dart';
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 InfoTextField(
+                  
                   pageController: widget.pageController,
                   postfix: " Ft.",
                   controller: _infoftcontroller,
@@ -91,6 +92,7 @@ import 'package:real_bodies/ui/widgets/info_text_field.dart';
                   padding: const EdgeInsets.all(6.0),
                 ),
                 InfoTextField(
+                  pagename: "height",
                   pageController: widget.pageController,
                   postfix: " In.",
                   controller: _infoincontroller,

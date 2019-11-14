@@ -10,6 +10,7 @@ class CustomTextField extends StatefulWidget {
   final bool obscureText;
   final Function validator;
   final Function onChanged;
+ //
 
   CustomTextField(
       {this.hint,
@@ -20,7 +21,8 @@ class CustomTextField extends StatefulWidget {
       this.errorColor,
       this.inputType = TextInputType.text,
       this.obscureText = false,
-      this.validator});
+      this.validator,
+      });
 
   _CustomTextFieldState createState() => _CustomTextFieldState();
 }

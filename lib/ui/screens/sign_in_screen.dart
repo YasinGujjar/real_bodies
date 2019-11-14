@@ -140,7 +140,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           ),
                         ),
                       ),
-                      Padding(
+            /*           Padding(
                         padding: const EdgeInsets.symmetric(
                             vertical: 14.0, horizontal: 40.0),
                         child: CustomFlatButton(
@@ -160,7 +160,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           borderWidth: 0,
                           color: Color.fromRGBO(59, 89, 152, 1.0),
                         ),
-                      ),
+                      ), */
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             vertical: 2.0, horizontal: 40.0),

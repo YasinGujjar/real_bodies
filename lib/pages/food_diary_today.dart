@@ -204,34 +204,43 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                     ),
                   )),
             ),
-            Container(
-              height: height * 0.32,
-              width: width * 0.97,
-              child: charts.PieChart(
-                _seriesPieData,
-                animate: true,
-                animationDuration: Duration(seconds: 3),
-                behaviors: [
-                  charts.DatumLegend(
-                    outsideJustification:
-                        charts.OutsideJustification.endDrawArea,
-                    horizontalFirst: false,
-                    desiredMaxRows: 2,
-                    cellPadding: EdgeInsets.only(right: 2.0, bottom: 2.0),
-                    entryTextStyle: charts.TextStyleSpec(
-                      color: charts.MaterialPalette.black.darker,
-                      fontFamily: 'Georgia',
-                      fontSize: 10,
+            Padding(
+              padding: const EdgeInsets.only(left:8.0,right: 8.0),
+              child: Card(
+                elevation: 4.0,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                  height: height * 0.32,
+                  width: width * 0.97,
+                  child: charts.PieChart(
+                    _seriesPieData,
+                    animate: true,
+                    animationDuration: Duration(seconds: 3),
+                    behaviors: [
+                      charts.DatumLegend(
+                        outsideJustification:
+                              charts.OutsideJustification.endDrawArea,
+                        horizontalFirst: false,
+                        desiredMaxRows: 2,
+                        cellPadding: EdgeInsets.only(right: 2.0, bottom: 2.0),
+                        entryTextStyle: charts.TextStyleSpec(
+                          color: charts.MaterialPalette.black.darker,
+                          fontFamily: 'Georgia',
+                          fontSize: 10,
+                        ),
+                      )
+                    ],
+                    defaultRenderer: new charts.ArcRendererConfig(
+                      arcWidth: 100,
+                      arcRendererDecorators: [
+                        charts.ArcLabelDecorator(
+                              labelPosition: charts.ArcLabelPosition.outside),
+                      ],
                     ),
-                  )
-                ],
-                defaultRenderer: new charts.ArcRendererConfig(
-                  arcWidth: 100,
-                  arcRendererDecorators: [
-                    charts.ArcLabelDecorator(
-                        labelPosition: charts.ArcLabelPosition.outside),
-                  ],
+                  ),
                 ),
+                            ),
               ),
             ),
 
