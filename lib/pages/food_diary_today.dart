@@ -9,6 +9,8 @@ import 'package:liquid_progress_indicator/liquid_progress_indicator.dart'
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:real_bodies/ui/widgets/category_item.dart';
 
+import 'add_food_main.dart';
+
 class FoodDiaryToday extends StatefulWidget {
   @override
   _FoodDiaryTodayState createState() => _FoodDiaryTodayState();
@@ -270,7 +272,11 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 icon: MyFlutterApp.free_breakfast,
                                 color: Colors.black,
                                 elevation: 3.0,
-                                onPressed: () => {},
+                                onPressed: ()  {
+                                Navigator.push(context,
+                                MaterialPageRoute(builder: (context) => AddFoodMain()),
+                                );
+                                },
                                  bgColor: Palette.greyBackground,
                                  click: Palette.greyBackground,
                               )),
@@ -283,6 +289,11 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 icon: MyFlutterApp.food,
                                 color: Colors.black,
                                 elevation: 3.0,
+                                onPressed: ()  {
+                                  Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) => AddFoodMain()),
+                                  );
+                                },
                                 bgColor: Palette.greyBackground,
                                   click: Palette.greyBackground,
                               )),
@@ -295,6 +306,11 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 icon: MyFlutterApp.dinner,
                                 color: Colors.black,
                                 elevation: 3.0,
+                                onPressed: ()  {
+                                  Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) => AddFoodMain()),
+                                  );
+                                },
                                  bgColor: Palette.greyBackground,
                                    click: Palette.greyBackground,
                               )),
@@ -316,6 +332,11 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 icon: MyFlutterApp.fast_food,
                                 color: Colors.black,
                                 elevation: 3.0,
+                                onPressed: ()  {
+                                  Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) => AddFoodMain()),
+                                  );
+                                },
                                  bgColor: Palette.greyBackground,
                                    click: Palette.greyBackground,
                               )),
@@ -328,6 +349,11 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 icon: MyFlutterApp.fast_food,
                                 color: Colors.black,
                                 elevation: 3.0,
+                                onPressed: ()  {
+                                  Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) => AddFoodMain()),
+                                  );
+                                },
                                  bgColor: Palette.greyBackground,
                                    click: Palette.greyBackground,
                               )),
@@ -340,6 +366,11 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 icon: MyFlutterApp.fast_food,
                                 color: Colors.black,
                                 elevation: 3.0,
+                                onPressed: ()  {
+                                  Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) => AddFoodMain()),
+                                  );
+                                },
                                  bgColor: Palette.greyBackground,
                                    click: Palette.greyBackground,
                               )),

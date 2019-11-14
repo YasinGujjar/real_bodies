@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:real_bodies/models/walkthrough.dart';
+import 'package:real_bodies/pages/add_food_main.dart';
 import 'package:real_bodies/pages/daily_workout_plan.dart';
 import 'package:real_bodies/pages/exercise.dart';
 import 'package:real_bodies/pages/exercise_details.dart';
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: WalkthroughScreen(),//MyHomePage(title: 'Demo'),
+      home: FoodDiaryToday(),//MyHomePage(title: 'Demo'),
     );
   }
 }

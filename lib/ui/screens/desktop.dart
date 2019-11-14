@@ -36,7 +36,7 @@ class _DesktopState extends State<Desktop> {
                        Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => UserProfile())); 
                     },
-                                          child: Container(
+                      child: Container(
                         height: 50.0,
                         width: 50.0,
                         decoration: BoxDecoration(
