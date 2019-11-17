@@ -85,8 +85,8 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Palette.mainPurple,
-         automaticallyImplyLeading: false,
-    centerTitle: true,
+          automaticallyImplyLeading: false,
+          centerTitle: true,
           title: Center(
             child: Container(
               // height: height * 0.06,
@@ -171,8 +171,8 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                       value: 0.50, // Defaults to 0.5.
                       valueColor: AlwaysStoppedAnimation(Palette
                           .mainPurple), // Defaults to the current Theme's accentColor.
-                      backgroundColor: Palette.lightPurple
-                          , // Defaults to the current Theme's backgroundColor.
+                      backgroundColor: Palette
+                          .lightPurple, // Defaults to the current Theme's backgroundColor.
                       borderColor: Palette.darkPurple,
                       borderWidth: 2.0,
                       borderRadius: 12.0,
@@ -205,42 +205,42 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                   )),
             ),
             Padding(
-              padding: const EdgeInsets.only(left:8.0,right: 8.0),
+              padding: const EdgeInsets.only(left: 8.0, right: 8.0),
               child: Card(
                 elevation: 4.0,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                  height: height * 0.32,
-                  width: width * 0.97,
-                  child: charts.PieChart(
-                    _seriesPieData,
-                    animate: true,
-                    animationDuration: Duration(seconds: 3),
-                    behaviors: [
-                      charts.DatumLegend(
-                        outsideJustification:
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: height * 0.32,
+                    width: width * 0.97,
+                    child: charts.PieChart(
+                      _seriesPieData,
+                      animate: true,
+                      animationDuration: Duration(seconds: 1),
+                      behaviors: [
+                        charts.DatumLegend(
+                          outsideJustification:
                               charts.OutsideJustification.endDrawArea,
-                        horizontalFirst: false,
-                        desiredMaxRows: 2,
-                        cellPadding: EdgeInsets.only(right: 2.0, bottom: 2.0),
-                        entryTextStyle: charts.TextStyleSpec(
-                          color: charts.MaterialPalette.black.darker,
-                          fontFamily: 'Georgia',
-                          fontSize: 10,
-                        ),
-                      )
-                    ],
-                    defaultRenderer: new charts.ArcRendererConfig(
-                      arcWidth: 100,
-                      arcRendererDecorators: [
-                        charts.ArcLabelDecorator(
-                              labelPosition: charts.ArcLabelPosition.outside),
+                          horizontalFirst: false,
+                          desiredMaxRows: 2,
+                          cellPadding: EdgeInsets.only(right: 2.0, bottom: 2.0),
+                          entryTextStyle: charts.TextStyleSpec(
+                            color: charts.MaterialPalette.black.darker,
+                            fontFamily: 'Georgia',
+                            fontSize: 10,
+                          ),
+                        )
                       ],
+                      defaultRenderer: new charts.ArcRendererConfig(
+                        arcWidth: 100,
+                        arcRendererDecorators: [
+                          charts.ArcLabelDecorator(
+                              labelPosition: charts.ArcLabelPosition.outside),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                            ),
               ),
             ),
 
@@ -257,7 +257,7 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                   )),
             ),
             Container(
-              height: height * 0.35,
+              height: height * 0.33,
               width: width * 0.97,
               decoration: BoxDecoration(
                 // color: Palette.greyBackground,
@@ -281,13 +281,15 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 icon: MyFlutterApp.free_breakfast,
                                 color: Colors.black,
                                 elevation: 3.0,
-                                onPressed: ()  {
-                                Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => AddFoodMain()),
-                                );
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => AddFoodMain()),
+                                  );
                                 },
-                                 bgColor: Palette.greyBackground,
-                                 click: Palette.greyBackground,
+                                bgColor: Palette.greyBackground,
+                                click: Palette.greyBackground,
                               )),
                         ),
                         Expanded(
@@ -298,13 +300,15 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 icon: MyFlutterApp.food,
                                 color: Colors.black,
                                 elevation: 3.0,
-                                onPressed: ()  {
-                                  Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) => AddFoodMain()),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => AddFoodMain()),
                                   );
                                 },
                                 bgColor: Palette.greyBackground,
-                                  click: Palette.greyBackground,
+                                click: Palette.greyBackground,
                               )),
                         ),
                         Expanded(
@@ -315,13 +319,15 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 icon: MyFlutterApp.dinner,
                                 color: Colors.black,
                                 elevation: 3.0,
-                                onPressed: ()  {
-                                  Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) => AddFoodMain()),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => AddFoodMain()),
                                   );
                                 },
-                                 bgColor: Palette.greyBackground,
-                                   click: Palette.greyBackground,
+                                bgColor: Palette.greyBackground,
+                                click: Palette.greyBackground,
                               )),
                         ),
                       ],
@@ -341,13 +347,15 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 icon: MyFlutterApp.fast_food,
                                 color: Colors.black,
                                 elevation: 3.0,
-                                onPressed: ()  {
-                                  Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) => AddFoodMain()),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => AddFoodMain()),
                                   );
                                 },
-                                 bgColor: Palette.greyBackground,
-                                   click: Palette.greyBackground,
+                                bgColor: Palette.greyBackground,
+                                click: Palette.greyBackground,
                               )),
                         ),
                         Expanded(
@@ -358,13 +366,15 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 icon: MyFlutterApp.fast_food,
                                 color: Colors.black,
                                 elevation: 3.0,
-                                onPressed: ()  {
-                                  Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) => AddFoodMain()),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => AddFoodMain()),
                                   );
                                 },
-                                 bgColor: Palette.greyBackground,
-                                   click: Palette.greyBackground,
+                                bgColor: Palette.greyBackground,
+                                click: Palette.greyBackground,
                               )),
                         ),
                         Expanded(
@@ -375,13 +385,15 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
                                 icon: MyFlutterApp.fast_food,
                                 color: Colors.black,
                                 elevation: 3.0,
-                                onPressed: ()  {
-                                  Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) => AddFoodMain()),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => AddFoodMain()),
                                   );
                                 },
-                                 bgColor: Palette.greyBackground,
-                                   click: Palette.greyBackground,
+                                bgColor: Palette.greyBackground,
+                                click: Palette.greyBackground,
                               )),
                         ),
                       ],
