@@ -129,28 +129,10 @@ class _DailyWorkOutPlanState extends State<DailyWorkOutPlan> {
                                              elevation: 0.0,
                                              margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
                                              child: Container(
-                                               decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9),
-                                                   borderRadius: BorderRadius.circular(25.0),
-
-                                             ),
-                                               child: makeListTile,
-                                             ),
-                                           ),
-                                         ],
-                                       ),
-                                     ),
-                                     Container(
-                                       width: width,
-
-                                       color: Colors.white,
-                                       child: Column(
-                                         children: <Widget>[
-                                           Card(
-                                             elevation: 0.0,
-                                             margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-                                             child: Container(
-                                               decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-                                               child: makeListTile,
+                                               decoration: BoxDecoration(//color: Color.fromRGBO(64, 75, 96, .9),
+                                                 border: Border.all(color: Colors.grey, width: 2.5),
+                                                 borderRadius: BorderRadius.circular(25.0),),
+                                               child: makeListTile2,
                                              ),
                                            ),
                                          ],
@@ -166,8 +148,10 @@ class _DailyWorkOutPlanState extends State<DailyWorkOutPlan> {
                                              elevation: 0.0,
                                              margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
                                              child: Container(
-                                               decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-                                               child: makeListTile,
+                                               decoration: BoxDecoration(//color: Color.fromRGBO(64, 75, 96, .9),
+                                                 border: Border.all(color: Colors.grey, width: 2.5),
+                                                 borderRadius: BorderRadius.circular(25.0),),
+                                               child: makeListTile2,
                                              ),
                                            ),
                                          ],
@@ -183,8 +167,10 @@ class _DailyWorkOutPlanState extends State<DailyWorkOutPlan> {
                                              elevation: 0.0,
                                              margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
                                              child: Container(
-                                               decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-                                               child: makeListTile,
+                                               decoration: BoxDecoration(//color: Color.fromRGBO(64, 75, 96, .9),
+                                                 border: Border.all(color: Colors.grey, width: 2.5),
+                                                 borderRadius: BorderRadius.circular(25.0),),
+                                               child: makeListTile2,
                                              ),
                                            ),
                                          ],
@@ -200,13 +186,32 @@ class _DailyWorkOutPlanState extends State<DailyWorkOutPlan> {
                                              elevation: 0.0,
                                              margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
                                              child: Container(
-                                               decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-                                               child: makeListTile,
+                                               decoration: BoxDecoration(//color: Color.fromRGBO(64, 75, 96, .9),
+                                                 border: Border.all(color: Colors.grey, width: 2.5),
+                                                 borderRadius: BorderRadius.circular(25.0),),
+                                               child: makeListTile2,
                                              ),
                                            ),
                                          ],
                                        ),
                                      ),
+//                                     Container(
+//                                       width: width,
+//
+//                                       color: Colors.white,
+//                                       child: Column(
+//                                         children: <Widget>[
+//                                           Card(
+//                                             elevation: 0.0,
+//                                             margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+//                                             child: Container(
+//                                               decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+//                                               child: makeListTile,
+//                                             ),
+//                                           ),
+//                                         ],
+//                                       ),
+//                                     ),
 
 
 

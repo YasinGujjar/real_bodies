@@ -1,18 +1,18 @@
 import 'package:real_bodies/blocs/blocSettings.dart';
 import 'package:real_bodies/blocs/main_bloc.dart';
 
-class PageIndexBloc extends BlocSetting{
-  int index = 0;
+class FoodQuantityBloc extends BlocSetting{
+  int quantity = 0;
 
   incrementIndex(state){
     rebuildWidgets(
      setStates: (){
-       index++;
+       quantity++;
      },
       states: [state],
     );
-    mainBloc.index =index;
+    mainBloc.quantity =quantity;
   }
 }
 
-PageIndexBloc pageIndexBloc;
+FoodQuantityBloc foodQuantityBloc;
