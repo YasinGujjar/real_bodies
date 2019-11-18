@@ -1,13 +1,25 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+import 'dart:async';
+import 'package:audioplayers/audio_cache.dart';
+import 'package:intl/intl.dart';
 
 import 'package:real_bodies/theme/palette.dart';
+
+const alarmAudioPath = "sound/timeup.mp3"; 
+const beepAudioPath = "sound/beep.mp3";
+const oneSec = const Duration(seconds:1);
+const interval = const Duration(seconds :5);
+
 
 class CountDownTimer extends StatefulWidget {
 
  // CountDownTimer ({Key key/*, this.duration}*/}) : super(key: key);          // Key take holds of state remove it to see if it affects
 
-  final int duration = 0;                                 // define Duration object to get the full duration
+  final int duration = 0;   
+                                // define Duration object to get the full duration
                                                     // use widget.duration to access it in the state class
 
 final _CountDownTimerState ct = new _CountDownTimerState();
@@ -24,22 +36,43 @@ final _CountDownTimerState ct = new _CountDownTimerState();
 class _CountDownTimerState extends State<CountDownTimer>
 with TickerProviderStateMixin
 {
+ DateTime duration = new DateTime.fromMicrosecondsSinceEpoch(interval.inMicroseconds);
+  DateFormat minutesSeconds = new DateFormat("ms");
+ Timer counterSeconds;
   AnimationController _floatBtnAnimController;
   bool _isPlaying = false;
   bool _animationCompleted = false;
  AnimationController _animationController;
-
+static AudioCache player = new AudioCache();
 
 
  String get timerString {
-   Duration duration = _animationController.duration * _animationController.value;
+   Duration duration = _animationController.duration * _animationController.value ;
+
+ //DateTime duration1 = new DateTime.fromMillisecondsSinceEpoch(duration.inSeconds);
+ //print("hjvjdfbsdhbfjsjbjhbjsbfjhgvbsfjbvjs"+duration1.toString());
+ /* if(duration.toString()=="3"){
+   player.play(beepAudioPath);
+ } */
+   if (_animationController.value == 0.0){
+      player.play(alarmAudioPath);
+      //print('lololololololololololololololo'+duration.inSeconds.toString());
+
+   }
+  /*  if(duration.inMicroseconds<=200000)
+   {
+     player.play(alarmAudioPath);
+   } */
    return '${duration.inMinutes}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
+  // return '$duration1';
  }
 
 
  @override
   void initState() {
     super.initState();
+      // _actionTimer();
+
     _floatBtnAnimController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 300));
 
@@ -52,6 +85,16 @@ with TickerProviderStateMixin
            ? 1.0
            : _animationController.value
    );
+  
+   /* _animationController.addStatusListener((status){
+if (status == AnimationStatus.completed)
+{
+  setState(() {
+     player.play(alarmAudioPath);
+
+  });
+ }
+   }); */
 
   }
 
@@ -64,14 +107,18 @@ with TickerProviderStateMixin
   }
 
   void _stopAnimation() {
+  
    if(_animationController.isCompleted){
+  //  player.play(alarmAudioPath);
      setState(() {
  _handleOnPressed();
      });
    }
   }
 
+
   void _handleOnPressed() {
+    
     setState(() {
       _isPlaying = !_isPlaying;
       _isPlaying
@@ -79,6 +126,41 @@ with TickerProviderStateMixin
           : _floatBtnAnimController.reverse();
     });
 
+  }
+
+  void handleTick() {
+    print(duration);
+    setState(() {
+      duration = duration.subtract(oneSec);
+      if (duration.second == 3) {
+        player.play(beepAudioPath);
+      //  stopTimer();
+      }
+      if (duration.second == 2) {
+        player.play(beepAudioPath);
+       
+      }
+      if (duration.second == 1) {
+        player.play(beepAudioPath);
+        
+      }
+      if (duration.second == 0) {
+        player.play(alarmAudioPath);
+        stopTimer();
+      }
+      
+
+    });
+  }
+
+  void _actionTimer() {
+    if (counterSeconds == null) {
+      startTimer();
+    } else if (counterSeconds.isActive){
+      stopTimer();
+    } else {
+      startTimer();
+    }
   }
 
 
@@ -113,9 +195,15 @@ with TickerProviderStateMixin
 
 
                                 _handleOnPressed();
-                                if (_animationController.isAnimating)
-                                    _animationController.stop();
+                                if  (_animationController.isAnimating)
+                                  {
+                                   
+                                      _animationController.stop();
+                                   //  stopTimer();
+                                }
                                   else {
+                                                                //              startTimer();
+                                   // sleep(Duration(milliseconds: 1000));
                                     _animationController.reverse(
                                         from: _animationController.value == 0.0
                                             ? 1.0
@@ -170,14 +258,14 @@ with TickerProviderStateMixin
                             },
                           ),
                         ),
-
+                         // Text('${minutesSeconds.format(duration)}'),
 
                         Positioned.fill(
                           child: Center(
                             child: FittedBox(
                               fit: BoxFit.contain,
                               child: Text(
-                                timerString,
+                                timerString, 
                                 style: TextStyle(
                                     fontSize: 40.0,
                                     color: Colors.black),
@@ -203,6 +291,18 @@ with TickerProviderStateMixin
 
         }
     );
+  }
+   void startTimer() {
+    if (duration.millisecondsSinceEpoch == 0) {
+      duration = new DateTime.fromMicrosecondsSinceEpoch(interval.inMicroseconds);
+    }
+    counterSeconds = new Timer.periodic(oneSec, (Timer t) => handleTick());
+     }
+
+  void stopTimer() {
+    counterSeconds.cancel();
+  
+
   }
   }
 //}
