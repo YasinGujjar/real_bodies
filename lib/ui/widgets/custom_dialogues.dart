@@ -32,26 +32,36 @@ class _FoodDialogueState extends State<FoodDialogue> {
         borderRadius: BorderRadius.circular(16)
       ),
       child: Container(
-        child: Row(
+        height: 100,
+        child: Column(
           children: <Widget>[
-            Text('Serving'),
-            Container(
-              width: 20,
-              child: TextField(
-                controller: textController,
-                keyboardType: TextInputType.number,
-                autofocus: true,
+            Padding(
+              padding: EdgeInsets.only(left: 10, right: 10 ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text('Serving'),
+                  Container(
+                    width: 20,
+                    child: TextField(
+                      controller: textController,
+                      keyboardType: TextInputType.number,
+                      autofocus: true,
 
+                    ),
+                  ),
+
+
+                ],
               ),
             ),
-
             FlatButton(child: Text('Okay'),
-            onPressed: (){
-              Navigator.of(context).pop();
-              foodDetailState.setQuantity(textController.text);
+              onPressed: (){
+                foodDetailState.setQuantity(textController.text);
+                Navigator.of(context).pop();
 
 
-            },)
+              },),
           ],
         ),
       ),

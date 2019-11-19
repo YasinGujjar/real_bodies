@@ -18,9 +18,14 @@ class _FoodDetailsState extends State<FoodDetails> {
   int get servingQuantity => _quantity;
 
   void setQuantity(String text){
+    print('yessssssssssssssssssssssssssssssssssssssssssssssssss');
+    print(text);
     var myInt = int.parse(text);
     assert(myInt is int);
-    _quantity = myInt;
+    setState(() {
+      _quantity = myInt;
+
+    });
   }
 
 
@@ -60,7 +65,8 @@ class _FoodDetailsState extends State<FoodDetails> {
             onTap: (){
               showDialog(context: context,
             builder: (BuildContext context) => FoodValues
-              (foodDetailsState: this,
+              (
+                foodDetailsState: this,
                 child: FoodDialogue()));
             },
             child: Container(
