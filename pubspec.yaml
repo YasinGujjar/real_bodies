@@ -29,6 +29,8 @@ dependencies:
   material_design_icons_flutter: ^3.2.4595
   liquid_progress_indicator: ^0.3.2
   charts_flutter: ^0.8.1
+  audioplayers: ^0.13.2
+  intl: ^0.16.0
   #firebase_auth: ^0.6.6
   #flutter_facebook_login: ^1.1.1
   #shared_preferences: any
@@ -63,6 +65,8 @@ flutter:
      - assets/images/blog.jpg
      - assets/images/blog2.jpg
      - assets/images/workout_list.jpg
+     - assets/sound/timeup.mp3
+     - assets/sound/beep.mp3
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
