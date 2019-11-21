@@ -24,7 +24,6 @@ class _FoodDetailsState extends State<FoodDetails> {
     assert(myInt is int);
     setState(() {
       _quantity = myInt;
-
     });
   }
 
@@ -47,6 +46,8 @@ class _FoodDetailsState extends State<FoodDetails> {
    // double abovePadding = MediaQuery.of(context).padding.top;
     //double appBarHeight = kToolbarHeight;
    // double height = MediaQuery.of(context).size.height - kToolbarHeight;
+    double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(title: Text('Mango'),),
       body: ListView(
@@ -92,6 +93,7 @@ class _FoodDetailsState extends State<FoodDetails> {
             ),
           ),
           Divider(height:5,color: Colors.grey,),
+          SizedBox(height: 5,),
           Container(
             height: 30,
             child: Padding(
@@ -114,6 +116,48 @@ class _FoodDetailsState extends State<FoodDetails> {
             ),
           ),
           Divider(height:5,color: Colors.grey,),
+          SizedBox(height: 5,),
+
+          Center(child: Container(height: 30, child: Text('Nutrients details'),)),
+          Padding(padding: EdgeInsets.only(left: 15,right: 15),
+              child: Center(child: Container(height: 10,
+                child: Row(
+                  children: <Widget>[
+                    Expanded(flex: 7,
+                        child: Container(color: Colors.green,)),
+                    Expanded(flex: 2,child: Container(color: Colors.blue,)),
+                    Expanded(flex:1,child: Container(color: Colors.red,)),
+
+                  ],
+                ),
+              ),),),
+          SizedBox(height: 10,),
+          Padding(padding: EdgeInsets.only(left: 15,right: 15),
+            child: Center(child: Container(height: 30, width: width *0.97,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    height: 20,
+                    width: 20,
+                    color: Colors.green,),
+                  Container(
+                    height: 20,
+                    width: 20,
+                    color: Colors.blue,),
+                  Container(
+                    height: 20,
+                    width: 20,
+                    color: Colors.red,),
+
+                ],
+              ),
+            ),),),
+
+
+          Divider(height:5,color: Colors.grey,),
+
+
 
 
           CupertinoButton.filled(

@@ -42,27 +42,48 @@ with TickerProviderStateMixin
   AnimationController _floatBtnAnimController;
   bool _isPlaying = false;
   bool _animationCompleted = false;
+  bool beep1 = true;
+ bool beep2 = true;
+ bool beep3 = true;
+
  AnimationController _animationController;
 static AudioCache player = new AudioCache();
 
 
  String get timerString {
-   Duration duration = _animationController.duration * _animationController.value ;
+   Duration duration = _animationController.duration * _animationController.value  ;
 
  //DateTime duration1 = new DateTime.fromMillisecondsSinceEpoch(duration.inSeconds);
  //print("hjvjdfbsdhbfjsjbjhbjsbfjhgvbsfjbvjs"+duration1.toString());
  /* if(duration.toString()=="3"){
    player.play(beepAudioPath);
  } */
-   if (_animationController.value == 0.0){
+   if (_animationController.value == 0.0 ){
       player.play(alarmAudioPath);
       //print('lololololololololololololololo'+duration.inSeconds.toString());
 
    }
-  /*  if(duration.inMicroseconds<=200000)
+   if(duration.inSeconds==2 && beep1)
    {
-     player.play(alarmAudioPath);
-   } */
+     player.play(beepAudioPath);
+
+       beep1 = false;
+
+   }
+   if(duration.inSeconds==1 && beep2)
+   {
+     player.play(beepAudioPath);
+
+     beep2 = false;
+
+   }
+   if(duration.inSeconds==0 && beep3)
+   {
+     player.play(beepAudioPath);
+
+     beep3 = false;
+
+   }
    return '${duration.inMinutes}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
   // return '$duration1';
  }
@@ -110,6 +131,9 @@ if (status == AnimationStatus.completed)
   
    if(_animationController.isCompleted){
   //  player.play(alarmAudioPath);
+     beep1 = true;
+     beep2 = true;
+     beep3 = true;
      setState(() {
  _handleOnPressed();
      });
@@ -265,7 +289,8 @@ if (status == AnimationStatus.completed)
                             child: FittedBox(
                               fit: BoxFit.contain,
                               child: Text(
-                                timerString, 
+                              //  _animationController.value==0.0?(timerString='0:00'):
+                                timerString,
                                 style: TextStyle(
                                     fontSize: 40.0,
                                     color: Colors.black),
