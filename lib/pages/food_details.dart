@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:real_bodies/models/chart_data.dart';
 import 'package:real_bodies/ui/widgets/custom_dialogues.dart';
+import 'package:charts_flutter/flutter.dart' as charts;
+
 
 class FoodDetails extends StatefulWidget {
 
@@ -16,6 +19,33 @@ class _FoodDetailsState extends State<FoodDetails> {
   int _quantity = 0;
 
   int get servingQuantity => _quantity;
+
+
+  List<charts.Series<ChartData, String>> _seriesPieData;
+  _generateData() {
+    var pieData = [
+      ChartData('Protein', 2.0, Colors.blue),
+      ChartData('Carbs', 90.0, Colors.green),
+      ChartData('Fats', 8.0, Colors.amber),
+    ];
+    _seriesPieData.add(charts.Series(
+      data: pieData,
+      domainFn: (ChartData chartData, _) => chartData.nutrient,
+      measureFn: (ChartData chartData, _) => chartData.value,
+      colorFn: (ChartData chartData, _) =>
+          charts.ColorUtil.fromDartColor(chartData.color),
+      id: 'Nutrients graph',
+      labelAccessorFn: (ChartData chartData, _) => '${chartData.value}',
+    ));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+
+
 
   void setQuantity(String text){
     print('yessssssssssssssssssssssssssssssssssssssssssssssssss');
@@ -47,6 +77,9 @@ class _FoodDetailsState extends State<FoodDetails> {
     //double appBarHeight = kToolbarHeight;
    // double height = MediaQuery.of(context).size.height - kToolbarHeight;
     double width = MediaQuery.of(context).size.width;
+    _seriesPieData = List<charts.Series<ChartData, String>>();
+    _generateData();
+
 
     return Scaffold(
       appBar: AppBar(title: Text('Mango'),),
@@ -119,36 +152,61 @@ class _FoodDetailsState extends State<FoodDetails> {
           SizedBox(height: 5,),
 
           Center(child: Container(height: 30, child: Text('Nutrients details'),)),
-          Padding(padding: EdgeInsets.only(left: 15,right: 15),
-              child: Center(child: Container(height: 10,
-                child: Row(
-                  children: <Widget>[
-                    Expanded(flex: 7,
-                        child: Container(color: Colors.green,)),
-                    Expanded(flex: 2,child: Container(color: Colors.blue,)),
-                    Expanded(flex:1,child: Container(color: Colors.red,)),
+          Center(child: Container(height: 150,width: 150, child: charts.PieChart(
+            _seriesPieData,
+            animate: false,
+            animationDuration: Duration(seconds: 1),
 
-                  ],
-                ),
-              ),),),
+            defaultRenderer: new charts.ArcRendererConfig(
+              arcWidth: 30,
+
+
+            ),
+          ),)
+            ,),
           SizedBox(height: 10,),
-          Padding(padding: EdgeInsets.only(left: 15,right: 15),
-            child: Center(child: Container(height: 30, width: width *0.97,
+          Padding(padding: EdgeInsets.only(left: 35,right: 35),
+            child: Center(child: Container(height: 30,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Container(
-                    height: 20,
-                    width: 20,
-                    color: Colors.green,),
-                  Container(
-                    height: 20,
-                    width: 20,
-                    color: Colors.blue,),
-                  Container(
-                    height: 20,
-                    width: 20,
-                    color: Colors.red,),
+                  Row(
+                    children: <Widget>[
+                      Container(
+                        height: 20,
+                        width: 20,
+                        color: Colors.green,),
+
+                      FittedBox(
+                        fit: BoxFit.contain,
+                        child: Text('  Protein 95%'),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Container(
+                        height: 20,
+                        width: 20,
+                        color: Colors.amber,),
+                      FittedBox(
+                        fit: BoxFit.contain,
+                        child: Text('  Carbs 5%'),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Container(
+                        height: 20,
+                        width: 20,
+                        color: Colors.blue,),
+                      FittedBox(
+                        fit: BoxFit.contain,
+                        child: Text('  Fats 2%'),
+                      ),
+                    ],
+                  ),
 
                 ],
               ),

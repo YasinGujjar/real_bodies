@@ -41,13 +41,22 @@ class _FoodDialogueState extends State<FoodDialogue> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text('Serving'),
-                  Container(
-                    width: 20,
-                    child: TextField(
-                      controller: textController,
-                      keyboardType: TextInputType.number,
-                      autofocus: true,
+                  SizedBox(width: 10,),
+                  Center(
+                    child: Container(
+                      width: 20,
+                      child: Center(
+                        child: TextField(
+                          controller: textController,
+                          keyboardType: TextInputType.number,
+                          autofocus: true,
+                          onSubmitted: (text){
+                            foodDetailState.setQuantity(textController.text);
+                            Navigator.of(context).pop();
+                          } ,
 
+                        ),
+                      ),
                     ),
                   ),
 

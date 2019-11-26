@@ -22,18 +22,18 @@ class _FoodDiaryTodayState extends State<FoodDiaryToday> {
     var pieData = [
       ChartData('Protein', 2.0, Colors.blue),
       ChartData('Carbs', 90.0, Colors.green),
-      ChartData('Fats', 8.0, Colors.amber),
-    ];
-    _seriesPieData.add(charts.Series(
-      data: pieData,
-      domainFn: (ChartData chartData, _) => chartData.nutrient,
-      measureFn: (ChartData chartData, _) => chartData.value,
-      colorFn: (ChartData chartData, _) =>
-          charts.ColorUtil.fromDartColor(chartData.color),
-      id: 'Nutrients graph',
-      labelAccessorFn: (ChartData chartData, _) => '${chartData.value}',
-    ));
-  }
+  ChartData('Fats', 8.0, Colors.amber),
+  ];
+  _seriesPieData.add(charts.Series(
+  data: pieData,
+  domainFn: (ChartData chartData, _) => chartData.nutrient,
+  measureFn: (ChartData chartData, _) => chartData.value,
+  colorFn: (ChartData chartData, _) =>
+  charts.ColorUtil.fromDartColor(chartData.color),
+  id: 'Nutrients graph',
+  labelAccessorFn: (ChartData chartData, _) => '${chartData.value}',
+  ));
+}
 
   @override
   void initState() {
