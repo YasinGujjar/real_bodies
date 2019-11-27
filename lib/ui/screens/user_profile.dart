@@ -6,6 +6,15 @@ import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
 import 'package:real_bodies/ui/widgets/weight_chart.dart';
 
 class UserProfile extends StatefulWidget {
+   String image="";
+  String name="";
+  String height="";
+  String weight="";
+  String old="";
+  String gender="";
+  
+  UserProfile({@required this.image,@required this.name,@required this.height,@required this.weight,@required this.old,@required this.gender});
+ 
   @override
   _UserProfileState createState() => _UserProfileState();
 }
@@ -63,7 +72,7 @@ children: <Widget>[
                                        borderRadius: BorderRadius.circular(45.0),
                                       
                                      image: DecorationImage(
-                                       image: ExactAssetImage('assets/images/fit2.jpg'),
+                                       image: NetworkImage(widget.image),//ExactAssetImage('assets/images/fit2.jpg'),
       fit: BoxFit.cover,
                                      ) ),
                                 ),
@@ -81,7 +90,7 @@ children: <Widget>[
                      width: width,
                     // color: Palette.greyBackground,
                         child: Center(
-                          child: Text("CyberMetores",
+                          child: Text(widget.name,
                           style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20),),
                         ),
 
@@ -108,7 +117,7 @@ children: <Widget>[
                 ),
               ), */
               SizedBox(height: 0.0,),
-              ExpansionPanelsDemo(),
+              ExpansionPanelsDemo(gender:widget.gender,old:widget.old,height:widget.height,weight:widget.weight),
              
                 // child: Card(
                   //elevation: 10.0,
@@ -149,7 +158,15 @@ children: <Widget>[
           body: Center(
             child: Hero(
               tag: 'my-hero-animation-tag',
-              child: Image.asset('assets/images/fit2.jpg'),
+              child:Container(
+                decoration: BoxDecoration(
+                                      // borderRadius: BorderRadius.circular(45.0),
+                                      
+                                     image: DecorationImage(
+                                       image: NetworkImage(widget.image),//ExactAssetImage('assets/images/fit2.jpg'),
+     // fit: BoxFit.cover,
+                                     ) ),
+              ),
             ),
           ),
         ),

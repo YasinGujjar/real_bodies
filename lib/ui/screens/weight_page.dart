@@ -6,7 +6,12 @@ import 'package:real_bodies/ui/widgets/info_text_field.dart';
  
  class WeightPage extends StatefulWidget {
    final  PageController pageController;
-   WeightPage({this.pageController});
+    String goal="";
+  String gender="";
+  String age="";
+ 
+  
+   WeightPage({this.pageController,this.goal,this.gender,this.age});
    @override
    _WeightPageState createState() => _WeightPageState();
  }
@@ -84,6 +89,9 @@ import 'package:real_bodies/ui/widgets/info_text_field.dart';
                   pageController: widget.pageController,
                   postfix: " Kg",
                   controller: _infoweightcontroller,
+                    goal: widget.goal,
+                      gender: widget.gender,
+                      age: widget.age,
                 )
               ],
             ),

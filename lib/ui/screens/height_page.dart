@@ -6,7 +6,11 @@ import 'package:real_bodies/ui/widgets/info_text_field.dart';
  
  class HeightPage extends StatefulWidget {
    final  PageController pageController;
-   HeightPage({this.pageController});
+    String goal="";
+  String gender="";
+  String age="";
+  String weight="";
+   HeightPage({this.pageController,this.goal,this.gender,this.age,this.weight});
 
    @override
    _HeightPageState createState() => _HeightPageState();
@@ -96,6 +100,10 @@ import 'package:real_bodies/ui/widgets/info_text_field.dart';
                   pageController: widget.pageController,
                   postfix: " In.",
                   controller: _infoincontroller,
+                   goal: widget.goal,
+                      gender: widget.gender,
+                      age: widget.age,
+                      weight: widget.weight,
                 )
               ],
             ),

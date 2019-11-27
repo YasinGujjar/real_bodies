@@ -8,12 +8,23 @@ import 'package:real_bodies/pages/food_diary_today.dart';
 import 'package:real_bodies/pages/search_food.dart';
 import 'package:real_bodies/pages/starting_pages.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/screens/desktop.dart';
+import 'package:real_bodies/ui/screens/sign_in_screen.dart';
+import 'package:real_bodies/ui/screens/start_page.dart';
+import 'package:real_bodies/ui/screens/welcome_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 
-void main() => runApp(MyApp());
+void main() {
+   SharedPreferences.getInstance().then((prefs) {
+    runApp(MyApp(prefs: prefs));
+  });
+} 
 
 class MyApp extends StatelessWidget {
+  final SharedPreferences prefs;
+  MyApp({this.prefs});
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -31,8 +42,16 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: FoodDetails(),//MyHomePage(title: 'Demo'),
+      home: _handleCurrentScreen(),//MyHomePage(title: 'Demo'),
     );
+  }
+  Widget _handleCurrentScreen() {
+    bool seen = (prefs.getBool('seen') ?? false);
+    if (seen) {
+      return new WelcomeScreen();
+    } else {
+      return new StartingPages(prefs: prefs);
+    }
   }
 }
 
@@ -118,4 +137,5 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+  
 }

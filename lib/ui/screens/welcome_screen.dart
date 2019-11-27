@@ -4,7 +4,26 @@ import 'package:real_bodies/ui/screens/sign_in_screen.dart';
 import 'package:real_bodies/ui/screens/sign_up_screen.dart';
 import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class WelcomeScreen extends StatefulWidget {
+   String goal="";
+  String gender="";
+  String age="";
+  String height="";
+  String weight="";
+  @override
+  WelcomeScreen(
+      {
+        this.goal,
+        this.gender,
+        this.age,
+        this.height,
+        this.weight
+        
+     });
+  _WelcomeScreenState createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,7 +112,7 @@ class WelcomeScreen extends StatelessWidget {
                  // Navigator.of(context).pushNamed("/signup");
                   Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => SignUpScreen()),
+    MaterialPageRoute(builder: (context) => SignUpScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
   );
                 },
                 splashColor: Colors.black12,

@@ -8,8 +8,12 @@ import 'package:real_bodies/ui/screens/height_page.dart';
 import 'package:real_bodies/ui/screens/start_page.dart';
 import 'package:real_bodies/ui/screens/weight_page.dart';
 import 'package:real_bodies/ui/widgets/category_item.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 class StartingPages extends StatefulWidget {
+   final SharedPreferences prefs;
+     StartingPages({this.prefs});
   @override
   _StartingPagesState createState() => _StartingPagesState();
 }
@@ -35,7 +39,7 @@ class _StartingPagesState extends State<StartingPages> {
           AgePage(pageController: pageController,),
           WeightPage(pageController: pageController,),
           HeightPage(pageController: pageController,),
-          Starting(),
+          Starting(prefs: widget.prefs),
 
         ],
       ),

@@ -3,14 +3,32 @@ import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 import 'package:real_bodies/business/auth.dart';
 import 'package:real_bodies/business/validator.dart';
+import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/models/user.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/screens/desktop.dart';
 import 'package:real_bodies/ui/widgets/custom_alert_dialog.dart';
 import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class SignUpScreen extends StatefulWidget {
+    String goal="";
+  String gender="";
+  String age="";
+  String height="";
+  String weight="";
+  @override
+  SignUpScreen(
+      {
+        this.goal,
+        this.gender,
+        this.age,
+        this.height,
+        this.weight
+        
+     });
   _SignUpScreenState createState() => _SignUpScreenState();
 }
 
@@ -25,6 +43,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
   CustomTextField _passwordField;
   bool _blackVisible = false;
   VoidCallback onBackPress;
+  String fullname="";
+  String email="";
+  String phone="";
+  String password="";
+   URL urldomain=URL();
 
   @override
   void initState() {
@@ -71,6 +94,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
       hint: "Password",
      // validator: Validator.validatePassword,
     );
+  }
+
+   void addinfo() async
+  {
+   try
+   {
+    //  var url=urldomain.domain+"registration";
+    //final response=await http.get(url+"&f_name="+_fullname.text+"&phone="+_number.text+"&email="+_email.text+"&password="+_password.text);
+  //  print('Response body:${response.body}');
+   // var jsonResponse=json.decode(response.body);
+   print("jjjjjjjjj "+widget.goal+" ffffffff "+widget.gender+" jjjjjjjjjjjjjjj "+widget.age+" ffffffff "+widget.weight+"lolololo"+widget.height);
+      }
+      catch(e)
+      {
+        print('Exception is on way $e');
+      }
+   
   }
 
   @override
@@ -145,10 +185,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 email: _email.text,
                                 number: _number.text,
                                 password: _password.text); */
-                                Navigator.push(
+                               /*  fullname=_fullname.text;
+                                email=_email.text;
+                                phone=_number.text;
+                                password=_password.text; */
+                                addinfo();
+                               /*  Navigator.push(
     context,
     MaterialPageRoute(builder: (context) => Desktop()),
-  );
+  ); */
                           },
                           splashColor: Colors.black12,
                           borderColor: Palette.mainPurple,

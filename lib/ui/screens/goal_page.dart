@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+import 'package:real_bodies/ui/screens/expansion_panel.dart';
+import 'package:real_bodies/ui/screens/gender_page.dart';
+import 'package:real_bodies/ui/screens/sign_in_screen.dart';
+import 'package:real_bodies/ui/screens/sign_up_screen.dart';
  
  class GoalPage extends StatefulWidget {
  //  final void Function(int) onAddButtonTapped;
@@ -15,6 +22,19 @@ import 'package:real_bodies/theme/palette.dart';
  }
  
  class _GoalPageState extends State<GoalPage> {
+   String goal="";
+ /*   void addinfo() async
+  {
+    var url="http://www.cybermeteors.com/assets/api/index.php?f=add_info";
+    final response=await http.get(url+"&goal="+goal.toString());
+    print('Response body:${response.body}');
+   // var jsonResponse=json.decode(response.body);
+   
+print(url+"&goal="+goal.toString());
+    
+    
+
+  } */
    @override
    Widget build(BuildContext context) {
       double width = MediaQuery.of(context).size.width;
@@ -84,8 +104,15 @@ import 'package:real_bodies/theme/palette.dart';
                   child: new InkWell(
                     splashColor: Colors.blue,
                     onTap: () {
+                      setState(() {
+                        goal="Lose Weight";
+                      });
+                     // addinfo();
                       print("tapped");
-                      widget.pageController.animateToPage(1, duration: Duration(milliseconds: 400), curve: Curves.easeInCubic);
+                       Navigator.of(context)
+                .pushReplacement(MaterialPageRoute(builder: (context) => GenderPage(goal:goal))); 
+
+                  //    widget.pageController.animateToPage(1, duration: Duration(milliseconds: 400), curve: Curves.easeInCubic);
 
                     },
                     child: Container(
@@ -110,9 +137,13 @@ import 'package:real_bodies/theme/palette.dart';
                   child: new InkWell(
                     splashColor: Colors.blue,
                     onTap: () {
+                      setState(() {
+                        goal="Lose Weight";
+                      });
+                     // addinfo();
                       print("tapped");
-                      widget.pageController.animateToPage(1, duration: Duration(milliseconds: 400), curve: Curves.easeInCubic);
-
+                       Navigator.of(context)
+                .pushReplacement(MaterialPageRoute(builder: (context) => GenderPage(goal:goal))); 
                     },
                     child: Container(
                       child: ListTile(
@@ -136,9 +167,13 @@ import 'package:real_bodies/theme/palette.dart';
                   child: new InkWell(
                     splashColor: Colors.blue,
                     onTap: () {
+                       setState(() {
+                        goal="Lose Weight";
+                      });
+                     // addinfo();
                       print("tapped");
-                      widget.pageController.animateToPage(1, duration: Duration(milliseconds: 400), curve: Curves.easeInCubic);
-
+                       Navigator.of(context)
+                .pushReplacement(MaterialPageRoute(builder: (context) => GenderPage(goal:goal))); 
                     },
                     child: Container(
                       child: ListTile(
@@ -159,6 +194,39 @@ import 'package:real_bodies/theme/palette.dart';
           ),
         ),
                 ),
+              ),
+              Container(
+                height: height * 0.10,
+                child: Center(child: Column(
+                  children: <Widget>[
+                    SizedBox(height: 20.0,),
+                    Text("Alraedy Account !",style: TextStyle(
+                          color: Colors.white,
+                          decoration: TextDecoration.none,
+                         // fontSize: 24.0,
+                          fontWeight: FontWeight.w700,
+                          fontFamily: "OpenSans",
+                        ),),
+                        SizedBox(height: 5.0,),
+                    InkWell(
+                      splashColor: Colors.blue,
+                      onTap: (){
+                          Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => SignInScreen())); 
+                      },
+                                          child: Container(
+                                            child: Text("Sign In",style: TextStyle(
+                            color: Colors.red,
+                            decoration: TextDecoration.underline,
+                            fontSize: 18.0,
+                          //  textBaseline:,
+                            fontWeight: FontWeight.w700,
+                            fontFamily: "OpenSans",
+                          ),),
+                                          ),
+                    )
+                  ],
+                ),),
               )
             ],
           ),
