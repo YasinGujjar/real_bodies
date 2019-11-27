@@ -15,6 +15,7 @@ class Palette{
   static Color darkPurple = Color(0xff311b92);
 static Color lightPurple = Color(0xffb39ddb);
   static Color greyBackground = Color(0xffcfd8dc);
+  static Color boldTextO = Color(0xffe65100);
 
 
 

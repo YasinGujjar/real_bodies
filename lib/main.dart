@@ -3,7 +3,9 @@ import 'package:real_bodies/models/walkthrough.dart';
 import 'package:real_bodies/pages/daily_workout_plan.dart';
 import 'package:real_bodies/pages/exercise.dart';
 import 'package:real_bodies/pages/exercise_details.dart';
+import 'package:real_bodies/pages/exercise_diary.dart';
 import 'package:real_bodies/pages/food_details.dart';
+import 'package:real_bodies/pages/food_diary.dart';
 import 'package:real_bodies/pages/food_diary_today.dart';
 import 'package:real_bodies/pages/search_food.dart';
 import 'package:real_bodies/pages/starting_pages.dart';
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: FoodDetails(),//MyHomePage(title: 'Demo'),
+      home: ExerciseDiary(),//MyHomePage(title: 'Demo'),
     );
   }
 }
