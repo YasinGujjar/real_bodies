@@ -344,142 +344,215 @@ class _FoodTargetTodayState extends State<FoodTargetToday> {
                         ),
                       ),
                     ),
-                    Container(
-                     color: Colors.blueGrey,
-                      height: height * 0.22,
-              width: width * 0.59,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                      // color: Colors.blueGrey,
+                        height: height * 0.22,
+              width: width * 0.50,
                child:Column(
                  children: <Widget>[
                    Container(
              // color: Colors.blue,
-              height: height * 0.04,
+              height: height * 0.03,
               width: width * 0.95,
               child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
            mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                    children: <Widget>[
-                      Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            "Macro Breakdown",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18.0
-                            ),
-                          )),
-                           Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            "",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.red
-                            ),
-                          )),
-                    ],
+                      children: <Widget>[
+                        Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "Macro Breakdown",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18.0
+                              ),
+                            )),
+                             Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              "",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                 color: Colors.grey
+                              ),
+                            )),
+                      ],
               ),
             ),
             Container(
              // color: Colors.blue,
-              height: height * 0.04,
+              height: height * 0.02,
               width: width * 0.95,
               child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
            mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                    children: <Widget>[
-                      Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            "Total Calories Aim Today",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )),
-                           Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            "1600",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.red
-                            ),
-                          )),
-                    ],
+                      children: <Widget>[
+                        Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "              ",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )),
+                             Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Target",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey
+                              ),
+                            )),
+                             Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "Actual",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                 color: Colors.grey
+                              ),
+                            )),
+                      ],
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Divider(
                 height: 2.0,
-                color: Colors.orange,
+                thickness: 4.0,
+                color: Colors.grey,
               ),
             ),
             Container(
              // color: Colors.blue,
-              height: height * 0.04,
+              height: height * 0.03,
               width: width * 0.95,
               child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
            mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                    children: <Widget>[
-                      Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            "Total Calories Aim Today",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )),
-                           Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            "1600",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.red
-                            ),
-                          )),
-                    ],
+                      children: <Widget>[
+                        Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "Proteins",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                 color: Colors.grey
+                              ),
+                            )),
+                             Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              "50%",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey
+                              ),
+                            )),
+                             Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "25%",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                 color: Colors.grey
+                              ),
+                            )),
+                      ],
               ),
             ),
             Container(
              // color: Colors.blue,
-              height: height * 0.04,
+              height: height * 0.03,
               width: width * 0.95,
               child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
            mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                    children: <Widget>[
-                      Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            "Total Calories Aim Today",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )),
-                           Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            "1600",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.red
-                            ),
-                          )),
-                    ],
+                      children: <Widget>[
+                        Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "Carbs    ",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                 color: Colors.grey
+                              ),
+                            )),
+                             Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              "30%",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey
+                              ),
+                            )),
+                             Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "25%",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                 color: Colors.grey
+                              ),
+                            )),
+                      ],
+              ),
+            ),
+            Container(
+             // color: Colors.blue,
+              height: height * 0.03,
+              width: width * 0.95,
+              child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                      children: <Widget>[
+                        Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "Fats      ",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                 color: Colors.grey
+                              ),
+                            )),
+                             Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              "20%",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey
+                              ),
+                            )),
+                             Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "25%",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey
+                              ),
+                            )),
+                      ],
               ),
             ),
                  ],
                ),
+                      ),
                     )
                   ],
                 ),
