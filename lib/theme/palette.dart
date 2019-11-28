@@ -16,7 +16,8 @@ class Palette{
 static Color lightPurple = Color(0xffb39ddb);
   static Color greyBackground = Color(0xffcfd8dc);
   static Color boldTextO = Color(0xffe65100);
-
+static Color buttonjColor = Color(0xffFF9A6C);
+static Color backGround = Color(0xffE1481F);
 
 
 }
