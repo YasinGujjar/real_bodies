@@ -1,17 +1,29 @@
 import "package:flutter/material.dart";
 import 'package:real_bodies/pages/daily_workout_plan.dart';
 import 'package:real_bodies/pages/exercise.dart';
+import 'package:real_bodies/pages/food_details.dart';
 import 'package:real_bodies/pages/food_diary_today.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/screens/user_profile.dart';
 
 
 class Desktop extends StatefulWidget {
+   String image="";
+  String name="";
+  String height="";
+  String weight="";
+  String old="";
+  String gender="";
+  
+  Desktop({@required this.image,@required this.name,@required this.height,@required this.weight,@required this.old,@required this.gender});
   @override
   _DesktopState createState() => _DesktopState();
+
 }
 
 class _DesktopState extends State<Desktop> {
+ 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,13 +46,13 @@ class _DesktopState extends State<Desktop> {
                     onTap: () {
                       print("tapped");
                        Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => UserProfile())); 
+                .push(MaterialPageRoute(builder: (context) => UserProfile(image:widget.image,name:widget.name,gender:widget.gender,old:widget.old,height:widget.height,weight:widget.weight))); 
                     },
                       child: Container(
                         height: 50.0,
                         width: 50.0,
                         decoration: BoxDecoration(
-                          image: DecorationImage(image: AssetImage('assets/images/fit2.jpg'),
+                          image: DecorationImage(image: NetworkImage(widget.image) ,//AssetImage('assets/images/fit2.jpg'),
                           fit: BoxFit.cover),
                           borderRadius: BorderRadius.circular(25.0)
                         ),
@@ -98,7 +110,7 @@ class _DesktopState extends State<Desktop> {
               ],
             ),
           ),
-          Padding(
+         /*  Padding(
             padding: const EdgeInsets.all(15.0),
             child: Container(
               padding: EdgeInsets.only(left: 20.0),
@@ -123,7 +135,7 @@ class _DesktopState extends State<Desktop> {
                 ),
               ),
             ),
-          ),
+          ), */
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: Container(
@@ -185,7 +197,7 @@ class _DesktopState extends State<Desktop> {
                   _buildCard(
                       'Food Log', '4.1', 'assets/images/food3.jpg','food'),
                   _buildCard(
-                      'Dieting Plan', '3.8', 'assets/images/food2.jpg','food'),
+                      'Dieting Plan', '3.8', 'assets/images/food2.jpg','foodDetail'),
                        _buildCard(
                       'Nuterients Food', '3.8', 'assets/images/food.jpg','food'),
                 ],
@@ -252,6 +264,11 @@ class _DesktopState extends State<Desktop> {
             {
                Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => DailyWorkOutPlan())); 
+            }
+            if(page=="foodDetail")
+            {
+               Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => FoodDetails())); 
             }
           },
           child: Stack(

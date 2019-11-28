@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 @visibleForTesting
 enum Gender {
   Male,
-  Femail,
+  Female,
   
 }
 
@@ -14,6 +14,7 @@ typedef DemoItemBodyBuilder2<T> = Widget Function(DemoItem2<T> item2);
 typedef ValueToString<T> = String Function(T value);
 
 class DualHeaderWithHint extends StatelessWidget {
+ 
   const DualHeaderWithHint({
     this.name,
     this.value,
@@ -213,6 +214,14 @@ class DemoItem2<T> {
 
 class ExpansionPanelsDemo extends StatefulWidget {
   static const String routeName = '/material/expansion_panels';
+     
+  String height="";
+  String weight="";
+  String old="";
+  String gender="";
+  
+  //DualHeaderWithHint({@required this.height,@required this.weight,@required this.old,@required this.gender});
+ ExpansionPanelsDemo({@required this.height,@required this.weight,@required this.old,@required this.gender});
 
   @override
   _ExpansionPanelsDemoState createState() => _ExpansionPanelsDemoState();
@@ -222,15 +231,30 @@ class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
   List<DemoItem<dynamic>> _demoItems;
   String firstval="";
   TextEditingController textControllerval;
+  TextEditingController textControllerval2;
+
 
   @override
+
+  Gender checkgender(String gender)
+  {if(gender=="male")
+  {
+    return Gender.Male;
+  }
+  if(gender=="female")
+  {
+    return Gender.Female;
+  }
+return null;
+  }
+
   void initState() {
     super.initState();
 
     _demoItems = <DemoItem<dynamic>>[
       DemoItem<String>(
         name: 'Age',
-        value: '22',
+        value: widget.old,
         
         hint: 'Enter new value',
         valueToString: (String value) => value,
@@ -267,7 +291,7 @@ class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
       ),
       DemoItem<Gender>(
         name: 'Gender',
-        value: Gender.Male,
+        value: checkgender(widget.gender),
         
         hint: 'Select Gender',
         valueToString: (Gender gender) => gender.toString().split('.')[1],
@@ -298,7 +322,7 @@ class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
                             onChanged: field.didChange,
                           ),
                           RadioListTile<Gender>(
-                            value: Gender.Femail,
+                            value: Gender.Female,
                             title: const Text('Female'),
                             groupValue: field.value,
                             onChanged: field.didChange,
@@ -316,7 +340,7 @@ class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
       ),
       DemoItem<String>(
         name: 'Weight',
-        value: '57',
+        value: widget.weight,
         
         hint: 'Enter new value',
         valueToString: (String value) => value,
@@ -353,7 +377,7 @@ class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
       ),
       DemoItem<String>(
         name: 'Height',
-        value: '6',
+        value: widget.height,
      // value2: '11',
    
         hint: 'Enter new value',
@@ -400,13 +424,13 @@ print(value);
                         Container(
                           width: 100,
                           child: TextFormField(
-                            controller: item.textController,
+                            controller: textControllerval2,
                             decoration: InputDecoration(
                               hintText: item.hint,
                               labelText: "Inch",
                             ),
                             onSaved: (String value) { 
-                              item.value = firstval+"ft. "+value+ "In.";
+                              item.value = firstval+"Ft. "+value+ "In.";
                               print(item.value); },
                           ),
                         ),

@@ -3,6 +3,7 @@ import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 import 'package:real_bodies/business/auth.dart';
 import 'package:real_bodies/business/validator.dart';
+import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/models/user.dart';
 import 'package:real_bodies/theme/palette.dart';
 //import 'package:real_bodies/ui/screens/add_food.dart';
@@ -11,6 +12,8 @@ import 'package:real_bodies/ui/screens/desktop.dart';
 import 'package:real_bodies/ui/widgets/custom_alert_dialog.dart';
 import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class SignInScreen extends StatefulWidget {
   _SignInScreenState createState() => _SignInScreenState();
@@ -23,6 +26,7 @@ class _SignInScreenState extends State<SignInScreen> {
   CustomTextField _passwordField;
   bool _blackVisible = false;
   VoidCallback onBackPress;
+  URL urldomain =URL();
 
   @override
   void initState() {
@@ -50,6 +54,48 @@ class _SignInScreenState extends State<SignInScreen> {
       hint: "Password",
      // validator: Validator.validatePassword,
     );
+  }
+   void checkinfo() async
+  {
+   try
+   {
+      
+       var url=urldomain.domain+"login";
+    final response=await http.get(url+"&email="+_email.text+"&password="+_password.text);
+    print('Response body:${response.body}');
+   var jsonResponse=json.decode(response.body);
+  // print("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"+_fullname.text);
+//print(url+"&f_name+="+_fullname.text+"&phone+="+_number.text+"&email+="+_email.text+"&password+="+_password.text);
+     
+      var requestresponse=jsonResponse['response'];
+     // var name=jsonResponse['name'];
+    
+      if (requestresponse=="success")
+{
+ var image=urldomain.imgdomain.toString()+jsonResponse['image'];
+  var name=jsonResponse['name'];
+   var gender=jsonResponse['gender'];
+    var old=jsonResponse['old'];
+     var height=jsonResponse['height'];
+      var weight=jsonResponse['weight'];
+
+ Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => Desktop(image:image,name:name,gender:gender,old:old,height:height,weight:weight )),
+  );
+  }
+else if(requestresponse=="error")
+{
+
+  print("error login");
+} 
+
+
+   }
+   catch(e)
+   {
+     print("Exception on way $e");
+   }
   }
 
   @override
@@ -114,10 +160,8 @@ class _SignInScreenState extends State<SignInScreen> {
                                 password: _password.text,
                                 context: context);
                                  */   
-                                 Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => Desktop()),
-  );
+                                checkinfo();
+                                
                                                      },
                           splashColor: Colors.black12,
                           borderColor: Palette.mainPurple,

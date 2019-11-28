@@ -6,7 +6,9 @@ import 'package:real_bodies/ui/widgets/info_text_field.dart';
  
  class AgePage extends StatefulWidget {
    final  PageController pageController;
-   AgePage({this.pageController});
+   String goal="";
+   String gender="";
+   AgePage({this.pageController,this.goal,this.gender});
 
    @override
    _AgePageState createState() => _AgePageState();
@@ -87,8 +89,11 @@ import 'package:real_bodies/ui/widgets/info_text_field.dart';
                      InfoTextField(
                       pageController: widget.pageController,
                       pagename: "old",
-                      postfix: " CM",
+                      postfix: " ",
                       controller: _infooldcontroller,
+                      goal: widget.goal,
+                      gender: widget.gender,
+                      
                     ),
 
                 ],
