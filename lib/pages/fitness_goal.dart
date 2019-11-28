@@ -44,7 +44,7 @@ class _FitnessGoalState extends State<FitnessGoal> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Padding(
-                              padding: const EdgeInsets.only(top:15.0,bottom: 8.0,left: 8.0),
+                              padding: const EdgeInsets.only(top:20.0,bottom: 8.0,left: 8.0),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,7 +84,7 @@ class _FitnessGoalState extends State<FitnessGoal> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Padding(
-                              padding: const EdgeInsets.only(top:15.0,bottom: 8.0,left: 8.0),
+                              padding: const EdgeInsets.only(top:20.0,bottom: 8.0,left: 8.0),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -125,7 +125,7 @@ class _FitnessGoalState extends State<FitnessGoal> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Padding(
-                              padding: const EdgeInsets.only(top:15.0,bottom: 8.0,left: 8.0),
+                              padding: const EdgeInsets.only(top:20.0,bottom: 8.0,left: 8.0),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -166,7 +166,7 @@ class _FitnessGoalState extends State<FitnessGoal> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Padding(
-                              padding: const EdgeInsets.only(top:15.0,bottom: 8.0,left: 8.0),
+                              padding: const EdgeInsets.only(top:20.0,bottom: 8.0,left: 8.0),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
