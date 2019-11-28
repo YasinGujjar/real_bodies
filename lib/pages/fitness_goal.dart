@@ -203,7 +203,25 @@ class _FitnessGoalState extends State<FitnessGoal> {
               flex: 2,
                 child: Container(
               color: Palette.boldTextO,
-            ),),
+                  child: Center(
+                    child:  Container(
+                      height: 50,
+                      width: width * 0.80,
+                      child: FlatButton(
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0),
+                        ),
+                        onPressed: () {},
+                        color: Palette.mainPurple,
+                        textColor: Colors.white,
+                        child: Text("Start".toUpperCase(),
+                            style: TextStyle(fontSize: 14,
+                                fontWeight: FontWeight.bold)),
+                      ),
+                    ),
+                  ),
+
+                ),),
           ],
         ),
       ),
