@@ -66,7 +66,10 @@ flutter:
      - assets/images/blog.jpg
      - assets/images/blog2.jpg
      - assets/images/workout_list.jpg
+     - assets/images/bodgoal1.png
+     - assets/images/bodgoal22.png
      - assets/images/bodgoal3.png
+     - assets/images/bodgoal4.png
      - assets/sound/timeup.mp3
      - assets/sound/beep.mp3
   #  - images/a_dot_ham.jpeg
