@@ -404,23 +404,7 @@ class _TrainingPageState extends State<TrainingPage> {
            
 
            
-                        Container(
-                          height: height * 0.15,
-                          width: width * 0.97,
-                         // color: Colors.blueGrey,
-                           child:Column(
-                             mainAxisSize: MainAxisSize.max,
-                             mainAxisAlignment: MainAxisAlignment.end,
-                             children: <Widget>[
-                              
-                               SizedBox(
-                                 height: 20,
-                               )
-                              
-                             ],
-                           ),
-                          
-                        ),
+                       
           ],
         ),
                       ],

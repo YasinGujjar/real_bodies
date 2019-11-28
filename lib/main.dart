@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: TrainingPage(),//MyHomePage(title: 'Demo'),
+      home: ProgressTracker(),//MyHomePage(title: 'Demo'),
     );
   }
 }
