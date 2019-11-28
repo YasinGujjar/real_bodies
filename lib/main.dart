@@ -12,6 +12,7 @@ import 'package:real_bodies/pages/progress_tracker.dart';
 import 'package:real_bodies/pages/search_food.dart';
 import 'package:real_bodies/pages/starting_pages.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/screens/dietplan.dart';
 import 'package:real_bodies/ui/screens/targetpage.dart';
 import 'package:real_bodies/ui/screens/trainingpage.dart';
 
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: FitnessGoal(),//MyHomePage(title: 'Demo'),
+      home: DietPlan(),//MyHomePage(title: 'Demo'),
     );
   }
 }
