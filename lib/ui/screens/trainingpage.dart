@@ -17,9 +17,6 @@ class TrainingPage extends StatefulWidget {
 }
 
 class _TrainingPageState extends State<TrainingPage> {
- 
-  
-
   @override
   void initState() {
     super.initState();
@@ -59,10 +56,9 @@ class _TrainingPageState extends State<TrainingPage> {
 //      ];
 //    }
 
-  
-
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    double abovePadding = MediaQuery.of(context).padding.top;
 //    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
 //        statusBarColor: Colors.green
 //    ));
@@ -78,7 +74,7 @@ class _TrainingPageState extends State<TrainingPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                 /*  FittedBox(
+                  /*  FittedBox(
                     fit: BoxFit.cover,
                     child: IconButton(
                         icon: Icon(Icons.arrow_back_ios),
@@ -102,27 +98,26 @@ class _TrainingPageState extends State<TrainingPage> {
           ),
         ),
         body: //87
-            Container(
-              width: width,
-              height: height-kToolbarHeight,
-                          child: Column(
-                            
-                children: <Widget>[
-                  Expanded(
-                    flex: 9,
-                                      child: ListView(
+    Container(
+    width: width,
+    height: height - kToolbarHeight,
+    child:
+          Column(
+            children: <Widget>[
+              Expanded(
+                flex: 9,
+                child: ListView(
+                  children: <Widget>[
+                    Column(
                       children: <Widget>[
-                        Column(
-          children: <Widget>[
-
-                         Container(
-                         // color: Colors.blue,
+                        Container(
+                          // color: Colors.blue,
                           height: height * 0.12,
                           width: width * 1,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-         //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisSize: MainAxisSize.min,
+                            //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                             children: <Widget>[
                               Align(
@@ -130,97 +125,103 @@ class _TrainingPageState extends State<TrainingPage> {
                                   child: Text(
                                     "Training Day 1",
                                     style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 27.0
-                                    ),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 27.0),
                                   )),
-                                  SizedBox(
-                                    height: height*0.02,
-                                  ),
-                                   Align(
+                              SizedBox(
+                                height: height * 0.02,
+                              ),
+                              Align(
                                   alignment: Alignment.center,
                                   child: Text(
                                     "Week 1",
                                     style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                       fontSize: 21.0
-                                    ),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 21.0),
                                   )),
                             ],
                           ),
                         ),
-                           Container(
-                             height: height * 0.61,
+                        Container(
+                         // height: height * 0.61,
                           width: width * 1,
-                             child: Column(
-                               children: <Widget>[
-                                 Card(
-                        elevation: 5.0,
-                        child: ListTile(
-                                  title: Text('Exercise 1',style: TextStyle(fontSize: 19.0,fontWeight:FontWeight.bold),),
+                          child: Column(
+                            children: <Widget>[
+                              Card(
+                                elevation: 5.0,
+                                child: ListTile(
+                                  title: Text(
+                                    'Exercise 1',
+                                    style: TextStyle(
+                                        fontSize: 19.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                   subtitle: Column(
                                     children: <Widget>[
                                       Row(
-                                  children: <Widget>[
-                                    Text(''),
-                                  ],
-                                ), Row(
-                                  children: <Widget>[
-                                    Text('7 min'),
-                                  ],
-                                ),
-                                Row(
-                                  children: <Widget>[
-                                    Text(""),
-                                  ],
-                                ),
+                                        children: <Widget>[
+                                          Text(''),
+                                        ],
+                                      ),
                                       Row(
                                         children: <Widget>[
-                                            CustomFlatButton(
-                                    title: "View",
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700,
-                                    textColor: Colors.white,
-                                    onPressed: () {
-                                    
-                                     /*  Navigator.pushReplacement(
+                                          Text('7 min'),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: <Widget>[
+                                          Text(""),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: <Widget>[
+                                          CustomFlatButton(
+                                            title: "View",
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w700,
+                                            textColor: Colors.white,
+                                            onPressed: () {
+                                              /*  Navigator.pushReplacement(
                                         context,
                                         MaterialPageRoute(builder: (context) => WelcomeScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
                                       ); */
-                                     
-                                    },
-                                    splashColor: Colors.black12,
-                                    borderColor: Colors.white,
-                                    borderWidth: 2,
-                                    color: Colors.orange,
-                                  ),
-                                         CustomFlatButton(
-                                    title: "Log",
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700,
-                                    textColor: Colors.white,
-                                    onPressed: () {
-                                    
-                                     /*  Navigator.pushReplacement(
+                                            },
+                                            splashColor: Colors.black12,
+                                            borderColor: Colors.white,
+                                            borderWidth: 2,
+                                            color: Colors.orange,
+                                          ),
+                                          CustomFlatButton(
+                                            title: "Log",
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w700,
+                                            textColor: Colors.white,
+                                            onPressed: () {
+                                              /*  Navigator.pushReplacement(
                                         context,
                                         MaterialPageRoute(builder: (context) => WelcomeScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
                                       ); */
-                                     
-                                    },
-                                    splashColor: Colors.black12,
-                                    borderColor: Colors.white,
-                                    borderWidth: 2,
-                                    color: Colors.orange,
-                                  ),
-                                          
+                                            },
+                                            splashColor: Colors.black12,
+                                            borderColor: Colors.white,
+                                            borderWidth: 2,
+                                            color: Colors.orange,
+                                          ),
                                         ],
                                       )
                                     ],
                                   ),
-                                  leading:
-                                       Icon(Icons.looks_one, color:Colors.orange,size: 30.0,),
-                                  trailing:Icon(Icons.report, color: Colors.grey,size: 30.0,),
-                                   /* SizedBox(
+                                  leading: Icon(
+                                    Icons.looks_one,
+                                    color: Colors.orange,
+                                    size: 30.0,
+                                  ),
+                                  trailing: Icon(
+                                    Icons.report,
+                                    color: Colors.grey,
+                                    size: 30.0,
+                                  ),
+                                  /* SizedBox(
                                     width: 50,
                                     height: 50,
                                     child: RaisedButton(
@@ -232,75 +233,84 @@ class _TrainingPageState extends State<TrainingPage> {
                                        // Navigator.push(context, MaterialPageRoute(builder: (context) => Schedule(id: widget.id)),);
                                       },
                                     ),
-                                  ) */),
-          ),
-           Card(
-                        elevation: 5.0,
-                        child: ListTile(
-                            title: Text('Exercise 2',style: TextStyle(fontSize: 19.0,fontWeight:FontWeight.bold),),
-                            subtitle: Column(
-                              children: <Widget>[
-                                Row(
-                                  children: <Widget>[
-                                    Text(""),
-                                  ],
-                                ), Row(
-                                  children: <Widget>[
-                                    Text('15 min'),
-                                  ],
-                                ), Row(
-                                  children: <Widget>[
-                                    Text(''),
-                                  ],
+                                  ) */
                                 ),
-                               
-                                Row(
-                                  children: <Widget>[
-                                      CustomFlatButton(
-                              title: "View",
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              textColor: Colors.white,
-                              onPressed: () {
-                              
-                               /*  Navigator.pushReplacement(
+                              ),
+                              Card(
+                                elevation: 5.0,
+                                child: ListTile(
+                                  title: Text(
+                                    'Exercise 3',
+                                    style: TextStyle(
+                                        fontSize: 19.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  subtitle: Column(
+                                    children: <Widget>[
+                                      Row(
+                                        children: <Widget>[
+                                          Text(''),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: <Widget>[
+                                          Text('5 min'),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: <Widget>[
+                                          Text(""),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: <Widget>[
+                                          CustomFlatButton(
+                                            title: "View",
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w700,
+                                            textColor: Colors.white,
+                                            onPressed: () {
+                                              /*  Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(builder: (context) => WelcomeScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
                                 ); */
-                               
-                              },
-                              splashColor: Colors.black12,
-                              borderColor: Colors.white,
-                              borderWidth: 2,
-                              color: Colors.orange,
-                            ),
-                                   CustomFlatButton(
-                              title: "Log",
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              textColor: Colors.white,
-                              onPressed: () {
-                              
-                               /*  Navigator.pushReplacement(
+                                            },
+                                            splashColor: Colors.black12,
+                                            borderColor: Colors.white,
+                                            borderWidth: 2,
+                                            color: Colors.orange,
+                                          ),
+                                          CustomFlatButton(
+                                            title: "Log",
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w700,
+                                            textColor: Colors.white,
+                                            onPressed: () {
+                                              /*  Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(builder: (context) => WelcomeScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
                                 ); */
-                               
-                              },
-                              splashColor: Colors.black12,
-                              borderColor: Colors.white,
-                              borderWidth: 2,
-                              color:Colors.orange,
-                            ),
-                                    
-                                  ],
-                                )
-                              ],
-                            ),
-                            leading:
-                                 Icon(Icons.looks_two, color:Colors.orange,size: 30.0,),
-                            trailing:Icon(Icons.report, color: Colors.grey,size: 30.0,),
-                             /* SizedBox(
+                                            },
+                                            splashColor: Colors.black12,
+                                            borderColor: Colors.white,
+                                            borderWidth: 2,
+                                            color: Colors.orange,
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                  leading: Icon(
+                                    Icons.stars,
+                                    color: Colors.orange,
+                                    size: 30.0,
+                                  ),
+                                  trailing: Icon(
+                                    Icons.report,
+                                    color: Colors.grey,
+                                    size: 30.0,
+                                  ),
+                                  /* SizedBox(
                               width: 50,
                               height: 50,
                               child: RaisedButton(
@@ -312,76 +322,84 @@ class _TrainingPageState extends State<TrainingPage> {
                                  // Navigator.push(context, MaterialPageRoute(builder: (context) => Schedule(id: widget.id)),);
                                 },
                               ),
-                            ) */),
-          ),
-
-                        Card(
-                        elevation: 5.0,
-                        child: ListTile(
-                            title: Text('Exercise 3',style: TextStyle(fontSize: 19.0,fontWeight:FontWeight.bold),),
-                            subtitle: Column(
-                              children: <Widget>[
-                                 Row(
-                                  children: <Widget>[
-                                    Text(''),
-                                  ],
-                                ), Row(
-                                  children: <Widget>[
-                                    Text('5 min'),
-                                  ],
+                            ) */
                                 ),
-                                Row(
-                                  children: <Widget>[
-                                    Text(""),
-                                  ],
-                                ),
-                                Row(
-                                  children: <Widget>[
-                                      CustomFlatButton(
-                              title: "View",
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              textColor: Colors.white,
-                              onPressed: () {
-                              
-                               /*  Navigator.pushReplacement(
+                              ),
+                              Card(
+                                elevation: 5.0,
+                                child: ListTile(
+                                  title: Text(
+                                    'Exercise 2',
+                                    style: TextStyle(
+                                        fontSize: 19.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  subtitle: Column(
+                                    children: <Widget>[
+                                      Row(
+                                        children: <Widget>[
+                                          Text(""),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: <Widget>[
+                                          Text('15 min'),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: <Widget>[
+                                          Text(''),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: <Widget>[
+                                          CustomFlatButton(
+                                            title: "View",
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w700,
+                                            textColor: Colors.white,
+                                            onPressed: () {
+                                              /*  Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(builder: (context) => WelcomeScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
                                 ); */
-                               
-                              },
-                              splashColor: Colors.black12,
-                              borderColor: Colors.white,
-                              borderWidth: 2,
-                              color: Colors.orange,
-                            ),
-                                   CustomFlatButton(
-                              title: "Log",
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              textColor: Colors.white,
-                              onPressed: () {
-                              
-                               /*  Navigator.pushReplacement(
+                                            },
+                                            splashColor: Colors.black12,
+                                            borderColor: Colors.white,
+                                            borderWidth: 2,
+                                            color: Colors.orange,
+                                          ),
+                                          CustomFlatButton(
+                                            title: "Log",
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w700,
+                                            textColor: Colors.white,
+                                            onPressed: () {
+                                              /*  Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(builder: (context) => WelcomeScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
                                 ); */
-                               
-                              },
-                              splashColor: Colors.black12,
-                              borderColor: Colors.white,
-                              borderWidth: 2,
-                              color: Colors.orange,
-                            ),
-                                    
-                                  ],
-                                )
-                              ],
-                            ),
-                            leading:
-                                 Icon(Icons.stars, color:Colors.orange,size: 30.0,),
-                            trailing:Icon(Icons.report, color: Colors.grey,size: 30.0,),
-                             /* SizedBox(
+                                            },
+                                            splashColor: Colors.black12,
+                                            borderColor: Colors.white,
+                                            borderWidth: 2,
+                                            color: Colors.orange,
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                  leading: Icon(
+                                    Icons.looks_two,
+                                    color: Colors.orange,
+                                    size: 30.0,
+                                  ),
+                                  trailing: Icon(
+                                    Icons.report,
+                                    color: Colors.grey,
+                                    size: 30.0,
+                                  ),
+                                  /* SizedBox(
                               width: 50,
                               height: 50,
                               child: RaisedButton(
@@ -393,62 +411,53 @@ class _TrainingPageState extends State<TrainingPage> {
                                  // Navigator.push(context, MaterialPageRoute(builder: (context) => Schedule(id: widget.id)),);
                                 },
                               ),
-                            ) */),
-          ),
-                           
-
-                               ],
-                             ),
-                           ),
-
-           
-
-           
-                       
-          ],
-        ),
+                            ) */
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
-                  ),
-
- Expanded(
-   flex: 1,
-    child: Container(
-                                   width: width*0.9,
-                                  // color: Colors.orange,
-                                   child: FlatButton(
-                                     color: Colors.orange,
-                                     child:   Padding(
-                                      padding: const EdgeInsets.symmetric(vertical: 12.0),
-                                       child: Text(
-            "Start",
-            softWrap: true,
-            textAlign: TextAlign.center,
-            style: TextStyle(
+                  ],
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  width: width * 0.9,
+                  // color: Colors.orange,
+                  child: FlatButton(
+                    color: Colors.orange,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 12.0),
+                      child: Text(
+                        "Start",
+                        softWrap: true,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
                           color: Colors.white,
                           decoration: TextDecoration.none,
                           fontSize: 16,
                           fontWeight: FontWeight.w800,
                           fontFamily: "OpenSans",
-                          
-            ),
-            
-          ),
-                                     ),
-           shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30.0),
-          side: BorderSide(
-            color: Colors.white,
-            width: 2,
-          ),
-        ),
-                                     onPressed: (){},
-                                   ),
-                                 ),
- ),
-                  
-                ],
+                        ),
+                      ),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                      side: BorderSide(
+                        color: Colors.white,
+                        width: 2,
+                      ),
+                    ),
+                    onPressed: () {},
+                  ),
+                ),
               ),
-            ));
+            ],
+          ),
+        )
+    );
   }
 }

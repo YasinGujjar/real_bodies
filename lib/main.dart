@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: ProgressTracker(),//MyHomePage(title: 'Demo'),
+      home: FitnessGoal(),//MyHomePage(title: 'Demo'),
     );
   }
 }

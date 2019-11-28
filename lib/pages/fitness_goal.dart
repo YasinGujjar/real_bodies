@@ -43,13 +43,30 @@ class _FitnessGoalState extends State<FitnessGoal> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Column(
-                              children: <Widget>[
-                                Text('Weight Loss',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 22),),
-                                CustomFlatButton(
-
-                                ),
-                              ],
+                            Padding(
+                              padding: const EdgeInsets.only(top:20.0,bottom: 8.0,left: 8.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text('Weight Loss',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 22),),
+                                   Container(
+                                     height: 30,
+                                     width: 80,
+                                     child: FlatButton(
+                                       shape: new RoundedRectangleBorder(
+                                         borderRadius: new BorderRadius.circular(30.0),
+                                       ),
+                                       onPressed: () {},
+                                       color: Palette.mainPurple,
+                                       textColor: Colors.white,
+                                       child: Text("Select",
+                                           style: TextStyle(fontSize: 14,
+                                               fontWeight: FontWeight.bold)),
+                                     ),
+                                   ),
+                                ],
+                              ),
                             ),
                             Image.asset('assets/images/bodgoal3.png'),
                           ],
@@ -63,6 +80,38 @@ class _FitnessGoalState extends State<FitnessGoal> {
                           color: Colors.grey,
                           borderRadius: BorderRadius.circular(8.0),
                         ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top:20.0,bottom: 8.0,left: 8.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text('Weight Loss',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 22),),
+                                  Container(
+                                    height: 30,
+                                    width: 80,
+                                    child: FlatButton(
+                                      shape: new RoundedRectangleBorder(
+                                        borderRadius: new BorderRadius.circular(30.0),
+                                      ),
+                                      onPressed: () {},
+                                      color: Palette.mainPurple,
+                                      textColor: Colors.white,
+                                      child: Text("Select",
+                                          style: TextStyle(fontSize: 14,
+                                              fontWeight: FontWeight.bold)),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Image.asset('assets/images/bodgoal3.png'),
+                          ],
+                        ),
+
                       ),
                       SizedBox(height: height * 0.01,),
                       Container(
@@ -72,6 +121,38 @@ class _FitnessGoalState extends State<FitnessGoal> {
                           color: Colors.grey,
                           borderRadius: BorderRadius.circular(8.0),
                         ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top:20.0,bottom: 8.0,left: 8.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text('Weight Loss',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 22),),
+                                  Container(
+                                    height: 30,
+                                    width: 80,
+                                    child: FlatButton(
+                                      shape: new RoundedRectangleBorder(
+                                        borderRadius: new BorderRadius.circular(30.0),
+                                      ),
+                                      onPressed: () {},
+                                      color: Palette.mainPurple,
+                                      textColor: Colors.white,
+                                      child: Text("Select",
+                                          style: TextStyle(fontSize: 14,
+                                              fontWeight: FontWeight.bold)),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Image.asset('assets/images/bodgoal3.png'),
+                          ],
+                        ),
+
                       ),
                       SizedBox(height: height * 0.01,),
                       Container(
@@ -81,6 +162,38 @@ class _FitnessGoalState extends State<FitnessGoal> {
                           color: Colors.grey,
                           borderRadius: BorderRadius.circular(8.0),
                         ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top:20.0,bottom: 8.0,left: 8.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text('Weight Loss',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 22),),
+                                  Container(
+                                    height: 30,
+                                    width: 80,
+                                    child: FlatButton(
+                                      shape: new RoundedRectangleBorder(
+                                        borderRadius: new BorderRadius.circular(30.0),
+                                      ),
+                                      onPressed: () {},
+                                      color: Palette.mainPurple,
+                                      textColor: Colors.white,
+                                      child: Text("Select",
+                                          style: TextStyle(fontSize: 14,
+                                              fontWeight: FontWeight.bold)),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Image.asset('assets/images/bodgoal3.png'),
+                          ],
+                        ),
+
                       ),
                     ],
                   ),
@@ -90,7 +203,25 @@ class _FitnessGoalState extends State<FitnessGoal> {
               flex: 2,
                 child: Container(
               color: Palette.boldTextO,
-            ),),
+                  child: Center(
+                    child:  Container(
+                      height: 50,
+                      width: width * 0.80,
+                      child: FlatButton(
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0),
+                        ),
+                        onPressed: () {},
+                        color: Palette.mainPurple,
+                        textColor: Colors.white,
+                        child: Text("Start".toUpperCase(),
+                            style: TextStyle(fontSize: 14,
+                                fontWeight: FontWeight.bold)),
+                      ),
+                    ),
+                  ),
+
+                ),),
           ],
         ),
       ),
