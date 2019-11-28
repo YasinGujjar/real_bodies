@@ -68,7 +68,7 @@ class _SignInScreenState extends State<SignInScreen> {
 //print(url+"&f_name+="+_fullname.text+"&phone+="+_number.text+"&email+="+_email.text+"&password+="+_password.text);
      
       var requestresponse=jsonResponse['response'];
-      var name=jsonResponse['name'];
+     // var name=jsonResponse['name'];
     
       if (requestresponse=="success")
 {

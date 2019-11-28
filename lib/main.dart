@@ -11,6 +11,8 @@ import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/screens/desktop.dart';
 import 'package:real_bodies/ui/screens/sign_in_screen.dart';
 import 'package:real_bodies/ui/screens/start_page.dart';
+import 'package:real_bodies/ui/screens/targetpage.dart';
+import 'package:real_bodies/ui/screens/trainingpage.dart';
 import 'package:real_bodies/ui/screens/welcome_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: _handleCurrentScreen(),//MyHomePage(title: 'Demo'),
+      home:FoodTargetToday(), //_handleCurrentScreen(),//MyHomePage(title: 'Demo'),
     );
   }
   Widget _handleCurrentScreen() {

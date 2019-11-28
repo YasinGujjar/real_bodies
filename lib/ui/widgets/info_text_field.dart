@@ -36,6 +36,7 @@ class InfoTextField extends StatefulWidget {
 class _InfoTextFieldState extends State<InfoTextField> {
   Color currentColor;
   bool validate =false;
+  String ftvalue="";
 
   @override
   void initState() {
@@ -103,11 +104,24 @@ class _InfoTextFieldState extends State<InfoTextField> {
   Navigator.of(context)
                   .pushReplacement(MaterialPageRoute(builder: (context) => HeightPage(goal:widget.goal,gender:widget.gender,age:widget.age,weight:text))); 
                   }
+                   /* if (widget.pagename=="ft")
+                  {
+                  //  setState(() {
+                       ftvalue=text;
+                    print("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"+ftvalue);
+                   // });
+                   
+                  }
                    if(widget.pagename=="height")
                   {
-                    Navigator.of(context)
-                   .pushReplacement(MaterialPageRoute(builder: (context) => Starting(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:text))); 
-                  }
+                    print("ooooooooooo"+ftvalue);
+                    /* Navigator.of(context)
+                   .pushReplacement(MaterialPageRoute(builder: (context) => Starting(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:ftvalue+"Ft. "+text+"In."))); 
+                  */ 
+                 // ftvalue=text;
+                    print("llllllllllllllllllllll"+ftvalue);
+                  } */
+                 
 
                  
 

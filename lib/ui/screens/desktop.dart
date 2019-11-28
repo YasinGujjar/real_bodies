@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:real_bodies/pages/daily_workout_plan.dart';
 import 'package:real_bodies/pages/exercise.dart';
+import 'package:real_bodies/pages/food_details.dart';
 import 'package:real_bodies/pages/food_diary_today.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/screens/user_profile.dart';
@@ -196,7 +197,7 @@ class _DesktopState extends State<Desktop> {
                   _buildCard(
                       'Food Log', '4.1', 'assets/images/food3.jpg','food'),
                   _buildCard(
-                      'Dieting Plan', '3.8', 'assets/images/food2.jpg','food'),
+                      'Dieting Plan', '3.8', 'assets/images/food2.jpg','foodDetail'),
                        _buildCard(
                       'Nuterients Food', '3.8', 'assets/images/food.jpg','food'),
                 ],
@@ -263,6 +264,11 @@ class _DesktopState extends State<Desktop> {
             {
                Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => DailyWorkOutPlan())); 
+            }
+            if(page=="foodDetail")
+            {
+               Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => FoodDetails())); 
             }
           },
           child: Stack(

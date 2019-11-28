@@ -7,6 +7,7 @@ import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/models/user.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/screens/desktop.dart';
+import 'package:real_bodies/ui/screens/sign_in_screen.dart';
 import 'package:real_bodies/ui/widgets/custom_alert_dialog.dart';
 import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
@@ -100,12 +101,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
   {
    try
    {
-    //  var url=urldomain.domain+"registration";
-    //final response=await http.get(url+"&f_name="+_fullname.text+"&phone="+_number.text+"&email="+_email.text+"&password="+_password.text);
-  //  print('Response body:${response.body}');
+     var url=urldomain.domain+"registration";
+    final response=await http.get(url+"&name="+_fullname.text+"&phone="+_number.text+"&email="+_email.text+"&password="+_password.text+"&goal="+widget.goal+"&gender="+widget.gender+"&age="+widget.age+"&weight="+widget.weight+"&height="+widget.height);
+    print('Response body:${response.body}');
    // var jsonResponse=json.decode(response.body);
-   print("jjjjjjjjj "+widget.goal+" ffffffff "+widget.gender+" jjjjjjjjjjjjjjj "+widget.age+" ffffffff "+widget.weight+"lolololo"+widget.height);
+  // print("jjjjjjjjj "+widget.goal+" ffffffff "+widget.gender+" jjjjjjjjjjjjjjj "+widget.age+" ffffffff "+widget.weight+" lolololo "+widget.height);
+      if (response.body=="success")
+      {
+         Navigator.of(context)
+                .pushReplacement(MaterialPageRoute(builder: (context) => SignInScreen())); 
       }
+       }
       catch(e)
       {
         print('Exception is on way $e');
