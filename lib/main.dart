@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:real_bodies/models/walkthrough.dart';
 import 'package:real_bodies/pages/daily_workout_plan.dart';
+import 'package:real_bodies/pages/demo_page.dart';
 import 'package:real_bodies/pages/exercise.dart';
 import 'package:real_bodies/pages/exercise_details.dart';
 import 'package:real_bodies/pages/exercise_diary.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: DietPlan(),//MyHomePage(title: 'Demo'),
+      home: Demo(),//MyHomePage(title: 'Demo'),
     );
   }
 }

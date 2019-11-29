@@ -32,52 +32,54 @@ class _DietPlanState extends State<DietPlan> {
           children: <Widget>[
             Expanded(
               flex: 9,
-                child: Container(
-                  width: width,
+                child: ListView(
+                  children: <Widget>[
+                    Container(
+                      width: width,
               color: Palette.boldTextO,
-                  child: Column(
+                      child: Column(
 
-                    children: <Widget>[
-                      SizedBox(height: height * 0.05,),
-                      Text("Diet Goals",style: TextStyle(
-                        color: Colors.white,
-                      ),),
-                        SizedBox(height: height * 0.05,),
-                      Text("Do You Prefer a Specific Diet ?",style: TextStyle(
-                        color: Colors.white,
-                      ),),
-                      SizedBox(height: height * 0.01,),
-                       Container(
-                  width: width * 0.9,
-                  // color: Colors.orange,
-                  child: FlatButton(
-                    color: colorkito,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12.0),
-                      child: Text(
-                        "Kito",
-                        softWrap: true,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          decoration: TextDecoration.none,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w800,
-                          fontFamily: "OpenSans",
+                        children: <Widget>[
+                          SizedBox(height: height * 0.05,),
+                          Text("Diet Goals",style: TextStyle(
+                            color: Colors.white,
+                          ),),
+                            SizedBox(height: height * 0.05,),
+                          Text("Do You Prefer a Specific Diet ?",style: TextStyle(
+                            color: Colors.white,
+                          ),),
+                          SizedBox(height: height * 0.01,),
+                           Container(
+                      width: width * 0.9,
+                      // color: Colors.orange,
+                      child: FlatButton(
+                        color: colorkito,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 12.0),
+                          child: Text(
+                            "Kito",
+                            softWrap: true,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              decoration: TextDecoration.none,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w800,
+                              fontFamily: "OpenSans",
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                      side: BorderSide(
-                        color: Colors.white,
-                        width: 2,
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        colorkito=Colors.orange;
-                      colorveg=Palette.boldTextO;
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          side: BorderSide(
+                            color: Colors.white,
+                            width: 2,
+                          ),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            colorkito=Colors.orange;
+                          colorveg=Palette.boldTextO;
     colorgluten=Palette.boldTextO;
    colordairy=Palette.boldTextO;
    colormass=Palette.boldTextO;
@@ -85,41 +87,41 @@ class _DietPlanState extends State<DietPlan> {
    colorpaleo=Palette.boldTextO;
    colorgeneral=Palette.boldTextO;
    colorpref=Palette.boldTextO;
-                      });
-                    },
-                  ),
-                ),
-                 Container(
-                  width: width * 0.9,
-                  // color: Colors.orange,
-                  child: FlatButton(
-                    color: colorveg,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12.0),
-                      child: Text(
-                        "Veg",
-                        softWrap: true,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          decoration: TextDecoration.none,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w800,
-                          fontFamily: "OpenSans",
+                          });
+                        },
+                      ),
+                    ),
+                     Container(
+                      width: width * 0.9,
+                      // color: Colors.orange,
+                      child: FlatButton(
+                        color: colorveg,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 12.0),
+                          child: Text(
+                            "Veg",
+                            softWrap: true,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              decoration: TextDecoration.none,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w800,
+                              fontFamily: "OpenSans",
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                      side: BorderSide(
-                        color: Colors.white,
-                        width: 2,
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                          colorkito=Palette.boldTextO;
-                      colorveg=Colors.orange;
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          side: BorderSide(
+                            color: Colors.white,
+                            width: 2,
+                          ),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                              colorkito=Palette.boldTextO;
+                          colorveg=Colors.orange;
     colorgluten=Palette.boldTextO;
    colordairy=Palette.boldTextO;
    colormass=Palette.boldTextO;
@@ -127,42 +129,42 @@ class _DietPlanState extends State<DietPlan> {
    colorpaleo=Palette.boldTextO;
    colorgeneral=Palette.boldTextO;
    colorpref=Palette.boldTextO;
-                      });
-                     
-                    },
-                  ),
-                ),
-                 Container(
-                  width: width * 0.9,
-                  // color: Colors.orange,
-                  child: FlatButton(
-                    color: colorgluten,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12.0),
-                      child: Text(
-                        "Gluten Free",
-                        softWrap: true,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          decoration: TextDecoration.none,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w800,
-                          fontFamily: "OpenSans",
+                          });
+
+                        },
+                      ),
+                    ),
+                     Container(
+                      width: width * 0.9,
+                      // color: Colors.orange,
+                      child: FlatButton(
+                        color: colorgluten,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 12.0),
+                          child: Text(
+                            "Gluten Free",
+                            softWrap: true,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              decoration: TextDecoration.none,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w800,
+                              fontFamily: "OpenSans",
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                      side: BorderSide(
-                        color: Colors.white,
-                        width: 2,
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                         colorkito=Palette.boldTextO;
-                      colorveg=Palette.boldTextO;
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          side: BorderSide(
+                            color: Colors.white,
+                            width: 2,
+                          ),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                             colorkito=Palette.boldTextO;
+                          colorveg=Palette.boldTextO;
     colorgluten=Colors.orange;
    colordairy=Palette.boldTextO;
    colormass=Palette.boldTextO;
@@ -170,42 +172,42 @@ class _DietPlanState extends State<DietPlan> {
    colorpaleo=Palette.boldTextO;
    colorgeneral=Palette.boldTextO;
    colorpref=Palette.boldTextO;
-                      });
-                      
-                    },
-                  ),
-                ),
-                 Container(
-                  width: width * 0.9,
-                  // color: Colors.orange,
-                  child: FlatButton(
-                   color: colordairy,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12.0),
-                      child: Text(
-                        "Dairy Free",
-                        softWrap: true,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          decoration: TextDecoration.none,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w800,
-                          fontFamily: "OpenSans",
+                          });
+
+                        },
+                      ),
+                    ),
+                     Container(
+                      width: width * 0.9,
+                      // color: Colors.orange,
+                      child: FlatButton(
+                       color: colordairy,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 12.0),
+                          child: Text(
+                            "Dairy Free",
+                            softWrap: true,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              decoration: TextDecoration.none,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w800,
+                              fontFamily: "OpenSans",
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                      side: BorderSide(
-                        color: Colors.white,
-                        width: 2,
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                          colorkito=Palette.boldTextO;
-                      colorveg=Palette.boldTextO;
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          side: BorderSide(
+                            color: Colors.white,
+                            width: 2,
+                          ),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                              colorkito=Palette.boldTextO;
+                          colorveg=Palette.boldTextO;
     colorgluten=Palette.boldTextO;
    colordairy=Colors.orange;
    colormass=Palette.boldTextO;
@@ -213,42 +215,42 @@ class _DietPlanState extends State<DietPlan> {
    colorpaleo=Palette.boldTextO;
    colorgeneral=Palette.boldTextO;
    colorpref=Palette.boldTextO;
-                      });
-                     
-                    },
-                  ),
-                ),
-                 Container(
-                  width: width * 0.9,
-                  // color: Colors.orange,
-                  child: FlatButton(
-                    color: colormass,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12.0),
-                      child: Text(
-                        "Mass Gainer",
-                        softWrap: true,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          decoration: TextDecoration.none,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w800,
-                          fontFamily: "OpenSans",
+                          });
+
+                        },
+                      ),
+                    ),
+                     Container(
+                      width: width * 0.9,
+                      // color: Colors.orange,
+                      child: FlatButton(
+                        color: colormass,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 12.0),
+                          child: Text(
+                            "Mass Gainer",
+                            softWrap: true,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              decoration: TextDecoration.none,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w800,
+                              fontFamily: "OpenSans",
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                      side: BorderSide(
-                        color: Colors.white,
-                        width: 2,
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                         colorkito=Palette.boldTextO;
-                      colorveg=Palette.boldTextO;
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          side: BorderSide(
+                            color: Colors.white,
+                            width: 2,
+                          ),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                             colorkito=Palette.boldTextO;
+                          colorveg=Palette.boldTextO;
     colorgluten=Palette.boldTextO;
    colordairy=Palette.boldTextO;
    colormass=Colors.orange;
@@ -256,42 +258,42 @@ class _DietPlanState extends State<DietPlan> {
    colorpaleo=Palette.boldTextO;
    colorgeneral=Palette.boldTextO;
    colorpref=Palette.boldTextO;
-                      });
-                      
-                    },
-                  ),
-                ),
-                 Container(
-                  width: width * 0.9,
-                  // color: Colors.orange,
-                  child: FlatButton(
-                    color: colormap,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12.0),
-                      child: Text(
-                        "FodMap",
-                        softWrap: true,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          decoration: TextDecoration.none,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w800,
-                          fontFamily: "OpenSans",
+                          });
+
+                        },
+                      ),
+                    ),
+                     Container(
+                      width: width * 0.9,
+                      // color: Colors.orange,
+                      child: FlatButton(
+                        color: colormap,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 12.0),
+                          child: Text(
+                            "FodMap",
+                            softWrap: true,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              decoration: TextDecoration.none,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w800,
+                              fontFamily: "OpenSans",
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                      side: BorderSide(
-                        color: Colors.white,
-                        width: 2,
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                         colorkito=Palette.boldTextO;
-                      colorveg=Palette.boldTextO;
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          side: BorderSide(
+                            color: Colors.white,
+                            width: 2,
+                          ),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                             colorkito=Palette.boldTextO;
+                          colorveg=Palette.boldTextO;
     colorgluten=Palette.boldTextO;
    colordairy=Palette.boldTextO;
    colormass=Palette.boldTextO;
@@ -299,42 +301,42 @@ class _DietPlanState extends State<DietPlan> {
    colorpaleo=Palette.boldTextO;
    colorgeneral=Palette.boldTextO;
    colorpref=Palette.boldTextO;
-                      });
-                      
-                    },
-                  ),
-                ),
-                 Container(
-                  width: width * 0.9,
-                  // color: Colors.orange,
-                  child: FlatButton(
-                    color: colorpaleo,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12.0),
-                      child: Text(
-                        "Paleo",
-                        softWrap: true,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          decoration: TextDecoration.none,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w800,
-                          fontFamily: "OpenSans",
+                          });
+
+                        },
+                      ),
+                    ),
+                     Container(
+                      width: width * 0.9,
+                      // color: Colors.orange,
+                      child: FlatButton(
+                        color: colorpaleo,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 12.0),
+                          child: Text(
+                            "Paleo",
+                            softWrap: true,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              decoration: TextDecoration.none,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w800,
+                              fontFamily: "OpenSans",
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                      side: BorderSide(
-                        color: Colors.white,
-                        width: 2,
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                          colorkito=Palette.boldTextO;
-                      colorveg=Palette.boldTextO;
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          side: BorderSide(
+                            color: Colors.white,
+                            width: 2,
+                          ),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                              colorkito=Palette.boldTextO;
+                          colorveg=Palette.boldTextO;
     colorgluten=Palette.boldTextO;
    colordairy=Palette.boldTextO;
    colormass=Palette.boldTextO;
@@ -342,42 +344,42 @@ class _DietPlanState extends State<DietPlan> {
    colorpaleo=Colors.orange;
    colorgeneral=Palette.boldTextO;
    colorpref=Palette.boldTextO;
-                      });
-                     
-                    },
-                  ),
-                ),
-                 Container(
-                  width: width * 0.9,
-                  // color: Colors.orange,
-                  child: FlatButton(
-                    color: colorgeneral,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12.0),
-                      child: Text(
-                        "General",
-                        softWrap: true,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          decoration: TextDecoration.none,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w800,
-                          fontFamily: "OpenSans",
+                          });
+
+                        },
+                      ),
+                    ),
+                     Container(
+                      width: width * 0.9,
+                      // color: Colors.orange,
+                      child: FlatButton(
+                        color: colorgeneral,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 12.0),
+                          child: Text(
+                            "General",
+                            softWrap: true,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              decoration: TextDecoration.none,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w800,
+                              fontFamily: "OpenSans",
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                      side: BorderSide(
-                        color: Colors.white,
-                        width: 2,
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                          colorkito=Palette.boldTextO;
-                      colorveg=Palette.boldTextO;
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          side: BorderSide(
+                            color: Colors.white,
+                            width: 2,
+                          ),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                              colorkito=Palette.boldTextO;
+                          colorveg=Palette.boldTextO;
     colorgluten=Palette.boldTextO;
    colordairy=Palette.boldTextO;
    colormass=Palette.boldTextO;
@@ -385,42 +387,42 @@ class _DietPlanState extends State<DietPlan> {
    colorpaleo=Palette.boldTextO;
    colorgeneral=Colors.orange;
    colorpref=Palette.boldTextO;
-                      });
-                     
-                    },
-                  ),
-                ),
-                 Container(
-                  width: width * 0.9,
-                  // color: Colors.orange,
-                  child: FlatButton(
-                    color: colorpref,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12.0),
-                      child: Text(
-                        "No Prefrences",
-                        softWrap: true,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          decoration: TextDecoration.none,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w800,
-                          fontFamily: "OpenSans",
+                          });
+
+                        },
+                      ),
+                    ),
+                     Container(
+                      width: width * 0.9,
+                      // color: Colors.orange,
+                      child: FlatButton(
+                        color: colorpref,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 12.0),
+                          child: Text(
+                            "No Prefrences",
+                            softWrap: true,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              decoration: TextDecoration.none,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w800,
+                              fontFamily: "OpenSans",
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                      side: BorderSide(
-                        color: Colors.white,
-                        width: 2,
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                         colorkito=Palette.boldTextO;
-                      colorveg=Palette.boldTextO;
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          side: BorderSide(
+                            color: Colors.white,
+                            width: 2,
+                          ),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                             colorkito=Palette.boldTextO;
+                          colorveg=Palette.boldTextO;
     colorgluten=Palette.boldTextO;
    colordairy=Palette.boldTextO;
    colormass=Palette.boldTextO;
@@ -428,14 +430,16 @@ class _DietPlanState extends State<DietPlan> {
    colorpaleo=Palette.boldTextO;
    colorgeneral=Palette.boldTextO;
    colorpref=Colors.orange;
-                      });
-                      
-                    },
-                  ),
-                ),
-                    ],
-                  ),
+                          });
+
+                        },
+                      ),
+                    ),
+                        ],
+                      ),
             ),
+                  ],
+                ),
             ),
             Expanded(
               flex: 2,
