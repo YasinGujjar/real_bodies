@@ -49,7 +49,7 @@ class _DietPlanState extends State<DietPlan> {
                       SizedBox(height: height * 0.01,),
                        Container(
                   width: width * 0.9,
-                  // color: Colors.orange,
+                  // color: Palette.backGround,
                   child: FlatButton(
                     color: colorkito,
                     child: Padding(
@@ -76,7 +76,7 @@ class _DietPlanState extends State<DietPlan> {
                     ),
                     onPressed: () {
                       setState(() {
-                        colorkito=Colors.orange;
+                        colorkito=Palette.backGround;
                       colorveg=Palette.boldTextO;
     colorgluten=Palette.boldTextO;
    colordairy=Palette.boldTextO;
@@ -91,7 +91,7 @@ class _DietPlanState extends State<DietPlan> {
                 ),
                  Container(
                   width: width * 0.9,
-                  // color: Colors.orange,
+                  // color: Palette.backGround,
                   child: FlatButton(
                     color: colorveg,
                     child: Padding(
@@ -119,7 +119,7 @@ class _DietPlanState extends State<DietPlan> {
                     onPressed: () {
                       setState(() {
                           colorkito=Palette.boldTextO;
-                      colorveg=Colors.orange;
+                      colorveg=Palette.backGround;
     colorgluten=Palette.boldTextO;
    colordairy=Palette.boldTextO;
    colormass=Palette.boldTextO;
@@ -134,7 +134,7 @@ class _DietPlanState extends State<DietPlan> {
                 ),
                  Container(
                   width: width * 0.9,
-                  // color: Colors.orange,
+                  // color: Palette.backGround,
                   child: FlatButton(
                     color: colorgluten,
                     child: Padding(
@@ -163,7 +163,7 @@ class _DietPlanState extends State<DietPlan> {
                       setState(() {
                          colorkito=Palette.boldTextO;
                       colorveg=Palette.boldTextO;
-    colorgluten=Colors.orange;
+    colorgluten=Palette.backGround;
    colordairy=Palette.boldTextO;
    colormass=Palette.boldTextO;
    colormap=Palette.boldTextO;
@@ -177,7 +177,7 @@ class _DietPlanState extends State<DietPlan> {
                 ),
                  Container(
                   width: width * 0.9,
-                  // color: Colors.orange,
+                  // color: Palette.backGround,
                   child: FlatButton(
                    color: colordairy,
                     child: Padding(
@@ -207,7 +207,7 @@ class _DietPlanState extends State<DietPlan> {
                           colorkito=Palette.boldTextO;
                       colorveg=Palette.boldTextO;
     colorgluten=Palette.boldTextO;
-   colordairy=Colors.orange;
+   colordairy=Palette.backGround;
    colormass=Palette.boldTextO;
    colormap=Palette.boldTextO;
    colorpaleo=Palette.boldTextO;
@@ -220,7 +220,7 @@ class _DietPlanState extends State<DietPlan> {
                 ),
                  Container(
                   width: width * 0.9,
-                  // color: Colors.orange,
+                  // color: Palette.backGround,
                   child: FlatButton(
                     color: colormass,
                     child: Padding(
@@ -251,7 +251,7 @@ class _DietPlanState extends State<DietPlan> {
                       colorveg=Palette.boldTextO;
     colorgluten=Palette.boldTextO;
    colordairy=Palette.boldTextO;
-   colormass=Colors.orange;
+   colormass=Palette.backGround;
    colormap=Palette.boldTextO;
    colorpaleo=Palette.boldTextO;
    colorgeneral=Palette.boldTextO;
@@ -263,7 +263,7 @@ class _DietPlanState extends State<DietPlan> {
                 ),
                  Container(
                   width: width * 0.9,
-                  // color: Colors.orange,
+                  // color: Palette.backGround,
                   child: FlatButton(
                     color: colormap,
                     child: Padding(
@@ -295,7 +295,7 @@ class _DietPlanState extends State<DietPlan> {
     colorgluten=Palette.boldTextO;
    colordairy=Palette.boldTextO;
    colormass=Palette.boldTextO;
-   colormap=Colors.orange;
+   colormap=Palette.backGround;
    colorpaleo=Palette.boldTextO;
    colorgeneral=Palette.boldTextO;
    colorpref=Palette.boldTextO;
@@ -306,7 +306,7 @@ class _DietPlanState extends State<DietPlan> {
                 ),
                  Container(
                   width: width * 0.9,
-                  // color: Colors.orange,
+                  // color: Palette.backGround,
                   child: FlatButton(
                     color: colorpaleo,
                     child: Padding(
@@ -339,7 +339,7 @@ class _DietPlanState extends State<DietPlan> {
    colordairy=Palette.boldTextO;
    colormass=Palette.boldTextO;
    colormap=Palette.boldTextO;
-   colorpaleo=Colors.orange;
+   colorpaleo=Palette.backGround;
    colorgeneral=Palette.boldTextO;
    colorpref=Palette.boldTextO;
                       });
@@ -349,7 +349,7 @@ class _DietPlanState extends State<DietPlan> {
                 ),
                  Container(
                   width: width * 0.9,
-                  // color: Colors.orange,
+                  // color: Palette.backGround,
                   child: FlatButton(
                     color: colorgeneral,
                     child: Padding(
@@ -383,7 +383,7 @@ class _DietPlanState extends State<DietPlan> {
    colormass=Palette.boldTextO;
    colormap=Palette.boldTextO;
    colorpaleo=Palette.boldTextO;
-   colorgeneral=Colors.orange;
+   colorgeneral=Palette.backGround;
    colorpref=Palette.boldTextO;
                       });
                      
@@ -392,7 +392,7 @@ class _DietPlanState extends State<DietPlan> {
                 ),
                  Container(
                   width: width * 0.9,
-                  // color: Colors.orange,
+                  // color: Palette.backGround,
                   child: FlatButton(
                     color: colorpref,
                     child: Padding(
@@ -427,7 +427,7 @@ class _DietPlanState extends State<DietPlan> {
    colormap=Palette.boldTextO;
    colorpaleo=Palette.boldTextO;
    colorgeneral=Palette.boldTextO;
-   colorpref=Colors.orange;
+   colorpref=Palette.backGround;
                       });
                       
                     },
