@@ -64,7 +64,7 @@ class _TrainingPageState extends State<TrainingPage> {
 //    ));
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.orange,
+          backgroundColor: Palette.mainPurple,
           automaticallyImplyLeading: false,
           centerTitle: true,
           title: Center(
@@ -189,7 +189,7 @@ class _TrainingPageState extends State<TrainingPage> {
                                             splashColor: Colors.black12,
                                             borderColor: Colors.white,
                                             borderWidth: 2,
-                                            color: Colors.orange,
+                                            color: Palette.mainPurple,
                                           ),
                                           CustomFlatButton(
                                             title: "Log",
@@ -205,7 +205,7 @@ class _TrainingPageState extends State<TrainingPage> {
                                             splashColor: Colors.black12,
                                             borderColor: Colors.white,
                                             borderWidth: 2,
-                                            color: Colors.orange,
+                                            color: Palette.mainPurple,
                                           ),
                                         ],
                                       )
@@ -213,7 +213,7 @@ class _TrainingPageState extends State<TrainingPage> {
                                   ),
                                   leading: Icon(
                                     Icons.looks_one,
-                                    color: Colors.orange,
+                                   color: Palette.mainPurple,
                                     size: 30.0,
                                   ),
                                   trailing: Icon(
@@ -240,7 +240,7 @@ class _TrainingPageState extends State<TrainingPage> {
                                 elevation: 5.0,
                                 child: ListTile(
                                   title: Text(
-                                    'Exercise 3',
+                                    'Exercise 2',
                                     style: TextStyle(
                                         fontSize: 19.0,
                                         fontWeight: FontWeight.bold),
@@ -278,7 +278,7 @@ class _TrainingPageState extends State<TrainingPage> {
                                             splashColor: Colors.black12,
                                             borderColor: Colors.white,
                                             borderWidth: 2,
-                                            color: Colors.orange,
+                                            color: Palette.mainPurple,
                                           ),
                                           CustomFlatButton(
                                             title: "Log",
@@ -294,15 +294,15 @@ class _TrainingPageState extends State<TrainingPage> {
                                             splashColor: Colors.black12,
                                             borderColor: Colors.white,
                                             borderWidth: 2,
-                                            color: Colors.orange,
+                                          color: Palette.mainPurple,
                                           ),
                                         ],
                                       )
                                     ],
                                   ),
                                   leading: Icon(
-                                    Icons.stars,
-                                    color: Colors.orange,
+                                    Icons.looks_two,
+                                    color: Palette.mainPurple,
                                     size: 30.0,
                                   ),
                                   trailing: Icon(
@@ -329,7 +329,7 @@ class _TrainingPageState extends State<TrainingPage> {
                                 elevation: 5.0,
                                 child: ListTile(
                                   title: Text(
-                                    'Exercise 2',
+                                    'Finish',
                                     style: TextStyle(
                                         fontSize: 19.0,
                                         fontWeight: FontWeight.bold),
@@ -367,7 +367,7 @@ class _TrainingPageState extends State<TrainingPage> {
                                             splashColor: Colors.black12,
                                             borderColor: Colors.white,
                                             borderWidth: 2,
-                                            color: Colors.orange,
+                                            color: Palette.mainPurple,
                                           ),
                                           CustomFlatButton(
                                             title: "Log",
@@ -383,15 +383,15 @@ class _TrainingPageState extends State<TrainingPage> {
                                             splashColor: Colors.black12,
                                             borderColor: Colors.white,
                                             borderWidth: 2,
-                                            color: Colors.orange,
+                                            color: Palette.mainPurple,
                                           ),
                                         ],
                                       )
                                     ],
                                   ),
                                   leading: Icon(
-                                    Icons.looks_two,
-                                    color: Colors.orange,
+                                    Icons.stars,
+                                    color: Palette.mainPurple,
                                     size: 30.0,
                                   ),
                                   trailing: Icon(
@@ -428,7 +428,7 @@ class _TrainingPageState extends State<TrainingPage> {
                   width: width * 0.9,
                   // color: Colors.orange,
                   child: FlatButton(
-                    color: Colors.orange,
+                   color: Palette.mainPurple,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 12.0),
                       child: Text(

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 
 
 class SearchFood extends StatefulWidget {
@@ -10,16 +14,59 @@ class SearchFood extends StatefulWidget {
 class _SearchFoodState extends State<SearchFood> {
    List<String> kFoods;
    CustomSearchDelegate _delegate;
-
+URL urldomain=URL();
 
    _SearchFoodState() : kFoods = ['apple','mango','banana','orange','lays','eggs','oatmeal']
    ..sort((w1,w2) => w1.toLowerCase().compareTo(w2.toUpperCase()),),
    super();
 
+
+ void checkinfo() async
+  {
+   try
+   {
+      
+       var url="http://realbodies.com.au/api/food.php?f=get_food";
+    final response=await http.get(url);
+    print('Response body:${response.body}');
+   var jsonResponse=json.decode(response.body);
+     // var requestresponse=jsonResponse['response'];
+  
+    
+     /*  if (requestresponse=="success")
+{
+ var image=urldomain.imgdomain.toString()+jsonResponse['image'];
+  var name=jsonResponse['name'];
+   var gender=jsonResponse['gender'];
+    var old=jsonResponse['old'];
+     var height=jsonResponse['height'];
+      var weight=jsonResponse['weight'];
+
+ Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => Desktop(image:image,name:name,gender:gender,old:old,height:height,weight:weight )),
+  );
+  }
+else if(requestresponse=="error")
+{
+
+  print("error login");
+} 
+
+ */
+   }
+   catch(e)
+   {
+     print("Exception on way $e");
+   }
+  }
+
    @override
   void initState() {
      super.initState();
+    // checkinfo();
      _delegate = CustomSearchDelegate(kFoods);
+     checkinfo();
   }
 
   @override
