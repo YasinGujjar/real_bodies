@@ -1,5 +1,7 @@
+import 'package:charts_flutter/flutter.dart' as prefix0;
 import 'package:flutter/material.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 import 'package:real_bodies/ui/widgets/newcarousel.dart';
 import 'package:real_bodies/ui/widgets/weight_chart.dart';
 
@@ -10,6 +12,94 @@ class ShowWeight extends StatefulWidget {
 }
 
 class _ShowWeightState extends State<ShowWeight> {
+   final TextEditingController _newweight = new TextEditingController();
+  final TextEditingController _img = new TextEditingController();
+ CustomTextField _weightField;
+  CustomTextField _imageField;
+ Color add=Palette.mainPurple;
+ Color my =Colors.grey;
+  bool addWeight=false;
+  Widget _addweight()
+  {return Container(
+    //color: Colors.blue,
+    width: 200,
+    height: 200,
+    child: Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Column(
+        children: <Widget>[
+          SizedBox(
+            height: 40.0,
+          ),
+          _weightField,
+          SizedBox(
+            height: 20,
+          ),
+          _imageField,
+          SizedBox(
+            height: 30,
+          ),
+          Container(
+            width: 200,
+            child: FlatButton(
+                       //color: Palette.mainPurple,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 12.0),
+                          child: Text(
+                            "Add Weight",
+                            softWrap: true,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Palette.mainPurple,
+                              decoration: TextDecoration.none,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w800,
+                              fontFamily: "OpenSans",
+                            ),
+                          ),
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.0),
+                          side: BorderSide(
+                            color: Palette.mainPurple,
+                            width: 2,
+                          ),
+                        ),
+                        onPressed: () {
+setState(() {
+ 
+});
+                        },
+                      ),
+          ),
+        ],
+      ),
+    ),
+  );
+
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+     _weightField = new CustomTextField(
+      baseColor: Colors.grey,
+       borderColor: Colors.grey[400],
+      errorColor: Colors.red,
+      controller: _newweight,
+      hint: "Add New Weight",
+      //validator: Validator.validateName,
+    );
+     _imageField = new CustomTextField(
+      baseColor: Colors.grey,
+       borderColor: Colors.grey[400],
+      errorColor: Colors.red,
+      controller: _newweight,
+      hint: "Add Image",
+      //validator: Validator.validateName,
+    );
+    
+  }
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -54,7 +144,7 @@ class _ShowWeightState extends State<ShowWeight> {
                           softWrap: true,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: Palette.mainPurple,
+                            color: add,
                             decoration: TextDecoration.none,
                             fontSize: 16,
                             fontWeight: FontWeight.w800,
@@ -65,11 +155,17 @@ class _ShowWeightState extends State<ShowWeight> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.0),
                         side: BorderSide(
-                          color: Palette.mainPurple,
+                          color: add,
                           width: 2,
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+setState(() {
+  addWeight=true;
+  add=Colors.grey;
+  my=Palette.mainPurple;
+});
+                      },
                     ),
                   ),
                    Padding(
@@ -85,7 +181,7 @@ class _ShowWeightState extends State<ShowWeight> {
                             softWrap: true,
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: Colors.grey,
+                              color:my,
                               decoration: TextDecoration.none,
                               fontSize: 16,
                               fontWeight: FontWeight.w800,
@@ -96,11 +192,17 @@ class _ShowWeightState extends State<ShowWeight> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.0),
                           side: BorderSide(
-                            color: Colors.grey,
+                            color: my,
                             width: 2,
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+  addWeight=false;
+  add=Palette.mainPurple;
+  my=Colors.grey;
+});
+                        },
                   ),
                      ),
                    ),
@@ -115,8 +217,10 @@ class _ShowWeightState extends State<ShowWeight> {
       
             Container(
               height: height*0.45,
+               
             //  color: Colors.yellow,
- child: Column(
+ child:
+ addWeight ? _addweight() : Column(
    mainAxisSize: MainAxisSize.max ,
    children: <Widget>[
      CarouselDemo(),
@@ -235,4 +339,5 @@ class _ShowWeightState extends State<ShowWeight> {
           ),
         ));
   }
+  
 }
