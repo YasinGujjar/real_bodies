@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: SearchAddFood(),//MyHomePage(title: 'Demo'),
+      home: SearchFood(),//MyHomePage(title: 'Demo'),
     );
   }
 }

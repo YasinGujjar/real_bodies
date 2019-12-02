@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:real_bodies/models/food.dart';
 import 'package:real_bodies/models/url.dart';
+import 'package:real_bodies/realbodyui/search_add_food.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:real_bodies/ui/widgets/scale_route.dart';
 
 
 
@@ -31,7 +35,11 @@ URL urldomain=URL();
     print('Response body:${response.body}');
    var jsonResponse=json.decode(response.body);
      // var requestresponse=jsonResponse['response'];
-  
+
+     for(int i=0; i<=1; i++){
+       kFoods.add(jsonResponse[i]['name']);
+     }
+     print(kFoods);
     
      /*  if (requestresponse=="success")
 {
@@ -61,12 +69,13 @@ else if(requestresponse=="error")
    }
   }
 
+
+
    @override
   void initState() {
      super.initState();
-    // checkinfo();
      _delegate = CustomSearchDelegate(kFoods);
-     checkinfo();
+    // checkinfo();
   }
 
   @override
@@ -114,13 +123,62 @@ else if(requestresponse=="error")
 class CustomSearchDelegate extends SearchDelegate<String>{
   final List<String> _words;
   final List<String> _history;
-
+  //var food;
+  Food selectedFood;
   CustomSearchDelegate(List<String> words) : _words = words,
   _history = <String>[
     'apple',
     'Mango'
   ],
   super();
+
+
+  Food getSelectedFood(String query){
+    print('heedjkfldjfdljjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj');
+    Food selectedFood =Food();
+
+    for(int i =0; i<=1; i++){
+      if(food[i]['name']==query){
+
+       selectedFood.name = food[i]['name'];
+       selectedFood.quantity =int.parse(food[i]['quantity']);
+       selectedFood.size = double.parse(food[i]['size']);
+       selectedFood.carbohydrates = double.parse(food[i]['carbo']);
+       selectedFood.proteins = double.parse(food[i]['proteins']);
+       selectedFood.fat = double.parse(food[i]['fat']);
+
+      }
+
+    }
+   print('helooooooooooooooooooooooooooo${selectedFood.name}');
+    return selectedFood;
+  }
+
+  void getFood(String query) async
+  {
+
+    try
+    {
+
+      var url="http://realbodies.com.au/api/food.php?f=get_food";
+      final response=await http.get(url);
+      print('Response body:${response.body}');
+      var jsonResponse=json.decode(response.body);
+        food = json.decode(response.body);
+        print(food);
+      for(int i=0; i<=1; i++){
+
+        if(!_words.contains(jsonResponse[i]['name'])) {
+          _words.add(jsonResponse[i]['name']);
+        }
+
+      }
+    }
+    catch(e)
+    {
+      print("Exception on way $e");
+    }
+  }
 
 
   @override
@@ -161,6 +219,7 @@ class CustomSearchDelegate extends SearchDelegate<String>{
 
   @override
   Widget buildResults(BuildContext context) {
+    selectedFood = getSelectedFood(this.query);
     return  Padding(
       padding: const EdgeInsets.all(8.0),
       child: Center(
@@ -172,10 +231,15 @@ class CustomSearchDelegate extends SearchDelegate<String>{
               onTap: () {
                 // Returns this.query as result to previous screen, c.f.
                 // `showSearch()` above.
+
+               // getSelectedFood(this.query);
+
                 this.close(context, this.query);
+
               },
               child: Text(
-                this.query,
+                //this.query,
+                selectedFood.name,
                 style: Theme.of(context)
                     .textTheme
                     .display1
@@ -188,15 +252,22 @@ class CustomSearchDelegate extends SearchDelegate<String>{
     );
   }
 
+
   @override
-  Widget buildSuggestions(BuildContext context) {
-    final Iterable<String> suggestions = this.query.isEmpty
-        ? _history
-        : _words.where((word) => word.startsWith(query));
+  Widget buildSuggestions(BuildContext context)   {
+
+//        getFood(query);
+//    final Iterable<String> suggestions = this.query.isEmpty
+//        ? _history
+//
+//
+//
+//        : _words.where((word) => word.startsWith(query));
 
     return _SuggestionList(
       query: this.query,
-      suggestions: suggestions.toList(),
+      history: this._history,
+      //suggestions: suggestions.toList(),
       onSelected: (String suggestion) {
         this.query = suggestion;
         this._history.insert(0, suggestion);
@@ -207,41 +278,115 @@ class CustomSearchDelegate extends SearchDelegate<String>{
 
 }
 
+var food;
+Future<Iterable<String>> getFood(String query,List<String> history) async
+{
+
+  try
+  {
+     Iterable<String> suggestions =[];
+     List<String> u=[];
+    var url="http://realbodies.com.au/api/food.php?f=get_food";
+    final response=await http.get(url);
+    print('Response body:${response.body}');
+    var jsonResponse=json.decode(response.body);
+    food = json.decode(response.body);
+    //print(food);
+    for(int i=0; i<=1; i++){
+
+      u.add(jsonResponse[i]['name']);
+//      if(!_words.contains(jsonResponse[i]['name'])) {
+//        _words.add(jsonResponse[i]['name']);
+//      }
+
+    }
+    print(u);
+    return  suggestions = query.isEmpty
+        ? history
+
+
+
+        : u.where((word) => word.startsWith(query));
+  }
+  catch(e)
+  {
+    print("Exception on way $e");
+  }
+}
 
 class _SuggestionList extends StatelessWidget {
-  const _SuggestionList({this.suggestions, this.query, this.onSelected});
+  const _SuggestionList({this.suggestions, this.query, this.history, this.onSelected});
 
   final List<String> suggestions;
   final String query;
+  final List<String> history;
   final ValueChanged<String> onSelected;
+
+  Food getSelectedFood(String query){
+    print('heedjkfldjfdljjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj');
+    Food selectedFood =Food();
+
+    for(int i =0; i<=1; i++){
+      if(food[i]['name']==query){
+
+        selectedFood.name = food[i]['name'];
+        selectedFood.quantity =int.parse(food[i]['quantity']);
+        selectedFood.size = double.parse(food[i]['size']);
+        selectedFood.carbohydrates = double.parse(food[i]['carbo']);
+        selectedFood.proteins = double.parse(food[i]['proteins']);
+        selectedFood.fat = double.parse(food[i]['fat']);
+
+      }
+
+    }
+    print('helooooooooooooooooooooooooooo${selectedFood.name}');
+    return selectedFood;
+  }
+
 
   @override
   Widget build(BuildContext context) {
+    Food selectedFood;
     final textTheme = Theme.of(context).textTheme.subhead;
-    return ListView.builder(
-      itemCount: suggestions.length,
-      itemBuilder: (BuildContext context, int i) {
-        final String suggestion = suggestions[i];
-        return ListTile(
-          leading: query.isEmpty ? Icon(Icons.history) : Icon(null),
-          // Highlight the substring that matched the query.
-          title: RichText(
-            text: TextSpan(
-              text: suggestion.substring(0, query.length),
-              style: textTheme.copyWith(fontWeight: FontWeight.bold),
-              children: <TextSpan>[
-                TextSpan(
-                  text: suggestion.substring(query.length),
-                  style: textTheme,
+    return FutureBuilder<Iterable<String>>(
+      future: getFood(query,history),
+      builder:(context,snapshot) {
+        if(snapshot.hasData) {
+          return ListView.builder(
+            itemCount:     snapshot.data.toList().length,                  //suggestions.length,
+            itemBuilder: (BuildContext context, int i) {
+              final String suggestion = snapshot.data.toList()[i];
+              return ListTile(
+                leading: query.isEmpty ? Icon(Icons.history) : Icon(null),
+                // Highlight the substring that matched the query.
+                title: RichText(
+                  text: TextSpan(
+                    text: suggestion.substring(0, query.length),
+                    style: textTheme.copyWith(fontWeight: FontWeight.bold),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: suggestion.substring(query.length),
+                        style: textTheme,
+                      ),
+                    ],
+                  ),
                 ),
-              ],
-            ),
-          ),
-          onTap: () {
-            onSelected(suggestion);
-          },
-        );
-      },
+                onTap: () {
+                  //   onSelected(suggestion);
+                  selectedFood = getSelectedFood(suggestion);
+                  FocusScope.of(context).unfocus();
+                  Navigator.push(
+                    context,
+                    ScaleRoute( page: SearchAddFood(food: selectedFood,)),
+                  );
+                },
+              );
+            },
+          );
+        }
+        else
+        { return Center(child: CircularProgressIndicator());}
+      }
     );
   }
 }
