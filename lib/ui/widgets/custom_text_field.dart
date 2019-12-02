@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:real_bodies/theme/palette.dart';
 
 class CustomTextField extends StatefulWidget {
   final String hint;
@@ -40,10 +41,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0.0,
-      color: Colors.white,
+      color: Palette.backGround,
       shape: RoundedRectangleBorder(
-        side: BorderSide(color: currentColor, width: 2.0),
-        borderRadius: BorderRadius.circular(20.0),
+        side: BorderSide(color: currentColor, width: 1.0),
+        borderRadius: BorderRadius.circular(5.0),
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.0),

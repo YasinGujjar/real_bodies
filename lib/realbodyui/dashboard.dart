@@ -18,11 +18,11 @@ class _DashBoardState extends State<DashBoard> {
 
     final _tabs = [
       storeTab(context),
-      ShowWeight(),
+       Text('Tab2'),
       SearchFood(),
       Text('Tab4'),
       Text('Tab5'),
-      Text("Tab6"),
+       ShowWeight(),
     ];
 
     return Scaffold(

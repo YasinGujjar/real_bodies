@@ -75,6 +75,14 @@ flutter:
      - assets/images/bodgoal4.png
      - assets/sound/timeup.mp3
      - assets/sound/beep.mp3
+     - assets/images/splash1.png
+     - assets/images/splash2.png
+     - assets/images/register1.png
+     - assets/images/signin.png
+     - assets/images/step1.png
+     - assets/images/step2.png
+     - assets/images/step3.png
+     - assets/images/stepOne.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
