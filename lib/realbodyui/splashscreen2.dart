@@ -141,8 +141,8 @@ class _splashscreen2State extends State<splashscreen2> {
                         child: Row(
                           children: <Widget>[
                             
-                            Icon(Icons.transfer_within_a_station),
-                            Text("Login with facebook".toUpperCase(),
+                            Icon(Icons.mail),
+                            Text("    Login with Gmail".toUpperCase(),
                                 style: TextStyle(fontSize: 14,
                                     fontWeight: FontWeight.bold,)),
                           ],
