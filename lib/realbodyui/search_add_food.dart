@@ -69,11 +69,13 @@ class _SearchAddFoodState extends State<SearchAddFood> {
           title: Center(child: Text('Search Add Food'),)
         ),
         body: //87
-        Container(
-          height: height - kToolbarHeight -  MediaQuery.of(context).padding.top,
-          width: width,
-          child: Column(
-            children: <Widget>[
+        ListView(
+          children: <Widget>[
+            Container(
+              height: height - kToolbarHeight -  MediaQuery.of(context).padding.top,
+              width: width,
+              child: Column(
+                children: <Widget>[
 //        Container(
 //          height: height * 0.06,
 //          child: Row(
@@ -99,187 +101,187 @@ class _SearchAddFoodState extends State<SearchAddFood> {
 
 
 
-              Container(
-                // color: Colors.blue,
-                height: height * 0.04,
-                width: width * 0.95,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Container(
+                    // color: Colors.blue,
+                    height: height * 0.04,
+                    width: width * 0.95,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                  children: <Widget>[
-                    Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          "Total Calories Aim Today",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )),
-                    Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          "1600",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.red
-                          ),
-                        )),
-                  ],
-                ),
-              ),
-              Container(
-                //  color: Colors.blue,
-                height: height * 0.04,
-                width: width * 0.95,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                  children: <Widget>[
-                    Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          "Food Calories",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )),
-                    Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          "1000",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )),
-                  ],
-                ),
-              ),
-              Container(
-                //  color: Colors.blue,
-                height: height * 0.04,
-                width: width * 0.95,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                  children: <Widget>[
-                    Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          "Exercise",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )),
-                    Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          "-400",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )),
-                  ],
-                ),
-              ),
-              Container(
-                //  color: Colors.blue,
-                height: height * 0.04,
-                width: width * 0.95,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                  children: <Widget>[
-                    Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          "Remaining",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )),
-                    Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          "600",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                    ),
-                  ],
-                ),
-              ),
-
-              Container(
-                height: height * 0.20,
-                width: width * 0.95,
-                child: Row(
-
-                  children: <Widget>[
-                    Expanded(
-                      flex: 1,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          FittedBox(
-                            fit: BoxFit.contain,
+                      children: <Widget>[
+                        Align(
+                            alignment: Alignment.centerRight,
                             child: Text(
-                              "${widget.food.name}",
+                              "Total Calories Aim Today",
                               style: TextStyle(
-                               // fontWeight: FontWeight.bold,
-                                fontSize: 36
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )),
+                        Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "1600",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.red
+                              ),
+                            )),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    //  color: Colors.blue,
+                    height: height * 0.04,
+                    width: width * 0.95,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                      children: <Widget>[
+                        Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "Food Calories",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )),
+                        Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "1000",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    //  color: Colors.blue,
+                    height: height * 0.04,
+                    width: width * 0.95,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                      children: <Widget>[
+                        Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "Exercise",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )),
+                        Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "-400",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    //  color: Colors.blue,
+                    height: height * 0.04,
+                    width: width * 0.95,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                      children: <Widget>[
+                        Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "Remaining",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )),
+                        Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "600",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                          ),
-                          Text('Weight'),
-                          Row(
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  Container(
+                    height: height * 0.20,
+                    width: width * 0.95,
+                    child: Row(
+
+                      children: <Widget>[
+                        Expanded(
+                          flex: 1,
+                          child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text('Calorires'),
-                              Text('300')
+                              FittedBox(
+                                fit: BoxFit.contain,
+                                child: Text(
+                                  "${widget.food.name}",
+                                  style: TextStyle(
+                                   // fontWeight: FontWeight.bold,
+                                    fontSize: 36
+                                  ),
+                                ),
+                              ),
+                              Text('Weight'),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text('Calorires'),
+                                  Text('300')
+                                ],
+                              ),
                             ],
                           ),
-                        ],
-                      ),
-                    ),
-
-
-                    Expanded(
-                      flex: 1,
-                      child: PieChart(
-                        dataMap: dataMap,
-                        animationDuration: Duration(milliseconds: 800),
-                        chartLegendSpacing: 32.0,
-                        chartRadius: MediaQuery.of(context).size.width / 2.7,
-                        showChartValuesInPercentage: true,
-                        showChartValues: true,
-                        showChartValuesOutside: false,
-                        chartValueBackgroundColor: Colors.grey[200],
-                        colorList: colorList,
-                        showLegends: false,
-                        legendPosition: LegendPosition.right,
-                        decimalPlaces: 1,
-                        showChartValueLabel: true,
-                        initialAngle: 0,
-                        chartValueStyle: defaultChartValueStyle.copyWith(
-                          color: Colors.blueGrey[900].withOpacity(0.9),
                         ),
-                        chartType: ChartType.disc,
-                      ),
-                    ),
 
-                  ],
-                ),
-              ),
+
+                        Expanded(
+                          flex: 1,
+                          child: PieChart(
+                            dataMap: dataMap,
+                            animationDuration: Duration(milliseconds: 800),
+                            chartLegendSpacing: 32.0,
+                            chartRadius: MediaQuery.of(context).size.width / 2.7,
+                            showChartValuesInPercentage: true,
+                            showChartValues: true,
+                            showChartValuesOutside: false,
+                            chartValueBackgroundColor: Colors.grey[200],
+                            colorList: colorList,
+                            showLegends: false,
+                            legendPosition: LegendPosition.right,
+                            decimalPlaces: 1,
+                            showChartValueLabel: true,
+                            initialAngle: 0,
+                            chartValueStyle: defaultChartValueStyle.copyWith(
+                              color: Colors.blueGrey[900].withOpacity(0.9),
+                            ),
+                            chartType: ChartType.disc,
+                          ),
+                        ),
+
+                      ],
+                    ),
+                  ),
 
 
 
@@ -550,116 +552,118 @@ class _SearchAddFoodState extends State<SearchAddFood> {
 //              ),
 //            ),
 
-            Divider(height: height * 0.01),
-              SizedBox(height: height * 0.02,),
-              Container(
-                height: height * 0.05,
-                  width: width * 0.60,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                     Text('Protein'),
-                      Text('60g'),
-                    ],
+                Divider(height: height * 0.01),
+                  SizedBox(height: height * 0.02,),
+                  Container(
+                    height: height * 0.05,
+                      width: width * 0.60,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                         Text('Protein'),
+                          Text('60g'),
+                        ],
+                      ),
                   ),
-              ),
 
-              Container(
-                height: height * 0.05,
-                width: width * 0.60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text('Protein'),
-                    Text('60g'),
-                  ],
-                ),),
-              Container(
-                height: height * 0.05,
-                width: width * 0.60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text('Protein'),
-                    Text('60g'),
-                  ],
-                ),),
-              Container(
-                height: height * 0.05,
-                width: width * 0.60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text('Protein'),
-                    Text('60g'),
-                  ],
-                ),),
-              Container(
-                height: height * 0.05,
-                width: width * 0.60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text('Protein'),
-                    Text('60g'),
-                  ],
-                ),),
-              Container(
-                height: height * 0.05,
-                width: width * 0.60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text('Protein'),
-                    Text('60g'),
-                  ],
-                ),),
-              Container(
-                height: height * 0.05,
-                width: width * 0.60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text('Protein'),
-                    Text('60g'),
-                  ],
-                ),),
-
-
-              Container(
-                height: height * 0.12,
-                width: width * 0.8,
-                child: Center(
-                  child:  Container(
-                  //  height: height * 0.13,
-                    //width: width * 0.8,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                  Container(
+                    height: height * 0.05,
+                    width: width * 0.60,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Container(
-                          height: height * 0.08,
-                          width:  width * 0.8,
-                          child: FlatButton(
-                            shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0),
-                            ),
-                            onPressed: () {},
-                            color: Palette.mainPurple,
-                            textColor: Colors.white,
-                            child: Text("add food".toUpperCase(),
-                                style: TextStyle(fontSize: 14,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                        ),
+                        Text('Protein'),
+                        Text('60g'),
                       ],
+                    ),),
+                  Container(
+                    height: height * 0.05,
+                    width: width * 0.60,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text('Protein'),
+                        Text('60g'),
+                      ],
+                    ),),
+                  Container(
+                    height: height * 0.05,
+                    width: width * 0.60,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text('Protein'),
+                        Text('60g'),
+                      ],
+                    ),),
+                  Container(
+                    height: height * 0.05,
+                    width: width * 0.60,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text('Protein'),
+                        Text('60g'),
+                      ],
+                    ),),
+                  Container(
+                    height: height * 0.05,
+                    width: width * 0.60,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text('Protein'),
+                        Text('60g'),
+                      ],
+                    ),),
+                  Container(
+                    height: height * 0.05,
+                    width: width * 0.60,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text('Protein'),
+                        Text('60g'),
+                      ],
+                    ),),
+
+
+                  Container(
+                    height: height * 0.12,
+                    width: width * 0.8,
+                    child: Center(
+                      child:  Container(
+                      //  height: height * 0.13,
+                        //width: width * 0.8,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                              height: height * 0.08,
+                              width:  width * 0.8,
+                              child: FlatButton(
+                                shape: new RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(30.0),
+                                ),
+                                onPressed: () {},
+                                color: Palette.mainPurple,
+                                textColor: Colors.white,
+                                child: Text("add food".toUpperCase(),
+                                    style: TextStyle(fontSize: 14,
+                                        fontWeight: FontWeight.bold)),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-                ),
+
+
+                ],
               ),
-
-
-            ],
-          ),
+            ),
+          ],
         ));
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:real_bodies/pages/search_food.dart';
+import 'package:real_bodies/realbodyui/search_add_food.dart';
 import 'package:real_bodies/realbodyui/show_weight.dart';
 import 'package:real_bodies/theme/my_flutter_app_icons.dart';
 import 'package:real_bodies/theme/palette.dart';
@@ -17,7 +19,7 @@ class _DashBoardState extends State<DashBoard> {
     final _tabs = [
       storeTab(context),
       ShowWeight(),
-      Text('Tab3'),
+      SearchFood(),
       Text('Tab4'),
       Text('Tab5'),
       Text("Tab6"),

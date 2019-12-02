@@ -15,9 +15,12 @@ import 'package:real_bodies/pages/starting_pages.dart';
 import 'package:real_bodies/realbodyui/dashboard.dart';
 import 'package:real_bodies/realbodyui/show_weight.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/screens/desktop.dart';
 import 'package:real_bodies/ui/screens/dietplan.dart';
 import 'package:real_bodies/ui/screens/targetpage.dart';
 import 'package:real_bodies/ui/screens/trainingpage.dart';
+import 'package:real_bodies/ui/widgets/carousel.dart';
+import 'package:real_bodies/ui/widgets/newcarousel.dart';
 
 
 

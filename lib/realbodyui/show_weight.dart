@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/widgets/newcarousel.dart';
 import 'package:real_bodies/ui/widgets/weight_chart.dart';
 
 
@@ -20,7 +21,7 @@ class _ShowWeightState extends State<ShowWeight> {
           centerTitle: true,
           title: Center(
             child: Text(
-              "Check Your Process"
+              "Check Your Proccess"
              
             ),
           ),
@@ -80,11 +81,11 @@ class _ShowWeightState extends State<ShowWeight> {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 12.0),
                           child: Text(
-                            "Add Weight",
+                            "My Weight",
                             softWrap: true,
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: Palette.mainPurple,
+                              color: Colors.grey,
                               decoration: TextDecoration.none,
                               fontSize: 16,
                               fontWeight: FontWeight.w800,
@@ -95,7 +96,7 @@ class _ShowWeightState extends State<ShowWeight> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.0),
                           side: BorderSide(
-                            color: Palette.mainPurple,
+                            color: Colors.grey,
                             width: 2,
                           ),
                         ),
@@ -118,21 +119,7 @@ class _ShowWeightState extends State<ShowWeight> {
  child: Column(
    mainAxisSize: MainAxisSize.max ,
    children: <Widget>[
-     Container(
-                  height: 220,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      _buildCard(
-                          'assets/images/fit.jpg'),
-                      _buildCard(
-                         'assets/images/fit2.jpg'),
-                            _buildCard(
-                          'assets/images/flex.jpg'),
-                           
-                    ],
-                  ),
-                ),
+     CarouselDemo(),
              Align(
                                   alignment: Alignment.center,
                                   child: Text(
@@ -166,7 +153,7 @@ class _ShowWeightState extends State<ShowWeight> {
                           width: 2,
                         ),
                       ),
-                    //  onPressed: () {},
+                     onPressed: () {},
                     ),
                               Align(
                                   alignment: Alignment.center,
