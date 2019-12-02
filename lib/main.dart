@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:real_bodies/models/walkthrough.dart';
 import 'package:real_bodies/pages/daily_workout_plan.dart';
+import 'package:real_bodies/pages/demo_page.dart';
 import 'package:real_bodies/pages/exercise.dart';
 import 'package:real_bodies/pages/exercise_details.dart';
 import 'package:real_bodies/pages/exercise_diary.dart';
@@ -15,7 +16,6 @@ import 'package:real_bodies/realbodyui/dashboard.dart';
 import 'package:real_bodies/realbodyui/show_weight.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/screens/dietplan.dart';
-import 'package:real_bodies/ui/screens/goal_page.dart';
 import 'package:real_bodies/ui/screens/targetpage.dart';
 import 'package:real_bodies/ui/screens/trainingpage.dart';
 
