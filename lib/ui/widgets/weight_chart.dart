@@ -16,8 +16,8 @@ class _WeightChartState extends State<WeightChart> {
     _createSampleData() {
      var data = [
        new LinearSales(0, 5),
-       new LinearSales(1, 25),
-       new LinearSales(2, 100),
+       new LinearSales(50, 25),
+       new LinearSales(100, 100),
        new LinearSales(200, 75),
      ];
 
