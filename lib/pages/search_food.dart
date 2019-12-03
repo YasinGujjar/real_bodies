@@ -278,35 +278,39 @@ class CustomSearchDelegate extends SearchDelegate<String>{
 
 }
 
+
 var food;
 Future<Iterable<String>> getFood(String query,List<String> history) async
 {
-
+   URL urlDomain = URL();
   try
   {
      Iterable<String> suggestions =[];
      List<String> u=[];
-    var url="http://realbodies.com.au/api/food.php?f=get_food";
-    final response=await http.get(url);
+    var url=urlDomain.domainfood+'get_food';
+    final response=await http.get(url+"&name="+query);
     print('Response body:${response.body}');
-    var jsonResponse=json.decode(response.body);
-    food = json.decode(response.body);
+    var jsonResponse=json.decode(response.body) as List;
+    food = json.decode(response.body) ;
+    print(jsonResponse.length);
     //print(food);
-    for(int i=0; i<=1; i++){
-
-      u.add(jsonResponse[i]['name']);
+     if(jsonResponse.length >0) {
+       for (int i = 0; i <= jsonResponse.length - 1; i++) {
+         u.add(jsonResponse[i]['name']);
 //      if(!_words.contains(jsonResponse[i]['name'])) {
 //        _words.add(jsonResponse[i]['name']);
 //      }
 
-    }
-    print(u);
+       }
+     }
+    //u..sort((w1,w2) => w1.toLowerCase().compareTo(w2.toUpperCase()),);
+     print(u);
     return  suggestions = query.isEmpty
         ? history
 
 
 
-        : u.where((word) => word.startsWith(query));
+        : u.where((word) => word.startsWith(query.toLowerCase()));
   }
   catch(e)
   {
@@ -325,16 +329,21 @@ class _SuggestionList extends StatelessWidget {
   Food getSelectedFood(String query){
     print('heedjkfldjfdljjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj');
     Food selectedFood =Food();
-
-    for(int i =0; i<=1; i++){
-      if(food[i]['name']==query){
+     print('helo');
+     print(food);
+    for(int i =0; i<= 19; i++){
+      if(food[i]['name']==query.toLowerCase()){
 
         selectedFood.name = food[i]['name'];
-        selectedFood.quantity =int.parse(food[i]['quantity']);
+       // selectedFood.quantity =int.parse(food[i]['quantity']==''? '0':food[i]['quantity']);
         selectedFood.size = double.parse(food[i]['size']);
         selectedFood.carbohydrates = double.parse(food[i]['carbo']);
         selectedFood.proteins = double.parse(food[i]['proteins']);
         selectedFood.fat = double.parse(food[i]['fat']);
+        selectedFood.sodium = double.parse(food[i]['sodium']);
+        selectedFood.fatSaturate = double.parse(food[i]['saturated_fats']);
+        selectedFood.fatPoly = double.parse(food[i]['poly_fats']);
+        selectedFood.fatMono = double.parse(food[i]['mono_fats']);
 
       }
 

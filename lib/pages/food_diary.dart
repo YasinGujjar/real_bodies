@@ -9,13 +9,8 @@ class FoodDiary extends StatefulWidget {
 class _FoodDiaryState extends State<FoodDiary> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Palette.mainPurple,
-        title: Center(child: Text('Food Diary')),
-
-      ),
-      body: ListView(
+    return
+       Column(
        children: <Widget>[
          SizedBox(height: 5,),
          Padding(
@@ -620,7 +615,7 @@ class _FoodDiaryState extends State<FoodDiary> {
          Center(child: Text('+Add Food',style: TextStyle(fontSize: 18,color: Palette.boldTextO),)),
 
        ],
-      ),
-    );
+      );
+
   }
 }

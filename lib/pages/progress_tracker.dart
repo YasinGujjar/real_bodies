@@ -9,13 +9,7 @@ class ProgressTracker extends StatefulWidget {
 class _ProgressTrackerState extends State<ProgressTracker> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Palette.mainPurple,
-        title: Center(child: Text('Food Diary')),
-
-      ),
-      body: ListView(
+    return  Column(
         children: <Widget>[
           SizedBox(height: 3,),
           Center(child: Text('Training Week 1',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold,),),),
@@ -272,8 +266,8 @@ class _ProgressTrackerState extends State<ProgressTracker> {
           ),
 
         ],
-      ),
-    );
+      );
+
 
   }
 }

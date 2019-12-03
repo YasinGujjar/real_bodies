@@ -7,7 +7,13 @@ class Food {
   double carbohydrates;
   double proteins;
   double fat;
-  Food({this.name,this.quantity,this.size,this.carbohydrates,this.proteins,this.fat});
+  double sodium;
+  double fatSaturate;
+  double fatPoly;
+  double fatMono;
+  Food({this.name,this.quantity,this.size,this.carbohydrates,this.proteins,this.fat,this.sodium,this.fatSaturate,this.fatPoly,
+    this.fatMono
+  });
 
 
 }

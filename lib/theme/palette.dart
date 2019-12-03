@@ -7,8 +7,9 @@ class Palette{
   static Color secondaryColor = Colors.black;
   static Color orange = Colors.deepOrange;
 
-//  static Color mainPurple=Color.fromRGBO(58, 15, 157, 1.0);
-  static Color mainPurple=Color(0xffFF9870);
+ // static Color mainPurple=Color.fromRGBO(255, 155, 112, 1.0);
+  static Color mainPurple=Color(0xffFF9A6C);
+
 
 
   static Color light = Color(0xffffccbc);
