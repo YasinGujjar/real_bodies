@@ -23,6 +23,10 @@ class _SearchAddFoodState extends State<SearchAddFood> {
     Colors.red,
     Colors.green,
     Colors.blue,
+    Colors.teal,
+    Colors.purple,
+    Colors.yellowAccent,
+    Colors.deepOrange,
    // Colors.yellow,
   ];
 
@@ -50,9 +54,13 @@ class _SearchAddFoodState extends State<SearchAddFood> {
   Widget build(BuildContext context) {
 
 
-    dataMap.putIfAbsent("Flutter", () => widget.food.proteins * 0.1);
+    dataMap.putIfAbsent("Flutter", () => (widget.food.proteins * 0.1));
     dataMap.putIfAbsent("React", () => widget.food.carbohydrates * 0.1);
-    dataMap.putIfAbsent("Xamarin", () => widget.food.fat * 0.1);
+    dataMap.putIfAbsent("Xa", () => widget.food.fat * 0.1);
+    //dataMap.putIfAbsent("marin", () => widget.food.sodium * 0.01);
+    //dataMap.putIfAbsent("Xamrin", () => widget.food.fatPoly * 0.01);
+   // dataMap.putIfAbsent("Xrin", () => widget.food.fatMono * 0.01);
+  //  dataMap.putIfAbsent("Xn", () => widget.food.fatSaturate * 0.01);
  //   dataMap.putIfAbsent("Ionic", () => 2);
 
 
@@ -251,8 +259,6 @@ class _SearchAddFoodState extends State<SearchAddFood> {
                         ],
                       ),
                     ),
-
-
                     Expanded(
                       flex: 1,
                       child: PieChart(
@@ -559,7 +565,7 @@ class _SearchAddFoodState extends State<SearchAddFood> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                      Text('Protein'),
-                      Text('60g'),
+                      Text('${widget.food.proteins}g'),
                     ],
                   ),
               ),
@@ -570,7 +576,47 @@ class _SearchAddFoodState extends State<SearchAddFood> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text('Protein'),
+                    Text('Carbohydrates'),
+                    Text('${widget.food.carbohydrates}g'),
+                  ],
+                ),),
+              Container(
+                height: height * 0.05,
+                width: width * 0.60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text('Fat'),
+                    Text('${widget.food.fat}g'),
+                  ],
+                ),),
+              Container(
+                height: height * 0.05,
+                width: width * 0.60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text('Sodium'),
+                    Text('${widget.food.sodium}g'),
+                  ],
+                ),),
+              Container(
+                height: height * 0.05,
+                width: width * 0.60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text('Fats (Saturate)'),
+                    Text('${widget.food.fatSaturate}g'),
+                  ],
+                ),),
+              Container(
+                height: height * 0.05,
+                width: width * 0.60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text('Fats (Poly)'),
                     Text('60g'),
                   ],
                 ),),
@@ -580,48 +626,8 @@ class _SearchAddFoodState extends State<SearchAddFood> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text('Protein'),
-                    Text('60g'),
-                  ],
-                ),),
-              Container(
-                height: height * 0.05,
-                width: width * 0.60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text('Protein'),
-                    Text('60g'),
-                  ],
-                ),),
-              Container(
-                height: height * 0.05,
-                width: width * 0.60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text('Protein'),
-                    Text('60g'),
-                  ],
-                ),),
-              Container(
-                height: height * 0.05,
-                width: width * 0.60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text('Protein'),
-                    Text('60g'),
-                  ],
-                ),),
-              Container(
-                height: height * 0.05,
-                width: width * 0.60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text('Protein'),
-                    Text('60g'),
+                    Text('Fats (Mono)'),
+                    Text('${widget.food.fatMono}g'),
                   ],
                 ),),
 
