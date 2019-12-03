@@ -14,7 +14,9 @@ import 'package:real_bodies/pages/search_food.dart';
 import 'package:real_bodies/pages/starting_pages.dart';
 import 'package:real_bodies/realbodyui/dashboard.dart';
 import 'package:real_bodies/realbodyui/show_weight.dart';
+import 'package:real_bodies/realbodyui/splashscreen.dart';
 import 'package:real_bodies/realbodyui/splashscreen2.dart';
+import 'package:real_bodies/realbodyui/step1.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/screens/desktop.dart';
 import 'package:real_bodies/ui/screens/dietplan.dart';
@@ -46,7 +48,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: splashscreen2(),//MyHomePage(title: 'Demo'),
+      home: splashscreen(),//MyHomePage(title: 'Demo'),
     );
   }
 }

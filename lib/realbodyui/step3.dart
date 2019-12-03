@@ -35,7 +35,7 @@ class _StepThreeState extends State<StepThree> {
                 Center(
                         child: Container(
                         width: width,
-                          height: height * 0.70,
+                          height: height * 0.60,
                           //color: Colors.yellow,
                           child: Column(
                             children: <Widget>[

@@ -59,6 +59,8 @@ class _registersState extends State<registers> {
 
     return Scaffold(
       appBar: AppBar(
+         automaticallyImplyLeading: true,
+          centerTitle: true,
         title: Center(child: Text('Register')),
         backgroundColor: Palette.mainPurple,
 

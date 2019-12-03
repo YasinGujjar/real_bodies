@@ -1,5 +1,6 @@
 import 'package:charts_flutter/flutter.dart' as prefix0;
 import 'package:flutter/material.dart';
+import 'package:real_bodies/realbodyui/register1.dart';
 import 'package:real_bodies/theme/palette.dart';
 
 class splashscreen2 extends StatefulWidget {
@@ -32,8 +33,11 @@ class _splashscreen2State extends State<splashscreen2> {
 
                     crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-
-                        Text('REALBODIES',textScaleFactor: 2,style: TextStyle(color: Colors.white),),
+SizedBox(height: 30,),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('REALBODIES',textScaleFactor: 2,style: TextStyle(color: Colors.white),),
+                        ),
                         Padding(
                           padding: EdgeInsets.only(left: 5.0),
                             child:
@@ -113,7 +117,10 @@ class _splashscreen2State extends State<splashscreen2> {
                         shape: new RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(30.0),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                           Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => registers()));
+                        },
                         color: Colors.white,
                         textColor: Palette.buttonjColor,
                         child: Text("CREATE NEW ACCOUNT".toUpperCase(),

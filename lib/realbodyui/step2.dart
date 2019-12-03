@@ -1,5 +1,6 @@
 import 'package:charts_flutter/flutter.dart' as prefix0;
 import 'package:flutter/material.dart';
+import 'package:real_bodies/realbodyui/step3.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 
@@ -63,7 +64,10 @@ class _StepTwoState extends State<StepTwo> {
                         shape: new RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(30.0),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                           Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => StepThree()));
+                        },
                         color: Colors.white,
                         textColor: Palette.backGround,
                         child: Text("EXCERCISE".toUpperCase(),
