@@ -12,13 +12,19 @@ import 'package:real_bodies/pages/food_diary_today.dart';
 import 'package:real_bodies/pages/progress_tracker.dart';
 import 'package:real_bodies/pages/search_food.dart';
 import 'package:real_bodies/pages/starting_pages.dart';
-import 'package:real_bodies/realbodyui/bmi_creen.dart';
-import 'package:real_bodies/realbodyui/food_exercise_diary.dart';
-import 'package:real_bodies/realbodyui/search_add_food.dart';
+import 'package:real_bodies/realbodyui/dashboard.dart';
+import 'package:real_bodies/realbodyui/show_weight.dart';
+import 'package:real_bodies/realbodyui/splashscreen.dart';
+import 'package:real_bodies/realbodyui/splashscreen2.dart';
+import 'package:real_bodies/realbodyui/step1.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/screens/desktop.dart';
 import 'package:real_bodies/ui/screens/dietplan.dart';
+
 import 'package:real_bodies/ui/screens/targetpage.dart';
 import 'package:real_bodies/ui/screens/trainingpage.dart';
+import 'package:real_bodies/ui/widgets/carousel.dart';
+import 'package:real_bodies/ui/widgets/newcarousel.dart';
 
 
 
@@ -42,7 +48,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: FoodExerciseDiary(),//MyHomePage(title: 'Demo'),
+      home: splashscreen(),//MyHomePage(title: 'Demo'),
     );
   }
 }
