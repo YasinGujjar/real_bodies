@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:real_bodies/models/chart_data.dart';
+import 'package:real_bodies/pages/exercise_diary.dart';
 import 'package:real_bodies/pages/food_diary.dart';
 import 'package:real_bodies/pages/progress_tracker.dart';
 import 'package:real_bodies/theme/palette.dart';
@@ -511,6 +512,13 @@ class _FoodExerciseDiaryState extends State<FoodExerciseDiary> {
                 child: Text('Food Diary',style: TextStyle(color: Colors.white,fontSize: 30),)),),
          FoodDiary(),
 
+          Container(height: 50,
+            decoration: BoxDecoration(color: Palette.mainPurple,borderRadius: BorderRadius.circular(15.0)),
+            child: FittedBox(
+                fit: BoxFit.contain,
+                child: Text('Exercise Diary',style: TextStyle(color: Colors.white,fontSize: 30),)),),
+       SizedBox(height: 3,),
+          ExerciseDiary(),
 
 
 

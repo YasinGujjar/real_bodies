@@ -62,42 +62,7 @@ class _TrainingPageState extends State<TrainingPage> {
 //    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
 //        statusBarColor: Colors.green
 //    ));
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Palette.mainPurple,
-          automaticallyImplyLeading: false,
-          centerTitle: true,
-          title: Center(
-            child: Container(
-              // height: height * 0.06,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  /*  FittedBox(
-                    fit: BoxFit.cover,
-                    child: IconButton(
-                        icon: Icon(Icons.arrow_back_ios),
-                        color: Colors.white,
-                        onPressed: () => {}),
-                  ), */
-                  Text(
-                    'Training Exercise',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  /* FittedBox(
-                    fit: BoxFit.cover,
-                    child: IconButton(
-                        icon: Icon(Icons.arrow_forward_ios),
-                        color: Colors.white,
-                        onPressed: () => {}),
-                  ), */
-                ],
-              ),
-            ),
-          ),
-        ),
-        body: //87
+    return
     Container(
     width: width,
     height: height - kToolbarHeight,
@@ -175,37 +140,53 @@ class _TrainingPageState extends State<TrainingPage> {
                                       ),
                                       Row(
                                         children: <Widget>[
-                                          CustomFlatButton(
-                                            title: "View",
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700,
-                                            textColor: Colors.white,
-                                            onPressed: () {
-                                              /*  Navigator.pushReplacement(
+                                          Container(
+                                            height: 40,
+                                            width: 70,
+                                            child: FittedBox(
+                                              fit: BoxFit.contain,
+                                              child: CustomFlatButton(
+
+                                                title: "View",
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w700,
+                                                textColor: Colors.white,
+                                                onPressed: () {
+                                                  /*  Navigator.pushReplacement(
                                         context,
                                         MaterialPageRoute(builder: (context) => WelcomeScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
                                       ); */
-                                            },
-                                            splashColor: Colors.black12,
-                                            borderColor: Colors.white,
-                                            borderWidth: 2,
-                                            color: Palette.mainPurple,
+                                                },
+                                                splashColor: Colors.black12,
+                                                borderColor: Colors.white,
+                                                borderWidth: 2,
+                                                color: Palette.mainPurple,
+                                              ),
+                                            ),
                                           ),
-                                          CustomFlatButton(
-                                            title: "Log",
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700,
-                                            textColor: Colors.white,
-                                            onPressed: () {
-                                              /*  Navigator.pushReplacement(
+                                          Container(
+                                            height: 40,
+                                            width: 70,
+                                            child: FittedBox(
+                                              fit: BoxFit.contain,
+                                              child: CustomFlatButton(
+
+                                                title: "Log",
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w700,
+                                                textColor: Colors.white,
+                                                onPressed: () {
+                                                  /*  Navigator.pushReplacement(
                                         context,
                                         MaterialPageRoute(builder: (context) => WelcomeScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
                                       ); */
-                                            },
-                                            splashColor: Colors.black12,
-                                            borderColor: Colors.white,
-                                            borderWidth: 2,
-                                            color: Palette.mainPurple,
+                                                },
+                                                splashColor: Colors.black12,
+                                                borderColor: Colors.white,
+                                                borderWidth: 2,
+                                                color: Palette.mainPurple,
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       )
@@ -264,37 +245,53 @@ class _TrainingPageState extends State<TrainingPage> {
                                       ),
                                       Row(
                                         children: <Widget>[
-                                          CustomFlatButton(
-                                            title: "View",
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700,
-                                            textColor: Colors.white,
-                                            onPressed: () {
-                                              /*  Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => WelcomeScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
-                                ); */
-                                            },
-                                            splashColor: Colors.black12,
-                                            borderColor: Colors.white,
-                                            borderWidth: 2,
-                                            color: Palette.mainPurple,
+                                          Container(
+                                            height: 40,
+                                            width: 70,
+                                            child: FittedBox(
+                                              fit: BoxFit.contain,
+                                              child: CustomFlatButton(
+
+                                                title: "View",
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w700,
+                                                textColor: Colors.white,
+                                                onPressed: () {
+                                                  /*  Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => WelcomeScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
+                                      ); */
+                                                },
+                                                splashColor: Colors.black12,
+                                                borderColor: Colors.white,
+                                                borderWidth: 2,
+                                                color: Palette.mainPurple,
+                                              ),
+                                            ),
                                           ),
-                                          CustomFlatButton(
-                                            title: "Log",
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700,
-                                            textColor: Colors.white,
-                                            onPressed: () {
-                                              /*  Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => WelcomeScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
-                                ); */
-                                            },
-                                            splashColor: Colors.black12,
-                                            borderColor: Colors.white,
-                                            borderWidth: 2,
-                                          color: Palette.mainPurple,
+                                          Container(
+                                            height: 40,
+                                            width: 70,
+                                            child: FittedBox(
+                                              fit: BoxFit.contain,
+                                              child: CustomFlatButton(
+
+                                                title: "Log",
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w700,
+                                                textColor: Colors.white,
+                                                onPressed: () {
+                                                  /*  Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => WelcomeScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
+                                      ); */
+                                                },
+                                                splashColor: Colors.black12,
+                                                borderColor: Colors.white,
+                                                borderWidth: 2,
+                                                color: Palette.mainPurple,
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       )
@@ -353,37 +350,53 @@ class _TrainingPageState extends State<TrainingPage> {
                                       ),
                                       Row(
                                         children: <Widget>[
-                                          CustomFlatButton(
-                                            title: "View",
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700,
-                                            textColor: Colors.white,
-                                            onPressed: () {
-                                              /*  Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => WelcomeScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
-                                ); */
-                                            },
-                                            splashColor: Colors.black12,
-                                            borderColor: Colors.white,
-                                            borderWidth: 2,
-                                            color: Palette.mainPurple,
+                                          Container(
+                                            height: 40,
+                                            width: 70,
+                                            child: FittedBox(
+                                              fit: BoxFit.contain,
+                                              child: CustomFlatButton(
+
+                                                title: "View",
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w700,
+                                                textColor: Colors.white,
+                                                onPressed: () {
+                                                  /*  Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => WelcomeScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
+                                      ); */
+                                                },
+                                                splashColor: Colors.black12,
+                                                borderColor: Colors.white,
+                                                borderWidth: 2,
+                                                color: Palette.mainPurple,
+                                              ),
+                                            ),
                                           ),
-                                          CustomFlatButton(
-                                            title: "Log",
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700,
-                                            textColor: Colors.white,
-                                            onPressed: () {
-                                              /*  Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => WelcomeScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
-                                ); */
-                                            },
-                                            splashColor: Colors.black12,
-                                            borderColor: Colors.white,
-                                            borderWidth: 2,
-                                            color: Palette.mainPurple,
+                                          Container(
+                                            height: 40,
+                                            width: 70,
+                                            child: FittedBox(
+                                              fit: BoxFit.contain,
+                                              child: CustomFlatButton(
+
+                                                title: "Log",
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w700,
+                                                textColor: Colors.white,
+                                                onPressed: () {
+                                                  /*  Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => WelcomeScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
+                                      ); */
+                                                },
+                                                splashColor: Colors.black12,
+                                                borderColor: Colors.white,
+                                                borderWidth: 2,
+                                                color: Palette.mainPurple,
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       )
@@ -431,16 +444,19 @@ class _TrainingPageState extends State<TrainingPage> {
                    color: Palette.mainPurple,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 12.0),
-                      child: Text(
-                        "Start",
-                        softWrap: true,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          decoration: TextDecoration.none,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w800,
-                          fontFamily: "OpenSans",
+                      child: FittedBox(
+                        fit: BoxFit.contain,
+                        child: Text(
+                          "Start",
+                          softWrap: true,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            decoration: TextDecoration.none,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w800,
+                            fontFamily: "OpenSans",
+                          ),
                         ),
                       ),
                     ),
@@ -457,7 +473,7 @@ class _TrainingPageState extends State<TrainingPage> {
               ),
             ],
           ),
-        )
-    );
+        );
+
   }
 }

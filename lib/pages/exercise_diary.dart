@@ -9,13 +9,7 @@ class ExerciseDiary extends StatefulWidget {
 class _ExerciseDiaryState extends State<ExerciseDiary> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-     appBar:
-     AppBar(
-       backgroundColor: Palette.mainPurple,
-       title: Center(child: Text('Exercise Diary')),
-     ),
-      body: ListView(
+    return  Column(
         children: <Widget>[
            SizedBox(height: 3,),
          Center(child: Text('Training Week 1',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold,color:Palette.boldTextO),),),
@@ -230,7 +224,7 @@ class _ExerciseDiaryState extends State<ExerciseDiary> {
           ),
 
         ],
-      ),
-    );
+      );
+
   }
 }

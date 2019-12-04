@@ -613,7 +613,6 @@ class _FoodDiaryState extends State<FoodDiary> {
          ),
          SizedBox(height: 5,),
          Center(child: Text('+Add Food',style: TextStyle(fontSize: 18,color: Palette.boldTextO),)),
-
        ],
       );
 
