@@ -1,7 +1,11 @@
 import 'package:charts_flutter/flutter.dart' as prefix0;
 import 'package:flutter/material.dart';
+import 'package:real_bodies/models/url.dart';
+import 'package:real_bodies/realbodyui/signin.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class registers extends StatefulWidget {
   @override
@@ -10,11 +14,39 @@ class registers extends StatefulWidget {
 
 class _registersState extends State<registers> {
   final TextEditingController _fullname = new TextEditingController();
+final TextEditingController _email = new TextEditingController();
+final TextEditingController _password = new TextEditingController();
+final TextEditingController _confirmpassword = new TextEditingController();
+  CustomTextField _nameField;
   CustomTextField _emailField;
   CustomTextField _passwordField;
   CustomTextField _confirmPasswordField;
   bool _blackVisible = false;
   VoidCallback onBackPress;
+  URL urldomain=URL();
+
+ void addinfo() async
+  {
+   try
+   {
+     var url=urldomain.domain+"registration";
+    final response=await http.get(url+"&name="+_fullname.text+"&email="+_email.text+"&password="+_password.text);
+    print('Response body:${response.body}');
+   // var jsonResponse=json.decode(response.body);
+  // print("jjjjjjjjj "+widget.goal+" ffffffff "+widget.gender+" jjjjjjjjjjjjjjj "+widget.age+" ffffffff "+widget.weight+" lolololo "+widget.height);
+      if (response.body=="success")
+      {
+         Navigator.of(context)
+                .pushReplacement(MaterialPageRoute(builder: (context) => Signin())); 
+      }
+       }
+      catch(e)
+      {
+        print('Exception is on way $e');
+      }
+   
+  }
+
 
   @override
   void initState() {
@@ -23,12 +55,20 @@ class _registersState extends State<registers> {
     onBackPress = () {
       Navigator.of(context).pop();
     };
-
+_nameField = new CustomTextField(
+      baseColor: Colors.white,
+      borderColor: Colors.grey,
+      errorColor: Colors.red,
+      controller: _fullname,
+      hint: "Full Name",
+      inputType: TextInputType.emailAddress,
+      // validator: Validator.validateEmail,
+    );
     _emailField = new CustomTextField(
       baseColor: Colors.white,
       borderColor: Colors.grey,
       errorColor: Colors.red,
-      //controller: _fullname,
+      controller: _email,
       hint: "E-mail Adress",
       inputType: TextInputType.emailAddress,
       // validator: Validator.validateEmail,
@@ -37,7 +77,7 @@ class _registersState extends State<registers> {
       baseColor: Colors.white,
       borderColor: Colors.grey,
       errorColor: Colors.red,
-      //controller: _password,
+      controller: _password,
       obscureText: true,
       hint: "Password",
       // validator: Validator.validatePassword,
@@ -46,7 +86,7 @@ class _registersState extends State<registers> {
       baseColor: Colors.white,
       borderColor: Colors.grey,
       errorColor: Colors.red,
-      //controller: _password,
+      controller: _confirmpassword,
       obscureText: true,
       hint: "Confirm Password",
       // validator: Validator.validatePassword,
@@ -81,18 +121,10 @@ class _registersState extends State<registers> {
                   child: Center(
                     child: Column(
                       children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(top: 20.0, left: 15.0, right: 15.0),
-                          child: _emailField,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 20.0, left: 15.0, right: 15.0),
-                          child: _passwordField,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 20.0, left: 15.0, right: 15.0),
-                          child: _confirmPasswordField,
-                        )
+                         _nameField,
+                        _emailField,
+                        _passwordField,
+                        _confirmPasswordField
                       ],
                     ),
                   ),
@@ -115,7 +147,15 @@ class _registersState extends State<registers> {
                         shape: new RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(30.0),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          if(_password.text==_confirmpassword.text)
+                          {
+                              addinfo();
+                          }
+                          else{
+                            print("Paasword not matched");
+                          }
+                        },
                         color: Palette.buttonjColor,
                         textColor: Colors.white,
                         child: Text("Get started".toUpperCase(),

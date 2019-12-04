@@ -15,7 +15,9 @@ import 'package:real_bodies/pages/starting_pages.dart';
 import 'package:real_bodies/realbodyui/dashboard.dart';
 import 'package:real_bodies/realbodyui/exercise_plan.dart';
 import 'package:real_bodies/realbodyui/exercise_plan_full.dart';
+import 'package:real_bodies/realbodyui/fitnesslevel3.dart';
 import 'package:real_bodies/realbodyui/food_exercise_diary.dart';
+import 'package:real_bodies/realbodyui/register1.dart';
 import 'package:real_bodies/realbodyui/show_weight.dart';
 import 'package:real_bodies/realbodyui/splashscreen.dart';
 import 'package:real_bodies/realbodyui/splashscreen2.dart';
@@ -51,7 +53,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: ExerciseInfo(),//MyHomePage(title: 'Demo'),
+      home: splashscreen(),//MyHomePage(title: 'Demo'),
     );
   }
 }
