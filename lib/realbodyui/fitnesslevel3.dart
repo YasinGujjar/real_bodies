@@ -11,6 +11,8 @@ class FitnessLevelThree extends StatefulWidget {
 class _FitnessLevelThreeState extends State<FitnessLevelThree> {
   bool wedVal = false;
   DateTime _dateTime;
+  double height;
+  String gender;
   @override
   void initState() {
     super.initState();
@@ -122,7 +124,7 @@ class _FitnessLevelThreeState extends State<FitnessLevelThree> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text('Height',style: TextStyle(color: Colors.white,fontSize: 22.0,fontWeight: FontWeight.w800),),
-                                                    Text('175cm',style: TextStyle(color: Colors.grey,fontSize: 22.0,fontWeight: FontWeight.w800),),
+                          Text('175cm',style: TextStyle(color: Colors.grey,fontSize: 22.0,fontWeight: FontWeight.w800),),
 
                         ],
                       ),

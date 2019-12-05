@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: splashscreen(),//MyHomePage(title: 'Demo'),
+      home:  FitnessLevelThree(),//MyHomePage(title: 'Demo'),
     );
   }
 }

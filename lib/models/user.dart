@@ -38,3 +38,24 @@ class User {
   }
 }
  */
+
+class User{
+   String userID;
+   String name;
+   String email;
+   String height;
+   String weight;
+   String gender;
+   DateTime dateOfBirth;
+
+  User({
+    this.userID,
+    this.name,
+    this.gender,
+    this.email,
+    this.height,
+    this.weight,
+    this.dateOfBirth,
+});
+
+}
