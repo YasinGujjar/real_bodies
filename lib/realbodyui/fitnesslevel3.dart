@@ -9,7 +9,10 @@ class FitnessLevelThree extends StatefulWidget {
 }
 
 class _FitnessLevelThreeState extends State<FitnessLevelThree> {
-  bool wedVal=false;
+  bool wedVal = false;
+  DateTime _dateTime;
+  double height;
+  String gender;
   @override
   void initState() {
     super.initState();
@@ -81,13 +84,26 @@ class _FitnessLevelThreeState extends State<FitnessLevelThree> {
                   width: width,
                   child: Column(
                     children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text('Birthday',style: TextStyle(color: Colors.white,fontSize: 22.0,fontWeight: FontWeight.w800),),Text(
-                            "10 APR 1997",style: TextStyle(color: Colors.grey,fontSize: 22.0,fontWeight: FontWeight.w800),
-                          )
-                        ],
+                      GestureDetector(
+                        onTap:(){
+                         showDatePicker(context: context, initialDate: _dateTime==null? DateTime.now(): _dateTime, firstDate: DateTime(1995), lastDate: DateTime(2022)).then((date){
+                           setState(() {
+                             _dateTime = date;
+                           });
+                         });
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text('Birthday',style: TextStyle(color: Colors.white,fontSize: 22.0,fontWeight: FontWeight.w800),),
+                            FittedBox(
+                              fit: BoxFit.contain,
+                              child: Text(
+                                _dateTime == null? 'Nothing': _dateTime.toString(),style: TextStyle(color: Colors.grey,fontSize: 22.0,fontWeight: FontWeight.w800),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                       SizedBox(height: height*0.02),
                       Divider(
@@ -108,7 +124,7 @@ class _FitnessLevelThreeState extends State<FitnessLevelThree> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text('Height',style: TextStyle(color: Colors.white,fontSize: 22.0,fontWeight: FontWeight.w800),),
-                                                    Text('175cm',style: TextStyle(color: Colors.grey,fontSize: 22.0,fontWeight: FontWeight.w800),),
+                          Text('175cm',style: TextStyle(color: Colors.grey,fontSize: 22.0,fontWeight: FontWeight.w800),),
 
                         ],
                       ),
@@ -162,7 +178,7 @@ class _FitnessLevelThreeState extends State<FitnessLevelThree> {
                   ),
                 ),
                 
-                SizedBox(height: height * 0.28,),
+                SizedBox(height: height * 0.18,),
                 Container(
                   //margin: EdgeInsets.only(top: 5.0),
                   height: 50,

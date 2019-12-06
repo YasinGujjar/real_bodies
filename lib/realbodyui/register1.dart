@@ -121,22 +121,10 @@ _nameField = new CustomTextField(
                   child: Center(
                     child: Column(
                       children: <Widget>[
-                         Padding(
-                          padding: EdgeInsets.only(top: 20.0, left: 15.0, right: 15.0),
-                          child: _nameField,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 20.0, left: 15.0, right: 15.0),
-                          child: _emailField,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 20.0, left: 15.0, right: 15.0),
-                          child: _passwordField,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 20.0, left: 15.0, right: 15.0),
-                          child: _confirmPasswordField,
-                        )
+                         _nameField,
+                        _emailField,
+                        _passwordField,
+                        _confirmPasswordField
                       ],
                     ),
                   ),
