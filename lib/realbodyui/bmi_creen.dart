@@ -3,6 +3,8 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:real_bodies/theme/palette.dart';
 
 class Bmi extends StatefulWidget {
+  int id;
+   Bmi({this.id});
   @override
   _BmiState createState() => _BmiState();
 }
