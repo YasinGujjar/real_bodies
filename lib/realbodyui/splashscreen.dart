@@ -1,5 +1,6 @@
 import 'package:charts_flutter/flutter.dart' as prefix0;
 import 'package:flutter/material.dart';
+import 'package:real_bodies/realbodyui/signin.dart';
 import 'package:real_bodies/realbodyui/splashscreen2.dart';
 import 'package:real_bodies/theme/palette.dart';
 
@@ -120,7 +121,10 @@ SizedBox(height: 30.0,),
 
                         borderRadius: new BorderRadius.circular(30.0),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                          Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => Signin()));
+                      },
                       color: Colors.white,
                       textColor: Palette.buttonjColor,
                       child: Text("Login".toUpperCase(),

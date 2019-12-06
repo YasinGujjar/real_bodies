@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:real_bodies/realbodyui/dashboard.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/screens/expansion_panel.dart';
 
 class Bmi extends StatefulWidget {
   int id;
@@ -10,6 +12,8 @@ class Bmi extends StatefulWidget {
 }
 
 class _BmiState extends State<Bmi> {
+  //ExpansionPanelsDemo epd=ExpansionPanelsDemo();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,7 +125,10 @@ class _BmiState extends State<Bmi> {
                       shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(30.0),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                          Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => DashBoard()));
+                      },
                       color: Colors.white,
                       textColor: Palette.boldTextO,
                       child: Text("LET'S GET STARTED".toUpperCase(),

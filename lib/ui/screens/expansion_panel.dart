@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:real_bodies/theme/palette.dart';
 
 
 
@@ -41,6 +42,7 @@ class DualHeaderWithHint extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     final ThemeData theme = Theme.of(context);
     final TextTheme textTheme = theme.textTheme;
 
@@ -49,6 +51,7 @@ class DualHeaderWithHint extends StatelessWidget {
         Expanded(
           flex: 2,
           child: Container(
+          //  color: Colors.yellow,
             margin: const EdgeInsets.only(left: 24.0),
             child: FittedBox(
               fit: BoxFit.scaleDown,
@@ -215,13 +218,13 @@ class DemoItem2<T> {
 class ExpansionPanelsDemo extends StatefulWidget {
   static const String routeName = '/material/expansion_panels';
      
-  String height="";
+ /*  String height="";
   String weight="";
   String old="";
-  String gender="";
+  String gender=""; */
   
   //DualHeaderWithHint({@required this.height,@required this.weight,@required this.old,@required this.gender});
- ExpansionPanelsDemo({@required this.height,@required this.weight,@required this.old,@required this.gender});
+// ExpansionPanelsDemo({@required this.height,@required this.weight,@required this.old,@required this.gender});
 
   @override
   _ExpansionPanelsDemoState createState() => _ExpansionPanelsDemoState();
@@ -230,6 +233,7 @@ class ExpansionPanelsDemo extends StatefulWidget {
 class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
   List<DemoItem<dynamic>> _demoItems;
   String firstval="";
+  final String old="";
   TextEditingController textControllerval;
   TextEditingController textControllerval2;
 
@@ -254,7 +258,7 @@ return null;
     _demoItems = <DemoItem<dynamic>>[
       DemoItem<String>(
         name: 'Age',
-        value: widget.old,
+        value: "0",
         
         hint: 'Enter new value',
         valueToString: (String value) => value,
@@ -280,7 +284,10 @@ return null;
                         hintText: item.hint,
                         labelText: item.name,
                       ),
-                      onSaved: (String value) { item.value = value; },
+                      onSaved: (String value) { 
+                        item.value = value; 
+                        //old=value;
+                        },
                     ),
                   ),
                 );
@@ -291,7 +298,7 @@ return null;
       ),
       DemoItem<Gender>(
         name: 'Gender',
-        value: checkgender(widget.gender),
+        value: Gender.Male,
         
         hint: 'Select Gender',
         valueToString: (Gender gender) => gender.toString().split('.')[1],
@@ -340,7 +347,7 @@ return null;
       ),
       DemoItem<String>(
         name: 'Weight',
-        value: widget.weight,
+        value: "0",
         
         hint: 'Enter new value',
         valueToString: (String value) => value,
@@ -366,7 +373,10 @@ return null;
                         hintText: item.hint,
                         labelText: item.name,
                       ),
-                      onSaved: (String value) { item.value = value; },
+                      onSaved: (String value) { 
+                        item.value = value; 
+                        
+                        },
                     ),
                   ),
                 );
@@ -377,7 +387,7 @@ return null;
       ),
       DemoItem<String>(
         name: 'Height',
-        value: widget.height,
+        value: "0",
      // value2: '11',
    
         hint: 'Enter new value',
@@ -455,6 +465,7 @@ print(value);
         //  MaterialDemoDocumentationButton(ExpansionPanelsDemo.routeName),
         ],
       ), */
+      color: Palette.mainPurple,
       child: SingleChildScrollView(
         child: SafeArea(
           top: false,

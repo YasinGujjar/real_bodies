@@ -95,6 +95,7 @@ loadNamePreference().then(updateValue) ;
       controller: _email,
       hint: "E-mail Adress",
       inputType: TextInputType.emailAddress,
+      colorfield: Palette.backGround
       // validator: Validator.validateEmail,
     );
     _passwordField = CustomTextField(
@@ -104,6 +105,7 @@ loadNamePreference().then(updateValue) ;
       controller: _password,
       obscureText: true,
       hint: "Password",
+      colorfield: Palette.backGround
       // validator: Validator.validatePassword,
     );
   }

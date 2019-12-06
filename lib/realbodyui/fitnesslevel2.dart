@@ -1,5 +1,6 @@
 import 'package:charts_flutter/flutter.dart' as prefix0;
 import 'package:flutter/material.dart';
+import 'package:real_bodies/realbodyui/fitnesslevel.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 
@@ -92,7 +93,10 @@ class _FitnessLevelTwoState extends State<FitnessLevelTwo> {
                     shape: new RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(30.0),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                        Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => FitnessLevel()));
+                    },
                     color: Palette.buttonjColor,
                     textColor: Colors.white,
                     child: Text("Next".toUpperCase(),

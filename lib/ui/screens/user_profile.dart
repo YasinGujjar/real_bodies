@@ -117,7 +117,7 @@ children: <Widget>[
                 ),
               ), */
               SizedBox(height: 0.0,),
-              ExpansionPanelsDemo(gender:widget.gender,old:widget.old,height:widget.height,weight:widget.weight),
+            //  ExpansionPanelsDemo(gender:widget.gender,old:widget.old,height:widget.height,weight:widget.weight),
              
                 // child: Card(
                   //elevation: 10.0,
