@@ -62,6 +62,7 @@ _nameField = new CustomTextField(
       controller: _fullname,
       hint: "Full Name",
       inputType: TextInputType.emailAddress,
+      colorfield: Palette.backGround,
       // validator: Validator.validateEmail,
     );
     _emailField = new CustomTextField(
@@ -71,6 +72,7 @@ _nameField = new CustomTextField(
       controller: _email,
       hint: "E-mail Adress",
       inputType: TextInputType.emailAddress,
+      colorfield: Palette.backGround
       // validator: Validator.validateEmail,
     );
     _passwordField = CustomTextField(
@@ -80,6 +82,7 @@ _nameField = new CustomTextField(
       controller: _password,
       obscureText: true,
       hint: "Password",
+      colorfield: Palette.backGround
       // validator: Validator.validatePassword,
     );
     _confirmPasswordField = CustomTextField(
@@ -89,6 +92,7 @@ _nameField = new CustomTextField(
       controller: _confirmpassword,
       obscureText: true,
       hint: "Confirm Password",
+      colorfield: Palette.backGround
       // validator: Validator.validatePassword,
     );
   }

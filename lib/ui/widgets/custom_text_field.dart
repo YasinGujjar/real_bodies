@@ -1,3 +1,4 @@
+import 'package:charts_flutter/flutter.dart' as prefix0;
 import 'package:flutter/material.dart';
 import 'package:real_bodies/theme/palette.dart';
 
@@ -11,6 +12,7 @@ class CustomTextField extends StatefulWidget {
   final bool obscureText;
   final Function validator;
   final Function onChanged;
+  final Color colorfield;
  //
 
   CustomTextField(
@@ -23,6 +25,7 @@ class CustomTextField extends StatefulWidget {
       this.inputType = TextInputType.text,
       this.obscureText = false,
       this.validator,
+      this.colorfield,
       });
 
   _CustomTextFieldState createState() => _CustomTextFieldState();
@@ -41,7 +44,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0.0,
-      color: Palette.backGround,
+      color: widget.colorfield,
       shape: RoundedRectangleBorder(
         side: BorderSide(color: currentColor, width: 1.0),
         borderRadius: BorderRadius.circular(5.0),

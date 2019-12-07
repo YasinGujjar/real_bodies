@@ -1,5 +1,8 @@
 import 'package:charts_flutter/flutter.dart' as prefix0;
 import 'package:flutter/material.dart';
+import 'package:real_bodies/realbodyui/fitnesslevel.dart';
+import 'package:real_bodies/realbodyui/fitnesslevel2.dart';
+import 'package:real_bodies/realbodyui/fitnesslevel3.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 
@@ -64,7 +67,8 @@ class _StepThreeState extends State<StepThree> {
                           borderRadius: new BorderRadius.circular(30.0),
                         ),
                         onPressed: () {
-                          
+                            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => FitnessLevelTwo()));
                         },
                         color: Colors.white,
                         textColor: Palette.backGround,

@@ -1,6 +1,7 @@
 import 'package:charts_flutter/flutter.dart' as prefix0;
 import 'package:flutter/material.dart';
 import 'package:real_bodies/models/url.dart';
+import 'package:real_bodies/realbodyui/bmi_creen.dart';
 import 'package:real_bodies/realbodyui/step1.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
@@ -51,10 +52,10 @@ URL urldomain =URL();
      //var height=jsonResponse['height'];
      // var weight=jsonResponse['weight'];
 
- /* Navigator.push(
+ Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => StepOne( )),
-  ); */
+    MaterialPageRoute(builder: (context) => Bmi(id:id )),
+  );
 
 /* 
  Navigator.push(
@@ -94,6 +95,7 @@ loadNamePreference().then(updateValue) ;
       controller: _email,
       hint: "E-mail Adress",
       inputType: TextInputType.emailAddress,
+      colorfield: Palette.backGround
       // validator: Validator.validateEmail,
     );
     _passwordField = CustomTextField(
@@ -103,6 +105,7 @@ loadNamePreference().then(updateValue) ;
       controller: _password,
       obscureText: true,
       hint: "Password",
+      colorfield: Palette.backGround
       // validator: Validator.validatePassword,
     );
   }
