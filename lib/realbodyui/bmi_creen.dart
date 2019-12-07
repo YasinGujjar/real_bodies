@@ -88,9 +88,6 @@ class _BmiState extends State<Bmi> {
                         children: <Widget>[
                           Center(child: Text("1800",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 40),)),
                           Center(child: Text("KCals",style: TextStyle(fontSize: 20,color: Colors.white),)),
-
-
-
                         ],
                       ),
                       progressColor: Colors.white,
@@ -137,9 +134,7 @@ class _BmiState extends State<Bmi> {
                     ),
                   ),
                 ),
-
                 SizedBox(height: 10,)
-
               ],
             )
           ],
