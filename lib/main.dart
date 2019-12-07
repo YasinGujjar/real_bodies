@@ -13,6 +13,7 @@ import 'package:real_bodies/pages/progress_tracker.dart';
 import 'package:real_bodies/pages/search_food.dart';
 import 'package:real_bodies/pages/starting_pages.dart';
 import 'package:real_bodies/realbodyui/dashboard.dart';
+import 'package:real_bodies/realbodyui/exercise_library.dart';
 import 'package:real_bodies/realbodyui/exercise_plan.dart';
 import 'package:real_bodies/realbodyui/exercise_plan_full.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel3.dart';
@@ -53,7 +54,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home:  FitnessLevelThree(),//MyHomePage(title: 'Demo'),
+      home:  ExerciseLibrary(),//MyHomePage(title: 'Demo'),
     );
   }
 }
