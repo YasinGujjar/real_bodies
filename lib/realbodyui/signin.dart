@@ -1,8 +1,6 @@
-import 'package:charts_flutter/flutter.dart' as prefix0;
 import 'package:flutter/material.dart';
 import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/realbodyui/bmi_creen.dart';
-import 'package:real_bodies/realbodyui/step1.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 import 'package:http/http.dart' as http;

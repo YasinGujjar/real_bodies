@@ -1,13 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:real_bodies/theme/palette.dart';
-import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
+import 'package:http/http.dart' as http;
+
 
 class FitnessGoal extends StatefulWidget {
+  final int id;
+  FitnessGoal(this.id);
   @override
   _FitnessGoalState createState() => _FitnessGoalState();
 }
 
 class _FitnessGoalState extends State<FitnessGoal> {
+
+  void setGoal(String goal)async {
+
+    try{
+      var urldomain;
+      var url=urldomain.domain+"login";
+     final response =await http.get(url+"&id="+widget.id.toString()+"&goal="+goal);
+     // print('Response body:${response.body}');
+    }catch(e){
+      print(e);
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -59,7 +76,9 @@ class _FitnessGoalState extends State<FitnessGoal> {
                                          shape: new RoundedRectangleBorder(
                                            borderRadius: new BorderRadius.circular(30.0),
                                          ),
-                                         onPressed: () {},
+                                         onPressed: () {
+                                           setGoal('Weight Loss');
+                                         },
                                          color: Palette.buttonjColor,
                                          textColor: Colors.white,
                                          child: Text("Select",
@@ -102,7 +121,9 @@ class _FitnessGoalState extends State<FitnessGoal> {
                                         shape: new RoundedRectangleBorder(
                                           borderRadius: new BorderRadius.circular(30.0),
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          setGoal('Toning');
+                                        },
                                         color: Palette.buttonjColor,
                                         textColor: Colors.white,
                                         child: Text("Select",
@@ -144,7 +165,9 @@ class _FitnessGoalState extends State<FitnessGoal> {
                                       shape: new RoundedRectangleBorder(
                                         borderRadius: new BorderRadius.circular(30.0),
                                       ),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        setGoal('Mass Gain');
+                                      },
                                       color: Palette.buttonjColor,
                                       textColor: Colors.white,
                                       child: Text("Select",
@@ -187,7 +210,9 @@ class _FitnessGoalState extends State<FitnessGoal> {
                                         shape: new RoundedRectangleBorder(
                                           borderRadius: new BorderRadius.circular(30.0),
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          setGoal('Endurance');
+                                        },
                                         color: Palette.buttonjColor,
                                         textColor: Colors.white,
                                         child: Text("Select",

@@ -5,7 +5,7 @@ import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/screens/expansion_panel.dart';
 
 class Bmi extends StatefulWidget {
-  int id;
+ final  int id;
    Bmi({this.id});
   @override
   _BmiState createState() => _BmiState();

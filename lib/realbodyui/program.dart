@@ -28,6 +28,8 @@ class _ProgramState extends State<Program> {
             ),
             SizedBox(height: 5,),
            ProgramList(title: '30 Days Summer',),
+            ProgramList(title: '30 Days Summer',),
+
 
           ],
         ),
