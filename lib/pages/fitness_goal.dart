@@ -1,24 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 
 class FitnessGoal extends StatefulWidget {
   final int id;
-  FitnessGoal(this.id);
+  FitnessGoal({this.id});
   @override
   _FitnessGoalState createState() => _FitnessGoalState();
 }
 
 class _FitnessGoalState extends State<FitnessGoal> {
+  URL urldomain =URL();
 
   void setGoal(String goal)async {
 
     try{
-      var urldomain;
-      var url=urldomain.domain+"login";
+             print(widget.id);
+      var url=urldomain.domain+"add_goal";
      final response =await http.get(url+"&id="+widget.id.toString()+"&goal="+goal);
-     // print('Response body:${response.body}');
+      var jsonResponse = json.decode(response.body);
+      var requestresponse=jsonResponse['response'];
+
+      if (requestresponse=="success"){
+        print('Added the Goal');
+      }
+      else if(requestresponse=="error")
+      {
+
+        print("error adding goal");
+      }
+      // print('Response body:${response.body}');
     }catch(e){
       print(e);
     }

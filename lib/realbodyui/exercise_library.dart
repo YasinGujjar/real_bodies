@@ -13,7 +13,7 @@ class _ExerciseLibraryState extends State<ExerciseLibrary> {
     return MaterialApp(
 
       home: DefaultTabController(
-        length: 4,
+        length: 2,
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Palette.mainPurple,

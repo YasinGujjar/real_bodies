@@ -1,4 +1,8 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:real_bodies/models/program.dart';
+import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/theme/palette.dart';
 
 class Program extends StatefulWidget {
@@ -9,6 +13,48 @@ class Program extends StatefulWidget {
 }
 
 class _ProgramState extends State<Program> {
+  Future<List<ProgramPlan>> programList;
+  URL urldomain =URL();
+
+  Future<List<ProgramPlan>> fetchProgram()async {
+    try{
+      print(widget.id);
+      var url=urldomain.domain+"fetch_program";
+      final response =await http.get(url);
+      print('Response body:${response.body}');
+      Iterable list = json.decode(response.body);
+
+    List<ProgramPlan> ppl =  list.map((model)=>ProgramPlan.fromJson(model)).toList();
+
+       return ppl;
+         //ppl.forEach((f)=>print(f.title));
+
+
+   //   print(jsonResponse);
+//      var requestresponse=jsonResponse['response'];
+//
+//      if (requestresponse=="success"){
+//        print('Added the Goal');
+//      }
+//      else if(requestresponse=="error")
+//      {
+//
+//        print("error adding goal");
+//      }
+      // print('Response body:${response.body}');
+    }catch(e){
+      print(e);
+    }
+  }
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    programList = fetchProgram();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,10 +73,31 @@ class _ProgramState extends State<Program> {
               maxLines: 2,
             ),
             SizedBox(height: 5,),
-           ProgramList(title: '30 Days Summer',),
-            ProgramList(title: '30 Days Summer',),
 
-
+             FutureBuilder<List<ProgramPlan>>(
+               future: programList,
+               builder: (context, snapshot){
+                 if(snapshot.hasData){
+                   return ListView.builder(
+                     shrinkWrap: true,
+                     itemCount: snapshot.data.length,
+                       itemBuilder: (BuildContext context, int index){
+                       return
+                                Column(
+                                  children: <Widget>[
+                               ProgramList(title:snapshot.data[index].title, description: snapshot.data[index].description,),
+                               SizedBox(height: 10)
+                         ],
+                                );
+                       }
+                   );
+                 }
+                 else{
+                   Center(child: CircularProgressIndicator());
+                 }
+                 return Center(child: CircularProgressIndicator());
+               }
+             ),
           ],
         ),
       ),
@@ -51,7 +118,7 @@ class ProgramList extends StatelessWidget {
           child: Container(
             height: 200,
             decoration: BoxDecoration(
-              color: Color(0xff5847BA),
+              
               borderRadius: BorderRadius.circular(8.0),
             ),
             child: Padding(
@@ -75,7 +142,7 @@ class ProgramList extends StatelessWidget {
 
                 ],
                           ),
-                          Text("Personalized summer plan, special to get back in shape",style: TextStyle(color: Colors.white,fontSize: 15),
+                          Text("$description",style: TextStyle(color: Colors.white,fontSize: 15),
 
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.center,

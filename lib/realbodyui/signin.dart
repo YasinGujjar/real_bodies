@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:real_bodies/models/url.dart';
+import 'package:real_bodies/pages/fitness_goal.dart';
 import 'package:real_bodies/realbodyui/bmi_creen.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
@@ -44,7 +45,9 @@ URL urldomain =URL();
 {
 // var image=urldomain.imgdomain.toString()+jsonResponse['image'];
   var name=jsonResponse['name'];
-  var id=jsonResponse['id'];
+  int id= int.parse(jsonResponse['id']);
+  print('This is the idddddd   heloo$id');
+
  //  var gender=jsonResponse['gender'];
    // var old=jsonResponse['old'];
      //var height=jsonResponse['height'];
@@ -52,7 +55,7 @@ URL urldomain =URL();
 
  Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => Bmi(id:id )),
+    MaterialPageRoute(builder: (context) => FitnessGoal(id:id )),
   );
 
 /* 
