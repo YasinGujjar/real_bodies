@@ -184,7 +184,7 @@ class _FitnessLevelThreeState extends State<FitnessLevelThree> {
                     ),
                    */  
                     SizedBox(height: height * 0.18,),
-                    Container(
+      /*               Container(
                       //margin: EdgeInsets.only(top: 5.0),
                       height: 50,
                       width: width * 0.80,
@@ -202,7 +202,7 @@ class _FitnessLevelThreeState extends State<FitnessLevelThree> {
                             style: TextStyle(fontSize: 14,
                                 fontWeight: FontWeight.bold)),
                       ),
-                    ),
+                    ), */
                   ],
                 ),
               ),

@@ -6,7 +6,8 @@ import 'package:real_bodies/ui/screens/expansion_panel.dart';
 
 class Bmi extends StatefulWidget {
   int id;
-   Bmi({this.id});
+  String bmi="";
+   Bmi({this.id,this.bmi});
   @override
   _BmiState createState() => _BmiState();
 }
@@ -54,7 +55,7 @@ class _BmiState extends State<Bmi> {
                        center:  Column(
                          mainAxisAlignment: MainAxisAlignment.center,
                          children: <Widget>[
-                           Center(child: Text("29",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 40),)),
+                           Center(child: Text(widget.bmi,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 40),)),
                            SizedBox(height: 20,),
                            Center(child: Text("OverWeight",style: TextStyle(fontSize: 20,color: Colors.white),)),
 

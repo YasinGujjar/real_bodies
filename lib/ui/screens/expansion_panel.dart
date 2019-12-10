@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:real_bodies/realbodyui/bmi_creen.dart';
 import 'package:real_bodies/theme/palette.dart';
 
 
@@ -233,7 +234,9 @@ class ExpansionPanelsDemo extends StatefulWidget {
 class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
   List<DemoItem<dynamic>> _demoItems;
   String firstval="";
-  final String old="";
+   int weight;
+   double height;
+   String bmi="";
   TextEditingController textControllerval;
   TextEditingController textControllerval2;
 
@@ -286,7 +289,7 @@ return null;
                       ),
                       onSaved: (String value) { 
                         item.value = value; 
-                        //old=value;
+                      
                         },
                     ),
                   ),
@@ -347,7 +350,7 @@ return null;
       ),
       DemoItem<String>(
         name: 'Weight',
-        value: "0",
+        value: "",
         
         hint: 'Enter new value',
         valueToString: (String value) => value,
@@ -374,8 +377,9 @@ return null;
                         labelText: item.name,
                       ),
                       onSaved: (String value) { 
-                        item.value = value; 
-                        
+                        item.value = value+" Kg"; 
+                        int val = int.parse(value);
+                        weight=val;
                         },
                     ),
                   ),
@@ -441,6 +445,9 @@ print(value);
                             ),
                             onSaved: (String value) { 
                               item.value = firstval+"Ft. "+value+ "In.";
+                              double one = double.parse(firstval);
+                             double two = double.parse(value);
+                              height=one*0.3048+two*0.0254;
                               print(item.value); },
                           ),
                         ),
@@ -465,29 +472,58 @@ print(value);
         //  MaterialDemoDocumentationButton(ExpansionPanelsDemo.routeName),
         ],
       ), */
-      color: Palette.mainPurple,
-      child: SingleChildScrollView(
-        child: SafeArea(
-          top: false,
-          bottom: false,
-          child: Container(
-            margin: const EdgeInsets.all(24.0),
-            child: ExpansionPanelList(
-              expansionCallback: (int index, bool isExpanded) {
-                setState(() {
-                  _demoItems[index].isExpanded = !isExpanded;
-                });
-              },
-              children: _demoItems.map<ExpansionPanel>((DemoItem<dynamic> item) {
-                return ExpansionPanel(
-                  isExpanded: item.isExpanded,
-                  headerBuilder: item.headerBuilder,
-                  body: item.build(),
-                );
-              }).toList(),
+    //  color: Palette.mainPurple,
+      child: Column(
+        children: <Widget>[
+          SingleChildScrollView(
+            child: SafeArea(
+              top: false,
+              bottom: false,
+              child: Container(
+                margin: const EdgeInsets.all(24.0),
+                child: ExpansionPanelList(
+                  expansionCallback: (int index, bool isExpanded) {
+                    setState(() {
+                      _demoItems[index].isExpanded = !isExpanded;
+                    });
+                  },
+                  children: _demoItems.map<ExpansionPanel>((DemoItem<dynamic> item) {
+                    return ExpansionPanel(
+                      isExpanded: item.isExpanded,
+                      headerBuilder: item.headerBuilder,
+                      body: item.build(),
+                    );
+                  }).toList(),
+                ),
+              ),
             ),
           ),
-        ),
+          SizedBox(
+            height: 150,
+          ),
+           Container(
+                      //margin: EdgeInsets.only(top: 5.0),
+                      height: 50,
+                      width: 350,
+                      child: FlatButton(
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0),
+                        ),
+                        onPressed: () {
+double heightsuqare=height*height;
+                          double bmival=weight/heightsuqare;
+                          bmi=bmival.toStringAsFixed(2);
+                            Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Bmi(bmi:bmi)));
+                        },
+                        color: Colors.white,
+                        textColor: Palette.backGround,
+                        child: Text("Almost there !".toUpperCase(),
+                            style: TextStyle(fontSize: 14,
+                                fontWeight: FontWeight.bold)),
+                      ),
+                    ),
+        ],
       ),
     );
   }
