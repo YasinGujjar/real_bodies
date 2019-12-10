@@ -5,8 +5,8 @@ import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/screens/expansion_panel.dart';
 
 class Bmi extends StatefulWidget {
-  int id;
-  String bmi="";
+ final  int id;
+   String bmi="";
    Bmi({this.id,this.bmi});
   @override
   _BmiState createState() => _BmiState();
@@ -89,9 +89,6 @@ class _BmiState extends State<Bmi> {
                         children: <Widget>[
                           Center(child: Text("1800",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 40),)),
                           Center(child: Text("KCals",style: TextStyle(fontSize: 20,color: Colors.white),)),
-
-
-
                         ],
                       ),
                       progressColor: Colors.white,
@@ -138,9 +135,7 @@ class _BmiState extends State<Bmi> {
                     ),
                   ),
                 ),
-
                 SizedBox(height: 10,)
-
               ],
             )
           ],
