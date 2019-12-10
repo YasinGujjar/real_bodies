@@ -5,6 +5,8 @@ import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 
 class FitnessLevelTwo extends StatefulWidget {
+  int id;
+  FitnessLevelTwo({this.id});
   @override
   _FitnessLevelTwoState createState() => _FitnessLevelTwoState();
 }

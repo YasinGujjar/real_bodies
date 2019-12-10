@@ -1,11 +1,14 @@
 import 'package:charts_flutter/flutter.dart' as prefix0;
 import 'package:flutter/material.dart';
 import 'package:real_bodies/realbodyui/bmi_creen.dart';
+import 'package:real_bodies/realbodyui/fitnesslevel2.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/screens/expansion_panel.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 
 class FitnessLevelThree extends StatefulWidget {
+   int id;
+  FitnessLevelThree({this.id});
   @override
   _FitnessLevelThreeState createState() => _FitnessLevelThreeState();
 }
@@ -77,7 +80,7 @@ class _FitnessLevelThreeState extends State<FitnessLevelThree> {
                     SizedBox(
                       height: height*0.06,
                     ),
-                    ExpansionPanelsDemo(),
+                    ExpansionPanelsDemo(id:widget.id),
                   /*  Divider(
                             height: 2,
                             thickness: 2.0,

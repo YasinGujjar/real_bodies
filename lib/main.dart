@@ -27,6 +27,7 @@ import 'package:real_bodies/realbodyui/signin.dart';
 import 'package:real_bodies/realbodyui/splashscreen.dart';
 import 'package:real_bodies/realbodyui/splashscreen2.dart';
 import 'package:real_bodies/realbodyui/step1.dart';
+import 'package:real_bodies/realbodyui/step3.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/screens/desktop.dart';
 import 'package:real_bodies/ui/screens/dietplan.dart';
@@ -58,7 +59,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home:  MealPlan(),//MyHomePage(title: 'Demo'),
+      home:  registers(),//MyHomePage(title: 'Demo'),
     );
   }
 }

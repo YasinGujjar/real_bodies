@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/realbodyui/bmi_creen.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 
 
@@ -40,6 +43,8 @@ class DualHeaderWithHint extends StatelessWidget {
       duration: const Duration(milliseconds: 200),
     );
   }
+
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -218,7 +223,8 @@ class DemoItem2<T> {
 
 class ExpansionPanelsDemo extends StatefulWidget {
   static const String routeName = '/material/expansion_panels';
-     
+      int id;
+  ExpansionPanelsDemo({this.id});
  /*  String height="";
   String weight="";
   String old="";
@@ -239,6 +245,31 @@ class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
    String bmi="";
   TextEditingController textControllerval;
   TextEditingController textControllerval2;
+
+ URL urldomain =URL();
+
+  void setbmi()async {
+
+    try{
+         
+      var url=urldomain.domain+"add_bmi";
+     final response =await http.get(url+"&id="+widget.id.toString()+"&goal="+bmi);
+      var jsonResponse = json.decode(response.body);
+      var requestresponse=jsonResponse['response'];
+
+      if (requestresponse=="success"){
+        print('Added  BMI');
+      }
+      else if(requestresponse=="error")
+      {
+
+        print("error  BMI");
+      }
+      // print('Response body:${response.body}');
+    }catch(e){
+      print(e);
+    }
+  }
 
 
   @override
@@ -513,6 +544,7 @@ print(value);
 double heightsuqare=height*height;
                           double bmival=weight/heightsuqare;
                           bmi=bmival.toStringAsFixed(2);
+                          setbmi();
                             Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) => Bmi(bmi:bmi)));
                         },

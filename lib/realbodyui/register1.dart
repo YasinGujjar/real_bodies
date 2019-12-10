@@ -2,6 +2,7 @@ import 'package:charts_flutter/flutter.dart' as prefix0;
 import 'package:flutter/material.dart';
 import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/realbodyui/signin.dart';
+import 'package:real_bodies/realbodyui/step1.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 import 'package:http/http.dart' as http;
@@ -23,6 +24,7 @@ final TextEditingController _confirmpassword = new TextEditingController();
   CustomTextField _confirmPasswordField;
   bool _blackVisible = false;
   VoidCallback onBackPress;
+  int id;
   URL urldomain=URL();
 
  void addinfo() async
@@ -32,12 +34,13 @@ final TextEditingController _confirmpassword = new TextEditingController();
      var url=urldomain.domain+"registration";
     final response=await http.get(url+"&name="+_fullname.text+"&email="+_email.text+"&password="+_password.text);
     print('Response body:${response.body}');
-   // var jsonResponse=json.decode(response.body);
+    var jsonResponse=json.decode(response.body);
   // print("jjjjjjjjj "+widget.goal+" ffffffff "+widget.gender+" jjjjjjjjjjjjjjj "+widget.age+" ffffffff "+widget.weight+" lolololo "+widget.height);
       if (response.body=="success")
       {
+        id= int.parse(jsonResponse['id']);
          Navigator.of(context)
-                .pushReplacement(MaterialPageRoute(builder: (context) => Signin())); 
+                .pushReplacement(MaterialPageRoute(builder: (context) => StepOne(id:id))); 
       }
        }
       catch(e)
@@ -154,7 +157,9 @@ _nameField = new CustomTextField(
                         onPressed: () {
                           if(_password.text==_confirmpassword.text)
                           {
-                              addinfo();
+                             // addinfo();
+                              Navigator.of(context)
+                .pushReplacement(MaterialPageRoute(builder: (context) => StepOne())); 
                           }
                           else{
                             print("Paasword not matched");

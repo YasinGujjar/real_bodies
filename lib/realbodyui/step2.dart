@@ -5,6 +5,8 @@ import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 
 class StepTwo extends StatefulWidget {
+    int id;
+  StepTwo({this.id});
   @override
   _StepTwoState createState() => _StepTwoState();
 }
@@ -66,7 +68,7 @@ class _StepTwoState extends State<StepTwo> {
                         ),
                         onPressed: () {
                            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => StepThree()));
+                .push(MaterialPageRoute(builder: (context) => StepThree(id:widget.id)));
                         },
                         color: Colors.white,
                         textColor: Palette.backGround,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:real_bodies/models/url.dart';
+import 'package:real_bodies/realbodyui/fitnesslevel2.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -137,6 +138,7 @@ class _FitnessGoalState extends State<FitnessGoal> {
                                         ),
                                         onPressed: () {
                                           setGoal('Toning');
+                                          
                                         },
                                         color: Palette.buttonjColor,
                                         textColor: Colors.white,
@@ -259,7 +261,10 @@ class _FitnessGoalState extends State<FitnessGoal> {
                         shape: new RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(30.0),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => FitnessLevelTwo(id:widget.id)));
+                        },
                         color: Palette.buttonjColor,
                         textColor: Colors.white,
                         child: Text("Start".toUpperCase(),

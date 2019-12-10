@@ -1,5 +1,6 @@
 import 'package:charts_flutter/flutter.dart' as prefix0;
 import 'package:flutter/material.dart';
+import 'package:real_bodies/pages/fitness_goal.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel2.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel3.dart';
@@ -7,6 +8,8 @@ import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 
 class StepThree extends StatefulWidget {
+    int id;
+  StepThree({this.id});
   @override
   _StepThreeState createState() => _StepThreeState();
 }
@@ -68,7 +71,7 @@ class _StepThreeState extends State<StepThree> {
                         ),
                         onPressed: () {
                             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => FitnessLevelTwo()));
+                .push(MaterialPageRoute(builder: (context) => FitnessGoal()));
                         },
                         color: Colors.white,
                         textColor: Palette.backGround,
