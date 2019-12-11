@@ -5,6 +5,7 @@ import 'package:real_bodies/models/program.dart';
 import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/theme/palette.dart';
 
+
 class Program extends StatefulWidget {
   final id;
   Program(this.id);
@@ -48,6 +49,8 @@ class _ProgramState extends State<Program> {
   }
 
 
+
+
   @override
   void initState() {
     // TODO: implement initState
@@ -85,7 +88,11 @@ class _ProgramState extends State<Program> {
                        return
                                 Column(
                                   children: <Widget>[
-                               ProgramList(title:snapshot.data[index].title, description: snapshot.data[index].description,),
+                               ProgramList(title:snapshot.data[index].title, description: snapshot.data[index].description,id: widget.id,
+                               programId: snapshot.data[index].programId,
+                               image: snapshot.data[index].image,
+
+                               ),
                                SizedBox(height: 10)
                          ],
                                 );
@@ -108,17 +115,23 @@ class _ProgramState extends State<Program> {
 class ProgramList extends StatelessWidget {
   final String title;
   final String description;
+  var document;
+  final String image;
+  final int id;
+  final int programId;
 
-  ProgramList({this.title,this.description});
+  ProgramList({this.title,this.description,this.id,this.programId,this.image,this.document});
+
   @override
   Widget build(BuildContext context) {
     return
       Padding(
           padding: EdgeInsets.only(left: 12,right: 12),
           child: Container(
+
             height: 200,
             decoration: BoxDecoration(
-              
+              color: Colors.lightBlueAccent,
               borderRadius: BorderRadius.circular(8.0),
             ),
             child: Padding(
@@ -178,8 +191,8 @@ class ProgramList extends StatelessWidget {
                                   shape: new RoundedRectangleBorder(
                                     borderRadius: new BorderRadius.circular(30.0),
                                   ),
-                                  onPressed: () {
-                                    print(this.title);
+                                  onPressed:  () async {
+                                    buyProgram(id, programId);
                                   },
                                   color: Palette.buttonjColor,
                                   textColor: Colors.white,
@@ -199,7 +212,9 @@ class ProgramList extends StatelessWidget {
                   ),
                   Expanded(
                       flex:1
-                      ,child: Image.asset('assets/images/bodgoal4.png',fit: BoxFit.cover,)),
+                      ,child: Image.network(
+                    image,
+                  )),
                 ],
               ),
             ),
@@ -211,3 +226,19 @@ class ProgramList extends StatelessWidget {
 
 
 
+void buyProgram(int id, int programId) async {
+  URL urldomain = URL();
+  var url=urldomain.domain+"buy_program";
+
+  final response =await http.get(url+"&id="+id.toString()+"&program_id="+programId.toString());
+
+  if (response.statusCode == 200) {
+    // If the call to the server was successful, parse the JSON.
+   // r Post.fromJson(json.decode(response.body));
+    print('Response body:${response.body}');
+
+  } else {
+    // If that call was not successful, throw an error.
+    throw Exception('Failed to load post');
+  }
+}

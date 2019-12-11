@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home:  MealPlan(),//MyHomePage(title: 'Demo'),
+      home:  Program(1),//MyHomePage(title: 'Demo'),
     );
   }
 }
