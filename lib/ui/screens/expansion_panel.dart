@@ -243,6 +243,7 @@ class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
    int weight;
    double height;
    String bmi="";
+   String calorie="1200";
   TextEditingController textControllerval;
   TextEditingController textControllerval2;
 
@@ -253,7 +254,7 @@ class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
     try{
          
       var url=urldomain.domain+"add_bmi";
-     final response =await http.get(url+"&id="+widget.id.toString()+"&goal="+bmi);
+     final response =await http.get(url+"&id="+widget.id.toString()+"&goal="+bmi+"&calorie="+calorie);
       var jsonResponse = json.decode(response.body);
       var requestresponse=jsonResponse['response'];
 

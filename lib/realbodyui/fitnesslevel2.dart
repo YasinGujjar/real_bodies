@@ -97,7 +97,7 @@ class _FitnessLevelTwoState extends State<FitnessLevelTwo> {
                     ),
                     onPressed: () {
                         Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => FitnessLevel()));
+                .push(MaterialPageRoute(builder: (context) => FitnessLevel(id:widget.id)));
                     },
                     color: Palette.buttonjColor,
                     textColor: Colors.white,
