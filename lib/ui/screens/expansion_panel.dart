@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:real_bodies/models/url.dart';
+import 'package:real_bodies/realbodyui/bmi_creen.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 
 
@@ -39,6 +43,8 @@ class DualHeaderWithHint extends StatelessWidget {
       duration: const Duration(milliseconds: 200),
     );
   }
+
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -217,7 +223,8 @@ class DemoItem2<T> {
 
 class ExpansionPanelsDemo extends StatefulWidget {
   static const String routeName = '/material/expansion_panels';
-     
+      int id;
+  ExpansionPanelsDemo({this.id});
  /*  String height="";
   String weight="";
   String old="";
@@ -233,9 +240,37 @@ class ExpansionPanelsDemo extends StatefulWidget {
 class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
   List<DemoItem<dynamic>> _demoItems;
   String firstval="";
-  final String old="";
+   int weight;
+   double height;
+   String bmi="";
+   String calorie="1200";
   TextEditingController textControllerval;
   TextEditingController textControllerval2;
+
+ URL urldomain =URL();
+
+  void setbmi()async {
+
+    try{
+         
+      var url=urldomain.domain+"add_bmi";
+     final response =await http.get(url+"&id="+widget.id.toString()+"&goal="+bmi+"&calorie="+calorie);
+      var jsonResponse = json.decode(response.body);
+      var requestresponse=jsonResponse['response'];
+
+      if (requestresponse=="success"){
+        print('Added  BMI');
+      }
+      else if(requestresponse=="error")
+      {
+
+        print("error  BMI");
+      }
+      // print('Response body:${response.body}');
+    }catch(e){
+      print(e);
+    }
+  }
 
 
   @override
@@ -286,7 +321,7 @@ return null;
                       ),
                       onSaved: (String value) { 
                         item.value = value; 
-                        //old=value;
+                      
                         },
                     ),
                   ),
@@ -347,7 +382,7 @@ return null;
       ),
       DemoItem<String>(
         name: 'Weight',
-        value: "0",
+        value: "",
         
         hint: 'Enter new value',
         valueToString: (String value) => value,
@@ -374,8 +409,9 @@ return null;
                         labelText: item.name,
                       ),
                       onSaved: (String value) { 
-                        item.value = value; 
-                        
+                        item.value = value+" Kg"; 
+                        int val = int.parse(value);
+                        weight=val;
                         },
                     ),
                   ),
@@ -441,6 +477,9 @@ print(value);
                             ),
                             onSaved: (String value) { 
                               item.value = firstval+"Ft. "+value+ "In.";
+                              double one = double.parse(firstval);
+                             double two = double.parse(value);
+                              height=one*0.3048+two*0.0254;
                               print(item.value); },
                           ),
                         ),
@@ -465,29 +504,59 @@ print(value);
         //  MaterialDemoDocumentationButton(ExpansionPanelsDemo.routeName),
         ],
       ), */
-      color: Palette.mainPurple,
-      child: SingleChildScrollView(
-        child: SafeArea(
-          top: false,
-          bottom: false,
-          child: Container(
-            margin: const EdgeInsets.all(24.0),
-            child: ExpansionPanelList(
-              expansionCallback: (int index, bool isExpanded) {
-                setState(() {
-                  _demoItems[index].isExpanded = !isExpanded;
-                });
-              },
-              children: _demoItems.map<ExpansionPanel>((DemoItem<dynamic> item) {
-                return ExpansionPanel(
-                  isExpanded: item.isExpanded,
-                  headerBuilder: item.headerBuilder,
-                  body: item.build(),
-                );
-              }).toList(),
+    //  color: Palette.mainPurple,
+      child: Column(
+        children: <Widget>[
+          SingleChildScrollView(
+            child: SafeArea(
+              top: false,
+              bottom: false,
+              child: Container(
+                margin: const EdgeInsets.all(24.0),
+                child: ExpansionPanelList(
+                  expansionCallback: (int index, bool isExpanded) {
+                    setState(() {
+                      _demoItems[index].isExpanded = !isExpanded;
+                    });
+                  },
+                  children: _demoItems.map<ExpansionPanel>((DemoItem<dynamic> item) {
+                    return ExpansionPanel(
+                      isExpanded: item.isExpanded,
+                      headerBuilder: item.headerBuilder,
+                      body: item.build(),
+                    );
+                  }).toList(),
+                ),
+              ),
             ),
           ),
-        ),
+          SizedBox(
+            height: 150,
+          ),
+           Container(
+                      //margin: EdgeInsets.only(top: 5.0),
+                      height: 50,
+                      width: 350,
+                      child: FlatButton(
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0),
+                        ),
+                        onPressed: () {
+double heightsuqare=height*height;
+                          double bmival=weight/heightsuqare;
+                          bmi=bmival.toStringAsFixed(2);
+                          setbmi();
+                            Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Bmi(bmi:bmi)));
+                        },
+                        color: Colors.white,
+                        textColor: Palette.backGround,
+                        child: Text("Almost there !".toUpperCase(),
+                            style: TextStyle(fontSize: 14,
+                                fontWeight: FontWeight.bold)),
+                      ),
+                    ),
+        ],
       ),
     );
   }

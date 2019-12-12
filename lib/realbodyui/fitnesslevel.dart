@@ -1,16 +1,49 @@
 import 'package:charts_flutter/flutter.dart' as prefix0;
 import 'package:flutter/material.dart';
+import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel3.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 class FitnessLevel extends StatefulWidget {
+   int id;
+  FitnessLevel({this.id});
   @override
   _FitnessLevelState createState() => _FitnessLevelState();
 }
 
 class _FitnessLevelState extends State<FitnessLevel> {
-  bool wedVal=false;
+  bool level1=false;
+  bool level2=false;
+  bool level3=false;
+  String level="";
+URL urldomain=URL();
+void setlevel() async {
+    try {
+      var url = urldomain.domain + "add_level";
+      final response = await http
+          .get(url + "&id=" + widget.id.toString() + "&level=" + level);
+      var jsonResponse = json.decode(response.body);
+      var requestresponse = jsonResponse['response'];
+
+      if (requestresponse == "success") {
+        print('Added  BMI');
+        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>
+                                FitnessLevelThree(id: widget.id)));
+      } else if (requestresponse == "error") {
+        print("error  BMI");
+      }
+      // print('Response body:${response.body}');
+    } catch (e) {
+      print(e);
+    }
+  }
+
+
+
   @override
   void initState() {
     super.initState();
@@ -87,10 +120,12 @@ class _FitnessLevelState extends State<FitnessLevel> {
                                   padding: const EdgeInsets.only(left:20.0),
                                 child: Checkbox(
                               activeColor: Colors.white,
-                                value: wedVal,
+                                value: level1,
                                 onChanged: (bool value) {
                                   setState(() {
-                                    wedVal = value;
+                                    level1 = value;
+                                    level2=false;
+                                        level3=false;
                                   });
                                 })
                               ),
@@ -132,10 +167,12 @@ class _FitnessLevelState extends State<FitnessLevel> {
                                 padding: const EdgeInsets.only(left:20.0),
                                 child: Checkbox(
                                     activeColor: Colors.white,
-                                    value: wedVal,
+                                    value: level2,
                                     onChanged: (bool value) {
                                       setState(() {
-                                        wedVal = value;
+                                        level2 = value;
+                                        level3=false;
+                                        level1=false;
                                       });
                                     })
                             ),
@@ -177,10 +214,12 @@ class _FitnessLevelState extends State<FitnessLevel> {
                                 padding: const EdgeInsets.only(left:20.0),
                                 child: Checkbox(
                                     activeColor: Colors.white,
-                                    value: wedVal,
+                                    value: level3,
                                     onChanged: (bool value) {
                                       setState(() {
-                                        wedVal = value;
+                                        level3 = value;
+                                        level2=false;
+                                        level1=false;
                                       });
                                     })
                             ),
@@ -200,9 +239,26 @@ class _FitnessLevelState extends State<FitnessLevel> {
                       borderRadius: new BorderRadius.circular(30.0),
                     ),
                     onPressed: () {
-                        Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => FitnessLevelThree()));
-                    },
+                      if(level1==true)
+                      {
+                        level="Beginner";
+                        setlevel();
+                      }
+                       if(level2==true)
+                      {
+                        level="Intermadiate";
+                        setlevel();
+                      }
+                       if(level3==true)
+                      {
+                        level="Advanced";
+                        setlevel();
+                      }
+                      else{
+                        print("Level must Select");
+                      
+                    }
+                       },
                     color: Colors.white,
                     textColor: Palette.backGround,
                     child: Text("DIETS".toUpperCase(),

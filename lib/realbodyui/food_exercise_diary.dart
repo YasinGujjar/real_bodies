@@ -254,7 +254,8 @@ void refresh(){
                         width: width * 0.35,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: charts.PieChart(
+                          child:
+                          charts.PieChart(
                             _seriesPieData,
                             animate: true,
                             animationDuration: Duration(seconds: 1),
@@ -521,7 +522,7 @@ void refresh(){
             child: FittedBox(
                 fit: BoxFit.contain,
                 child: Text('Food Diary',style: TextStyle(color: Colors.white,fontSize: 30),)),),
-         FoodDiary(notifyParent: refresh,),
+         FoodDiary(notifyParent: refresh,id: 2),
 
           Container(height: 50,
             decoration: BoxDecoration(color: Palette.mainPurple,borderRadius: BorderRadius.circular(15.0)),

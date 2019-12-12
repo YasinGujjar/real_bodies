@@ -5,6 +5,8 @@ import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 
 class FitnessLevelTwo extends StatefulWidget {
+  int id;
+  FitnessLevelTwo({this.id});
   @override
   _FitnessLevelTwoState createState() => _FitnessLevelTwoState();
 }
@@ -95,7 +97,7 @@ class _FitnessLevelTwoState extends State<FitnessLevelTwo> {
                     ),
                     onPressed: () {
                         Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => FitnessLevel()));
+                .push(MaterialPageRoute(builder: (context) => FitnessLevel(id:widget.id)));
                     },
                     color: Palette.buttonjColor,
                     textColor: Colors.white,
