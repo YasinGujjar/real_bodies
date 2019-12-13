@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:real_bodies/pages/search_food.dart';
 import 'package:real_bodies/realbodyui/food_exercise_diary.dart';
+import 'package:real_bodies/realbodyui/meal_plan.dart';
 import 'package:real_bodies/realbodyui/search_add_food.dart';
 import 'package:real_bodies/realbodyui/show_weight.dart';
 import 'package:real_bodies/theme/my_flutter_app_icons.dart';
@@ -297,21 +298,28 @@ Widget storeTab(BuildContext context) {
   ),
 ),
 
-                                          child: Container(
+                                          child: GestureDetector(
+                                            onTap: (){
+                                              Navigator.of(context)
+                                                  .push(MaterialPageRoute(builder: (context) => MealPlan(id:2)));
+
+                                            },
+                                            child: Container(
 
                         //  color: Colors.blue,
                           height: height*0.1,
                           width: width*0.2,
-                           
+
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Icon(MyFlutterApp.free_breakfast,color: Colors.white,),
                               Text(" "),
-                              Text("Meat Plan",style: TextStyle(color: Colors.white),),
+                              Text("Meal Plan",style: TextStyle(color: Colors.white),),
                             ],
                           ),
                         ),
+                                          ),
                       ),
                     ),
                      Padding(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:real_bodies/models/walkthrough.dart';
 import 'package:real_bodies/pages/daily_workout_plan.dart';
 import 'package:real_bodies/pages/demo_page.dart';
@@ -12,7 +13,15 @@ import 'package:real_bodies/realbodyui/fitnesslevel2.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel3.dart';
 import 'package:real_bodies/realbodyui/register1.dart';
 import 'package:real_bodies/realbodyui/signin.dart';
+=======
 
+import 'package:real_bodies/pages/exercise.dart';
+import 'package:real_bodies/realbodyui/dashboard.dart';
+import 'package:real_bodies/realbodyui/exercise_library.dart';
+import 'package:real_bodies/realbodyui/food_exercise_diary.dart';
+>>>>>>> a7ede6b652abe096c7cf3422268af2b8953b5d42
+
+import 'package:real_bodies/realbodyui/program.dart';
 
 
 
@@ -37,7 +46,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
+<<<<<<< HEAD
       home:  registers(),//MyHomePage(title: 'Demo'),
+=======
+      home:  DashBoard(),//MyHomePage(title: 'Demo'),
+>>>>>>> a7ede6b652abe096c7cf3422268af2b8953b5d42
     );
   }
 }

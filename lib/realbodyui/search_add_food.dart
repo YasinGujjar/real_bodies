@@ -12,8 +12,10 @@ import 'package:http/http.dart' as http;
 
 class SearchAddFood extends StatefulWidget {
   final Food food;
+  final int id;
+  final String category;
 
-  SearchAddFood({this.food});
+  SearchAddFood({this.food,this.id,this.category});
 
   @override
   _SearchAddFoodState createState() => _SearchAddFoodState();
@@ -21,6 +23,7 @@ class SearchAddFood extends StatefulWidget {
 
 class _SearchAddFoodState extends State<SearchAddFood> {
 
+  int _quantity = 1;
 
   Map<String, double> dataMap = Map();
   List<Color> colorList = [
@@ -51,6 +54,8 @@ class _SearchAddFoodState extends State<SearchAddFood> {
       labelAccessorFn: (ChartData chartData, _) => '${chartData.value}',
     ));
   }
+
+
 
 
 
@@ -405,7 +410,9 @@ class _SearchAddFoodState extends State<SearchAddFood> {
                             shape: new RoundedRectangleBorder(
                               borderRadius: new BorderRadius.circular(30.0),
                             ),
-                            onPressed: () {},
+                            onPressed: () async{
+                              saveFoodOnServer(widget.id, widget.category,widget.food.id);
+                            },
                             color: Palette.mainPurple,
                             textColor: Colors.white,
                             child: Text("add food".toUpperCase(),
@@ -427,3 +434,23 @@ class _SearchAddFoodState extends State<SearchAddFood> {
 
 
 
+void saveFoodOnServer(int id, String category, int foodId) async
+{
+  print(id.toString());
+  print(category);
+  DateTime nowTime = DateTime.now();
+  URL urldomain = URL();
+  var url=urldomain.domainfood+"add_food";
+
+  final response =await http.get(url+"&id="+id.toString()+"&food_id="+foodId.toString()+"&category="+category+"&date="+nowTime.toString());
+
+  if (response.statusCode == 200) {
+    // If the call to the server was successful, parse the JSON.
+    // r Post.fromJson(json.decode(response.body));
+    print('Response body:${response.body}');
+
+  } else {
+    // If that call was not successful, throw an error.
+    throw Exception('Failed to load post');
+  }
+}

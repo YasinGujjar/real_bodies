@@ -3,6 +3,7 @@
 class Food {
   String name;
   int quantity;
+  int id;
   double size;
   double carbohydrates;
   double proteins;
@@ -12,7 +13,8 @@ class Food {
   double fatPoly;
   double fatMono;
   Food({this.name,this.quantity,this.size,this.carbohydrates,this.proteins,this.fat,this.sodium,this.fatSaturate,this.fatPoly,
-    this.fatMono
+    this.fatMono,
+    this.id
   });
 
 

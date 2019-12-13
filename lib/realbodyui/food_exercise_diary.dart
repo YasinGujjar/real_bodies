@@ -12,6 +12,17 @@ class FoodExerciseDiary extends StatefulWidget {
 }
 
 class _FoodExerciseDiaryState extends State<FoodExerciseDiary> {
+
+
+void refresh(){
+  setState(() {
+
+  });
+}
+
+
+
+
   List<charts.Series<ChartData, String>> _seriesPieData;
   _generateData() {
     var pieData = [
@@ -243,7 +254,8 @@ class _FoodExerciseDiaryState extends State<FoodExerciseDiary> {
                         width: width * 0.35,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: charts.PieChart(
+                          child:
+                          charts.PieChart(
                             _seriesPieData,
                             animate: true,
                             animationDuration: Duration(seconds: 1),
@@ -510,7 +522,7 @@ class _FoodExerciseDiaryState extends State<FoodExerciseDiary> {
             child: FittedBox(
                 fit: BoxFit.contain,
                 child: Text('Food Diary',style: TextStyle(color: Colors.white,fontSize: 30),)),),
-         FoodDiary(),
+         FoodDiary(notifyParent: refresh,id: 2),
 
           Container(height: 50,
             decoration: BoxDecoration(color: Palette.mainPurple,borderRadius: BorderRadius.circular(15.0)),
@@ -529,3 +541,11 @@ class _FoodExerciseDiaryState extends State<FoodExerciseDiary> {
 
   }
 }
+
+
+
+
+
+
+
+

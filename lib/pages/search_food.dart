@@ -11,6 +11,10 @@ import 'package:real_bodies/ui/widgets/scale_route.dart';
 
 
 class SearchFood extends StatefulWidget {
+  final String category;
+  final int id;
+
+  SearchFood({this.category,this.id});
   @override
   _SearchFoodState createState() => _SearchFoodState();
 }
@@ -74,7 +78,7 @@ else if(requestresponse=="error")
    @override
   void initState() {
      super.initState();
-     _delegate = CustomSearchDelegate(kFoods);
+     _delegate = CustomSearchDelegate(kFoods,widget.id,widget.category,);
     // checkinfo();
   }
 
@@ -123,9 +127,11 @@ else if(requestresponse=="error")
 class CustomSearchDelegate extends SearchDelegate<String>{
   final List<String> _words;
   final List<String> _history;
+  final int id;
+  final String category;
   //var food;
   Food selectedFood;
-  CustomSearchDelegate(List<String> words) : _words = words,
+  CustomSearchDelegate(List<String> words,this.id,this.category) : _words = words,
   _history = <String>[
     'apple',
     'Mango'
@@ -185,13 +191,7 @@ class CustomSearchDelegate extends SearchDelegate<String>{
   List<Widget> buildActions(BuildContext context) {
     return <Widget>[
       query.isEmpty
-          ? IconButton(
-        tooltip: 'Voice Search',
-        icon: const Icon(Icons.mic),
-        onPressed: () {
-          this.query = 'TODO: implement voice input';
-        },
-      )
+          ? Container()
           : IconButton(
         tooltip: 'Clear',
         icon: const Icon(Icons.clear),
@@ -220,34 +220,38 @@ class CustomSearchDelegate extends SearchDelegate<String>{
   @override
   Widget buildResults(BuildContext context) {
     selectedFood = getSelectedFood(this.query);
-    return  Padding(
+    return
+
+      Padding(
       padding: const EdgeInsets.all(8.0),
       child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Text('You have selected the word:'),
-            GestureDetector (
-              onTap: () {
-                // Returns this.query as result to previous screen, c.f.
-                // `showSearch()` above.
+//        child: Column(
+//          mainAxisSize: MainAxisSize.min,
+//          children: <Widget>[
+//            Text('You have selected the word:'),
+//            GestureDetector (
+//              onTap: () {
+//                // Returns this.query as result to previous screen, c.f.
+//                // `showSearch()` above.
+//
+//               // getSelectedFood(this.query);
+//
+//                this.close(context, this.query);
+//
+//              },
+//              child: Text(
+//                //this.query,
+//                selectedFood.name,
+//                style: Theme.of(context)
+//                    .textTheme
+//                    .display1
+//                    .copyWith(fontWeight: FontWeight.bold),
+//              ),
+//            ),
+//          ],
+//        ),
 
-               // getSelectedFood(this.query);
-
-                this.close(context, this.query);
-
-              },
-              child: Text(
-                //this.query,
-                selectedFood.name,
-                style: Theme.of(context)
-                    .textTheme
-                    .display1
-                    .copyWith(fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
-        ),
+      child: Text('Please select a food from the list'),
       ),
     );
   }
@@ -265,6 +269,8 @@ class CustomSearchDelegate extends SearchDelegate<String>{
 //        : _words.where((word) => word.startsWith(query));
 
     return _SuggestionList(
+      id: this.id,
+      category: this.category,
       query: this.query,
       history: this._history,
       //suggestions: suggestions.toList(),
@@ -319,13 +325,14 @@ Future<Iterable<String>> getFood(String query,List<String> history) async
 }
 
 class _SuggestionList extends StatelessWidget {
-  const _SuggestionList({this.suggestions, this.query, this.history, this.onSelected});
+  const _SuggestionList({this.suggestions, this.query, this.history, this.onSelected,this.id,this.category});
 
   final List<String> suggestions;
   final String query;
   final List<String> history;
   final ValueChanged<String> onSelected;
-
+  final String category;
+  final int id;
   Food getSelectedFood(String query){
     print('heedjkfldjfdljjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj');
     Food selectedFood =Food();
@@ -333,7 +340,7 @@ class _SuggestionList extends StatelessWidget {
      print(food);
     for(int i =0; i<= 19; i++){
       if(food[i]['name']==query.toLowerCase()){
-
+        selectedFood.id  = int.parse(food[i]['id']);
         selectedFood.name = food[i]['name'];
        // selectedFood.quantity =int.parse(food[i]['quantity']==''? '0':food[i]['quantity']);
         selectedFood.size = double.parse(food[i]['size']);
@@ -384,9 +391,10 @@ class _SuggestionList extends StatelessWidget {
                   //   onSelected(suggestion);
                   selectedFood = getSelectedFood(suggestion);
                   FocusScope.of(context).unfocus();
+
                   Navigator.push(
                     context,
-                    ScaleRoute( page: SearchAddFood(food: selectedFood,)),
+                    ScaleRoute( page: SearchAddFood(food: selectedFood,id: id,category: category,)),
                   );
                 },
               );
