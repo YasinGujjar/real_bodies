@@ -8,7 +8,8 @@ import 'package:http/http.dart' as http;
 
 class DietPlan extends StatefulWidget {
   final int id;
-  DietPlan({this.id});
+  final String goal;
+  DietPlan({this.id,this.goal});
   @override
   _DietPlanState createState() => _DietPlanState();
 }
@@ -25,11 +26,11 @@ class _DietPlanState extends State<DietPlan> {
   Color colorpref = Palette.boldTextO;
   String dietplan = "";
   URL urldomain = URL();
-  void setdiet() async {
+ /*  void setdiet() async {
     try {
       var url = urldomain.domain + "add_dietplan";
       final response = await http
-          .get(url + "&id=" + widget.id.toString() + "&dietplan=" + dietplan);
+          .get(url + "&id=" + widget.id.toString() + "&dietplan=" + dietplan+ "&d=" + dietplan);
       var jsonResponse = json.decode(response.body);
       var requestresponse = jsonResponse['response'];
 
@@ -46,7 +47,7 @@ class _DietPlanState extends State<DietPlan> {
       print(e);
     }
   }
-
+ */
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -503,7 +504,18 @@ class _DietPlanState extends State<DietPlan> {
                         borderRadius: new BorderRadius.circular(30.0),
                       ),
                       onPressed: () {
-                        setdiet();
+                        //setdiet();
+                        if(dietplan=="")
+                        {
+                          print("Select must");
+                        }
+                        else
+                        {
+print("diet plan"+dietplan+"id diet"+widget.id.toString());
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>
+                                FitnessLevelTwo(id: widget.id,goal:widget.goal,diet:dietplan)));
+                        }
                       },
                       color: Palette.mainPurple,
                       textColor: Colors.white,

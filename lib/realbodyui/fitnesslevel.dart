@@ -9,7 +9,9 @@ import 'package:http/http.dart' as http;
 
 class FitnessLevel extends StatefulWidget {
    int id;
-  FitnessLevel({this.id});
+   String goal;
+  String diet;
+  FitnessLevel({this.id,this.goal,this.diet});
   @override
   _FitnessLevelState createState() => _FitnessLevelState();
 }
@@ -19,8 +21,9 @@ class _FitnessLevelState extends State<FitnessLevel> {
   bool level2=false;
   bool level3=false;
   String level="";
+  double levelval;
 URL urldomain=URL();
-void setlevel() async {
+/* void setlevel() async {
     try {
       var url = urldomain.domain + "add_level";
       final response = await http
@@ -32,7 +35,7 @@ void setlevel() async {
         print('Added  BMI');
         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) =>
-                                FitnessLevelThree(id: widget.id)));
+                                FitnessLevelThree(id: widget.id,levelval:levelval)));
       } else if (requestresponse == "error") {
         print("error  BMI");
       }
@@ -40,7 +43,7 @@ void setlevel() async {
     } catch (e) {
       print(e);
     }
-  }
+  } */
 
 
 
@@ -123,6 +126,7 @@ void setlevel() async {
                                 value: level1,
                                 onChanged: (bool value) {
                                   setState(() {
+                                    levelval=1.55;
                                     level1 = value;
                                     level2=false;
                                         level3=false;
@@ -170,6 +174,7 @@ void setlevel() async {
                                     value: level2,
                                     onChanged: (bool value) {
                                       setState(() {
+                                         levelval=1.65;
                                         level2 = value;
                                         level3=false;
                                         level1=false;
@@ -217,6 +222,7 @@ void setlevel() async {
                                     value: level3,
                                     onChanged: (bool value) {
                                       setState(() {
+                                         levelval=1.80;
                                         level3 = value;
                                         level2=false;
                                         level1=false;
@@ -242,19 +248,28 @@ void setlevel() async {
                       if(level1==true)
                       {
                         level="Beginner";
-                        setlevel();
+                        print("level "+level+"level val "+levelval.toString()+"id "+widget.id.toString());
+                         Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>
+                                FitnessLevelThree(id: widget.id,goal:widget.goal,diet:widget.diet,level:level ,levelval:levelval)));
                       }
                        if(level2==true)
                       {
                         level="Intermadiate";
-                        setlevel();
+                         print("level "+level+"level val "+levelval.toString()+"id "+widget.id.toString());
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>
+                                FitnessLevelThree(id: widget.id,levelval:levelval)));
                       }
                        if(level3==true)
                       {
                         level="Advanced";
-                        setlevel();
+                         print("level "+level+"level val "+levelval.toString()+"id "+widget.id.toString());
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>
+                                FitnessLevelThree(id: widget.id,levelval:levelval)));
                       }
-                      else{
+                      if(level1==false && level2==false && level3==false){
                         print("Level must Select");
                       
                     }

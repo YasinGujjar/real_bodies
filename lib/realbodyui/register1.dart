@@ -36,13 +36,16 @@ final TextEditingController _confirmpassword = new TextEditingController();
     print('Response body:${response.body}');
     var jsonResponse=json.decode(response.body);
   // print("jjjjjjjjj "+widget.goal+" ffffffff "+widget.gender+" jjjjjjjjjjjjjjj "+widget.age+" ffffffff "+widget.weight+" lolololo "+widget.height);
-      if (response.body=="success")
-      {
+      var requestresponse = jsonResponse['response'];
+
+      if (requestresponse == "success") {
         id= int.parse(jsonResponse['id']);
          Navigator.of(context)
                 .pushReplacement(MaterialPageRoute(builder: (context) => StepOne(id:id))); 
+      } else if (requestresponse == "error") {
+        print("error");
       }
-       }
+   }
       catch(e)
       {
         print('Exception is on way $e');
@@ -64,7 +67,7 @@ _nameField = new CustomTextField(
       errorColor: Colors.red,
       controller: _fullname,
       hint: "Full Name",
-      inputType: TextInputType.emailAddress,
+     // inputType: TextInputType.emailAddress,
       colorfield: Palette.backGround,
       // validator: Validator.validateEmail,
     );
@@ -157,9 +160,9 @@ _nameField = new CustomTextField(
                         onPressed: () {
                           if(_password.text==_confirmpassword.text)
                           {
-                             // addinfo();
-                              Navigator.of(context)
-                .pushReplacement(MaterialPageRoute(builder: (context) => StepOne())); 
+                              addinfo();
+                             /*  Navigator.of(context)
+                .pushReplacement(MaterialPageRoute(builder: (context) => StepOne()));  */
                           }
                           else{
                             print("Paasword not matched");

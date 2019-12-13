@@ -16,8 +16,8 @@ class FitnessGoal extends StatefulWidget {
 
 class _FitnessGoalState extends State<FitnessGoal> {
   URL urldomain =URL();
-
-  void setGoal(String goal)async {
+String goal="";
+ /*  void setGoal(String goal)async {
 
     try{
              print(widget.id);
@@ -39,7 +39,7 @@ class _FitnessGoalState extends State<FitnessGoal> {
       print(e);
     }
   }
-
+ */
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +93,10 @@ class _FitnessGoalState extends State<FitnessGoal> {
                                            borderRadius: new BorderRadius.circular(30.0),
                                          ),
                                          onPressed: () {
-                                           setGoal('Weight Loss');
+                                          // setGoal('Weight Loss');
+                                           setState(() {
+                                             goal="Weight Loss";
+                                           });
                                          },
                                          color: Palette.buttonjColor,
                                          textColor: Colors.white,
@@ -138,7 +141,10 @@ class _FitnessGoalState extends State<FitnessGoal> {
                                           borderRadius: new BorderRadius.circular(30.0),
                                         ),
                                         onPressed: () {
-                                          setGoal('Toning');
+                                          //setGoal('Toning');
+                                           setState(() {
+                                             goal="Toning";
+                                           });
                                           
                                         },
                                         color: Palette.buttonjColor,
@@ -183,7 +189,10 @@ class _FitnessGoalState extends State<FitnessGoal> {
                                         borderRadius: new BorderRadius.circular(30.0),
                                       ),
                                       onPressed: () {
-                                        setGoal('Mass Gain');
+                                       // setGoal('Mass Gain');
+                                         setState(() {
+                                             goal="Mass Gain";
+                                           });
                                       },
                                       color: Palette.buttonjColor,
                                       textColor: Colors.white,
@@ -228,7 +237,10 @@ class _FitnessGoalState extends State<FitnessGoal> {
                                           borderRadius: new BorderRadius.circular(30.0),
                                         ),
                                         onPressed: () {
-                                          setGoal('Endurance');
+                                         // setGoal('Endurance');
+                                          setState(() {
+                                             goal="Endurance";
+                                           });
                                         },
                                         color: Palette.buttonjColor,
                                         textColor: Colors.white,
@@ -263,8 +275,18 @@ class _FitnessGoalState extends State<FitnessGoal> {
                           borderRadius: new BorderRadius.circular(30.0),
                         ),
                         onPressed: () {
-                            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => DietPlan(id:widget.id)));
+                           if (goal=="")
+                           {
+                             print("Select goal must");
+                           }
+                           else
+                           {
+                               print("gaol id "+widget.id.toString()+"goal "+goal);
+  Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => DietPlan(id:widget.id,goal:goal)));
+                           }
+                          
+                          
                         },
                         color: Palette.buttonjColor,
                         textColor: Colors.white,

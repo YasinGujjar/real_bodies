@@ -67,6 +67,7 @@ class _StepOneState extends State<StepOne> {
                           borderRadius: new BorderRadius.circular(30.0),
                         ),
                         onPressed: () {
+                          print("step1 "+widget.id.toString());
                            Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => StepTwo(id:widget.id)));
                         },

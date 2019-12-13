@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/pages/fitness_goal.dart';
 import 'package:real_bodies/realbodyui/bmi_creen.dart';
+import 'package:real_bodies/realbodyui/dashboard.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 import 'package:http/http.dart' as http;
@@ -53,10 +54,10 @@ URL urldomain =URL();
      //var height=jsonResponse['height'];
      // var weight=jsonResponse['weight'];
 
- Navigator.push(
+/*  Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => FitnessGoal(id:id )),
-  );
+    MaterialPageRoute(builder: (context) => DashBoard(id:id )),
+  ); */
 
 /* 
  Navigator.push(

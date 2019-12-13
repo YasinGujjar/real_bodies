@@ -70,8 +70,9 @@ class _StepThreeState extends State<StepThree> {
                           borderRadius: new BorderRadius.circular(30.0),
                         ),
                         onPressed: () {
+                            print("step3 "+widget.id.toString());
                             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => FitnessGoal()));
+                .push(MaterialPageRoute(builder: (context) => FitnessGoal(id:widget.id)));
                         },
                         color: Colors.white,
                         textColor: Palette.backGround,
