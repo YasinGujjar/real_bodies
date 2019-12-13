@@ -6,9 +6,11 @@ import 'package:real_bodies/pages/progress_tracker.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
+
 class FoodExerciseDiary extends StatefulWidget {
   final int id;
-  FoodExerciseDiary({this.id});
+  final String calorie;
+  FoodExerciseDiary({this.id,this.calorie});
   @override
   _FoodExerciseDiaryState createState() => _FoodExerciseDiaryState();
 }
@@ -21,7 +23,6 @@ void refresh(){
 
   });
 }
-
 
 
 
@@ -138,7 +139,7 @@ void refresh(){
                     Align(
                         alignment: Alignment.centerRight,
                         child: Text(
-                          "1600",
+                          widget.calorie,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.red

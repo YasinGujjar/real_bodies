@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:real_bodies/models/food_categories.dart';
+import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/pages/search_food.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class FoodDiary extends StatefulWidget {
   final int id;
@@ -17,6 +20,60 @@ class _FoodDiaryState extends State<FoodDiary> {
   List<TableRowReturn> breakFastList = [];
   List<TableRowReturn> lunchList =[];
   List<TableRowReturn> dinnerList = [];
+
+  URL urldomain =URL();
+ void checkinfo() async
+  {
+   try
+   {
+      print("id diary"+widget.id.toString());
+      print(DateTime.now().toString());
+       var url=urldomain.domain+"get_food_record";
+    final response=await http.get(url+"&id="+widget.id.toString());
+    print('Response body:${response.body}');
+   var jsonResponse=json.decode(response.body);
+
+     
+  //    var requestresponse=jsonResponse['response'];
+   /*     
+      if (requestresponse=="success")
+{
+  var name=jsonResponse['name'];
+   var calorie=jsonResponse['calories'];
+    var weight=jsonResponse['weight'];
+  int id= int.parse(jsonResponse['id']);
+  
+  print('This is the idddddd   heloo$id');
+
+
+ /* Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => DashBoard(id: id,name: name,weight:weight,calorie:calorie)),
+  ); */
+
+
+  }
+else if(requestresponse=="error")
+{
+
+  print("error login");
+} 
+ */
+
+   }
+   catch(e)
+   {
+     print("Exception on way $e");
+   }
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    checkinfo();
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return

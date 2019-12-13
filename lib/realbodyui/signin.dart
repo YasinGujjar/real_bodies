@@ -36,16 +36,17 @@ URL urldomain =URL();
     final response=await http.get(url+"&email="+_email.text+"&password="+_password.text);
     print('Response body:${response.body}');
    var jsonResponse=json.decode(response.body);
-  // print("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"+_fullname.text);
+
 //print(url+"&f_name+="+_fullname.text+"&phone+="+_number.text+"&email+="+_email.text+"&password+="+_password.text);
      
       var requestresponse=jsonResponse['response'];
-     // var name=jsonResponse['name'];
-    
+       
       if (requestresponse=="success")
 {
 // var image=urldomain.imgdomain.toString()+jsonResponse['image'];
   var name=jsonResponse['name'];
+   var calorie=jsonResponse['calories'];
+    var weight=jsonResponse['weight'];
   int id= int.parse(jsonResponse['id']);
   
   print('This is the idddddd   heloo$id');
@@ -57,7 +58,7 @@ URL urldomain =URL();
 
  Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => DashBoard(id:id,name:name )),
+    MaterialPageRoute(builder: (context) => DashBoard(id: id,name: name,weight:weight,calorie:calorie)),
   );
 
 /* 

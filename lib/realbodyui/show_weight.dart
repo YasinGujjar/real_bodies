@@ -7,6 +7,9 @@ import 'package:real_bodies/ui/widgets/weight_chart.dart';
 
 
 class ShowWeight extends StatefulWidget {
+  final int id;
+  final String weight;
+ShowWeight({this.id,this.weight});
   @override
   _ShowWeightState createState() => _ShowWeightState();
 }
@@ -238,7 +241,7 @@ setState(() {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 12.0),
                         child: Text(
-                          "57 Kg",
+                          widget.weight+" Kg",
                         //  softWrap: true,
                           textAlign: TextAlign.center,
                           style: TextStyle(

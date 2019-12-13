@@ -9,7 +9,9 @@ import 'package:real_bodies/theme/palette.dart';
 class DashBoard extends StatefulWidget {
   final int id;
   final String name;
-  DashBoard({this.id,this.name});
+  final String weight;
+  final String calorie;
+  DashBoard({this.id,this.name,this.weight,this.calorie});
   @override
   _DashBoardState createState() => _DashBoardState();
 }
@@ -22,12 +24,12 @@ class _DashBoardState extends State<DashBoard> {
     
 
     final _tabs = [
-      storeTab(context),
+      storeTab(context,widget.name),
        SearchFood(),
-      FoodExerciseDiary(id: widget.id,),
+      FoodExerciseDiary(id: widget.id,calorie:widget.calorie),
       Text('Tab4'),
       Text('Tab5'),
-       ShowWeight(),
+       ShowWeight(id:widget.id,weight:widget.weight),
     ];
 
     return Scaffold(
@@ -86,7 +88,7 @@ class _DashBoardState extends State<DashBoard> {
   }
 }
 
-Widget storeTab(BuildContext context) {
+Widget storeTab(BuildContext context,String name) {
  double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
   // will pick it up from here
@@ -99,7 +101,7 @@ Widget storeTab(BuildContext context) {
       //color: Colors.blue,
       child: Column(
         children: <Widget>[
-          Center(child: Text("RUNYAWAY FIT",
+          Center(child: Text("REAL BODIES",
           style: TextStyle(fontSize: 34.0,fontWeight: FontWeight.w700),)),
           Padding(
             padding: EdgeInsets.all(15.0),
@@ -151,7 +153,7 @@ Widget storeTab(BuildContext context) {
                 ),
                 FittedBox(
                   fit: BoxFit.contain,
-                                  child: Text("  WELCOME ",
+                                  child: Text("  WELCOME "+name,
     style: TextStyle(fontSize: 30.0,fontWeight: FontWeight.w700,color: Colors.white),),
                 )
               ],
@@ -521,17 +523,7 @@ Widget storeTab(BuildContext context) {
                     ),
                      Padding(
                       padding: const EdgeInsets.all(18.0),
-                      child: Card(
-                         color: Colors.red,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-  side: BorderSide(
-    color: Colors.white,
-    width: 2.0,
-  ),
-),
-
-                                          child: Container(
+                      child: Container(
 
                         //  color: Colors.blue,
                           height: height*0.1,
@@ -540,13 +532,12 @@ Widget storeTab(BuildContext context) {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Icon(Icons.home,color: Colors.white,),
+                              /* Icon(Icons.home,color: Colors.white,),
                               Text(" "),
-                              Text("Home",style: TextStyle(color: Colors.white),),
+                              Text("Home",style: TextStyle(color: Colors.white),), */
                             ],
                           ),
                         ),
-                      ),
                     )
                   ],
                 ),
