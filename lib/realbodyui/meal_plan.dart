@@ -1,9 +1,14 @@
 
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:http/http.dart' as http;
+
 
 class MealPlan extends StatefulWidget {
+  int id;
+  MealPlan({this.id});
   @override
   _MealPlanState createState() => _MealPlanState();
 }
@@ -177,3 +182,23 @@ class MealPlanList extends StatelessWidget {
       );
   }
 }
+
+
+
+void getWeeklyMealPlan() async{
+  try{
+
+   URL urldomain = URL();
+    var url=urldomain.domain+"fetch_meal_plan";
+    final response =await http.get(url);
+    print('Response body:${response.body}');
+
+  }catch(e){
+      print('Error ouccured $e');
+  }
+}
+
+
+
+
+

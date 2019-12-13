@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:real_bodies/pages/exercise.dart';
+import 'package:real_bodies/realbodyui/dashboard.dart';
 import 'package:real_bodies/realbodyui/exercise_library.dart';
 import 'package:real_bodies/realbodyui/food_exercise_diary.dart';
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home:  FoodExerciseDiary(),//MyHomePage(title: 'Demo'),
+      home:  DashBoard(),//MyHomePage(title: 'Demo'),
     );
   }
 }
