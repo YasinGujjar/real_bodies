@@ -119,7 +119,7 @@ setState(() {
           body: ListView(children: <Widget>[
       Container(
         width:width ,
-        height:height* 0.13,
+        height:height* 0.15,
         //color: Colors.blue,
         child: Column(
           children: <Widget>[
@@ -146,7 +146,7 @@ setState(() {
                           style: TextStyle(
                             color: add,
                             decoration: TextDecoration.none,
-                            fontSize: 16,
+                            fontSize: 14,
                             fontWeight: FontWeight.w800,
                             fontFamily: "OpenSans",
                           ),
@@ -183,7 +183,7 @@ setState(() {
                             style: TextStyle(
                               color:my,
                               decoration: TextDecoration.none,
-                              fontSize: 16,
+                              fontSize: 14,
                               fontWeight: FontWeight.w800,
                               fontFamily: "OpenSans",
                             ),
@@ -216,7 +216,7 @@ setState(() {
       ),
       
             Container(
-              height: height*0.45,
+              height: height*0.55,
                
             //  color: Colors.yellow,
  child:
@@ -230,7 +230,7 @@ setState(() {
                                     "Monday, Dec 1",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 27.0),
+                                        fontSize: 24.0),
                                   )),
                              
                               FlatButton(

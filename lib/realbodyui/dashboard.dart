@@ -7,6 +7,9 @@ import 'package:real_bodies/realbodyui/show_weight.dart';
 import 'package:real_bodies/theme/my_flutter_app_icons.dart';
 import 'package:real_bodies/theme/palette.dart';
 class DashBoard extends StatefulWidget {
+  final int id;
+  final String name;
+  DashBoard({this.id,this.name});
   @override
   _DashBoardState createState() => _DashBoardState();
 }
@@ -21,7 +24,7 @@ class _DashBoardState extends State<DashBoard> {
     final _tabs = [
       storeTab(context),
        SearchFood(),
-      FoodExerciseDiary(),
+      FoodExerciseDiary(id: widget.id,),
       Text('Tab4'),
       Text('Tab5'),
        ShowWeight(),
@@ -92,7 +95,7 @@ Widget storeTab(BuildContext context) {
   return ListView(children: <Widget>[
     Container(
       width:width ,
-      height:height* 0.15,
+      height:height* 0.22,
       //color: Colors.blue,
       child: Column(
         children: <Widget>[
@@ -146,8 +149,11 @@ Widget storeTab(BuildContext context) {
                     )
                   ],
                 ),
-                Text("  WELCOME RAINA",
-    style: TextStyle(fontSize: 34.0,fontWeight: FontWeight.w700,color: Colors.white),)
+                FittedBox(
+                  fit: BoxFit.contain,
+                                  child: Text("  WELCOME ",
+    style: TextStyle(fontSize: 30.0,fontWeight: FontWeight.w700,color: Colors.white),),
+                )
               ],
             ),
           ),
@@ -245,7 +251,10 @@ Widget storeTab(BuildContext context) {
                             children: <Widget>[
                               Icon(Icons.list,color: Colors.white,),
                               Text(" "),
-                              Text("Training Plan ",style: TextStyle(color: Colors.white),),
+                              FittedBox(
+                                fit: BoxFit.contain,
+                                child: Text("Training Plan ",style: TextStyle(color: Colors.white),)
+                                ),
                             ],
                           ),
                         ),
@@ -280,7 +289,9 @@ Widget storeTab(BuildContext context) {
                             children: <Widget>[
                               Icon(Icons.equalizer,color: Colors.white,),
                               Text(" "),
-                              Text("Training Stats",style: TextStyle(color: Colors.white),),
+                              FittedBox(
+                                fit: BoxFit.contain,
+                                child: Text("Training Stats",style: TextStyle(color: Colors.white),)),
                             ],
                           ),
                         ),

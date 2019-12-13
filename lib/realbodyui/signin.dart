@@ -47,6 +47,7 @@ URL urldomain =URL();
 // var image=urldomain.imgdomain.toString()+jsonResponse['image'];
   var name=jsonResponse['name'];
   int id= int.parse(jsonResponse['id']);
+  
   print('This is the idddddd   heloo$id');
 
  //  var gender=jsonResponse['gender'];
@@ -54,10 +55,10 @@ URL urldomain =URL();
      //var height=jsonResponse['height'];
      // var weight=jsonResponse['weight'];
 
-/*  Navigator.push(
+ Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => DashBoard(id:id )),
-  ); */
+    MaterialPageRoute(builder: (context) => DashBoard(id:id,name:name )),
+  );
 
 /* 
  Navigator.push(

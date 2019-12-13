@@ -7,6 +7,8 @@ import 'package:real_bodies/theme/palette.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
 class FoodExerciseDiary extends StatefulWidget {
+  final int id;
+  FoodExerciseDiary({this.id});
   @override
   _FoodExerciseDiaryState createState() => _FoodExerciseDiaryState();
 }
@@ -522,7 +524,7 @@ void refresh(){
             child: FittedBox(
                 fit: BoxFit.contain,
                 child: Text('Food Diary',style: TextStyle(color: Colors.white,fontSize: 30),)),),
-         FoodDiary(notifyParent: refresh,id: 2),
+         FoodDiary(notifyParent: refresh,id: widget.id),
 
           Container(height: 50,
             decoration: BoxDecoration(color: Palette.mainPurple,borderRadius: BorderRadius.circular(15.0)),
