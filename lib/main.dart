@@ -8,6 +8,7 @@ import 'package:real_bodies/realbodyui/food_exercise_diary.dart';
 import 'package:real_bodies/realbodyui/program.dart';
 import 'package:real_bodies/realbodyui/signin.dart';
 import 'package:real_bodies/realbodyui/splashscreen.dart';
+import 'package:real_bodies/realbodyui/splashscreen2.dart';
 
 
 
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home:  DashBoard(),//MyHomePage(title: 'Demo'),
+      home: splashscreen2(),//MyHomePage(title: 'Demo'),
     );
   }
 }
