@@ -6,7 +6,11 @@ import 'package:real_bodies/pages/progress_tracker.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
+
 class FoodExerciseDiary extends StatefulWidget {
+  final int id;
+  final String calorie;
+  FoodExerciseDiary({this.id,this.calorie});
   @override
   _FoodExerciseDiaryState createState() => _FoodExerciseDiaryState();
 }
@@ -19,7 +23,6 @@ void refresh(){
 
   });
 }
-
 
 
 
@@ -136,7 +139,7 @@ void refresh(){
                     Align(
                         alignment: Alignment.centerRight,
                         child: Text(
-                          "1600",
+                          "1400",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.red
@@ -522,7 +525,7 @@ void refresh(){
             child: FittedBox(
                 fit: BoxFit.contain,
                 child: Text('Food Diary',style: TextStyle(color: Colors.white,fontSize: 30),)),),
-         FoodDiary(notifyParent: refresh,id: 2),
+         FoodDiary(notifyParent: refresh,id: widget.id),
 
           Container(height: 50,
             decoration: BoxDecoration(color: Palette.mainPurple,borderRadius: BorderRadius.circular(15.0)),

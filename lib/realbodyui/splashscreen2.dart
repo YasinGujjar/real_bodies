@@ -146,6 +146,7 @@ SizedBox(height: 30,),
 
                       child: Center(
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             
                             Icon(Icons.mail),
