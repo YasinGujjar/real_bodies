@@ -48,6 +48,7 @@ URL urldomain =URL();
    var calorie=jsonResponse['calories'];
     var weight=jsonResponse['weight'];
   int id= int.parse(jsonResponse['id']);
+  print('commited');
   
   print('This is the idddddd   heloo$id');
 
