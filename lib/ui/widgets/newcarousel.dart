@@ -87,6 +87,7 @@ print(imgList);
               scrollDirection: Axis.horizontal,
               onPageChanged: (index) {
                 setState(() {
+                  
                   _current = index;
                 });
               },
