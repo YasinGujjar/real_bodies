@@ -8,7 +8,7 @@ import 'package:real_bodies/theme/palette.dart';
 
 class Program extends StatefulWidget {
   final id;
-  Program(this.id);
+  Program({this.id});
   @override
   _ProgramState createState() => _ProgramState();
 }
@@ -191,7 +191,7 @@ class ProgramList extends StatelessWidget {
                                   shape: new RoundedRectangleBorder(
                                     borderRadius: new BorderRadius.circular(30.0),
                                   ),
-                                  onPressed:  () async {
+                                  onPressed:  ()  {
                                     buyProgram(id, programId);
                                   },
                                   color: Palette.buttonjColor,

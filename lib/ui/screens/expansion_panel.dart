@@ -290,7 +290,7 @@ class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
       if (response.body == "success") {
         print('Added  BMI');
          Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => Bmi(bmi: bmi)));
+                    MaterialPageRoute(builder: (context) => Bmi(bmi: bmi,id: widget.id,)));
       } else if (response.body == "error") {
         print("error  BMI");
       }

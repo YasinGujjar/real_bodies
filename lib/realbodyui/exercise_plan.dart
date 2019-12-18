@@ -39,7 +39,7 @@ class _ExercisePlanState extends State<ExercisePlan> {
       body: ListView(
              children: <Widget>[
                SizedBox(height: 20,),
-               Text('Your Current Plant',style: TextStyle(fontSize: 18),),
+               Text('Your Current Plan',style: TextStyle(fontSize: 18),),
                Padding(
                  padding: const EdgeInsets.only(left:20.0, right: 20.0),
                  child: Container(
