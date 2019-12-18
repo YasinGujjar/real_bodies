@@ -7,5 +7,6 @@ class URL {
   final String imgdomain="http://realbodies.com.au/api/images/";
 
   static String imageUrl = "http://realbodies.com.au/images/";
+  static String urlmain="http://realbodies.com.au/api/index.php?f=";
 
 }

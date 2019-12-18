@@ -4,6 +4,7 @@ import 'package:real_bodies/models/chart_data.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:real_bodies/models/food.dart';
 import 'package:real_bodies/models/url.dart';
+import 'package:real_bodies/realbodyui/food_exercise_diary.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:http/http.dart' as http;
@@ -412,6 +413,9 @@ class _SearchAddFoodState extends State<SearchAddFood> {
                             ),
                             onPressed: () async{
                               saveFoodOnServer(widget.id, widget.category,widget.food.id);
+                              Navigator.of(context)
+                .pushReplacement(MaterialPageRoute(builder: (context) => FoodExerciseDiary(id: widget.id),)); 
+                               
                             },
                             color: Palette.mainPurple,
                             textColor: Colors.white,
@@ -448,6 +452,7 @@ void saveFoodOnServer(int id, String category, int foodId) async
     // If the call to the server was successful, parse the JSON.
     // r Post.fromJson(json.decode(response.body));
     print('Response body:${response.body}');
+    
 
   } else {
     // If that call was not successful, throw an error.

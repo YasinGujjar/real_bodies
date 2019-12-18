@@ -20,6 +20,7 @@ class _FoodDiaryState extends State<FoodDiary> {
   List<TableRowReturn> breakFastList = [];
   List<TableRowReturn> lunchList =[];
   List<TableRowReturn> dinnerList = [];
+  List<String> kFoods;
 
   URL urldomain =URL();
  void checkinfo() async
@@ -32,7 +33,35 @@ class _FoodDiaryState extends State<FoodDiary> {
     final response=await http.get(url+"&id="+widget.id.toString());
     print('Response body:${response.body}');
    var jsonResponse=json.decode(response.body);
+  for(int i=0; i<jsonResponse.length; i++){
+if (jsonResponse[i]['category']=="breakfast")
+{
+addbreakfast(breakFastList,jsonResponse,i);
+}
+if(jsonResponse[i]['category']=="lunch")
+{
+addbreakfast(lunchList,jsonResponse,i);
+}
+if(jsonResponse[i]['category']=="dinner")
+{
+  addbreakfast(dinnerList,jsonResponse,i);
+}
+if(jsonResponse[i]['category']=="snacks")
+{
+  addbreakfast(snackList,jsonResponse,i);
+}
+        // breakFastList.add(   TableRowReturn(
+        //          name: jsonResponse[i]['name'],
+        //          calories: jsonResponse[i]['calories'].toString(),
+        //          proteins: jsonResponse[i]['protein'].toString(),
+        //          carbs:jsonResponse[i]['carbo'].toString(),
 
+        //        ),
+        //        );
+        //        widget.notifyParent();
+               
+     }
+     print(breakFastList);
      
   //    var requestresponse=jsonResponse['response'];
    /*     
@@ -66,6 +95,18 @@ else if(requestresponse=="error")
      print("Exception on way $e");
    }
   }
+   void addbreakfast(listname,jsonResponse,i)
+   {
+  listname.add(   TableRowReturn(
+                 name: jsonResponse[i]['name'],
+                 calories: jsonResponse[i]['calories'].toString(),
+                 proteins: jsonResponse[i]['protein'].toString(),
+                 carbs:jsonResponse[i]['carbo'].toString(),
+
+               ),
+               );
+               widget.notifyParent();
+   }
   @override
   void initState() {
     // TODO: implement initState
@@ -332,7 +373,7 @@ else if(requestresponse=="error")
              onTap: (){
                Navigator.of(context)
                    .push(MaterialPageRoute(builder: (context) => SearchFood(id:widget.id,category: FoodCategories.breakfast,)));
-               breakFastList.add(   TableRowReturn(
+              /*  breakFastList.add(   TableRowReturn(
                  name: 'Cherry Coke',
                  calories: 45,
                  proteins: 0.5,
@@ -340,7 +381,7 @@ else if(requestresponse=="error")
 
                ),
                );
-               widget.notifyParent();
+               widget.notifyParent(); */
 
              },
              child: Center(child: Text('+Add Food',style: TextStyle(fontSize: 18,color: Palette.boldTextO),))),
@@ -411,112 +452,7 @@ else if(requestresponse=="error")
 
                  ],
                ),
-               TableRow(
-
-
-                 children: [
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('Egg whites',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('56',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('9',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       ),
-                       ),
-
-                     ),
-                   ),
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('11',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-
-                 ],
-               ),
-               TableRow(
-
-
-                 children: [
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('Protein Shake',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('200',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('12',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       ),
-                       ),
-
-                     ),
-                   ),
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('5',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-
-                 ],
-               ),
+               
 
 
              ],
@@ -537,15 +473,15 @@ else if(requestresponse=="error")
              onTap: (){
                Navigator.of(context)
                    .push(MaterialPageRoute(builder: (context) => SearchFood(id:widget.id,category: FoodCategories.lunch,)));
-               lunchList.add(   TableRowReturn(
+              /*  lunchList.add(   TableRowReturn(
                  name: 'Cherry Coke',
-                 calories: 45,
-                 proteins: 0.5,
-                 carbs: 5,
+                 calories: "45",
+                 proteins: "0.5",
+                 carbs: "5",
 
                ),
                );
-               widget.notifyParent();
+               widget.notifyParent(); */
 
              },
              child: Center(child: Text('+Add Food',style: TextStyle(fontSize: 18,color: Palette.boldTextO),))),
@@ -616,112 +552,7 @@ else if(requestresponse=="error")
 
                  ],
                ),
-               TableRow(
-
-
-                 children: [
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('Egg whites',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('56',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('9',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       ),
-                       ),
-
-                     ),
-                   ),
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('11',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-
-                 ],
-               ),
-               TableRow(
-
-
-                 children: [
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('Protein Shake',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('200',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('12',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       ),
-                       ),
-
-                     ),
-                   ),
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('5',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-
-                 ],
-               ),
+               
 
 
 
@@ -748,15 +579,15 @@ else if(requestresponse=="error")
            onTap: (){
              Navigator.of(context)
                  .push(MaterialPageRoute(builder: (context) => SearchFood(id:widget.id,category: FoodCategories.dinner,)));
-             dinnerList.add(   TableRowReturn(
+             /* dinnerList.add(   TableRowReturn(
                name: 'Cherry Coke',
-               calories: 45,
-               proteins: 0.5,
-               carbs: 5,
+               calories: "45",
+               proteins: "0.5",
+               carbs: "5",
 
              ),
              );
-             widget.notifyParent();
+             widget.notifyParent(); */
 
            },
              child: Center(child: Text('+Add Food',style: TextStyle(fontSize: 18,color: Palette.boldTextO),))),
@@ -782,7 +613,7 @@ else if(requestresponse=="error")
                    Center(
                      child: Container(
                        height: 37,
-                       child: Center(child: Text('Dinner',
+                       child: Center(child: Text('Snacks',
                          style: TextStyle(
                            fontWeight: FontWeight.bold,color:  Color(0xff94948d),
                          ),
@@ -828,113 +659,8 @@ else if(requestresponse=="error")
 
                  ],
                ),
-               TableRow(
-
-
-                 children: [
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('Egg whites',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('56',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('9',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       ),
-                       ),
-
-                     ),
-                   ),
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('11',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-
-                 ],
-               ),
-               TableRow(
-
-
-                 children: [
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('Protein Shake',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('200',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('12',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       ),
-                       ),
-
-                     ),
-                   ),
-                   Center(
-                     child: Container(
-                       height: 37,
-                       child: Center(child: Text('5',
-                         style: TextStyle(
-                           color:  Color(0xff94948d),
-                         ),
-                       )),
-
-                     ),
-                   ),
-
-                 ],
-               ),
-
+               
+              
 
 
 
@@ -961,15 +687,15 @@ else if(requestresponse=="error")
 
                Navigator.of(context)
                    .push(MaterialPageRoute(builder: (context) => SearchFood(id:widget.id,category: FoodCategories.snacks,)));
-               snackList.add(   TableRowReturn(
+             /*   snackList.add(   TableRowReturn(
                  name: 'Cherry Coke',
-                 calories: 45,
-                 proteins: 0.5,
-                 carbs: 5,
+                 calories: "45",
+                 proteins: "0.5",
+                 carbs: "5",
 
                ),
                );
-               widget.notifyParent();
+               widget.notifyParent(); */
 
              },
              child: Center(child: Text('+Add Food',style: TextStyle(fontSize: 18,color: Palette.boldTextO),))),
@@ -982,13 +708,14 @@ else if(requestresponse=="error")
 
 class TableRowReturn extends StatelessWidget {
   final String name;
-  final double calories;
-  final double proteins;
-  final double carbs;
+  final String calories;
+  final String proteins;
+  final String carbs;
 
   TableRowReturn({this.name,this.calories,this.proteins,this.carbs});
   @override
   Widget build(BuildContext context) {
+    print('nameeee'+name);
     return
       Padding(
         padding: const EdgeInsets.only(left:2.0,right:2.0),
@@ -1005,6 +732,7 @@ class TableRowReturn extends StatelessWidget {
     child: Container(
     height: 37,
     child: Center(child: Text('$name',
+    
     style: TextStyle(
     color:  Color(0xff94948d),
     ),

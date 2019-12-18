@@ -1,20 +1,30 @@
-import 'package:charts_flutter/flutter.dart' as prefix0;
+
 import 'package:flutter/material.dart';
+import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 import 'package:real_bodies/ui/widgets/newcarousel.dart';
 import 'package:real_bodies/ui/widgets/weight_chart.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
+
 
 
 class ShowWeight extends StatefulWidget {
   final int id;
   final String weight;
-ShowWeight({this.id,this.weight});
+  final List imgList;
+  final List weightList;
+
+ShowWeight({this.id,this.weight,this.imgList,this.weightList});
   @override
   _ShowWeightState createState() => _ShowWeightState();
 }
 
 class _ShowWeightState extends State<ShowWeight> {
+  static final String uploadEndPoint=URL.urlmain+"upload_image";
    final TextEditingController _newweight = new TextEditingController();
   final TextEditingController _img = new TextEditingController();
  CustomTextField _weightField;
@@ -22,6 +32,97 @@ class _ShowWeightState extends State<ShowWeight> {
  Color add=Palette.mainPurple;
  Color my =Colors.grey;
   bool addWeight=false;
+  List imgList=[];
+ URL urldomain =URL();
+ String status='';
+ Future<File> file;
+ String base64Image; 
+ File tempFile;
+ String errormsg="Error Uploading";
+
+
+ chooseimg(){
+   setState(() {
+     
+   });
+file=ImagePicker.pickImage(source: ImageSource.gallery);
+ }
+ setStatus(String msg)
+ {
+   setState(() {
+     status=msg;
+   });
+ }
+
+ startupload(){
+   setStatus("Uploading Image...");
+if(null==tempFile)
+{
+  setStatus(errormsg);
+return;
+}
+String filename=tempFile.path.split('/').last;
+upload(filename);
+ }
+
+ upload(String filename){
+   print("uuuuuuuuuuuuuuuuuuuuuuuuuuu"+filename);
+http.post(uploadEndPoint,body: {
+  "image": base64Image,
+  "name": filename
+}).then((result){
+  setStatus(result.statusCode==200 ? result.body: errormsg);
+}).catchError((error){
+  setStatus(error);
+});
+ }
+
+ Widget showimage(){
+   return FutureBuilder<File>(
+     future: file,
+     builder: (BuildContext context, AsyncSnapshot<File> snapshot)
+     {
+       if(snapshot.connectionState==ConnectionState.done && null!=snapshot.data)
+       {
+         tempFile=snapshot.data;
+         base64Image=base64Encode(snapshot.data.readAsBytesSync());
+         return Flexible(
+           child: Image.file(snapshot.data,fit:BoxFit.fill,),
+         );
+       }
+       else if(null!=snapshot.error)
+       {
+         return const Text("Error picking img");
+       }
+       else
+       {
+         return const Text("No Image Selected");
+       }
+     },
+   );
+ }
+
+ checkinfo() async
+  {
+   try
+   {
+      print("id weight"+widget.id.toString());
+    //  print(DateTime.now().toString());
+       var url=urldomain.domain+"get_weight_record";
+    final response=await http.get(url+"&id="+widget.id.toString());
+    print('Response body:${response.body}');
+   var jsonResponse=json.decode(response.body);
+ for(int i=0; i<jsonResponse.length; i++){
+ imgList.add(URL.imageUrl+jsonResponse[i]['image']);
+ }
+print(imgList);
+//return imgList;
+   }
+   catch(e)
+   {
+     print("Exception on way $e");
+   }
+  }
   Widget _addweight()
   {return Container(
     //color: Colors.blue,
@@ -31,17 +132,30 @@ class _ShowWeightState extends State<ShowWeight> {
       padding: const EdgeInsets.all(12.0),
       child: Column(
         children: <Widget>[
-          SizedBox(
+         /*  SizedBox(
             height: 40.0,
           ),
-          _weightField,
-          SizedBox(
+          _weightField, */
+         /*  SizedBox(
             height: 20,
+          ), */
+          Row(
+            children: <Widget>[
+              showimage(),
+              SizedBox(width: 30.0,),
+              OutlineButton(
+                onPressed: chooseimg,
+                child: Text("Choose Image"),
+              )
+            ],
           ),
-          _imageField,
           SizedBox(
             height: 30,
           ),
+           /*  SizedBox(
+            height: 40.0,
+          ), */
+          Text(status,textAlign: TextAlign.center,style: TextStyle(color: Colors.green)),
           Container(
             width: 200,
             child: FlatButton(
@@ -69,9 +183,7 @@ class _ShowWeightState extends State<ShowWeight> {
                           ),
                         ),
                         onPressed: () {
-setState(() {
- 
-});
+                          startupload();
                         },
                       ),
           ),
@@ -85,6 +197,8 @@ setState(() {
   void initState() {
     // TODO: implement initState
     super.initState();
+    print("iiiiiiiiiiiiiiiiiii"+widget.imgList.toString());
+    //checkinfo();
      _weightField = new CustomTextField(
       baseColor: Colors.grey,
        borderColor: Colors.grey[400],
@@ -226,42 +340,8 @@ setState(() {
  addWeight ? _addweight() : Column(
    mainAxisSize: MainAxisSize.max ,
    children: <Widget>[
-     CarouselDemo(),
-             Align(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    "Monday, Dec 1",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 24.0),
-                                  )),
-                             
-                              FlatButton(
-                     //color: Palette.mainPurple,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 12.0),
-                        child: Text(
-                          widget.weight+" Kg",
-                        //  softWrap: true,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Palette.mainPurple,
-                            decoration: TextDecoration.none,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w800,
-                            fontFamily: "OpenSans",
-                          ),
-                        ),
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-                        side: BorderSide(
-                          color: Palette.mainPurple,
-                          width: 2,
-                        ),
-                      ),
-                     onPressed: () {},
-                    ),
+     CarouselDemo(id:widget.id,img :widget.imgList,weight: widget.weightList,),
+             
                               Align(
                                   alignment: Alignment.center,
                                   child: Text(
@@ -301,7 +381,7 @@ setState(() {
   ]),
     );
   }
-  _buildCard( String imgPath, ) {
+/*   _buildCard( String imgPath, ) {
     return Padding(
         padding: EdgeInsets.all(10.0),
         child: InkWell(
@@ -341,6 +421,6 @@ setState(() {
             ],
           ),
         ));
-  }
+  } */
   
 }

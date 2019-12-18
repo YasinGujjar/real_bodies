@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/pages/search_food.dart';
 import 'package:real_bodies/realbodyui/food_exercise_diary.dart';
 import 'package:real_bodies/realbodyui/meal_plan.dart';
@@ -6,6 +7,9 @@ import 'package:real_bodies/realbodyui/search_add_food.dart';
 import 'package:real_bodies/realbodyui/show_weight.dart';
 import 'package:real_bodies/theme/my_flutter_app_icons.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 class DashBoard extends StatefulWidget {
   final int id;
   final String name;
@@ -19,6 +23,39 @@ class DashBoard extends StatefulWidget {
 class _DashBoardState extends State<DashBoard> {
   
   int _selectedIndex = 0;
+List imgList=[];
+List weightList=[];
+ URL urldomain =URL();
+ checkinfo() async
+  {
+   try
+   {
+      print("id weight"+widget.id.toString());
+      print(DateTime.now().toString());
+       var url=urldomain.domain+"get_weight_record";
+    final response=await http.get(url+"&id="+widget.id.toString());
+    print('Response body:${response.body}');
+   var jsonResponse=json.decode(response.body);
+ for(int i=0; i<jsonResponse.length; i++){
+ imgList.add([URL.imageUrl+jsonResponse[i]['image'],jsonResponse[i]['date'] ,jsonResponse[i]['weight']]);
+// weightList.add(jsonResponse[i]['weight']);
+
+ }
+print(imgList);
+//return imgList;
+   }
+   catch(e)
+   {
+     print("Exception on way $e");
+   }
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    checkinfo();
+  }
+
    @override
   Widget build(BuildContext context) {
     
@@ -29,7 +66,7 @@ class _DashBoardState extends State<DashBoard> {
       FoodExerciseDiary(id: widget.id,calorie:widget.calorie),
       Text('Tab4'),
       Text('Tab5'),
-       ShowWeight(id:widget.id,weight:widget.weight),
+       ShowWeight(id:widget.id,weight:widget.weight,imgList: imgList,weightList:weightList)
     ];
 
     return Scaffold(

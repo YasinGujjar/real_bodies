@@ -139,7 +139,7 @@ void refresh(){
                     Align(
                         alignment: Alignment.centerRight,
                         child: Text(
-                          widget.calorie,
+                          "1400",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.red
