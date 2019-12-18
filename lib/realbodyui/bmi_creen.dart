@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:real_bodies/realbodyui/dashboard.dart';
+import 'package:real_bodies/realbodyui/program.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/screens/expansion_panel.dart';
 
@@ -125,7 +126,7 @@ class _BmiState extends State<Bmi> {
                       ),
                       onPressed: () {
                           Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => DashBoard()));
+                .push(MaterialPageRoute(builder: (context) => Program(id:widget.id)));
                       },
                       color: Colors.white,
                       textColor: Palette.boldTextO,

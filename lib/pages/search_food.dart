@@ -333,13 +333,17 @@ class _SuggestionList extends StatelessWidget {
   final ValueChanged<String> onSelected;
   final String category;
   final int id;
-  Food getSelectedFood(String query){
+  Food getSelectedFood(String query, int length){
     print('heedjkfldjfdljjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj');
     Food selectedFood =Food();
      print('helo');
+     print(length);
      print(food);
-    for(int i =0; i<= 19; i++){
+     print(query);
+    for(int i =0; i<= length-1; i++){
+      print("this is a noise"+food[i]['name']);
       if(food[i]['name']==query.toLowerCase()){
+        print(food[i]);
         selectedFood.id  = int.parse(food[i]['id']);
         selectedFood.name = food[i]['name'];
        // selectedFood.quantity =int.parse(food[i]['quantity']==''? '0':food[i]['quantity']);
@@ -389,7 +393,7 @@ class _SuggestionList extends StatelessWidget {
                 ),
                 onTap: () {
                   //   onSelected(suggestion);
-                  selectedFood = getSelectedFood(suggestion);
+                  selectedFood = getSelectedFood(suggestion,snapshot.data.toList().length);
                   FocusScope.of(context).unfocus();
 
                   Navigator.push(
