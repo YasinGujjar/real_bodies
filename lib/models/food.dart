@@ -16,7 +16,4 @@ class Food {
     this.fatMono,
     this.id
   });
-
-  
 }
-

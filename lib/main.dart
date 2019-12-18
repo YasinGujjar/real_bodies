@@ -1,14 +1,29 @@
 import 'package:flutter/material.dart';
 
+import 'package:real_bodies/models/walkthrough.dart';
+import 'package:real_bodies/pages/daily_workout_plan.dart';
+import 'package:real_bodies/pages/demo_page.dart';
+import 'package:real_bodies/pages/exercise.dart';
+import 'package:real_bodies/pages/exercise_details.dart';
+import 'package:real_bodies/pages/fitness_goal.dart';
+import 'package:real_bodies/pages/search_food.dart';
+
+import 'package:real_bodies/realbodyui/dietplan.dart';
+import 'package:real_bodies/realbodyui/exercise_plan.dart';
+import 'package:real_bodies/realbodyui/exercise_plan_full.dart';
+import 'package:real_bodies/realbodyui/fitnesslevel.dart';
+import 'package:real_bodies/realbodyui/fitnesslevel2.dart';
+import 'package:real_bodies/realbodyui/fitnesslevel3.dart';
+import 'package:real_bodies/realbodyui/meal_plan.dart';
+import 'package:real_bodies/realbodyui/register1.dart';
+import 'package:real_bodies/realbodyui/signin.dart';
+
 import 'package:real_bodies/pages/exercise.dart';
 import 'package:real_bodies/realbodyui/dashboard.dart';
 import 'package:real_bodies/realbodyui/exercise_library.dart';
 import 'package:real_bodies/realbodyui/food_exercise_diary.dart';
 
 import 'package:real_bodies/realbodyui/program.dart';
-import 'package:real_bodies/realbodyui/signin.dart';
-import 'package:real_bodies/realbodyui/splashscreen.dart';
-import 'package:real_bodies/realbodyui/splashscreen2.dart';
 
 
 
@@ -33,7 +48,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: Signin(),//MyHomePage(title: 'Demo'),
+      home:  FitnessGoal(id:19),//MyHomePage(title: 'Demo'),
     );
   }
 }

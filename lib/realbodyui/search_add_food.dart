@@ -41,9 +41,9 @@ class _SearchAddFoodState extends State<SearchAddFood> {
   List<charts.Series<ChartData, String>> _seriesPieData;
   _generateData() {
     var pieData = [
-      ChartData('Protein', 20, Colors.blue),
-      ChartData('Carbs', 20, Colors.green),
-      ChartData('Fats', 20, Colors.amber),
+      ChartData('Protein', widget.food.proteins, Colors.blue),
+      ChartData('Carbs', widget.food.carbohydrates, Colors.green),
+      ChartData('Fats', widget.food.fat, Colors.amber),
     ];
     _seriesPieData.add(charts.Series(
       data: pieData,
@@ -252,7 +252,7 @@ class _SearchAddFoodState extends State<SearchAddFood> {
               ),
 
               Container(
-                height: height * 0.20,
+                height: height * 0.22,
                 width: width * 0.95,
                 child: Row(
 
@@ -263,15 +263,15 @@ class _SearchAddFoodState extends State<SearchAddFood> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          FittedBox(
-                            fit: BoxFit.contain,
-                            child: Text(
-                              "${widget.food.name}",
-                              style: TextStyle(
-                               // fontWeight: FontWeight.bold,
-                                fontSize: 36
-                              ),
+                          Text(
+                            "${widget.food.name}",
+                            style: TextStyle(
+                             // fontWeight: FontWeight.bold,
+                              fontSize: 22
                             ),
+
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
                           ),
                           Text('Weight'),
                           Row(
@@ -286,26 +286,55 @@ class _SearchAddFoodState extends State<SearchAddFood> {
                     ),
                     Expanded(
                       flex: 1,
-                      child: PieChart(
-                        dataMap: dataMap,
-                        animationDuration: Duration(milliseconds: 800),
-                        chartLegendSpacing: 32.0,
-                        chartRadius: MediaQuery.of(context).size.width / 2.7,
-                        showChartValuesInPercentage: true,
-                        showChartValues: true,
-                        showChartValuesOutside: false,
-                        chartValueBackgroundColor: Colors.grey[200],
-                        colorList: colorList,
-                        showLegends: false,
-                        legendPosition: LegendPosition.right,
-                        decimalPlaces: 1,
-                        showChartValueLabel: true,
-                        initialAngle: 0,
-                        chartValueStyle: defaultChartValueStyle.copyWith(
-                          color: Colors.blueGrey[900].withOpacity(0.9),
+//                      child: PieChart(
+//                        dataMap: dataMap,
+//                        animationDuration: Duration(milliseconds: 800),
+//                        chartLegendSpacing: 32.0,
+//                        chartRadius: MediaQuery.of(context).size.width / 2.7,
+//                        showChartValuesInPercentage: true,
+//                        showChartValues: true,
+//                        showChartValuesOutside: false,
+//                        chartValueBackgroundColor: Colors.grey[200],
+//                        colorList: colorList,
+//                        showLegends: false,
+//                        legendPosition: LegendPosition.right,
+//                        decimalPlaces: 1,
+//                        showChartValueLabel: true,
+//                        initialAngle: 0,
+//                        chartValueStyle: defaultChartValueStyle.copyWith(
+//                          color: Colors.blueGrey[900].withOpacity(0.9),
+//                        ),
+//                        chartType: ChartType.disc,
+//                      ),
+                    child: Container(height: 250,
+                      width: 250,
+                      child:  charts.PieChart(
+                        _seriesPieData,
+                        animate: true,
+                        animationDuration: Duration(seconds: 1),
+                          behaviors: [
+                                charts.DatumLegend(
+//                                  outsideJustification:
+//                                      charts.OutsideJustification.middle,
+                                  horizontalFirst: true,
+                                  desiredMaxRows: 1,
+                                  cellPadding: EdgeInsets.only(right: 2.0,),
+                                  entryTextStyle: charts.TextStyleSpec(
+                                    color: charts.MaterialPalette.black.darker,
+                                    fontFamily: 'Georgia',
+                                    fontSize: 8,
+                                  ),
+                                )
+                              ],
+                        defaultRenderer: new charts.ArcRendererConfig(
+                          arcWidth: 100,
+                          arcRendererDecorators: [
+                            charts.ArcLabelDecorator(
+                                labelPosition: charts.ArcLabelPosition.auto),
+                          ],
                         ),
-                        chartType: ChartType.disc,
                       ),
+                    ),
                     ),
 
                   ],
@@ -319,7 +348,7 @@ class _SearchAddFoodState extends State<SearchAddFood> {
 
 
             Divider(height: height * 0.01),
-              SizedBox(height: height * 0.02,),
+              SizedBox(height: height * 0.01,),
               Container(
                 height: height * 0.05,
                   width: width * 0.60,
@@ -379,7 +408,7 @@ class _SearchAddFoodState extends State<SearchAddFood> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text('Fats (Poly)'),
-                    Text('60g'),
+                    Text('${widget.food.fatPoly}'),
                   ],
                 ),),
               Container(

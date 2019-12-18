@@ -17,6 +17,8 @@ class FitnessGoal extends StatefulWidget {
 class _FitnessGoalState extends State<FitnessGoal> {
   URL urldomain =URL();
 String goal="";
+
+
  /*  void setGoal(String goal)async {
 
     try{
@@ -98,7 +100,7 @@ String goal="";
                                              goal="Weight Loss";
                                            });
                                          },
-                                         color: Palette.buttonjColor,
+                                         color: goal == 'Weight Loss'?Colors.green:Palette.buttonjColor,
                                          textColor: Colors.white,
                                          child: Text("Select",
                                              style: TextStyle(fontSize: 14,
@@ -147,7 +149,7 @@ String goal="";
                                            });
                                           
                                         },
-                                        color: Palette.buttonjColor,
+                                        color: goal == 'Toning'?Colors.green:Palette.buttonjColor,
                                         textColor: Colors.white,
                                         child: Text("Select",
                                             style: TextStyle(fontSize: 14,
@@ -194,7 +196,7 @@ String goal="";
                                              goal="Mass Gain";
                                            });
                                       },
-                                      color: Palette.buttonjColor,
+                                      color: goal == 'Mass Gain'?Colors.green:Palette.buttonjColor,
                                       textColor: Colors.white,
                                       child: Text("Select",
                                           style: TextStyle(fontSize: 14,
@@ -242,7 +244,7 @@ String goal="";
                                              goal="Endurance";
                                            });
                                         },
-                                        color: Palette.buttonjColor,
+                                        color: goal == 'Endurance'?Colors.green:Palette.buttonjColor,
                                         textColor: Colors.white,
                                         child: Text("Select",
                                             style: TextStyle(fontSize: 14,
