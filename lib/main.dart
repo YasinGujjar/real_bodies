@@ -22,9 +22,8 @@ import 'package:real_bodies/pages/exercise.dart';
 import 'package:real_bodies/realbodyui/dashboard.dart';
 import 'package:real_bodies/realbodyui/exercise_library.dart';
 import 'package:real_bodies/realbodyui/food_exercise_diary.dart';
-
 import 'package:real_bodies/realbodyui/program.dart';
-import 'package:real_bodies/realbodyui/splashscreen.dart';
+import 'package:real_bodies/ui/screens/trainingpage.dart';
 
 
 
@@ -49,7 +48,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home:  splashscreen(),//MyHomePage(title: 'Demo'),
+      home:  ExercisePlan(),//MyHomePage(title: 'Demo'),
     );
   }
 }
