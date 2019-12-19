@@ -66,11 +66,15 @@ upload(filename);
  }
 
  upload(String filename){
-   print("uuuuuuuuuuuuuuuuuuuuuuuuuuu"+filename);
+   print("uuuuuuuuuuuuuuuuuuuuuuuuuuu"+filename+"kkkk"+_newweight.text);
 http.post(uploadEndPoint,body: {
+  "id":widget.id.toString(),
   "image": base64Image,
-  "name": filename
+  "name": filename,
+  "weight":_newweight.text,
+  "date": DateTime.now().toString()
 }).then((result){
+  print(result.body);
   setStatus(result.statusCode==200 ? result.body: errormsg);
 }).catchError((error){
   setStatus(error);
@@ -86,7 +90,8 @@ http.post(uploadEndPoint,body: {
        {
          tempFile=snapshot.data;
          base64Image=base64Encode(snapshot.data.readAsBytesSync());
-         return Flexible(
+         return Container(
+           height: 200,
            child: Image.file(snapshot.data,fit:BoxFit.fill,),
          );
        }
@@ -102,7 +107,7 @@ http.post(uploadEndPoint,body: {
    );
  }
 
- checkinfo() async
+ /* checkinfo() async
   {
    try
    {
@@ -122,7 +127,7 @@ print(imgList);
    {
      print("Exception on way $e");
    }
-  }
+  } */
   Widget _addweight()
   {return Container(
     //color: Colors.blue,
@@ -132,13 +137,13 @@ print(imgList);
       padding: const EdgeInsets.all(12.0),
       child: Column(
         children: <Widget>[
-         /*  SizedBox(
-            height: 40.0,
+          SizedBox(
+            height: 20.0,
           ),
-          _weightField, */
-         /*  SizedBox(
+          _weightField,
+          SizedBox(
             height: 20,
-          ), */
+          ),
           Row(
             children: <Widget>[
               showimage(),
@@ -207,14 +212,14 @@ print(imgList);
       hint: "Add New Weight",
       //validator: Validator.validateName,
     );
-     _imageField = new CustomTextField(
+    /*  _imageField = new CustomTextField(
       baseColor: Colors.grey,
        borderColor: Colors.grey[400],
       errorColor: Colors.red,
       controller: _newweight,
       hint: "Add Image",
       //validator: Validator.validateName,
-    );
+    ); */
     
   }
   @override
