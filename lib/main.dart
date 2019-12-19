@@ -1,29 +1,21 @@
 import 'package:flutter/material.dart';
-
+import 'package:real_bodies/models/url.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'package:real_bodies/models/walkthrough.dart';
 import 'package:real_bodies/pages/daily_workout_plan.dart';
-import 'package:real_bodies/pages/demo_page.dart';
-import 'package:real_bodies/pages/exercise.dart';
-import 'package:real_bodies/pages/exercise_details.dart';
-import 'package:real_bodies/pages/fitness_goal.dart';
-import 'package:real_bodies/pages/search_food.dart';
-
-import 'package:real_bodies/realbodyui/dietplan.dart';
-import 'package:real_bodies/realbodyui/exercise_plan.dart';
-import 'package:real_bodies/realbodyui/exercise_plan_full.dart';
+import 'package:real_bodies/realbodyui/dashboard.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel2.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel3.dart';
-import 'package:real_bodies/realbodyui/meal_plan.dart';
 import 'package:real_bodies/realbodyui/register1.dart';
-import 'package:real_bodies/realbodyui/signin.dart';
 
-import 'package:real_bodies/pages/exercise.dart';
-import 'package:real_bodies/realbodyui/dashboard.dart';
-import 'package:real_bodies/realbodyui/exercise_library.dart';
-import 'package:real_bodies/realbodyui/food_exercise_diary.dart';
-import 'package:real_bodies/realbodyui/program.dart';
-import 'package:real_bodies/ui/screens/trainingpage.dart';
+import 'package:real_bodies/realbodyui/signin.dart';
+import 'package:real_bodies/realbodyui/step1.dart';
+import 'package:real_bodies/realbodyui/step3.dart';
+import 'package:real_bodies/ui/screens/desktop.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:async';
 
 
 
@@ -48,16 +40,16 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home:  ExercisePlan(),//MyHomePage(title: 'Demo'),
+      home: FitnessLevelThree(),//MyHomePage(title: 'Demo'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+ // MyHomePage({Key key, this.title}) : super(key: key);
   // always marked "final".
 
-  final String title;
+  //final String title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -66,17 +58,76 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+ Future<Null> checkIsLogin() async {
+    String _token = "";
+    String _email = "";
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    _token = prefs.getString("password");
+    _email = prefs.getString("name");
+    print(_token);
+    print(_email);
+    if (_token != "" && _token != null) {
+      print("alreay login.");
+      startlogin(_email, _token);
+    }
+    else
+    {
+      //replace it with the login page
+       Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => new Signin()),
+      ); 
+      
+    }
+    
   }
 
+
+ void  startlogin(String _name, String _password) async
+{
+  URL urldomain = URL();
+  
+  var url=urldomain.domain+"login";
+    final response=await http.get(url+"&email="+_name+"&password="+_password);
+
+print('Response status: ${response.statusCode}');
+print('Response body: ${response.body}');
+var jsonResponse = json.decode(response.body);
+
+ var requestresponse=jsonResponse['response'];
+
+
+if (requestresponse=="success")
+{
+ // var image=urldomain.imgdomain.toString()+jsonResponse['image'];
+  var name=jsonResponse['name'];
+  var id =jsonResponse['id'];
+  // var gender=jsonResponse['gender'];
+   // var old=jsonResponse['old'];
+     //var height=jsonResponse['height'];
+      //var weight=jsonResponse['weight'];
+  // Navigator.of(context).pushReplacementNamed('/home');
+
+   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DashBoard(id:id,name: name, )),);
+}
+else if(requestresponse=="error")
+{
+ Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => new Signin()),
+      ); 
+
+  print("error login");
+} 
+  }
+ 
+  
+@override
+ void initState() {
+    // TODO: implement initState
+    super.initState();
+    checkIsLogin();
+  }
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -86,53 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        //heroTag: "btn",
-        onPressed: (){
-
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Exercise()),
-          );
-        },
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+       body: Center(child: CircularProgressIndicator()),
     );
   }
 }
