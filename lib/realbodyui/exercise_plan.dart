@@ -1,7 +1,13 @@
+import 'dart:convert';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:real_bodies/models/exercise.dart';
+import 'package:real_bodies/models/url.dart';
+import 'package:real_bodies/models/weekly_meal.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/screens/trainingpage.dart';
+import 'package:http/http.dart' as http;
 
 class ExercisePlan extends StatefulWidget {
   @override
@@ -9,11 +15,14 @@ class ExercisePlan extends StatefulWidget {
 }
 
 class _ExercisePlanState extends State<ExercisePlan> {
+  Future<List<ExerciseModel>> exerciseModelList;
+  Future<List> plan;
   CarouselSlider carouselSlider;
   int _current = 0;
   List weeklyPlan = [
-    TrainingPage(),
-    TrainingPage(),
+    //TrainingPage(),
+    //TrainingPage(),
+    Container(),
   ];
 
   List<T> map<T>(List list, Function handler) {
@@ -24,6 +33,45 @@ class _ExercisePlanState extends State<ExercisePlan> {
     }
 
     return result;
+  }
+
+
+  Future<List> getExercisePlan(int id) async{
+    try{
+      print(id);
+      URL urldomain = URL();
+      var url=urldomain.domain+"get_exercise_plan";
+      final response =await http.get(url+"&id=$id");
+      print('Response body:${response.body}');
+
+      Iterable list = json.decode(response.body);
+//
+      List<ExerciseModel> eml = list.map((model)=>ExerciseModel.fromJson(model)).toList();
+
+      List views = [];
+//      eml.forEach((f){
+//        views.add(TrainingPage(exerciseList: eml,));
+//      });
+      views.add(TrainingPage(exerciseList: eml, trainingDay: 'Training Day 1'));
+      views.add(TrainingPage(exerciseList: eml, trainingDay: 'Training Day 2'));
+
+
+      return views;
+      //  wmpl.forEach((f)=>print(f.type));
+
+    }catch(e){
+      print('Error ouccured $e');
+    }
+
+  }
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+   plan = getExercisePlan(2);
+
   }
 
   @override
@@ -38,6 +86,7 @@ class _ExercisePlanState extends State<ExercisePlan> {
       ),
       body: ListView(
              children: <Widget>[
+
                SizedBox(height: 20,),
                Text('Your Current Plan',style: TextStyle(fontSize: 18),),
                Padding(
@@ -85,56 +134,51 @@ class _ExercisePlanState extends State<ExercisePlan> {
                  ),
                ),
                SizedBox(height: 5,),
-
-               carouselSlider = CarouselSlider(
-                 height: 370.0,
-                 initialPage: 0,
-                 enlargeCenterPage: true,
-                 autoPlay: false,
-                 reverse: false,
-                 enableInfiniteScroll: false,
-                 autoPlayInterval: Duration(seconds: 2),
-                 autoPlayAnimationDuration: Duration(milliseconds: 2000),
-                 pauseAutoPlayOnTouch: Duration(seconds: 10),
-                 scrollDirection: Axis.horizontal,
-                 onPageChanged: (index) {
-                   setState(() {
-                     _current = index;
-                   });
-                 },
-                 items: weeklyPlan.map((weekPlan) {
-                   return Builder(
-                     builder: (BuildContext context) {
-                       return Container(
-                         width: MediaQuery.of(context).size.width,
-
-                        child: weekPlan,
-                       );
-                     },
-                   );
-                 }).toList(),
+               FutureBuilder<List>(
+                 future: plan,
+               builder:(context, snapshot) {
+                   if(snapshot.hasData) {
+                     return carouselSlider = CarouselSlider(
+                       height: 370.0,
+                       initialPage: 0,
+                       enlargeCenterPage: true,
+                       autoPlay: false,
+                       reverse: false,
+                       enableInfiniteScroll: false,
+                       autoPlayInterval: Duration(seconds: 2),
+                       autoPlayAnimationDuration: Duration(milliseconds: 2000),
+                       pauseAutoPlayOnTouch: Duration(seconds: 10),
+                       scrollDirection: Axis.horizontal,
+                       onPageChanged: (index) {
+                         setState(() {
+                           _current = index;
+                         });
+                       },
+                       items: snapshot.data.map((weekPlan) {
+                         return Builder(
+                           builder: (BuildContext context) {
+                             return Container(
+                               width: MediaQuery
+                                   .of(context)
+                                   .size
+                                   .width,
+                               child: weekPlan,
+                             );
+                           },
+                         );
+                       }).toList(),
+                     );
+                   }
+                   else{
+                     Center(child: CircularProgressIndicator());
+                   }
+                   return Center(child: CircularProgressIndicator());
+               }
                ),
-
-
              ],
       ),
     );
   }
 }
-
-
-class WeeklyPlanCoursel extends StatefulWidget {
-  @override
-  _WeeklyPlanCourselState createState() => _WeeklyPlanCourselState();
-}
-
-class _WeeklyPlanCourselState extends State<WeeklyPlanCoursel> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-
 
 
