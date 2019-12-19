@@ -88,7 +88,7 @@ class _ExercisePlanState extends State<ExercisePlan> {
              children: <Widget>[
 
                SizedBox(height: 20,),
-               Text('Your Current Plan',style: TextStyle(fontSize: 18),),
+               Center(child: Text('Your Current Plan',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
                Padding(
                  padding: const EdgeInsets.only(left:20.0, right: 20.0),
                  child: Container(
@@ -111,7 +111,7 @@ class _ExercisePlanState extends State<ExercisePlan> {
                                Text('Weight Loss',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 22),),
                                Container(
                                  height: 30,
-                                 width: 80,
+                                 width: 100,
                                  child: FlatButton(
                                    shape: new RoundedRectangleBorder(
                                      borderRadius: new BorderRadius.circular(30.0),
@@ -119,9 +119,12 @@ class _ExercisePlanState extends State<ExercisePlan> {
                                    onPressed: () {},
                                    color: Palette.buttonjColor,
                                    textColor: Colors.white,
-                                   child: Text("Select",
-                                       style: TextStyle(fontSize: 14,
-                                           fontWeight: FontWeight.bold)),
+                                   child: FittedBox(
+                                     fit: BoxFit.contain,
+                                     child: Text("View Your Plan",
+                                         style: TextStyle(fontSize: 14,
+                                             fontWeight: FontWeight.bold)),
+                                   ),
                                  ),
                                ),
                              ],
