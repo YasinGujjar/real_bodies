@@ -11,6 +11,7 @@ import 'package:real_bodies/realbodyui/fitnesslevel3.dart';
 import 'package:real_bodies/realbodyui/register1.dart';
 
 import 'package:real_bodies/realbodyui/signin.dart';
+import 'package:real_bodies/realbodyui/splashscreen.dart';
 import 'package:real_bodies/realbodyui/step1.dart';
 import 'package:real_bodies/realbodyui/step3.dart';
 import 'package:real_bodies/ui/screens/desktop.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: FitnessLevelThree(),//MyHomePage(title: 'Demo'),
+      home: Signin(),//MyHomePage(title: 'Demo'),
     );
   }
 }
@@ -100,15 +101,16 @@ var jsonResponse = json.decode(response.body);
 if (requestresponse=="success")
 {
  // var image=urldomain.imgdomain.toString()+jsonResponse['image'];
-  var name=jsonResponse['name'];
-  var id =jsonResponse['id'];
-  // var gender=jsonResponse['gender'];
+   var name=jsonResponse['name'];
+   var calorie=jsonResponse['calories'];
+    var weight=jsonResponse['weight'];
+  int id= int.parse(jsonResponse['id']);
    // var old=jsonResponse['old'];
      //var height=jsonResponse['height'];
       //var weight=jsonResponse['weight'];
   // Navigator.of(context).pushReplacementNamed('/home');
-
-   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DashBoard(id:id,name: name, )),);
+print("ooogya");
+   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DashBoard(id:id,name: name,weight: weight,calorie: calorie, )),);
 }
 else if(requestresponse=="error")
 {

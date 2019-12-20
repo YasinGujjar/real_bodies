@@ -7,6 +7,7 @@ class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final Color baseColor;
   final Color borderColor;
+  final Color textColor;
   final Color errorColor;
   final TextInputType inputType;
   final bool obscureText;
@@ -21,6 +22,7 @@ class CustomTextField extends StatefulWidget {
       this.onChanged,
       this.baseColor,
       this.borderColor,
+      this.textColor,
       this.errorColor,
       this.inputType = TextInputType.text,
       this.obscureText = false,
@@ -52,6 +54,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.0),
         child: TextField(
+          
           obscureText: widget.obscureText,
           onChanged: (text) {
             if (widget.onChanged != null) {
@@ -65,6 +68,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               }
             });
           }, 
+          style: TextStyle(color: widget.textColor),
           //keyboardType: widget.inputType,
           controller: widget.controller,
           decoration: InputDecoration(
@@ -72,6 +76,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               color: widget.baseColor,
               fontFamily: "OpenSans",
               fontWeight: FontWeight.w300,
+              
             ),
             border: InputBorder.none,
             hintText: widget.hint,

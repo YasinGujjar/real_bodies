@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:real_bodies/models/chart_data.dart';
+import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/pages/exercise_diary.dart';
 import 'package:real_bodies/pages/food_diary.dart';
 import 'package:real_bodies/pages/progress_tracker.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 
 class FoodExerciseDiary extends StatefulWidget {
@@ -17,13 +20,35 @@ class FoodExerciseDiary extends StatefulWidget {
 
 class _FoodExerciseDiaryState extends State<FoodExerciseDiary> {
 
-
+String foodtakecal="";
 void refresh(){
   setState(() {
 
   });
 }
+URL urldomain =URL();
+ void checkinfo() async
+  {
+   try
+   {
+      print("id diary"+widget.id.toString());
+      print(DateTime.now().toString());
+       var url=urldomain.domain+"get_food_record";
+    final response=await http.get(url+"&id="+widget.id.toString());
+    print('Response body :${response.body}');
+   var jsonResponse=json.decode(response.body);
+  
+    var foodtaecal=jsonResponse['name'];
+    print("dfsdfsdf"+foodtaecal) ;
+ 
 
+   }
+   catch(e)
+   {
+     print("Exception on way $e");
+   }
+  }
+ 
 
 
   List<charts.Series<ChartData, String>> _seriesPieData;
@@ -42,6 +67,12 @@ void refresh(){
       id: 'Nutrients graph',
       labelAccessorFn: (ChartData chartData, _) => '${chartData.value}',
     ));
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    checkinfo();
   }
   @override
   Widget build(BuildContext context) {
@@ -139,7 +170,7 @@ void refresh(){
                     Align(
                         alignment: Alignment.centerRight,
                         child: Text(
-                          "1400",
+                          widget.calorie,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.red
@@ -169,7 +200,7 @@ void refresh(){
                     Align(
                         alignment: Alignment.centerRight,
                         child: Text(
-                          "1000",
+                          "foodtakecal",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
@@ -525,7 +556,7 @@ void refresh(){
             child: FittedBox(
                 fit: BoxFit.contain,
                 child: Text('Food Diary',style: TextStyle(color: Colors.white,fontSize: 30),)),),
-         FoodDiary(notifyParent: refresh,id: widget.id),
+         FoodDiary(notifyParent: refresh,id: widget.id,calorie:widget.calorie),
 
           Container(height: 50,
             decoration: BoxDecoration(color: Palette.mainPurple,borderRadius: BorderRadius.circular(15.0)),

@@ -92,6 +92,7 @@ http.post(uploadEndPoint,body: {
          base64Image=base64Encode(snapshot.data.readAsBytesSync());
          return Container(
            height: 200,
+            width: MediaQuery.of(context).size.width*0.5,
            child: Image.file(snapshot.data,fit:BoxFit.fill,),
          );
        }

@@ -9,7 +9,8 @@ import 'dart:convert';
 class FoodDiary extends StatefulWidget {
   final int id;
   final Function() notifyParent;
-  FoodDiary({Key key, @required this.notifyParent,this.id}) : super(key: key);
+  final String calorie;
+  FoodDiary({Key key, @required this.notifyParent,this.id,this.calorie}) : super(key: key);
   @override
   _FoodDiaryState createState() => _FoodDiaryState();
 }
@@ -372,7 +373,7 @@ else if(requestresponse=="error")
          GestureDetector(
              onTap: (){
                Navigator.of(context)
-                   .push(MaterialPageRoute(builder: (context) => SearchFood(id:widget.id,category: FoodCategories.breakfast,)));
+                   .push(MaterialPageRoute(builder: (context) => SearchFood(id:widget.id,category: FoodCategories.breakfast,calorie:widget.calorie)));
               /*  breakFastList.add(   TableRowReturn(
                  name: 'Cherry Coke',
                  calories: 45,
@@ -472,7 +473,7 @@ else if(requestresponse=="error")
          GestureDetector(
              onTap: (){
                Navigator.of(context)
-                   .push(MaterialPageRoute(builder: (context) => SearchFood(id:widget.id,category: FoodCategories.lunch,)));
+                   .push(MaterialPageRoute(builder: (context) => SearchFood(id:widget.id,category: FoodCategories.lunch,calorie:widget.calorie)));
               /*  lunchList.add(   TableRowReturn(
                  name: 'Cherry Coke',
                  calories: "45",
@@ -578,7 +579,7 @@ else if(requestresponse=="error")
          GestureDetector(
            onTap: (){
              Navigator.of(context)
-                 .push(MaterialPageRoute(builder: (context) => SearchFood(id:widget.id,category: FoodCategories.dinner,)));
+                 .push(MaterialPageRoute(builder: (context) => SearchFood(id:widget.id,category: FoodCategories.dinner,calorie:widget.calorie)));
              /* dinnerList.add(   TableRowReturn(
                name: 'Cherry Coke',
                calories: "45",
@@ -686,7 +687,7 @@ else if(requestresponse=="error")
              onTap: (){
 
                Navigator.of(context)
-                   .push(MaterialPageRoute(builder: (context) => SearchFood(id:widget.id,category: FoodCategories.snacks,)));
+                   .push(MaterialPageRoute(builder: (context) => SearchFood(id:widget.id,category: FoodCategories.snacks,calorie:widget.calorie)));
              /*   snackList.add(   TableRowReturn(
                  name: 'Cherry Coke',
                  calories: "45",

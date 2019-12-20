@@ -28,13 +28,13 @@ class _splashscreenState extends State<splashscreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Container(
-                  height: height*0.20,
+                  height: height*0.22,
                   //color: Colors.red,
                   child: Column(
 
                     crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-SizedBox(height: 30.0,),
+SizedBox(height: 10.0,),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text('BUILD YOURSELF',textScaleFactor: 2,style: TextStyle(color: Colors.white),),
