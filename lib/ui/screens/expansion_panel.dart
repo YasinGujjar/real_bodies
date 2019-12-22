@@ -229,7 +229,10 @@ class ExpansionPanelsDemo extends StatefulWidget {
    String goal;
    String diet;
    String level;
-  ExpansionPanelsDemo({this.id, this.levelval,this.goal,this.diet,this.level});
+   final  String name;
+    final String email;
+    final String password;
+  ExpansionPanelsDemo({this.id, this.levelval,this.goal,this.diet,this.level,this.name,this.email,this.password});
   /*  String height="";
   String weight="";
   String old="";
@@ -290,7 +293,7 @@ class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
       if (response.body == "success") {
         print('Added  BMI');
          Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => Bmi(bmi: bmi,id: widget.id,)));
+                    MaterialPageRoute(builder: (context) => Bmi(bmi: bmi,id: widget.id,calorie:calorie,name:widget.name,email:widget.email,password:widget.password)));
       } else if (response.body == "error") {
         print("error  BMI");
       }
@@ -634,6 +637,7 @@ class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
                 print("kkkkkkkk"+calorie);
                 print("gendre"+gender);
                 print("age"+age.toString());
+
                
               },
               color: Colors.white,

@@ -8,7 +8,8 @@ class StepOne extends StatefulWidget {
     final int id;
    final  String name;
     final String email;
-  StepOne({this.id,this.name,this.email});
+    final String password;
+  StepOne({this.id,this.name,this.email,this.password});
   @override
   _StepOneState createState() => _StepOneState();
 }
@@ -71,7 +72,7 @@ class _StepOneState extends State<StepOne> {
                         onPressed: () {
                           print("step1 "+widget.id.toString());
                            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => StepTwo(id:widget.id,name:widget.name,email:widget.email)));
+                .push(MaterialPageRoute(builder: (context) => StepTwo(id:widget.id,name:widget.name,email:widget.email,password:widget.password)));
                         },
                         color: Colors.white,
                         textColor: Palette.backGround,

@@ -8,7 +8,8 @@ class StepTwo extends StatefulWidget {
    final int id;
    final  String name;
     final String email;
-  StepTwo({this.id,this.name,this.email});
+    final String password;
+  StepTwo({this.id,this.name,this.email,this.password});
   @override
   _StepTwoState createState() => _StepTwoState();
 }
@@ -71,7 +72,7 @@ class _StepTwoState extends State<StepTwo> {
                         onPressed: () {
                             print("step2 "+widget.id.toString());
                            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => StepThree(id:widget.id,name:widget.name,email:widget.email)));
+                .push(MaterialPageRoute(builder: (context) => StepThree(id:widget.id,name:widget.name,email:widget.email,password:widget.password)));
                         },
                         color: Colors.white,
                         textColor: Palette.backGround,

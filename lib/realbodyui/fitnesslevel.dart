@@ -8,10 +8,13 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class FitnessLevel extends StatefulWidget {
-   int id;
-   String goal;
-  String diet;
-  FitnessLevel({this.id,this.goal,this.diet});
+  final int id;
+  final String goal;
+ final String diet;
+ final  String name;
+    final String email;
+    final String password;
+  FitnessLevel({this.id,this.goal,this.diet,this.name,this.email,this.password});
   @override
   _FitnessLevelState createState() => _FitnessLevelState();
 }
@@ -251,7 +254,7 @@ URL urldomain=URL();
                         print("level "+level+"level val "+levelval.toString()+"id "+widget.id.toString());
                          Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) =>
-                                FitnessLevelThree(id: widget.id,goal:widget.goal,diet:widget.diet,level:level ,levelval:levelval)));
+                                FitnessLevelThree(id: widget.id,goal:widget.goal,diet:widget.diet,level:level ,levelval:levelval,name:widget.name,email:widget.email,password:widget.password)));
                       }
                        if(level2==true)
                       {
@@ -259,7 +262,7 @@ URL urldomain=URL();
                          print("level "+level+"level val "+levelval.toString()+"id "+widget.id.toString());
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) =>
-                                FitnessLevelThree(id: widget.id,levelval:levelval)));
+                                FitnessLevelThree(id: widget.id,goal:widget.goal,diet:widget.diet,level:level,levelval:levelval,name:widget.name,email:widget.email,password:widget.password)));
                       }
                        if(level3==true)
                       {
@@ -267,7 +270,7 @@ URL urldomain=URL();
                          print("level "+level+"level val "+levelval.toString()+"id "+widget.id.toString());
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) =>
-                                FitnessLevelThree(id: widget.id,levelval:levelval)));
+                                FitnessLevelThree(id: widget.id,goal:widget.goal,diet:widget.diet,level:level,levelval:levelval,name:widget.name,email:widget.email,password:widget.password)));
                       }
                       if(level1==false && level2==false && level3==false){
                         print("Level must Select");

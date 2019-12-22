@@ -7,8 +7,13 @@ import 'package:real_bodies/ui/screens/expansion_panel.dart';
 
 class Bmi extends StatefulWidget {
  final  int id;
-   String bmi="";
-   Bmi({this.id,this.bmi});
+  final String bmi;
+  final String calorie;
+  final  String name;
+    final String email;
+    final String password;
+
+   Bmi({this.id,this.bmi,this.name,this.email,this.calorie,this.password});
   @override
   _BmiState createState() => _BmiState();
 }
@@ -88,7 +93,7 @@ class _BmiState extends State<Bmi> {
                       center:  Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Center(child: Text("1800",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 40),)),
+                          Center(child: Text(widget.calorie,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 40),)),
                           Center(child: Text("KCals",style: TextStyle(fontSize: 20,color: Colors.white),)),
                         ],
                       ),
@@ -126,7 +131,7 @@ class _BmiState extends State<Bmi> {
                       ),
                       onPressed: () {
                           Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => Program(id:widget.id)));
+                .push(MaterialPageRoute(builder: (context) => Program(id:widget.id,name:widget.name,email:widget.email,calorie:widget.calorie,password:widget.password)));
                       },
                       color: Colors.white,
                       textColor: Palette.boldTextO,

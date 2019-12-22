@@ -3,12 +3,19 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:real_bodies/models/program.dart';
 import 'package:real_bodies/models/url.dart';
+import 'package:real_bodies/realbodyui/dashboard.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:async';
 
 
 class Program extends StatefulWidget {
-  final id;
-  Program({this.id});
+  final int id;
+  final String calorie;
+  final String name;
+  final String email;
+  final String password;
+  Program({this.id,this.email,this.name,this.calorie,this.password});
   @override
   _ProgramState createState() => _ProgramState();
 }
@@ -48,6 +55,7 @@ class _ProgramState extends State<Program> {
     }
   }
 
+  
 
 
 
@@ -88,7 +96,7 @@ class _ProgramState extends State<Program> {
                        return
                                 Column(
                                   children: <Widget>[
-                               ProgramList(title:snapshot.data[index].title, description: snapshot.data[index].description,id: widget.id,
+                               ProgramList(title:snapshot.data[index].title, description: snapshot.data[index].description,id: widget.id,name:widget.name,calorie:widget.calorie,email:widget.email,password:widget.password,
                                programId: snapshot.data[index].programId,
                                image: snapshot.data[index].image,
 
@@ -112,15 +120,52 @@ class _ProgramState extends State<Program> {
   }
 }
 
-class ProgramList extends StatelessWidget {
+class ProgramList extends StatefulWidget {
   final String title;
   final String description;
   var document;
   final String image;
   final int id;
   final int programId;
+  final String name;
+  final String calorie;
+  final String email;
+  final String password;
 
-  ProgramList({this.title,this.description,this.id,this.programId,this.image,this.document});
+  ProgramList({this.title,this.description,this.id,this.programId,this.image,this.document,this.name,this.calorie,this.email,this.password});
+
+  @override
+  _ProgramListState createState() => _ProgramListState();
+}
+
+class _ProgramListState extends State<ProgramList> {
+    String _name="";
+  String _pass="";
+  String argName = "";
+  String argPassword="";
+void buyProgram(int id, int programId ) async {
+  URL urldomain = URL();
+  var url=urldomain.domain+"buy_program";
+
+  final response =await http.get(url+"&id="+id.toString()+"&program_id="+programId.toString());
+
+  if (response.statusCode == 200) {
+    // If the call to the server was successful, parse the JSON.
+   // r Post.fromJson(json.decode(response.body));
+   
+    print('Response body:${response.body}');
+    Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => DashBoard(id:widget.id,name:widget.name,indexnumber: 0,calorie:widget.calorie)));
+             argName=widget.email;
+                    argPassword=widget.password;
+                    print("name:"+argName+" Password:"+argPassword);
+                    saveNamePreference(argName,argPassword);         
+
+  } else {
+    // If that call was not successful, throw an error.
+    throw Exception('Failed to load post');
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -151,11 +196,11 @@ class ProgramList extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Text('Workout & Meal Plan',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 10),),
-                              FittedBox(fit:BoxFit.contain,child: Text(this.title,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 22),)),
+                              FittedBox(fit:BoxFit.contain,child: Text(this.widget.title,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 22),)),
 
                 ],
                           ),
-                          Text("$description",style: TextStyle(color: Colors.white,fontSize: 15),
+                          Text("${widget.description}",style: TextStyle(color: Colors.white,fontSize: 15),
 
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.center,
@@ -187,13 +232,13 @@ class ProgramList extends StatelessWidget {
                               Container(
                                 height: 30,
                                 width: 70,
-                                child: FlatButton(
+                                child: FlatButton (
                                   shape: new RoundedRectangleBorder(
                                     borderRadius: new BorderRadius.circular(30.0),
                                   ),
                                   onPressed:  ()  {
-                                    buyProgram(id, programId);
-                                    
+                                    buyProgram(widget.id, widget.programId);
+
                                   },
                                   color: Palette.buttonjColor,
                                   textColor: Colors.white,
@@ -214,7 +259,7 @@ class ProgramList extends StatelessWidget {
                   Expanded(
                       flex:1
                       ,child: Image.network(
-                    image,
+                    widget.image,
                   )),
                 ],
               ),
@@ -222,24 +267,50 @@ class ProgramList extends StatelessWidget {
           )
       );
   }
-}
 
+void updateValue(String name) {
 
-
-
-void buyProgram(int id, int programId) async {
-  URL urldomain = URL();
-  var url=urldomain.domain+"buy_program";
-
-  final response =await http.get(url+"&id="+id.toString()+"&program_id="+programId.toString());
-
-  if (response.statusCode == 200) {
-    // If the call to the server was successful, parse the JSON.
-   // r Post.fromJson(json.decode(response.body));
-    print('Response body:${response.body}');
-
-  } else {
-    // If that call was not successful, throw an error.
-    throw Exception('Failed to load post');
+    setState(() {
+      if(name.toString().isNotEmpty ) {
+        this._name = name;
+        print("yes");
+      }
+      else
+        print('error1');
+    });
   }
+   void updateValue2(String password) {
+
+    setState(() {
+      if(password.toString().isNotEmpty) {
+        this._pass = password;
+        
+      }
+      else
+        print('error2');
+    });
+  }
+
 }
+
+Future<bool> saveNamePreference(String name, String password) async{
+  SharedPreferences pref = await SharedPreferences.getInstance();
+  pref.setString('name', name);
+ pref.setString('password', password);
+  return true;
+}
+
+Future<String> loadNamePreference() async{
+  SharedPreferences pref = await SharedPreferences.getInstance();
+  String name = pref.getString('name');
+  return name;
+}
+Future<String> loadPasswordPreference() async{
+  SharedPreferences pref = await SharedPreferences.getInstance();
+  String password = pref.getString('password');
+  return password;
+}
+
+
+
+

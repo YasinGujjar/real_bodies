@@ -9,7 +9,10 @@ import 'package:http/http.dart' as http;
 class DietPlan extends StatefulWidget {
   final int id;
   final String goal;
-  DietPlan({this.id,this.goal});
+  final  String name;
+    final String email;
+    final String password;
+  DietPlan({this.id,this.goal,this.name,this.email,this.password});
   @override
   _DietPlanState createState() => _DietPlanState();
 }
@@ -514,7 +517,7 @@ class _DietPlanState extends State<DietPlan> {
 print("diet plan"+dietplan+"id diet"+widget.id.toString());
                           Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) =>
-                                FitnessLevelTwo(id: widget.id,goal:widget.goal,diet:dietplan)));
+                                FitnessLevelTwo(id: widget.id,goal:widget.goal,diet:dietplan,name:widget.name,email:widget.email,password:widget.password)));
                         }
                       },
                       color: Palette.mainPurple,

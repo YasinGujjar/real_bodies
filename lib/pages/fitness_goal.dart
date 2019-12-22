@@ -9,7 +9,10 @@ import 'package:real_bodies/realbodyui/dietplan.dart';
 
 class FitnessGoal extends StatefulWidget {
   final int id;
-  FitnessGoal({this.id});
+  final  String name;
+    final String email;
+    final String password;
+  FitnessGoal({this.id,this.name,this.email,this.password});
   @override
   _FitnessGoalState createState() => _FitnessGoalState();
 }
@@ -285,7 +288,7 @@ String goal="";
                            {
                                print("gaol id "+widget.id.toString()+"goal "+goal);
   Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => DietPlan(id:widget.id,goal:goal)));
+                .push(MaterialPageRoute(builder: (context) => DietPlan(id:widget.id,goal:goal,name:widget.name,email:widget.email,password:widget.password)));
                            }
                           
                           

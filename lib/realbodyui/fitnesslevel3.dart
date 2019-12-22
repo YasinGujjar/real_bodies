@@ -7,12 +7,15 @@ import 'package:real_bodies/ui/screens/expansion_panel.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 
 class FitnessLevelThree extends StatefulWidget {
-   int id;
-   double levelval;
-   String goal;
-   String diet;
-   String level;
-  FitnessLevelThree({this.id,this.levelval,this.goal,this.diet,this.level});
+  final int id;
+  final double levelval;
+  final String goal;
+  final String diet;
+  final String level;
+   final  String name;
+    final String email;
+    final String password;
+  FitnessLevelThree({this.id,this.levelval,this.goal,this.diet,this.level,this.name,this.email,this.password});
   @override
   _FitnessLevelThreeState createState() => _FitnessLevelThreeState();
 }
@@ -84,7 +87,7 @@ class _FitnessLevelThreeState extends State<FitnessLevelThree> {
                     SizedBox(
                       height: height*0.06,
                     ),
-                    ExpansionPanelsDemo(id:widget.id,levelval:widget.levelval,goal:widget.goal,diet:widget.diet,level:widget.level),
+                    ExpansionPanelsDemo(id:widget.id,levelval:widget.levelval,goal:widget.goal,diet:widget.diet,level:widget.level,name:widget.name,email:widget.name,password:widget.password),
                   /*  Divider(
                             height: 2,
                             thickness: 2.0,

@@ -44,7 +44,7 @@ final TextEditingController _confirmpassword = new TextEditingController();
       if (requestresponse == "success") {
         id= int.parse(jsonResponse['id']);
          Navigator.of(context)
-                .pushReplacement(MaterialPageRoute(builder: (context) => StepOne(id:id,name:_fullname.text,email:_email.text))); 
+                .pushReplacement(MaterialPageRoute(builder: (context) => StepOne(id:id,name:_fullname.text,email:_email.text,password:_password.text))); 
       } else if (requestresponse == "error") {
         print("error");
       }

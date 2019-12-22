@@ -5,10 +5,13 @@ import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 
 class FitnessLevelTwo extends StatefulWidget {
-  int id;
-  String goal;
-  String diet;
-  FitnessLevelTwo({this.id,this.goal,this.diet});
+ final int id;
+  final String goal;
+  final String diet;
+  final  String name;
+    final String email;
+    final String password;
+  FitnessLevelTwo({this.id,this.goal,this.diet,this.name,this.email,this.password});
   @override
   _FitnessLevelTwoState createState() => _FitnessLevelTwoState();
 }
@@ -100,7 +103,7 @@ class _FitnessLevelTwoState extends State<FitnessLevelTwo> {
                     onPressed: () {
                       print("id"+widget.id.toString()+"diet "+widget.diet);
                         Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => FitnessLevel(id:widget.id,goal:widget.goal,diet:widget.diet)));
+                .push(MaterialPageRoute(builder: (context) => FitnessLevel(id:widget.id,goal:widget.goal,diet:widget.diet,name:widget.name,email:widget.email,password:widget.password)));
                     },
                     color: Palette.buttonjColor,
                     textColor: Colors.white,

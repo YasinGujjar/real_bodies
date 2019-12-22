@@ -11,7 +11,8 @@ class StepThree extends StatefulWidget {
    final int id;
     final  String name;
     final String email;
-  StepThree({this.id,this.name,this.email});
+    final String password;
+  StepThree({this.id,this.name,this.email,this.password});
   @override
   _StepThreeState createState() => _StepThreeState();
 }
@@ -74,7 +75,7 @@ class _StepThreeState extends State<StepThree> {
                         onPressed: () {
                             print("step3 "+widget.id.toString());
                             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => FitnessGoal(id:widget.id)));
+                .push(MaterialPageRoute(builder: (context) => FitnessGoal(id:widget.id,name:widget.name,email:widget.email,password:widget.password)));
                         },
                         color: Colors.white,
                         textColor: Palette.backGround,
