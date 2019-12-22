@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
       //replace it with the login page
        Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => new Signin()),
+        MaterialPageRoute(builder: (context) => new splashscreen()),
       ); 
       
     }
