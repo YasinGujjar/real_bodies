@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:real_bodies/theme/palette.dart';
 
 class ExerciseInfo extends StatefulWidget {
+  final int reps;
+  final int sets;
+  final String name;
+  final int index;
+  ExerciseInfo({this.index,this.reps,this.sets,this.name});
   @override
   _ExerciseInfoState createState() => _ExerciseInfoState();
 }
 
 class _ExerciseInfoState extends State<ExerciseInfo> {
+  bool m = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +20,7 @@ class _ExerciseInfoState extends State<ExerciseInfo> {
           backgroundColor: Palette.mainPurple,
           automaticallyImplyLeading: false,
           centerTitle: true,
-          title: Center(child: Text("Exercise Plan Week2"),)
+          title: Center(child: Text("Exercise Plan Week 1"),)
 
       ),
       body: ListView(
@@ -22,17 +28,21 @@ class _ExerciseInfoState extends State<ExerciseInfo> {
           SizedBox(height: 10,),
           Padding(
             padding: const EdgeInsets.only(left:8.0, right:8.0),
-            child: Text('Exercise No.1. Squats ',style: TextStyle(fontSize: 30),),
+            child: Text('Exercise No.${widget.index}. ${widget.name} ',style: TextStyle(fontSize: 30),
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+              maxLines: 3,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(left:60.0, right:90.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-              Text('2 Sets',
+              Text('${widget.sets} Sets',
                   style: TextStyle(fontSize: 20)
               ),
-              Text('5 Reps',
+              Text('${widget.reps} Reps',
                   style: TextStyle(fontSize: 20)
               ),
 
@@ -49,7 +59,9 @@ class _ExerciseInfoState extends State<ExerciseInfo> {
               width: 150,
               height: 50,
               // color: Colors.orange,
-              child: FlatButton(
+              child:
+
+              m? Icon(Icons.done) : FlatButton(
                 color: Palette.mainPurple,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 12.0),
@@ -76,7 +88,11 @@ class _ExerciseInfoState extends State<ExerciseInfo> {
                     width: 2,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    m = true;
+                  });
+                },
               ),
             ),
 
@@ -161,7 +177,7 @@ class _ExerciseInfoState extends State<ExerciseInfo> {
           ),
 
           SizedBox(height: 20,),
-          Center(child: Text('Exercise No.1. Squats ',style: TextStyle(fontSize: 30),)),
+          Center(child: Text('Exercise Squats ',style: TextStyle(fontSize: 30),)),
           Center(child: Text('2 Sets',style: TextStyle(fontSize: 25),)),
           Center(child: Text('5 Reps',style: TextStyle(fontSize: 25),)),
           SizedBox(height: 140,),

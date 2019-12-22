@@ -21,4 +21,5 @@ class ProgramPlan{
       programId: int.parse(json['id']),
     );
   }
+
 }

@@ -5,15 +5,20 @@ import 'dart:convert';
 import 'package:real_bodies/models/walkthrough.dart';
 import 'package:real_bodies/pages/daily_workout_plan.dart';
 import 'package:real_bodies/realbodyui/dashboard.dart';
+import 'package:real_bodies/realbodyui/exercise_library.dart';
+import 'package:real_bodies/realbodyui/exercise_plan.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel2.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel3.dart';
+import 'package:real_bodies/realbodyui/meal_plan.dart';
 import 'package:real_bodies/realbodyui/register1.dart';
 
 import 'package:real_bodies/realbodyui/signin.dart';
 import 'package:real_bodies/realbodyui/step1.dart';
 import 'package:real_bodies/realbodyui/step3.dart';
+import 'package:real_bodies/realbodyui/stripe.dart';
 import 'package:real_bodies/ui/screens/desktop.dart';
+import 'package:real_bodies/ui/screens/trainingpage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
 
@@ -40,7 +45,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: FitnessLevelThree(),//MyHomePage(title: 'Demo'),
+      home: ExercisePlan(id: 2,),//MyHomePage(title: 'Demo'),
     );
   }
 }
