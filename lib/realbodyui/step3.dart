@@ -8,8 +8,10 @@ import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 
 class StepThree extends StatefulWidget {
-    int id;
-  StepThree({this.id});
+   final int id;
+    final  String name;
+    final String email;
+  StepThree({this.id,this.name,this.email});
   @override
   _StepThreeState createState() => _StepThreeState();
 }

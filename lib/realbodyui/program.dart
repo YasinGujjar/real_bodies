@@ -193,6 +193,7 @@ class ProgramList extends StatelessWidget {
                                   ),
                                   onPressed:  ()  {
                                     buyProgram(id, programId);
+                                    
                                   },
                                   color: Palette.buttonjColor,
                                   textColor: Colors.white,

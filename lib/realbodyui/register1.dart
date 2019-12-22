@@ -44,7 +44,7 @@ final TextEditingController _confirmpassword = new TextEditingController();
       if (requestresponse == "success") {
         id= int.parse(jsonResponse['id']);
          Navigator.of(context)
-                .pushReplacement(MaterialPageRoute(builder: (context) => StepOne(id:id))); 
+                .pushReplacement(MaterialPageRoute(builder: (context) => StepOne(id:id,name:_fullname.text,email:_email.text))); 
       } else if (requestresponse == "error") {
         print("error");
       }
@@ -171,7 +171,7 @@ _nameField = new CustomTextField(
                           {
                             if(_password.text==_confirmpassword.text)
                           {
-                             // addinfo();
+                              addinfo();
                              print("next page");
                              /*  Navigator.of(context)
                 .pushReplacement(MaterialPageRoute(builder: (context) => StepOne()));  */
