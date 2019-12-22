@@ -13,8 +13,9 @@ import 'package:real_bodies/ui/widgets/scale_route.dart';
 class SearchFood extends StatefulWidget {
   final String category;
   final int id;
+  final String calorie;
 
-  SearchFood({this.category,this.id});
+  SearchFood({this.category,this.id,this.calorie});
   @override
   _SearchFoodState createState() => _SearchFoodState();
 }
@@ -78,7 +79,7 @@ else if(requestresponse=="error")
    @override
   void initState() {
      super.initState();
-     _delegate = CustomSearchDelegate(kFoods,widget.id,widget.category,);
+     _delegate = CustomSearchDelegate(kFoods,widget.id,widget.category,widget.calorie);
     // checkinfo();
   }
 
@@ -129,9 +130,11 @@ class CustomSearchDelegate extends SearchDelegate<String>{
   final List<String> _history;
   final int id;
   final String category;
+  
+  final String calorie;
   //var food;
   Food selectedFood;
-  CustomSearchDelegate(List<String> words,this.id,this.category) : _words = words,
+  CustomSearchDelegate(List<String> words,this.id,this.category,this.calorie) : _words = words,
   _history = <String>[
     'apple',
     'Mango'
@@ -271,6 +274,8 @@ class CustomSearchDelegate extends SearchDelegate<String>{
     return _SuggestionList(
       id: this.id,
       category: this.category,
+      calorie:this.calorie,
+     
       query: this.query,
       history: this._history,
       //suggestions: suggestions.toList(),
@@ -325,7 +330,7 @@ Future<Iterable<String>> getFood(String query,List<String> history) async
 }
 
 class _SuggestionList extends StatelessWidget {
-  const _SuggestionList({this.suggestions, this.query, this.history, this.onSelected,this.id,this.category});
+  const _SuggestionList({this.suggestions, this.query, this.history, this.onSelected,this.id,this.category,this.calorie});
 
   final List<String> suggestions;
   final String query;
@@ -333,6 +338,8 @@ class _SuggestionList extends StatelessWidget {
   final ValueChanged<String> onSelected;
   final String category;
   final int id;
+  final String calorie;
+  
   Food getSelectedFood(String query, int length){
     print('heedjkfldjfdljjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj');
     Food selectedFood =Food();
@@ -398,7 +405,8 @@ class _SuggestionList extends StatelessWidget {
 
                   Navigator.push(
                     context,
-                    ScaleRoute( page: SearchAddFood(food: selectedFood,id: id,category: category,)),
+                    ScaleRoute( page: SearchAddFood(food: selectedFood,id: id,category: category,calorie:calorie,
+                    )),
                   );
                 },
               );

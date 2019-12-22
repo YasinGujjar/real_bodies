@@ -27,13 +27,13 @@ class _splashscreen2State extends State<splashscreen2> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Container(
-                  height: height*0.20,
+                  height: height*0.25,
                   //color: Colors.red,
                   child: Column(
 
                     crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-SizedBox(height: 30,),
+SizedBox(height: 10,),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text('REALBODIES',textScaleFactor: 2,style: TextStyle(color: Colors.white),),
@@ -70,11 +70,13 @@ SizedBox(height: 30,),
 
                 ),Center(
                   child: Container(
-                    height: height*0.50,
-                    //color: Colors.yellow,
+                    height: height*0.40,
+                  //  color: Colors.yellow,
                     child: Column(
                       children: <Widget>[
-                        Image.asset('assets/images/splash2.png',scale: 5.0,),
+                        Container(
+                          height: 250,
+                          child: Image.asset('assets/images/splash2.png',scale: 5.0,fit: BoxFit.fill,)),
                       ],
                     ),
                   ),

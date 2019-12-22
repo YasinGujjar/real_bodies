@@ -40,7 +40,7 @@ class CarouselDemoState extends State<CarouselDemo> {
 
 
   URL urldomain =URL();
- void checkinfo() async
+ /* void checkinfo() async
   {
    try
    {
@@ -59,7 +59,7 @@ print(imgList);
    {
      print("Exception on way $e");
    }
-  }
+  } */
   @override
   void initState() {
     // TODO: implement initState
@@ -98,14 +98,15 @@ print(imgList);
                       children: <Widget>[
                         Container(
                           height: 220,
+                          
                             width: MediaQuery.of(context).size.width,
                             margin: EdgeInsets.symmetric(horizontal: 10.0),
                             decoration: BoxDecoration(
-                              color: Colors.green,
+                            //  color: Palette.mainPurple,
                             ),
                             child: Image.network(
                               imgUrl[0],
-                              fit: BoxFit.fill,
+                              fit: BoxFit.contain,
                             ),
 
                           ),

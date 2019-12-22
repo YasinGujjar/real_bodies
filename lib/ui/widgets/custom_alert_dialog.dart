@@ -4,9 +4,9 @@ import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
 class CustomAlertDialog extends StatelessWidget {
   final String title;
   final String content;
-  final VoidCallback onPressed;
+ // final VoidCallback onPressed;
 
-  CustomAlertDialog({this.title, this.content, this.onPressed});
+  CustomAlertDialog({this.title, this.content,});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class CustomAlertDialog extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                     textColor: Colors.black54,
                     onPressed: () {
-                      onPressed();
+                   //   onPressed();
                       Navigator.of(context).pop();
                     },
                     splashColor: Colors.black12,

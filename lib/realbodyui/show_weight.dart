@@ -24,6 +24,7 @@ ShowWeight({this.id,this.weight,this.imgList,this.weightList});
 }
 
 class _ShowWeightState extends State<ShowWeight> {
+
   static final String uploadEndPoint=URL.urlmain+"upload_image";
    final TextEditingController _newweight = new TextEditingController();
   final TextEditingController _img = new TextEditingController();
@@ -32,7 +33,7 @@ class _ShowWeightState extends State<ShowWeight> {
  Color add=Palette.mainPurple;
  Color my =Colors.grey;
   bool addWeight=false;
-  List imgList=[];
+ Future<List> imgList;
  URL urldomain =URL();
  String status='';
  Future<File> file;
@@ -92,6 +93,7 @@ http.post(uploadEndPoint,body: {
          base64Image=base64Encode(snapshot.data.readAsBytesSync());
          return Container(
            height: 200,
+            width: MediaQuery.of(context).size.width*0.5,
            child: Image.file(snapshot.data,fit:BoxFit.fill,),
          );
        }
@@ -107,27 +109,31 @@ http.post(uploadEndPoint,body: {
    );
  }
 
- /* checkinfo() async
+ Future<List> checkinfo() async
   {
-   try
-   {
+    try
+    {
       print("id weight"+widget.id.toString());
-    //  print(DateTime.now().toString());
-       var url=urldomain.domain+"get_weight_record";
-    final response=await http.get(url+"&id="+widget.id.toString());
-    print('Response body:${response.body}');
-   var jsonResponse=json.decode(response.body);
- for(int i=0; i<jsonResponse.length; i++){
- imgList.add(URL.imageUrl+jsonResponse[i]['image']);
- }
-print(imgList);
+      print(DateTime.now().toString());
+      var url=urldomain.domain+"get_weight_record";
+      final response=await http.get(url+"&id="+widget.id.toString());
+      print('Response body:${response.body}');
+      var jsonResponse=json.decode(response.body);
+      List image = [];
+      for(int i=0; i<jsonResponse.length; i++){
+        image.add([urldomain.imgdomain+jsonResponse[i]['image'],jsonResponse[i]['date'] ,jsonResponse[i]['weight']]);
+// weightList.add(jsonResponse[i]['weight']);
+
+      }
+      return image;
+      print(imgList);
 //return imgList;
-   }
-   catch(e)
-   {
-     print("Exception on way $e");
-   }
-  } */
+    }
+    catch(e)
+    {
+      print("Exception on way $e");
+    }
+  }
   Widget _addweight()
   {return Container(
     //color: Colors.blue,
@@ -203,7 +209,8 @@ print(imgList);
     // TODO: implement initState
     super.initState();
     print("iiiiiiiiiiiiiiiiiii"+widget.imgList.toString());
-    //checkinfo();
+
+    checkinfo();
      _weightField = new CustomTextField(
       baseColor: Colors.grey,
        borderColor: Colors.grey[400],
@@ -224,6 +231,7 @@ print(imgList);
   }
   @override
   Widget build(BuildContext context) {
+    
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return  Scaffold(
@@ -323,6 +331,7 @@ setState(() {
   addWeight=false;
   add=Palette.mainPurple;
   my=Colors.grey;
+ // checkinfo();
 });
                         },
                   ),
@@ -345,7 +354,20 @@ setState(() {
  addWeight ? _addweight() : Column(
    mainAxisSize: MainAxisSize.max ,
    children: <Widget>[
-     CarouselDemo(id:widget.id,img :widget.imgList,weight: widget.weightList,),
+     FutureBuilder<List>(
+       future: checkinfo(),
+       
+       builder: (context,snapshot){ 
+         if (snapshot.hasData) {
+              return    CarouselDemo(id:widget.id,img :snapshot.data,weight: widget.weightList,);
+
+         }
+         else{
+           return CircularProgressIndicator();
+         }
+        // return CircularProgressIndicator();
+       }
+       ),
              
                               Align(
                                   alignment: Alignment.center,
@@ -373,7 +395,24 @@ setState(() {
                            
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: WeightChart(),
+
+
+
+                                  child:FutureBuilder<List>(
+       future: checkinfo(),
+       
+       builder: (context,snapshot){ 
+         if (snapshot.hasData) {
+              return  
+                                  WeightChart(weightList: snapshot.data);
+
+         }
+         else{
+           return CircularProgressIndicator();
+         }
+        // return CircularProgressIndicator();
+       }
+       ),
                                 ),
                               
                             

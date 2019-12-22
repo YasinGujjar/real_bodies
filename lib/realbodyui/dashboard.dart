@@ -15,7 +15,8 @@ class DashBoard extends StatefulWidget {
   final String name;
   final String weight;
   final String calorie;
-  DashBoard({this.id,this.name,this.weight,this.calorie});
+  final int indexnumber;
+  DashBoard({this.id,this.name,this.weight,this.calorie,this.indexnumber});
   @override
   _DashBoardState createState() => _DashBoardState();
 }
@@ -37,7 +38,7 @@ class _DashBoardState extends State<DashBoard> {
       print('Response body:${response.body}');
       var jsonResponse=json.decode(response.body);
       for(int i=0; i<jsonResponse.length; i++){
-        imgList.add([URL.imageUrl+jsonResponse[i]['image'],jsonResponse[i]['date'] ,jsonResponse[i]['weight']]);
+        imgList.add([urldomain.imgdomain+jsonResponse[i]['image'],jsonResponse[i]['date'] ,jsonResponse[i]['weight']]);
 // weightList.add(jsonResponse[i]['weight']);
 
       }
@@ -53,7 +54,9 @@ class _DashBoardState extends State<DashBoard> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    checkinfo();
+   // checkinfo();
+    _selectedIndex=widget.indexnumber;
+    
   }
 
   @override
@@ -190,7 +193,7 @@ Widget storeTab(BuildContext context,String name) {
                 ),
                 FittedBox(
                   fit: BoxFit.contain,
-                  child: Text("  WELCOME "+name,
+                  child: Text("  WELCOME $name",
                     style: TextStyle(fontSize: 30.0,fontWeight: FontWeight.w700,color: Colors.white),),
                 )
               ],
@@ -221,19 +224,25 @@ Widget storeTab(BuildContext context,String name) {
                     ),
                   ),
 
-                  child: Container(
+                  child: GestureDetector(
+                    onTap: (){
+                     
 
-                    //  color: Colors.blue,
-                    height: height*0.1,
-                    width: width*0.2,
+                    },
+                                      child: Container(
 
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(Icons.home,color: Colors.white,),
-                        Text(" "),
-                        Text("Home",style: TextStyle(color: Colors.white),),
-                      ],
+                      //  color: Colors.blue,
+                      height: height*0.1,
+                      width: width*0.2,
+
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Icon(Icons.home,color: Colors.white,),
+                          Text(" "),
+                          Text("Home",style: TextStyle(color: Colors.white),),
+                        ],
+                      ),
                     ),
                   ),
                 ),

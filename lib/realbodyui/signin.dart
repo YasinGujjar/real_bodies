@@ -59,7 +59,7 @@ URL urldomain =URL();
 
  Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => DashBoard(id: id,name: name,weight:weight,calorie:calorie)),
+    MaterialPageRoute(builder: (context) => DashBoard(id: id,name: name,weight:weight,calorie:calorie,indexnumber: 0,)),
   );
 
 /* 
@@ -100,7 +100,8 @@ loadNamePreference().then(updateValue) ;
       controller: _email,
       hint: "E-mail Adress",
       inputType: TextInputType.emailAddress,
-      colorfield: Palette.backGround
+      colorfield: Palette.backGround,
+      textColor: Colors.white,
       // validator: Validator.validateEmail,
     );
     _passwordField = CustomTextField(
@@ -110,7 +111,8 @@ loadNamePreference().then(updateValue) ;
       controller: _password,
       obscureText: true,
       hint: "Password",
-      colorfield: Palette.backGround
+      colorfield: Palette.backGround,
+      textColor: Colors.white,
       // validator: Validator.validatePassword,
     );
   }
