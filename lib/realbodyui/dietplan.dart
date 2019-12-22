@@ -51,6 +51,12 @@ class _DietPlanState extends State<DietPlan> {
     }
   }
  */
+ @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print('this is dietplan ${widget.email}');
+  }
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;

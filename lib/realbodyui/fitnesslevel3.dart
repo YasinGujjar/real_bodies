@@ -87,7 +87,7 @@ class _FitnessLevelThreeState extends State<FitnessLevelThree> {
                     SizedBox(
                       height: height*0.06,
                     ),
-                    ExpansionPanelsDemo(id:widget.id,levelval:widget.levelval,goal:widget.goal,diet:widget.diet,level:widget.level,name:widget.name,email:widget.name,password:widget.password),
+                    ExpansionPanelsDemo(id:widget.id,levelval:widget.levelval,goal:widget.goal,diet:widget.diet,level:widget.level,name:widget.name,email:widget.email,password:widget.password),
                   /*  Divider(
                             height: 2,
                             thickness: 2.0,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:real_bodies/models/program.dart';
 import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/pages/search_food.dart';
+import 'package:real_bodies/realbodyui/exercise_plan.dart';
 import 'package:real_bodies/realbodyui/food_exercise_diary.dart';
 import 'package:real_bodies/realbodyui/meal_plan.dart';
 import 'package:real_bodies/realbodyui/search_add_food.dart';
@@ -65,10 +67,10 @@ class _DashBoardState extends State<DashBoard> {
 
     final _tabs = [
       storeTab(context,widget.name),
-      SearchFood(),
+      ExercisePlan(id:widget.id),
       FoodExerciseDiary(id: widget.id,calorie:widget.calorie),
-      Text('Tab4'),
-      Text('Tab5'),
+      Center(child: Text('Coming Soon..',style: TextStyle(color: Colors.white,fontSize: 30),)),
+      MealPlan(id:widget.id),
       ShowWeight(id:widget.id,weight:widget.weight,imgList: imgList,weightList:weightList)
     ];
 

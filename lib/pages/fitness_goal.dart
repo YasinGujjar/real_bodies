@@ -45,6 +45,12 @@ String goal="";
     }
   }
  */
+ @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print('this is program fitneess ${widget.email}');
+  }
 
   @override
   Widget build(BuildContext context) {

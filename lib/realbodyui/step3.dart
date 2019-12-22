@@ -22,7 +22,7 @@ class _StepThreeState extends State<StepThree> {
   @override
   void initState() {
     super.initState();
-
+    print('this is program 3 ${widget.email}');
   }
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;

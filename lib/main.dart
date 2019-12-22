@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
       //replace it with the login page
        Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => new Signin()),
+        MaterialPageRoute(builder: (context) => new splashscreen()),
       ); 
       
     }
@@ -110,7 +110,7 @@ if (requestresponse=="success")
       //var weight=jsonResponse['weight'];
   // Navigator.of(context).pushReplacementNamed('/home');
 print("ooogya");
-   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DashBoard(id:id,name: name,weight: weight,calorie: calorie, )),);
+   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DashBoard(id:id,indexnumber:0,name: name,weight: weight,calorie: calorie, )),);
 }
 else if(requestresponse=="error")
 {

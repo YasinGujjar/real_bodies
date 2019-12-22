@@ -25,6 +25,7 @@ class _ProgramState extends State<Program> {
   URL urldomain =URL();
 
   Future<List<ProgramPlan>> fetchProgram()async {
+    print('this is program ${widget.email}');
     try{
       print(widget.id);
       var url=urldomain.domain+"fetch_program";
