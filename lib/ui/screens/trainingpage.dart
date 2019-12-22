@@ -1,25 +1,32 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:real_bodies/models/chart_data.dart';
 import 'package:real_bodies/models/exercise.dart';
 import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/pages/add_food_main.dart';
+import 'package:real_bodies/realbodyui/exercise_library.dart';
+import 'package:real_bodies/realbodyui/exercise_plan_full.dart';
 import 'package:real_bodies/theme/my_flutter_app_icons.dart';
 //import 'package:real_bodies/models/chart_data.dart';
 import 'package:real_bodies/theme/palette.dart';
-
 import 'package:real_bodies/ui/widgets/category_item.dart';
 import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
 import 'package:http/http.dart' as http;
 
 //import 'add_food_main.dart';
 
-
 class TrainingPage extends StatefulWidget {
+  final int id;
   final List<ExerciseModel> exerciseList;
   final String trainingDay;
-  TrainingPage({this.exerciseList,this.trainingDay});
+ // final Function() notifyParent;
+
+  TrainingPage({
+    this.id,
+    this.exerciseList,
+    this.trainingDay,
+    //this.notifyParent
+  });
   @override
   _TrainingPageState createState() => _TrainingPageState();
 }
@@ -28,11 +35,11 @@ class _TrainingPageState extends State<TrainingPage> {
   @override
   void initState() {
     super.initState();
-
   }
 
   @override
   Widget build(BuildContext context) {
+
     //List<charts.Series> seriesList;
     bool animate;
 
@@ -68,18 +75,22 @@ class _TrainingPageState extends State<TrainingPage> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     double abovePadding = MediaQuery.of(context).padding.top;
+
 //    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
 //        statusBarColor: Colors.green
 //    ));
     return
-    Container(
-    width: width,
-    height: height - kToolbarHeight,
-    child:
-          Column(
-            children: <Widget>[
-              Expanded(
-                flex: 9,
+
+       Container(
+
+        width: width,
+      height: height - kToolbarHeight,
+      child:
+            Column(
+              children: <Widget>[
+                Expanded(
+                  flex: 10,
+
                 child: ListView(
                   children: <Widget>[
                     Column(
@@ -129,10 +140,8 @@ class _TrainingPageState extends State<TrainingPage> {
                                   itemCount: widget.exerciseList.length,
                                   itemBuilder: (BuildContext context, int index ){
                                     return
-                                    ExerciseCard(id:widget.exerciseList[index].id,name:widget.exerciseList[index].name);
-
+                                    ExerciseCard(userId: widget.id,id:widget.exerciseList[index].id,name:widget.exerciseList[index].name,log:widget.exerciseList[index].log,index: index,reps: widget.exerciseList[index].sets,sets: widget.exerciseList[index].sets,);
                                   }
-
                               ),
 
 
@@ -458,55 +467,73 @@ class _TrainingPageState extends State<TrainingPage> {
                     ),
                   ],
                 ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Container(
-                  width: width * 0.9,
-                  // color: Colors.orange,
-                  child: FlatButton(
-                   color: Palette.mainPurple,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12.0),
-                      child: FittedBox(
-                        fit: BoxFit.contain,
-                        child: Text(
-                          "Start",
-                          softWrap: true,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.white,
-                            decoration: TextDecoration.none,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w800,
-                            fontFamily: "OpenSans",
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    width: width * 0.9,
+                    // color: Colors.orange,
+                    child: FlatButton(
+                     color: Palette.mainPurple,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 12.0),
+                        child: FittedBox(
+                          fit: BoxFit.contain,
+                          child: Text(
+                            "Start",
+
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              decoration: TextDecoration.none,
+                              fontSize: 26,
+                              fontWeight: FontWeight.w800,
+                              fontFamily: "OpenSans",
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                      side: BorderSide(
-                        color: Colors.white,
-                        width: 2,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+
+                        side: BorderSide(
+                          color:Colors.white,
+                          width: 2,
+                        ),
                       ),
+                      onPressed: () {
+                           setState(() {
+                           });
+                          // widget.notifyParent();
+                      },
                     ),
-                    onPressed: () {},
                   ),
                 ),
-              ),
-            ],
-          ),
-        );
+              ],
+            ),
+          );
 
   }
 }
 
 
-class ExerciseCard extends StatelessWidget {
+class ExerciseCard extends StatefulWidget {
+  final int userId;
   final int id;
   final String name;
-  ExerciseCard({this.id,this.name});
+  final String log;
+  final int reps;
+  final int sets;
+  final int index;
+  ExerciseCard({this.reps,this.sets,this.index,this.userId,this.id,this.name,this.log});
+
+  @override
+  _ExerciseCardState createState() => _ExerciseCardState();
+}
+
+class _ExerciseCardState extends State<ExerciseCard> {
+  bool _buttonLog = false;
+
   @override
   Widget build(BuildContext context) {
     return
@@ -514,7 +541,7 @@ class ExerciseCard extends StatelessWidget {
         elevation: 5.0,
         child: ListTile(
           title: Text(
-            '$name',
+            '${widget.name}',
             style: TextStyle(
                 fontSize: 19.0,
                 fontWeight: FontWeight.bold),
@@ -550,10 +577,11 @@ class ExerciseCard extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                         textColor: Colors.white,
                         onPressed: () {
-                          /*  Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => WelcomeScreen(goal:widget.goal,gender:widget.gender,age:widget.age,weight:widget.weight,height:widget.height)),
-                                      ); */
+
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ExerciseLibrary()),
+                          );
                         },
                         splashColor: Colors.black12,
                         borderColor: Colors.white,
@@ -567,14 +595,27 @@ class ExerciseCard extends StatelessWidget {
                     width: 70,
                     child: FittedBox(
                       fit: BoxFit.contain,
-                      child: CustomFlatButton(
+                      child:
+
+                  //    widget.log=='1'||_buttonLog?
+                   //  Icon(Icons.done) :
+                      CustomFlatButton(
 
                         title: "Log",
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
                         textColor: Colors.white,
                         onPressed: () {
-                         logExercise(2, this.id);
+
+
+//                          logExercise(widget.userId, this.widget.id);
+//                          setState(() {
+//                            _buttonLog = true;
+//                          });
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ExerciseInfo(name: widget.name,reps: widget.reps,sets: widget.sets,index: widget.index+1,)),
+                          );
                         },
                         splashColor: Colors.black12,
                         borderColor: Colors.white,

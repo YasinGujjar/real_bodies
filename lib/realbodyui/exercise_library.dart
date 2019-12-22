@@ -44,9 +44,9 @@ class _ExerciseLibraryState extends State<ExerciseLibrary> {
           ),
           body:TabBarView(children: [
             ExerciseVideoList(),
-            Container(),
-            Container(),
-            Container(),
+            Container(child:Center(child: Text('Coming Soon'))),
+            Container(child:Center(child: Text('Coming Soon'))),
+            Container(child:Center(child: Text('Coming Soon'))),
 
           ],),
         ),
@@ -119,6 +119,8 @@ class _ExerciseVideoListState extends State<ExerciseVideoList> {
           ),
         ),
       ),
+          Center(child: Container(child:Text('Library Coming Soon'))),
+
 
           FloatingActionButton(onPressed: (){
             setState(() {

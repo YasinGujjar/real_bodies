@@ -49,8 +49,7 @@ class _MealPlanState extends State<MealPlan> {
           body:
           TabBarView(children: [
             MealPlanTab(id:widget.id),
-            MealPlanList(title: 'dfhjdh',description: 'dfjkd',),
-
+            Center(child: Text('Coming Soon')),
           ],
           ),
         ),
