@@ -2,7 +2,8 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
 class WeightChart extends StatefulWidget {
-
+  final List weightList;
+  WeightChart({this.weightList});
 
 
   @override
@@ -10,10 +11,15 @@ class WeightChart extends StatefulWidget {
 }
 
 class _WeightChartState extends State<WeightChart> {
+  var data;
+
    List<charts.Series<LinearSales, int>> seriesList;
    bool animate;
 
     _createSampleData() {
+      // for(int i = 0; i<widget.weightList.length; i++){
+      //   data.add(LinearScale())
+      // }
      var data = [
        new LinearSales(0, 5),
        new LinearSales(50, 25),

@@ -10,6 +10,7 @@ class FoodDiary extends StatefulWidget {
   final int id;
   final Function() notifyParent;
   final String calorie;
+  
   FoodDiary({Key key, @required this.notifyParent,this.id,this.calorie}) : super(key: key);
   @override
   _FoodDiaryState createState() => _FoodDiaryState();
@@ -118,6 +119,7 @@ else if(requestresponse=="error")
 
   @override
   Widget build(BuildContext context) {
+     //checkinfo();
     return
        Column(
        children: <Widget>[

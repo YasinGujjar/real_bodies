@@ -12,6 +12,7 @@ import 'dart:convert';
 
 class FoodExerciseDiary extends StatefulWidget {
   final int id;
+  
   final String calorie;
   FoodExerciseDiary({this.id,this.calorie});
   @override
@@ -20,7 +21,7 @@ class FoodExerciseDiary extends StatefulWidget {
 
 class _FoodExerciseDiaryState extends State<FoodExerciseDiary> {
 
-String foodtakecal="";
+String takeCal="0";
 void refresh(){
   setState(() {
 
@@ -35,12 +36,14 @@ URL urldomain =URL();
       print(DateTime.now().toString());
        var url=urldomain.domain+"get_food_record";
     final response=await http.get(url+"&id="+widget.id.toString());
-    print('Response body :${response.body}');
+    print('Response body hh:${response.body}');
+   
    var jsonResponse=json.decode(response.body);
   
-    var foodtaecal=jsonResponse['name'];
-    print("dfsdfsdf"+foodtaecal) ;
- 
+    var takecalo=jsonResponse[0]["totalIntaked"];
+    takeCal=takecalo;
+    print("dfsdfsdf"+takecalo) ;
+ refresh();
 
    }
    catch(e)
@@ -200,7 +203,7 @@ URL urldomain =URL();
                     Align(
                         alignment: Alignment.centerRight,
                         child: Text(
-                          "foodtakecal",
+                          takeCal,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),

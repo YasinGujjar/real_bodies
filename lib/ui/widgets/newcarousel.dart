@@ -102,11 +102,11 @@ print(imgList);
                             width: MediaQuery.of(context).size.width,
                             margin: EdgeInsets.symmetric(horizontal: 10.0),
                             decoration: BoxDecoration(
-                              color: Palette.mainPurple,
+                            //  color: Palette.mainPurple,
                             ),
                             child: Image.network(
                               imgUrl[0],
-                              fit: BoxFit.fill,
+                              fit: BoxFit.contain,
                             ),
 
                           ),

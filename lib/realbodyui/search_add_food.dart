@@ -4,6 +4,7 @@ import 'package:real_bodies/models/chart_data.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:real_bodies/models/food.dart';
 import 'package:real_bodies/models/url.dart';
+import 'package:real_bodies/realbodyui/dashboard.dart';
 import 'package:real_bodies/realbodyui/food_exercise_diary.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:pie_chart/pie_chart.dart';
@@ -17,6 +18,7 @@ class SearchAddFood extends StatefulWidget {
   final int id;
   final String category;
   final String calorie;
+  
 
   SearchAddFood({this.food,this.id,this.category,this.calorie});
 
@@ -445,13 +447,14 @@ class _SearchAddFoodState extends State<SearchAddFood> {
                             onPressed: () async{
                               saveFoodOnServer(widget.id, widget.category,widget.food.id);
 
-                               showDialog(context: context,
+                              /*  showDialog(context: context,
 builder: (BuildContext context) {
   return CustomAlertDialog(title: "Success!",content: "Food Added",);
 });
-print("calllll"+widget.calorie);
+print("calllll"+widget.calorie); */
+//print("calllll"+widget.name);
                               Navigator.of(context)
-                .pushReplacement(MaterialPageRoute(builder: (context) => FoodExerciseDiary(id: widget.id,calorie: widget.calorie,),)); 
+                .pushReplacement(MaterialPageRoute(builder: (context) => DashBoard(id: widget.id,calorie: widget.calorie,indexnumber: 2))); 
                                
                             },
                             color: Palette.mainPurple,

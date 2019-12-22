@@ -59,7 +59,7 @@ URL urldomain =URL();
 
  Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => DashBoard(id: id,name: name,weight:weight,calorie:calorie)),
+    MaterialPageRoute(builder: (context) => DashBoard(id: id,name: name,weight:weight,calorie:calorie,indexnumber: 0,)),
   );
 
 /* 

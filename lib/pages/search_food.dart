@@ -130,6 +130,7 @@ class CustomSearchDelegate extends SearchDelegate<String>{
   final List<String> _history;
   final int id;
   final String category;
+  
   final String calorie;
   //var food;
   Food selectedFood;
@@ -274,6 +275,7 @@ class CustomSearchDelegate extends SearchDelegate<String>{
       id: this.id,
       category: this.category,
       calorie:this.calorie,
+     
       query: this.query,
       history: this._history,
       //suggestions: suggestions.toList(),
@@ -337,6 +339,7 @@ class _SuggestionList extends StatelessWidget {
   final String category;
   final int id;
   final String calorie;
+  
   Food getSelectedFood(String query, int length){
     print('heedjkfldjfdljjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj');
     Food selectedFood =Food();
@@ -402,7 +405,7 @@ class _SuggestionList extends StatelessWidget {
 
                   Navigator.push(
                     context,
-                    ScaleRoute( page: SearchAddFood(food: selectedFood,id: id,category: category,calorie:calorie
+                    ScaleRoute( page: SearchAddFood(food: selectedFood,id: id,category: category,calorie:calorie,
                     )),
                   );
                 },
