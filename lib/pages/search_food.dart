@@ -407,8 +407,12 @@ class _SuggestionList extends StatelessWidget {
 
                   Navigator.push(
                     context,
-                    ScaleRoute( page: SearchAddFood(food: selectedFood,id: id,category: category,calorie:calorie,
-                    )),
+//                    ScaleRoute( page: SearchAddFood(food: selectedFood,id: id,category: category,calorie:calorie,
+//                    )),
+
+                    MaterialPageRoute(builder: (context) => SearchAddFood(food: selectedFood,id: id,category: category,calorie:calorie,)
+                  ),
+
                   );
                 },
               );

@@ -161,7 +161,7 @@ http.post(uploadEndPoint,body: {
             ],
           ),
           SizedBox(
-            height: 30,
+            height: 5,
           ),
            /*  SizedBox(
             height: 40.0,
@@ -347,7 +347,7 @@ setState(() {
       ),
       
             Container(
-              height: height*0.55,
+              height: height*0.60,
                
             //  color: Colors.yellow,
  child:

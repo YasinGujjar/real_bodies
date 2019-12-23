@@ -12,6 +12,8 @@ import 'package:real_bodies/theme/palette.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:shared_preferences/shared_preferences.dart';
+
 class DashBoard extends StatefulWidget {
   final int id;
   final String name;
@@ -24,7 +26,7 @@ class DashBoard extends StatefulWidget {
 }
 
 class _DashBoardState extends State<DashBoard> {
-
+  Future<String> userName;
   int _selectedIndex = 0;
   List imgList=[];
   List weightList=[];
@@ -52,12 +54,19 @@ class _DashBoardState extends State<DashBoard> {
       print("Exception on way $e");
     }
   }
+  Future<String> loadPasswordPreference() async{
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    String password = pref.getString('userName');
+    return password;
+  }
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
    // checkinfo();
     _selectedIndex=widget.indexnumber;
+
+    userName = loadPasswordPreference();
     
   }
 
@@ -66,7 +75,7 @@ class _DashBoardState extends State<DashBoard> {
 
 
     final _tabs = [
-      storeTab(context,widget.name),
+      storeTab(context,widget.name,userName),
       ExercisePlan(id:widget.id),
       FoodExerciseDiary(id: widget.id,calorie:widget.calorie),
       Center(child: Text('Coming Soon..',style: TextStyle(color: Colors.white,fontSize: 30),)),
@@ -130,7 +139,7 @@ class _DashBoardState extends State<DashBoard> {
   }
 }
 
-Widget storeTab(BuildContext context,String name) {
+Widget storeTab(BuildContext context,String name,Future<String> userName) {
   double width = MediaQuery.of(context).size.width;
   double height = MediaQuery.of(context).size.height;
   // will pick it up from here
@@ -195,8 +204,24 @@ Widget storeTab(BuildContext context,String name) {
                 ),
                 FittedBox(
                   fit: BoxFit.contain,
-                  child: Text("  WELCOME $name",
-                    style: TextStyle(fontSize: 30.0,fontWeight: FontWeight.w700,color: Colors.white),),
+                  child: FutureBuilder(
+                    future: userName,
+                    builder: (context,snapshot) {
+                      if(snapshot.hasData) {
+                        return
+                        Text("WELCOME ${snapshot.data}", //$name",
+                          style: TextStyle(
+                              fontSize: 30.0, fontWeight: FontWeight
+                              .w700, color: Colors.white),);
+                      }
+                      else{
+                        return Text("WELCOME ", //$name",
+                          style: TextStyle(
+                              fontSize: 30.0, fontWeight: FontWeight
+                              .w700, color: Colors.white),);
+                      }
+                    }
+                  ),
                 )
               ],
             ),
@@ -692,3 +717,4 @@ Widget deals(String dealTitle, {onViewMore, List<Widget> items}) {
   );
 }
  */
+

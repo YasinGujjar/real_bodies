@@ -144,6 +144,7 @@ class _ProgramListState extends State<ProgramList> {
   String _pass="";
   String argName = "";
   String argPassword="";
+  String argUserName="";
 void buyProgram(int id, int programId ) async {
   URL urldomain = URL();
   var url=urldomain.domain+"buy_program";
@@ -159,8 +160,9 @@ void buyProgram(int id, int programId ) async {
                 .push(MaterialPageRoute(builder: (context) => DashBoard(id:widget.id,name:widget.name,indexnumber: 0,calorie:widget.calorie)));
              argName=widget.email;
                     argPassword=widget.password;
-                    print("name:"+argName+" Password:"+argPassword);
-                    saveNamePreference(argName,argPassword);         
+                    argUserName=widget.name;
+                    print("name:"+argName+" Password:"+argPassword+"userName:"+argUserName);
+                    saveNamePreference(argName,argPassword,argUserName);
 
   } else {
     // If that call was not successful, throw an error.
@@ -294,10 +296,11 @@ void updateValue(String name) {
 
 }
 
-Future<bool> saveNamePreference(String name, String password) async{
+Future<bool> saveNamePreference(String name, String password,String userName) async{
   SharedPreferences pref = await SharedPreferences.getInstance();
   pref.setString('name', name);
  pref.setString('password', password);
+ pref.setString('userName', userName);
   return true;
 }
 

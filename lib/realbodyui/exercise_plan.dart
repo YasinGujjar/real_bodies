@@ -176,7 +176,7 @@ class _ExercisePlanState extends State<ExercisePlan> {
                          return CircularProgressIndicator();
                        }
                      ),
-                     SizedBox(height: 5,),
+                     SizedBox(height: 1,),
                    ],
                  ),
                ),

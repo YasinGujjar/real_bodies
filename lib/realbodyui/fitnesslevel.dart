@@ -67,226 +67,230 @@ URL urldomain=URL();
       backgroundColor: Color(0xffDE4922),
 
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Container(
-            //color: Colors.yellow,
-            //height: height * 0.60,
-            child: Column(
-              children: <Widget>[
-                Row(
-                 children: <Widget>[
-                 Container(
-                   height: height * 0.10,
-                   child: Icon(Icons.arrow_back,color: Colors.white,),
-                 ), Container(
-                     width: width * 0.80,
-                     child: Center(child: Text('Step 2 of 3',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
-                   ),
+        child: ListView(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                //color: Colors.yellow,
+                //height: height * 0.60,
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                     children: <Widget>[
+                     Container(
+                       height: height * 0.10,
+                       child: Icon(Icons.arrow_back,color: Colors.white,),
+                     ), Container(
+                         width: width * 0.80,
+                         child: Center(child: Text('Step 2 of 3',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
+                       ),
 
-                 ],
-                ),
-                Container(
-                  height: height * 0.05,
-                  child: Column(
-                    //crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      Container(
-                        child: Text('Select your fitness level',style: TextStyle(fontSize: 16.0,color: Colors.white, fontWeight: FontWeight.bold)),
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  //height: height * 0.10,
-                  width: width,
-                  child: Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text('Beginer',style: TextStyle(fontSize: 16.0,color: Colors.white, fontWeight: FontWeight.bold)),
+                     ],
                     ),
-                  ),
-                ),
-                Container(
-                  //height: height * 0.20,
-                  width: width,
-                  child: Column(
-                    children: <Widget>[
-                      Row(
+                    Container(
+                      height: height * 0.05,
+                      child: Column(
+                        //crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
                           Container(
-                            width: width * 0.60,
-                              child: Padding(
-                                padding: const EdgeInsets.only(left:20.0),
-                                child: Text('You are new to fitness training',style: TextStyle(color: Colors.white),),
-                              )
-                          ),Container(
-                              width: width * 0.30,
-                              child: Padding(
-                                  padding: const EdgeInsets.only(left:20.0),
-                                child: Checkbox(
-                              activeColor: Colors.white,
-                                value: level1,
-                                onChanged: (bool value) {
-                                  setState(() {
-                                    levelval=1.55;
-                                    level1 = value;
-                                    level2=false;
-                                        level3=false;
-                                  });
-                                })
-                              ),
+                            child: Text('Select your fitness level',style: TextStyle(fontSize: 16.0,color: Colors.white, fontWeight: FontWeight.bold)),
                           )
                         ],
-                      ),Divider(
-                        height: 2,
-                        color: Colors.white,
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    //height: height * 0.10,
-                    width: width,
-                    child: Container(
-                      child: Text('Intermediate',style: TextStyle(fontSize: 16.0,color: Colors.white, fontWeight: FontWeight.bold)),
-                    ),
-                  ),
-                ),
-                Container(
-                  //height: height * 0.20,
-                  width: width,
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Container(
-                              width: width * 0.60,
-                              child: Padding(
-                                padding: const EdgeInsets.only(left:20.0),
-                                child: Text('You have been training regularly',style: TextStyle(color: Colors.white),),
-                              )
-                          ),Container(
-                            width: width * 0.30,
-                            child: Padding(
-                                padding: const EdgeInsets.only(left:20.0),
-                                child: Checkbox(
-                                    activeColor: Colors.white,
-                                    value: level2,
-                                    onChanged: (bool value) {
-                                      setState(() {
-                                         levelval=1.65;
-                                        level2 = value;
-                                        level3=false;
-                                        level1=false;
-                                      });
-                                    })
-                            ),
-                          )
-                        ],
-                      ),Divider(
-                        height: 2,
-                        color: Colors.white,
                       ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    //height: height * 0.10,
-                    width: width,
-                    child: Container(
-                      child: Text('Advanced',style: TextStyle(fontSize: 16.0,color: Colors.white, fontWeight: FontWeight.bold)),
                     ),
-                  ),
-                ),
-                Container(
-                  //height: height * 0.20,
-                  width: width,
-                  child: Column(
-                    children: <Widget>[
-                      Row(
+                    Container(
+                      //height: height * 0.10,
+                      width: width,
+                      child: Container(
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Text('Beginer',style: TextStyle(fontSize: 16.0,color: Colors.white, fontWeight: FontWeight.bold)),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      //height: height * 0.20,
+                      width: width,
+                      child: Column(
                         children: <Widget>[
-                          Container(
-                              width: width * 0.60,
-                              child: Padding(
-                                padding: const EdgeInsets.only(left:20.0),
-                                child: Text("You're fit and ready for an intensive workout plan",style: TextStyle(color: Colors.white),),
-                              )
-                          ),Container(
-                            width: width * 0.30,
-                            child: Padding(
-                                padding: const EdgeInsets.only(left:20.0),
-                                child: Checkbox(
-                                    activeColor: Colors.white,
-                                    value: level3,
+                          Row(
+                            children: <Widget>[
+                              Container(
+                                width: width * 0.60,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left:20.0),
+                                    child: Text('You are new to fitness training',style: TextStyle(color: Colors.white),),
+                                  )
+                              ),Container(
+                                  width: width * 0.30,
+                                  child: Padding(
+                                      padding: const EdgeInsets.only(left:20.0),
+                                    child: Checkbox(
+                                  activeColor: Colors.white,
+                                    value: level1,
                                     onChanged: (bool value) {
                                       setState(() {
-                                         levelval=1.80;
-                                        level3 = value;
+                                        levelval=1.55;
+                                        level1 = value;
                                         level2=false;
-                                        level1=false;
+                                            level3=false;
                                       });
                                     })
-                            ),
+                                  ),
+                              )
+                            ],
+                          ),Divider(
+                            height: 2,
+                            color: Colors.white,
                           )
                         ],
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(height: height * 0.28,),
-                Container(
-                  //margin: EdgeInsets.only(top: 5.0),
-                  height: 50,
-                  width: width * 0.80,
-                  child: FlatButton(
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0),
+                      ),
                     ),
-                    onPressed: () {
-                      if(level1==true)
-                      {
-                        level="Beginner";
-                        print("level "+level+"level val "+levelval.toString()+"id "+widget.id.toString());
-                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                FitnessLevelThree(id: widget.id,goal:widget.goal,diet:widget.diet,level:level ,levelval:levelval,name:widget.name,email:widget.email,password:widget.password)));
-                      }
-                       if(level2==true)
-                      {
-                        level="Intermadiate";
-                         print("level "+level+"level val "+levelval.toString()+"id "+widget.id.toString());
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                FitnessLevelThree(id: widget.id,goal:widget.goal,diet:widget.diet,level:level,levelval:levelval,name:widget.name,email:widget.email,password:widget.password)));
-                      }
-                       if(level3==true)
-                      {
-                        level="Advanced";
-                         print("level "+level+"level val "+levelval.toString()+"id "+widget.id.toString());
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                FitnessLevelThree(id: widget.id,goal:widget.goal,diet:widget.diet,level:level,levelval:levelval,name:widget.name,email:widget.email,password:widget.password)));
-                      }
-                      if(level1==false && level2==false && level3==false){
-                        print("Level must Select");
-                      
-                    }
-                       },
-                    color: Colors.white,
-                    textColor: Palette.backGround,
-                    child: Text("DIETS".toUpperCase(),
-                        style: TextStyle(fontSize: 14,
-                            fontWeight: FontWeight.bold)),
-                  ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        //height: height * 0.10,
+                        width: width,
+                        child: Container(
+                          child: Text('Intermediate',style: TextStyle(fontSize: 16.0,color: Colors.white, fontWeight: FontWeight.bold)),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      //height: height * 0.20,
+                      width: width,
+                      child: Column(
+                        children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              Container(
+                                  width: width * 0.60,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left:20.0),
+                                    child: Text('You have been training regularly',style: TextStyle(color: Colors.white),),
+                                  )
+                              ),Container(
+                                width: width * 0.30,
+                                child: Padding(
+                                    padding: const EdgeInsets.only(left:20.0),
+                                    child: Checkbox(
+                                        activeColor: Colors.white,
+                                        value: level2,
+                                        onChanged: (bool value) {
+                                          setState(() {
+                                             levelval=1.65;
+                                            level2 = value;
+                                            level3=false;
+                                            level1=false;
+                                          });
+                                        })
+                                ),
+                              )
+                            ],
+                          ),Divider(
+                            height: 2,
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        //height: height * 0.10,
+                        width: width,
+                        child: Container(
+                          child: Text('Advanced',style: TextStyle(fontSize: 16.0,color: Colors.white, fontWeight: FontWeight.bold)),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      //height: height * 0.20,
+                      width: width,
+                      child: Column(
+                        children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              Container(
+                                  width: width * 0.60,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left:20.0),
+                                    child: Text("You're fit and ready for an intensive workout plan",style: TextStyle(color: Colors.white),),
+                                  )
+                              ),Container(
+                                width: width * 0.30,
+                                child: Padding(
+                                    padding: const EdgeInsets.only(left:20.0),
+                                    child: Checkbox(
+                                        activeColor: Colors.white,
+                                        value: level3,
+                                        onChanged: (bool value) {
+                                          setState(() {
+                                             levelval=1.80;
+                                            level3 = value;
+                                            level2=false;
+                                            level1=false;
+                                          });
+                                        })
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: height * 0.28,),
+                    Container(
+                      //margin: EdgeInsets.only(top: 5.0),
+                      height: 50,
+                      width: width * 0.80,
+                      child: FlatButton(
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0),
+                        ),
+                        onPressed: () {
+                          if(level1==true)
+                          {
+                            level="Beginner";
+                            print("level "+level+"level val "+levelval.toString()+"id "+widget.id.toString());
+                             Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    FitnessLevelThree(id: widget.id,goal:widget.goal,diet:widget.diet,level:level ,levelval:levelval,name:widget.name,email:widget.email,password:widget.password)));
+                          }
+                           if(level2==true)
+                          {
+                            level="Intermadiate";
+                             print("level "+level+"level val "+levelval.toString()+"id "+widget.id.toString());
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    FitnessLevelThree(id: widget.id,goal:widget.goal,diet:widget.diet,level:level,levelval:levelval,name:widget.name,email:widget.email,password:widget.password)));
+                          }
+                           if(level3==true)
+                          {
+                            level="Advanced";
+                             print("level "+level+"level val "+levelval.toString()+"id "+widget.id.toString());
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    FitnessLevelThree(id: widget.id,goal:widget.goal,diet:widget.diet,level:level,levelval:levelval,name:widget.name,email:widget.email,password:widget.password)));
+                          }
+                          if(level1==false && level2==false && level3==false){
+                            print("Level must Select");
+
+                        }
+                           },
+                        color: Colors.white,
+                        textColor: Palette.backGround,
+                        child: Text("DIETS".toUpperCase(),
+                            style: TextStyle(fontSize: 14,
+                                fontWeight: FontWeight.bold)),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
                   
       ),

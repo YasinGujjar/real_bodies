@@ -724,6 +724,7 @@ class TableRowReturn extends StatelessWidget {
         padding: const EdgeInsets.only(left:2.0,right:2.0),
         child: Table(
     columnWidths: {0: FractionColumnWidth(.3)},
+
     defaultVerticalAlignment: TableCellVerticalAlignment.bottom,
     children :[
 
@@ -732,20 +733,20 @@ class TableRowReturn extends StatelessWidget {
 
     children: [
     Center(
-    child: Container(
-    height: 37,
-    child: Center(child: Text('$name',
-    
-    style: TextStyle(
-    color:  Color(0xff94948d),
-    ),
-    )),
+      child: Container(
+      height: 55,
+      child: Center(child: Text('$name',
 
-    ),
+      style: TextStyle(
+      color:  Color(0xff94948d),
+      ),
+      )),
+
+      ),
     ),
     Center(
     child: Container(
-    height: 37,
+    height: 55,
     child: Center(child: Text('$calories',
     style: TextStyle(
     color:  Color(0xff94948d),
@@ -757,7 +758,7 @@ class TableRowReturn extends StatelessWidget {
 
     Center(
     child: Container(
-    height: 37,
+    height: 55,
     child: Center(child: Text('$proteins',
     style: TextStyle(
     color:  Color(0xff94948d),
@@ -769,7 +770,7 @@ class TableRowReturn extends StatelessWidget {
     ),
     Center(
     child: Container(
-    height: 37,
+    height: 55,
     child: Center(child: Text('$carbs',
     style: TextStyle(
     color:  Color(0xff94948d),

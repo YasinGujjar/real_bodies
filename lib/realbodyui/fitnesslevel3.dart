@@ -45,7 +45,7 @@ class _FitnessLevelThreeState extends State<FitnessLevelThree> {
         children: <Widget>[
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(10.0),
               child: Container(
                 //color: Colors.yellow,
                 //height: height * 0.60,
@@ -193,7 +193,7 @@ class _FitnessLevelThreeState extends State<FitnessLevelThree> {
                       ),
                     ),
                    */  
-                    SizedBox(height: height * 0.18,),
+                    //SizedBox(height: height * 0.18,),
       /*               Container(
                       //margin: EdgeInsets.only(top: 5.0),
                       height: 50,

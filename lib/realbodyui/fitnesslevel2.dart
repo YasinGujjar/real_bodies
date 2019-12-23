@@ -35,88 +35,92 @@ class _FitnessLevelTwoState extends State<FitnessLevelTwo> {
       backgroundColor: Color(0xffDE4922),
 
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Container(
-            //color: Colors.yellow,
-            //height: height * 0.60,
-            child: Column(
-              children: <Widget>[
-                Row(
-                 children: <Widget>[
-                  Container(
-                     width: width * 0.90,
-                     child: Center(child: Text('Step 1 of 3',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
-                   ),
+        child: ListView(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                //color: Colors.yellow,
+                //height: height * 0.60,
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                     children: <Widget>[
+                      Container(
+                         width: width * 0.90,
+                         child: Center(child: Text('Step 1 of 3',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
+                       ),
 
-                 ],
-                ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 60.0),
-                        child: Center(
-                    child: Container(
-                    height: height*0.50,
-                    //color: Colors.yellow,
-                    child: Column(
-                    children: <Widget>[
-                    Image.asset('assets/images/stepOne.png',scale: 5.0,),
-                    ],
-                  ),
-                ),
-                ),
+                     ],
+                    ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 60.0),
+                            child: Center(
+                        child: Container(
+                        height: height*0.50,
+                        //color: Colors.yellow,
+                        child: Column(
+                        children: <Widget>[
+                        Image.asset('assets/images/stepOne.png',scale: 5.0,),
+                        ],
                       ),
-                Center(
-                  child: Container(
-                 // margin: EdgeInsets.only(top: 5.0),
-                  child: Text(
-                      'Welcome to Realbodies'
-                      ,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 32,color: Colors.white)),
+                    ),
+                    ),
+                          ),
+                    Center(
+                      child: Container(
+                     // margin: EdgeInsets.only(top: 5.0),
+                      child: Text(
+                          'Welcome to Realbodies'
+                          ,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 32,color: Colors.white)),
+                    ),
+                  ),
+                    Center(
+                      child: Container(
+                        width: width * 0.65,
+                        margin: EdgeInsets.only(top: 5.0),
+                        child: Text(
+                            'Personalized workouts will help you gain strength, get in better shape and embrace a healthy lifestyle'
+                            ,style: TextStyle(color: Colors.white,),textAlign: TextAlign.center,),
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        //height: height * 0.08,
+                        width: width * 0.65,
+                        margin: EdgeInsets.only(top: 25.0,bottom: 10.0),
+                        child: Text(
+                          'Get Started'.toUpperCase()
+                          ,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                      ),
+                    ),
+                    Container(
+                      //margin: EdgeInsets.only(top: 5.0),
+                      height: 50,
+                      width: width * 0.80,
+                      child: FlatButton(
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0),
+                        ),
+                        onPressed: () {
+                          print("id"+widget.id.toString()+"diet "+widget.diet);
+                            Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => FitnessLevel(id:widget.id,goal:widget.goal,diet:widget.diet,name:widget.name,email:widget.email,password:widget.password)));
+                        },
+                        color: Palette.buttonjColor,
+                        textColor: Colors.white,
+                        child: Text("Next".toUpperCase(),
+                            style: TextStyle(fontSize: 14,
+                                fontWeight: FontWeight.bold)),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-                Center(
-                  child: Container(
-                    width: width * 0.65,
-                    margin: EdgeInsets.only(top: 5.0),
-                    child: Text(
-                        'Personalized workouts will help you gain strength, get in better shape and embrace a healthy lifestyle'
-                        ,style: TextStyle(color: Colors.white,),textAlign: TextAlign.center,),
-                  ),
-                ),
-                Center(
-                  child: Container(
-                    //height: height * 0.08,
-                    width: width * 0.65,
-                    margin: EdgeInsets.only(top: 25.0,bottom: 10.0),
-                    child: Text(
-                      'Get Started'.toUpperCase()
-                      ,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
-                  ),
-                ),
-                Container(
-                  //margin: EdgeInsets.only(top: 5.0),
-                  height: 50,
-                  width: width * 0.80,
-                  child: FlatButton(
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0),
-                    ),
-                    onPressed: () {
-                      print("id"+widget.id.toString()+"diet "+widget.diet);
-                        Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => FitnessLevel(id:widget.id,goal:widget.goal,diet:widget.diet,name:widget.name,email:widget.email,password:widget.password)));
-                    },
-                    color: Palette.buttonjColor,
-                    textColor: Colors.white,
-                    child: Text("Next".toUpperCase(),
-                        style: TextStyle(fontSize: 14,
-                            fontWeight: FontWeight.bold)),
-                  ),
-                ),
-              ],
             ),
-          ),
+          ],
         ),
-                  
+
       ),
     );
   }
