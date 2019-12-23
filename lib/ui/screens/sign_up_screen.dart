@@ -245,7 +245,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     });
   }
 
-  /* void _signUp(
+  void _signUp(
       {String fullname,
       String number,
       String email,
@@ -256,8 +256,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
         Validator.validateNumber(number) &&
         Validator.validatePassword(password)) {
       try {
-        SystemChannels.textInput.invokeMethod('TextInput.hide');
-        _changeBlackVisible();
+       // SystemChannels.textInput.invokeMethod('TextInput.hide');
+       /*  _changeBlackVisible();
         await Auth.signUp(email, password).then((uID) {
           Auth.addUser(new User(
               userID: uID,
@@ -265,18 +265,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
               firstName: fullname,
               profilePictureURL: ''));
           onBackPress();
-        });
+        }); */
       } catch (e) {
         print("Error in sign up: $e");
-        String exception = Auth.getExceptionText(e);
-        _showErrorAlert(
+       // String exception = Auth.getExceptionText(e);
+     /*    _showErrorAlert(
           title: "Signup failed",
           content: exception,
           onPressed: _changeBlackVisible,
-        );
+        ); */
       }
     }
-  } */
+  }
 
   /* void _showErrorAlert({String title, String content, VoidCallback onPressed}) {
     showDialog(

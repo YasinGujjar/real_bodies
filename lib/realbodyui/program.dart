@@ -157,7 +157,7 @@ void buyProgram(int id, int programId ) async {
    
     print('Response body:${response.body}');
     Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => DashBoard(id:widget.id,name:widget.name,indexnumber: 0,calorie:widget.calorie)));
+                .pushReplacement(MaterialPageRoute(builder: (context) => DashBoard(id:widget.id,name:widget.name,indexnumber: 0,calorie:widget.calorie)));
              argName=widget.email;
                     argPassword=widget.password;
                     argUserName=widget.name;

@@ -5,6 +5,7 @@ import 'package:real_bodies/theme/palette.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:real_bodies/realbodyui/dietplan.dart';
+import 'package:real_bodies/ui/widgets/custom_alert_dialog.dart';
 
 
 class FitnessGoal extends StatefulWidget {
@@ -287,7 +288,10 @@ String goal="";
                         ),
                         onPressed: () {
                            if (goal=="")
-                           {
+                           { showDialog(context: context,
+builder: (BuildContext context) {
+  return CustomAlertDialog(title: "Alert!",content: "Must Select Goal",);
+});
                              print("Select goal must");
                            }
                            else

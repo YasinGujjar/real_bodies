@@ -80,7 +80,7 @@ class _DashBoardState extends State<DashBoard> {
       FoodExerciseDiary(id: widget.id,calorie:widget.calorie),
       Center(child: Text('Coming Soon..',style: TextStyle(color: Colors.white,fontSize: 30),)),
       MealPlan(id:widget.id),
-      ShowWeight(id:widget.id,weight:widget.weight,imgList: imgList,weightList:weightList)
+      ShowWeight(id:widget.id,weight:widget.weight,)
     ];
 
     return Scaffold(

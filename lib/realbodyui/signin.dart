@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:real_bodies/business/validator.dart';
 import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/pages/fitness_goal.dart';
 import 'package:real_bodies/realbodyui/bmi_creen.dart';
 import 'package:real_bodies/realbodyui/dashboard.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/widgets/custom_alert_dialog.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -70,7 +72,10 @@ URL urldomain =URL();
   }
 else if(requestresponse=="error")
 {
-
+ showDialog(context: context,
+builder: (BuildContext context) {
+  return CustomAlertDialog(title: "Alert!",content: "Invalid Email and Password",);
+});
   print("error login");
 } 
 
@@ -176,13 +181,32 @@ loadNamePreference().then(updateValue) ;
                           borderRadius: new BorderRadius.circular(30.0),
                         ),
                         onPressed: () {
-                           argName=_email.text;
+                          if(_email.text!="" && _password.text!="")
+                           {
+                             if(Validator.validateEmail(_email.text))
+                             {
+                               argName=_email.text;
                     argPassword=_password.text;
                     print("name:"+argName+" Password:"+argPassword);
                     saveNamePreference(argName,argPassword);
                           checkinfo();
                           print(_name);
     print(_password);
+                             }
+                             else{
+                                showDialog(context: context,
+builder: (BuildContext context) {
+  return CustomAlertDialog(title: "Alert!",content: "Email Invalid",);
+});
+                             }
+    }
+    else
+    {
+       showDialog(context: context,
+builder: (BuildContext context) {
+  return CustomAlertDialog(title: "Alert!",content: "Must Fill the Fields",);
+});
+    }
                         },
                         color: Palette.buttonjColor,
                         textColor: Colors.white,
