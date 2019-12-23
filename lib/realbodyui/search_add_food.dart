@@ -68,9 +68,9 @@ class _SearchAddFoodState extends State<SearchAddFood> {
   Widget build(BuildContext context) {
 
 
-    dataMap.putIfAbsent("Flutter", () => (widget.food.proteins * 0.1));
-    dataMap.putIfAbsent("React", () => widget.food.carbohydrates * 0.1);
-    dataMap.putIfAbsent("Xa", () => widget.food.fat * 0.1);
+    dataMap.putIfAbsent("Flutter", () => (widget.food.proteins / (widget.food.proteins+widget.food.carbohydrates+widget.food.fat) * 10));
+    dataMap.putIfAbsent("React", () => widget.food.carbohydrates / (widget.food.proteins+widget.food.carbohydrates+widget.food.fat) * 10);
+    dataMap.putIfAbsent("Xa", () => widget.food.fat / (widget.food.proteins+widget.food.carbohydrates+widget.food.fat) * 10);
     //dataMap.putIfAbsent("marin", () => widget.food.sodium * 0.01);
     //dataMap.putIfAbsent("Xamrin", () => widget.food.fatPoly * 0.01);
    // dataMap.putIfAbsent("Xrin", () => widget.food.fatMono * 0.01);
@@ -290,55 +290,55 @@ class _SearchAddFoodState extends State<SearchAddFood> {
                     ),
                     Expanded(
                       flex: 1,
-//                      child: PieChart(
-//                        dataMap: dataMap,
-//                        animationDuration: Duration(milliseconds: 800),
-//                        chartLegendSpacing: 32.0,
-//                        chartRadius: MediaQuery.of(context).size.width / 2.7,
-//                        showChartValuesInPercentage: true,
-//                        showChartValues: true,
-//                        showChartValuesOutside: false,
-//                        chartValueBackgroundColor: Colors.grey[200],
-//                        colorList: colorList,
-//                        showLegends: false,
-//                        legendPosition: LegendPosition.right,
-//                        decimalPlaces: 1,
-//                        showChartValueLabel: true,
-//                        initialAngle: 0,
-//                        chartValueStyle: defaultChartValueStyle.copyWith(
-//                          color: Colors.blueGrey[900].withOpacity(0.9),
-//                        ),
-//                        chartType: ChartType.disc,
-//                      ),
-                    child: Container(height: 250,
-                      width: 250,
-                      child:  charts.PieChart(
-                        _seriesPieData,
-                        animate: true,
-                        animationDuration: Duration(seconds: 1),
-                          behaviors: [
-                                charts.DatumLegend(
-//                                  outsideJustification:
-//                                      charts.OutsideJustification.middle,
-                                  horizontalFirst: true,
-                                  desiredMaxRows: 1,
-                                  cellPadding: EdgeInsets.only(right: 2.0,),
-                                  entryTextStyle: charts.TextStyleSpec(
-                                    color: charts.MaterialPalette.black.darker,
-                                    fontFamily: 'Georgia',
-                                    fontSize: 8,
-                                  ),
-                                )
-                              ],
-                        defaultRenderer: new charts.ArcRendererConfig(
-                          arcWidth: 100,
-                          arcRendererDecorators: [
-                            charts.ArcLabelDecorator(
-                                labelPosition: charts.ArcLabelPosition.auto),
-                          ],
+                      child: PieChart(
+                        dataMap: dataMap,
+                        animationDuration: Duration(milliseconds: 800),
+                        chartLegendSpacing: 32.0,
+                        chartRadius: MediaQuery.of(context).size.width / 2.7,
+                        showChartValuesInPercentage: true,
+                        showChartValues: true,
+                        showChartValuesOutside: true,
+                        chartValueBackgroundColor: Colors.grey[200],
+                        colorList: colorList,
+                        showLegends: false,
+                        legendPosition: LegendPosition.right,
+                        decimalPlaces: 1,
+                        showChartValueLabel: true,
+                        initialAngle: 0,
+                        chartValueStyle: defaultChartValueStyle.copyWith(
+                          color: Colors.blueGrey[900].withOpacity(0.9),
                         ),
+                        chartType: ChartType.disc,
                       ),
-                    ),
+//                    child: Container(height: 250,
+//                      width: 250,
+//                      child:  charts.PieChart(
+//                        _seriesPieData,
+//                        animate: true,
+//                        animationDuration: Duration(seconds: 1),
+//                          behaviors: [
+//                                charts.DatumLegend(
+////                                  outsideJustification:
+////                                      charts.OutsideJustification.middle,
+//                                  horizontalFirst: true,
+//                                  desiredMaxRows: 1,
+//                                  cellPadding: EdgeInsets.only(right: 2.0,),
+//                                  entryTextStyle: charts.TextStyleSpec(
+//                                    color: charts.MaterialPalette.black.darker,
+//                                    fontFamily: 'Georgia',
+//                                    fontSize: 8,
+//                                  ),
+//                                )
+//                              ],
+//                        defaultRenderer: new charts.ArcRendererConfig(
+//                          arcWidth: 100,
+//                          arcRendererDecorators: [
+//                            charts.ArcLabelDecorator(
+//                                labelPosition: charts.ArcLabelPosition.auto),
+//                          ],
+//                        ),
+//                      ),
+//                    ),
                     ),
 
                   ],

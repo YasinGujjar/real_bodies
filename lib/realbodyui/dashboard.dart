@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:real_bodies/models/program.dart';
 import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/pages/search_food.dart';
+import 'package:real_bodies/realbodyui/exercise_plan.dart';
 import 'package:real_bodies/realbodyui/food_exercise_diary.dart';
 import 'package:real_bodies/realbodyui/meal_plan.dart';
 import 'package:real_bodies/realbodyui/search_add_food.dart';
@@ -9,6 +11,8 @@ import 'package:real_bodies/theme/my_flutter_app_icons.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DashBoard extends StatefulWidget {
   final int id;
@@ -22,7 +26,7 @@ class DashBoard extends StatefulWidget {
 }
 
 class _DashBoardState extends State<DashBoard> {
-
+  Future<String> userName;
   int _selectedIndex = 0;
   List imgList=[];
   List weightList=[];
@@ -50,12 +54,19 @@ class _DashBoardState extends State<DashBoard> {
       print("Exception on way $e");
     }
   }
+  Future<String> loadPasswordPreference() async{
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    String password = pref.getString('userName');
+    return password;
+  }
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
    // checkinfo();
     _selectedIndex=widget.indexnumber;
+
+    userName = loadPasswordPreference();
     
   }
 
@@ -64,11 +75,11 @@ class _DashBoardState extends State<DashBoard> {
 
 
     final _tabs = [
-      storeTab(context,widget.name),
-      SearchFood(),
+      storeTab(context,widget.name,userName),
+      ExercisePlan(id:widget.id),
       FoodExerciseDiary(id: widget.id,calorie:widget.calorie),
-      Text('Tab4'),
-      Text('Tab5'),
+      Center(child: Text('Coming Soon..',style: TextStyle(color: Colors.white,fontSize: 30),)),
+      MealPlan(id:widget.id),
       ShowWeight(id:widget.id,weight:widget.weight,imgList: imgList,weightList:weightList)
     ];
 
@@ -128,7 +139,7 @@ class _DashBoardState extends State<DashBoard> {
   }
 }
 
-Widget storeTab(BuildContext context,String name) {
+Widget storeTab(BuildContext context,String name,Future<String> userName) {
   double width = MediaQuery.of(context).size.width;
   double height = MediaQuery.of(context).size.height;
   // will pick it up from here
@@ -193,8 +204,24 @@ Widget storeTab(BuildContext context,String name) {
                 ),
                 FittedBox(
                   fit: BoxFit.contain,
-                  child: Text("  WELCOME $name",
-                    style: TextStyle(fontSize: 30.0,fontWeight: FontWeight.w700,color: Colors.white),),
+                  child: FutureBuilder(
+                    future: userName,
+                    builder: (context,snapshot) {
+                      if(snapshot.hasData) {
+                        return
+                        Text("WELCOME ${snapshot.data}", //$name",
+                          style: TextStyle(
+                              fontSize: 30.0, fontWeight: FontWeight
+                              .w700, color: Colors.white),);
+                      }
+                      else{
+                        return Text("WELCOME ", //$name",
+                          style: TextStyle(
+                              fontSize: 30.0, fontWeight: FontWeight
+                              .w700, color: Colors.white),);
+                      }
+                    }
+                  ),
                 )
               ],
             ),
@@ -690,3 +717,4 @@ Widget deals(String dealTitle, {onViewMore, List<Widget> items}) {
   );
 }
  */
+

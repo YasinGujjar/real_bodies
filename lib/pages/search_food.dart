@@ -108,14 +108,16 @@ else if(requestresponse=="error")
      ),
 
 
-      body:  Scrollbar(
-    child: ListView.builder(
-    itemCount: kFoods.length,
-            itemBuilder: (context, idx) => ListTile(
-              title: Text(kFoods[idx]),
-            ),
-    ),
-    ),
+      body:  Center(child: Container(child: Text('No food added press search button'),)),
+//      Scrollbar(
+////    child: ListView.builder(
+////    itemCount: kFoods.length,
+////            itemBuilder: (context, idx) => ListTile(
+////              title: Text(kFoods[idx]),
+////            ),
+////    ),
+//
+//    ),
 
 
 
@@ -136,8 +138,8 @@ class CustomSearchDelegate extends SearchDelegate<String>{
   Food selectedFood;
   CustomSearchDelegate(List<String> words,this.id,this.category,this.calorie) : _words = words,
   _history = <String>[
-    'apple',
-    'Mango'
+//    'apple',
+//    'Mango'
   ],
   super();
 
@@ -384,7 +386,7 @@ class _SuggestionList extends StatelessWidget {
             itemBuilder: (BuildContext context, int i) {
               final String suggestion = snapshot.data.toList()[i];
               return ListTile(
-                leading: query.isEmpty ? Icon(Icons.history) : Icon(null),
+                leading: query.isEmpty ? Container()/*Icon(Icons.history)*/ : Icon(null),
                 // Highlight the substring that matched the query.
                 title: RichText(
                   text: TextSpan(
@@ -405,8 +407,12 @@ class _SuggestionList extends StatelessWidget {
 
                   Navigator.push(
                     context,
-                    ScaleRoute( page: SearchAddFood(food: selectedFood,id: id,category: category,calorie:calorie,
-                    )),
+//                    ScaleRoute( page: SearchAddFood(food: selectedFood,id: id,category: category,calorie:calorie,
+//                    )),
+
+                    MaterialPageRoute(builder: (context) => SearchAddFood(food: selectedFood,id: id,category: category,calorie:calorie,)
+                  ),
+
                   );
                 },
               );

@@ -8,6 +8,7 @@ import 'package:real_bodies/realbodyui/dashboard.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel2.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel3.dart';
+import 'package:real_bodies/realbodyui/payment.dart';
 import 'package:real_bodies/realbodyui/register1.dart';
 
 import 'package:real_bodies/realbodyui/signin.dart';
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: MyHomePage(),//MyHomePage(title: 'Demo'),
+      home: Payment(),//MyHomePage(title: 'Demo'),
     );
   }
 }
@@ -110,7 +111,7 @@ if (requestresponse=="success")
       //var weight=jsonResponse['weight'];
   // Navigator.of(context).pushReplacementNamed('/home');
 print("ooogya");
-   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DashBoard(id:id,name: name,weight: weight,calorie: calorie, )),);
+   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DashBoard(id:id,indexnumber:0,name: name,weight: weight,calorie: calorie, )),);
 }
 else if(requestresponse=="error")
 {
@@ -122,8 +123,7 @@ else if(requestresponse=="error")
   print("error login");
 } 
   }
- 
-  
+
 @override
  void initState() {
     // TODO: implement initState

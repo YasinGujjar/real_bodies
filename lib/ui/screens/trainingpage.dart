@@ -470,42 +470,45 @@ class _TrainingPageState extends State<TrainingPage> {
                 ),
                 Expanded(
                   flex: 2,
-                  child: Container(
-                    width: width * 0.9,
-                    // color: Colors.orange,
-                    child: FlatButton(
-                     color: Palette.mainPurple,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 12.0),
-                        child: FittedBox(
-                          fit: BoxFit.contain,
-                          child: Text(
-                            "Start",
+                  child: Padding(
+                    padding: const EdgeInsets.only(left:20.0,right: 20),
+                    child: Container(
+                      width: width * 0.9,
+                      // color: Colors.orange,
+                      child: FlatButton(
+                       color: Palette.mainPurple,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 12.0),
+                          child: FittedBox(
+                            fit: BoxFit.contain,
+                            child: Text(
+                              "Start",
 
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              decoration: TextDecoration.none,
-                              fontSize: 26,
-                              fontWeight: FontWeight.w800,
-                              fontFamily: "OpenSans",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                decoration: TextDecoration.none,
+                                fontSize: 26,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: "OpenSans",
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
 
-                        side: BorderSide(
-                          color:Colors.white,
-                          width: 2,
+                          side: BorderSide(
+                            color:Colors.white,
+                            width: 2,
+                          ),
                         ),
+                        onPressed: () {
+                             setState(() {
+                             });
+                            // widget.notifyParent();
+                        },
                       ),
-                      onPressed: () {
-                           setState(() {
-                           });
-                          // widget.notifyParent();
-                      },
                     ),
                   ),
                 ),

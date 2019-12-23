@@ -19,6 +19,7 @@ class _StepTwoState extends State<StepTwo> {
   @override
   void initState() {
     super.initState();
+    print('this is program2 ${widget.email}');
 
   }
   Widget build(BuildContext context) {

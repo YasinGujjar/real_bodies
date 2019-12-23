@@ -255,7 +255,7 @@ class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
   String calorie = "1200";
   TextEditingController textControllerval;
   TextEditingController textControllerval2;
-  String gender = "male";
+  String gender = Gender.Male.toString();
   int age;
   double bmr;
 
@@ -587,12 +587,13 @@ class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
             ),
           ),
           SizedBox(
-            height: 150,
+            height: 100,
           ),
           Container(
             //margin: EdgeInsets.only(top: 5.0),
             height: 50,
             width: 350,
+           // color: Colors.green,
             child: FlatButton(
               shape: new RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(30.0),
