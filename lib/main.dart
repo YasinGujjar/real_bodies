@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: registers(),//MyHomePage(title: 'Demo'),
+      home: MyHomePage(),//MyHomePage(title: 'Demo'),
     );
   }
 }

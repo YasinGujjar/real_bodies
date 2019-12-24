@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:real_bodies/theme/palette.dart';
 
 class ExerciseDiary extends StatefulWidget {
+  final String title;
+  ExerciseDiary({this.title});
   @override
   _ExerciseDiaryState createState() => _ExerciseDiaryState();
 }
@@ -12,7 +14,7 @@ class _ExerciseDiaryState extends State<ExerciseDiary> {
     return  Column(
         children: <Widget>[
            SizedBox(height: 3,),
-         Center(child: Text('Training Week 1',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold,color:Palette.boldTextO),),),
+         Center(child: Text(widget.title,style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold,color:Palette.boldTextO),),),
           Padding(
             padding: const EdgeInsets.only(left:1.0,right: 1.0),
             child: Table(
@@ -156,7 +158,7 @@ class _ExerciseDiaryState extends State<ExerciseDiary> {
                           children: <Widget>[
                             Container(
                               height: 20,
-                              width:  40,
+                              width:  50,
                               child: FlatButton(
                                 shape: new RoundedRectangleBorder(
                                   borderRadius: new BorderRadius.circular(30.0),
@@ -166,7 +168,7 @@ class _ExerciseDiaryState extends State<ExerciseDiary> {
                                 textColor: Colors.white,
                                 child: FittedBox(
                                   fit: BoxFit.contain,
-                                  child: Text("Start".toUpperCase(),
+                                  child: Text("View".toUpperCase(),
                                       style: TextStyle(fontSize: 24,
                                           fontWeight: FontWeight.bold)),
                                 ),
@@ -174,7 +176,7 @@ class _ExerciseDiaryState extends State<ExerciseDiary> {
                             ),
                             Container(
                               height: 20,
-                              width:  40,
+                              width:  50,
                               child: FlatButton(
                                 shape: new RoundedRectangleBorder(
                                   borderRadius: new BorderRadius.circular(30.0),
@@ -184,7 +186,7 @@ class _ExerciseDiaryState extends State<ExerciseDiary> {
                                 textColor: Colors.white,
                                 child: FittedBox(
                                   fit: BoxFit.contain,
-                                  child: Text("Start".toUpperCase(),
+                                  child: Text("Log".toUpperCase(),
                                       style: TextStyle(fontSize: 24,
                                           fontWeight: FontWeight.bold)),
                                 ),
@@ -192,7 +194,7 @@ class _ExerciseDiaryState extends State<ExerciseDiary> {
                             ),
                             Container(
                               height: 20,
-                              width:  40,
+                              width:  50,
                               child: FlatButton(
                                 shape: new RoundedRectangleBorder(
                                   borderRadius: new BorderRadius.circular(30.0),
@@ -202,7 +204,7 @@ class _ExerciseDiaryState extends State<ExerciseDiary> {
                                 textColor: Colors.white,
                                 child: FittedBox(
                                   fit: BoxFit.contain,
-                                  child: Text("Start".toUpperCase(),
+                                  child: Text("Done".toUpperCase(),
                                       style: TextStyle(fontSize: 24,
                                           fontWeight: FontWeight.bold)),
                                 ),
@@ -217,6 +219,257 @@ class _ExerciseDiaryState extends State<ExerciseDiary> {
 
                   ],
                 ),
+                TableRow(
+
+
+                  children: [
+                    Center(
+                      child: Container(
+                        height: 37,
+                        child: Center(child: Text('Jumping Jack',
+                          style: TextStyle(
+                            color:  Color(0xff94948d),
+                          ),
+                        )),
+
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        height: 37,
+                        child: Center(child: Text('6',
+                          style: TextStyle(
+                            color:  Color(0xff94948d),
+                          ),
+                        )),
+
+                      ),
+                    ),
+
+                    Center(
+                      child: Container(
+                        height: 37,
+                        child: Center(child: Text('9',
+                          style: TextStyle(
+                            color:  Color(0xff94948d),
+                          ),
+                        ),
+                        ),
+
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        height: 37,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text('4',
+                              style: TextStyle(
+                                color:  Color(0xff94948d),
+                              ),
+                            ),
+                            Icon(Icons.check),
+                          ],
+                        ),
+
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        height: 37,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Container(
+                              height: 20,
+                              width:  50,
+                              child: FlatButton(
+                                shape: new RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(30.0),
+                                ),
+                                onPressed: () {},
+                                color: Palette.boldTextO,
+                                textColor: Colors.white,
+                                child: FittedBox(
+                                  fit: BoxFit.contain,
+                                  child: Text("View".toUpperCase(),
+                                      style: TextStyle(fontSize: 24,
+                                          fontWeight: FontWeight.bold)),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 20,
+                              width:  50,
+                              child: FlatButton(
+                                shape: new RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(30.0),
+                                ),
+                                onPressed: () {},
+                                color: Palette.boldTextO,
+                                textColor: Colors.white,
+                                child: FittedBox(
+                                  fit: BoxFit.contain,
+                                  child: Text("Log".toUpperCase(),
+                                      style: TextStyle(fontSize: 24,
+                                          fontWeight: FontWeight.bold)),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 20,
+                              width:  50,
+                              child: FlatButton(
+                                shape: new RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(30.0),
+                                ),
+                                onPressed: () {},
+                                color: Palette.boldTextO,
+                                textColor: Colors.white,
+                                child: FittedBox(
+                                  fit: BoxFit.contain,
+                                  child: Text("Done".toUpperCase(),
+                                      style: TextStyle(fontSize: 24,
+                                          fontWeight: FontWeight.bold)),
+                                ),
+                              ),
+                            ),
+
+                          ],
+                        ),
+
+                      ),
+                    ),
+
+                  ],
+                ),
+TableRow(
+
+
+                  children: [
+                    Center(
+                      child: Container(
+                        height: 37,
+                        child: Center(child: Text('Push Ups',
+                          style: TextStyle(
+                            color:  Color(0xff94948d),
+                          ),
+                        )),
+
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        height: 37,
+                        child: Center(child: Text('8',
+                          style: TextStyle(
+                            color:  Color(0xff94948d),
+                          ),
+                        )),
+
+                      ),
+                    ),
+
+                    Center(
+                      child: Container(
+                        height: 37,
+                        child: Center(child: Text('15',
+                          style: TextStyle(
+                            color:  Color(0xff94948d),
+                          ),
+                        ),
+                        ),
+
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        height: 37,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text('6',
+                              style: TextStyle(
+                                color:  Color(0xff94948d),
+                              ),
+                            ),
+                            //Icon(Icons.check),
+                          ],
+                        ),
+
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        height: 37,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Container(
+                              height: 20,
+                              width:  50,
+                              child: FlatButton(
+                                shape: new RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(30.0),
+                                ),
+                                onPressed: () {},
+                                color: Palette.boldTextO,
+                                textColor: Colors.white,
+                                child: FittedBox(
+                                  fit: BoxFit.contain,
+                                  child: Text("View".toUpperCase(),
+                                      style: TextStyle(fontSize: 24,
+                                          fontWeight: FontWeight.bold)),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 20,
+                              width:  50,
+                              child: FlatButton(
+                                shape: new RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(30.0),
+                                ),
+                                onPressed: () {},
+                                color: Palette.boldTextO,
+                                textColor: Colors.white,
+                                child: FittedBox(
+                                  fit: BoxFit.contain,
+                                  child: Text("Log".toUpperCase(),
+                                      style: TextStyle(fontSize: 24,
+                                          fontWeight: FontWeight.bold)),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 20,
+                              width:  50,
+                              child: FlatButton(
+                                shape: new RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(30.0),
+                                ),
+                                onPressed: () {},
+                                color: Palette.boldTextO,
+                                textColor: Colors.white,
+                                child: FittedBox(
+                                  fit: BoxFit.contain,
+                                  child: Text("Done".toUpperCase(),
+                                      style: TextStyle(fontSize: 24,
+                                          fontWeight: FontWeight.bold)),
+                                ),
+                              ),
+                            ),
+
+                          ],
+                        ),
+
+                      ),
+                    ),
+
+                  ],
+                ),
+
 
 
               ],
