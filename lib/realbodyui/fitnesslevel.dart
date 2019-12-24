@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel3.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/widgets/custom_alert_dialog.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -277,6 +278,10 @@ URL urldomain=URL();
                           }
                           if(level1==false && level2==false && level3==false){
                             print("Level must Select");
+                             showDialog(context: context,
+builder: (BuildContext context) {
+  return CustomAlertDialog(title: "Alert!",content: "Must Select",);
+});
 
                         }
                            },

@@ -2,17 +2,47 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:real_bodies/models/jsons.dart';
 import 'package:flutter/material.dart';
+import 'package:real_bodies/models/program.dart';
+import 'package:real_bodies/models/url.dart';
+import 'package:real_bodies/realbodyui/payment_done.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 import 'package:flutter_picker/flutter_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stripe_payment/stripe_payment.dart';
+import 'package:http/http.dart' as http;
+
  class Payment extends StatefulWidget {
+   final ProgramPlan program;
+
+   final String name;
+   final String calorie;
+   final String email;
+   final String password;
+   final int id;
+
+
+
+   Payment({this.program,
+     this.name,
+     this.calorie,
+     this.email,
+     this.password,
+     this.id,
+   });
    @override
    _PaymentState createState() => _PaymentState();
  }
  
  class _PaymentState extends State<Payment> {
+
+
+   String argName = "";
+   String argPassword="";
+   String argUserName="";
+   bool press = false;
+
    ExpiryCard expir = ExpiryCard();
    bool tick = false;
    final TextEditingController _card = new TextEditingController();
@@ -25,7 +55,7 @@ import 'package:stripe_payment/stripe_payment.dart';
 
 
 
-
+   int paymentAmount;
 
    Token _paymentToken;
    PaymentMethod _paymentMethod;
@@ -45,10 +75,42 @@ import 'package:stripe_payment/stripe_payment.dart';
 
    GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
+
+   void buyProgram(int id, int programId ) async {
+     print(id);
+     print(programId);
+     URL urldomain = URL();
+     var url=urldomain.domain+"buy_program";
+
+     final response =await http.get(url+"&id="+id.toString()+"&program_id="+programId.toString());
+
+     if (response.statusCode == 200) {
+       // If the call to the server was successful, parse the JSON.
+       // r Post.fromJson(json.decode(response.body));
+
+       print('Response body:${response.body}');
+
+
+       Navigator.of(context)
+           .push(MaterialPageRoute(builder: (context) => PaymentDone(name:widget.name,id:widget.id,program: widget.program,calorie:widget.calorie)));
+       argName=widget.email;
+       argPassword=widget.password;
+       argUserName=widget.name;
+       print("name:"+argName+" Password:"+argPassword+"userName:"+argUserName);
+       saveNamePreference(argName,argPassword,argUserName);
+
+     } else {
+       // If that call was not successful, throw an error.
+       throw Exception('Failed to load post');
+     }
+   }
+
+
    @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    paymentAmount = int.parse(widget.program.price.toString()+'00');
     _cardField = new CustomTextField(
       baseColor: Colors.white,
       borderColor: Colors.grey,
@@ -178,13 +240,13 @@ import 'package:stripe_payment/stripe_payment.dart';
                                       Column(
                                         children: <Widget>[
                                           Text('Workout & Meal Plan',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 10),),
-                                          Text('sumeeer', style: TextStyle(
+                                          Text('${widget.program.title}', style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.bold,
                                               fontSize: 22),),
                                         ],
                                       ),
-                                      Text('ghjgjg', style: TextStyle(
+                                      Text('${widget.program.description}', style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 15),
@@ -207,7 +269,7 @@ import 'package:stripe_payment/stripe_payment.dart';
                    child: Container(
                      width: width * 0.70,
                      height: height * 0.15,
-                     child: AutoSizeText('Your will be charged for this plan 9000\$', style: TextStyle(
+                     child: AutoSizeText('Your will be charged for this plan \$ ${widget.program.price}', style: TextStyle(
                          color: Colors.white,
                          fontWeight: FontWeight.bold,
                          fontSize: 32),
@@ -302,7 +364,9 @@ import 'package:stripe_payment/stripe_payment.dart';
                        padding: const EdgeInsets.symmetric(vertical: 12.0),
                        child: FittedBox(
                          fit: BoxFit.contain,
-                         child: Text(
+                         child:
+                         press? CircularProgressIndicator():
+                         Text(
                            "Buy Now",
                            textAlign: TextAlign.center,
                            style: TextStyle(
@@ -311,16 +375,19 @@ import 'package:stripe_payment/stripe_payment.dart';
                              fontSize: 26,
                              fontWeight: FontWeight.w800,
                              fontFamily: "OpenSans",
-                           ),
+                           )
                          ),
                        ),
                      ),
                      shape: RoundedRectangleBorder(
                        borderRadius: BorderRadius.circular(30.0),
                      ),
-                     onPressed: () {
-
-
+                     onPressed: () async{
+                       setState(() {
+                         press = true;
+                       });
+                      print("button scope ${widget.id}");
+                       buyProgram(widget.id, widget.program.programId);
                        final CreditCard myTestCard = CreditCard(
                          number: _card.text,
                          expMonth: int.parse(expir.month),
@@ -330,21 +397,12 @@ import 'package:stripe_payment/stripe_payment.dart';
 
 
 
-                       StripePayment.createSourceWithParams(SourceParams(
-                         type: 'ideal',
-                         amount: 90000,
-                         currency: 'usd',
-                         returnURL: 'example://stripe-redirect',
-                       )).then((source) {
-                         _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text('Received ${source.sourceId}')));
-                         setState(() {
-                           _source = source;
-                         });
-                       }).catchError(setError);
+
 
                        StripePayment.createPaymentMethod(
+
                          PaymentMethodRequest(
-                           card:  myTestCard,                  //testCard,
+                           card:  myTestCard,
                          ),
                        ).then((paymentMethod) {
                          _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text('Received ${paymentMethod.id}')));
@@ -352,7 +410,9 @@ import 'package:stripe_payment/stripe_payment.dart';
                            _paymentMethod = paymentMethod;
                          });
                        }).catchError(setError);
-                       // widget.notifyParent();
+                   //     widget.notifyParent();
+
+
                      },
                    ),
                  ),
@@ -374,3 +434,12 @@ import 'package:stripe_payment/stripe_payment.dart';
    String year;
    ExpiryCard({this.month,this.year});
  }
+
+
+Future<bool> saveNamePreference(String name, String password,String userName) async{
+  SharedPreferences pref = await SharedPreferences.getInstance();
+  pref.setString('name', name);
+  pref.setString('password', password);
+  pref.setString('userName', userName);
+  return true;
+}

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel2.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/widgets/custom_alert_dialog.dart';
 import 'package:real_bodies/ui/widgets/custom_flat_button.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -516,6 +517,10 @@ class _DietPlanState extends State<DietPlan> {
                         //setdiet();
                         if(dietplan=="")
                         {
+                           showDialog(context: context,
+builder: (BuildContext context) {
+  return CustomAlertDialog(title: "Alert!",content: "Must Select Plan",);
+});
                           print("Select must");
                         }
                         else

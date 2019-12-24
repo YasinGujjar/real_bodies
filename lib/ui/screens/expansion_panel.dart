@@ -4,6 +4,7 @@ import 'package:real_bodies/realbodyui/bmi_creen.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:real_bodies/ui/widgets/custom_alert_dialog.dart';
 
 @visibleForTesting
 enum Gender {
@@ -320,7 +321,7 @@ class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
     _demoItems = <DemoItem<dynamic>>[
       DemoItem<String>(
         name: 'Age',
-        value: "0",
+        value: "",
         hint: 'Enter new value',
         valueToString: (String value) => value,
         builder: (DemoItem<String> item) {
@@ -469,7 +470,7 @@ class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
       ),
       DemoItem<String>(
         name: 'Height',
-        value: "0",
+        value: "",
         // value2: '11',
 
         hint: 'Enter new value',
@@ -599,8 +600,13 @@ class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
                 borderRadius: new BorderRadius.circular(30.0),
               ),
               onPressed: () {
-                print("goal "+widget.goal+"diet "+widget.diet+"id "+widget.id.toString()+"level "+widget.level+" ");
-                if (gender == "Gender.Male") {
+
+                print(" gender "+gender+" age "+age.toString()+" height "+heightdb+" weight "+weight.toString());
+
+                //print("goal "+widget.goal+"diet "+widget.diet+"id "+widget.id.toString()+"level "+widget.level+" gender "+gender+" age "+age.toString()+" height "+heightdb);
+                if(age!=null && heightdb!="" && weight!=null)
+                {
+ if (gender == "Gender.Male") {
                   print("maaaleeeee");
                   // double weightpoint = double.parse(weight);
                   setState(() {
@@ -638,6 +644,17 @@ class _ExpansionPanelsDemoState extends State<ExpansionPanelsDemo> {
                 print("kkkkkkkk"+calorie);
                 print("gendre"+gender);
                 print("age"+age.toString());
+                 
+                }
+                else
+                {
+                  print("bahrrr");
+                  showDialog(context: context,
+builder: (BuildContext context) {
+  return CustomAlertDialog(title: "Alert!",content: "Must Fill the Fields",);
+});
+                }
+               
 
                
               },

@@ -5,8 +5,10 @@ class ProgramPlan{
   String description;
   String image;
   int programId;
+  int price;
 
   ProgramPlan({
+    this.price,
     this.title,
     this.description,
     this.image,
@@ -19,6 +21,7 @@ class ProgramPlan{
       description: json['description'],
       image: URL.imageUrl+json['image'],
       programId: int.parse(json['id']),
+      price: int.parse(json['price']),
     );
   }
 

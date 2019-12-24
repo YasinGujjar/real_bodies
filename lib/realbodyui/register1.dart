@@ -1,5 +1,6 @@
 import 'package:charts_flutter/flutter.dart' as prefix0;
 import 'package:flutter/material.dart';
+import 'package:real_bodies/business/validator.dart';
 import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/realbodyui/signin.dart';
 import 'package:real_bodies/realbodyui/step1.dart';
@@ -47,6 +48,19 @@ final TextEditingController _confirmpassword = new TextEditingController();
                 .pushReplacement(MaterialPageRoute(builder: (context) => StepOne(id:id,name:_fullname.text,email:_email.text,password:_password.text))); 
       } else if (requestresponse == "error") {
         print("error");
+         showDialog(context: context,
+builder: (BuildContext context) {
+  return CustomAlertDialog(title: "Alert!",content: "ERROR...",);
+});
+      }
+      else if (requestresponse == "duplicate") {
+        print("Already");
+         showDialog(context: context,
+builder: (BuildContext context) {
+
+  return CustomAlertDialog(title: "Alert!",content: "This Email has Already Account",);
+
+});
       }
    }
       catch(e)
@@ -71,7 +85,7 @@ _nameField = new CustomTextField(
       controller: _fullname,
       hint: "Full Name",
       textColor: Colors.white,
-     // inputType: TextInputType.emailAddress,
+      inputType: TextInputType.text,
       colorfield: Palette.backGround,
       // validator: Validator.validateEmail,
     );
@@ -81,7 +95,7 @@ _nameField = new CustomTextField(
       errorColor: Colors.red,
       controller: _email,
       hint: "E-mail Adress",
-      inputType: TextInputType.emailAddress,
+     // inputType: TextInputType.emailAddress,
       colorfield: Palette.backGround,
       textColor: Colors.white,
       // validator: Validator.validateEmail,
@@ -165,11 +179,12 @@ _nameField = new CustomTextField(
                           borderRadius: new BorderRadius.circular(30.0),
                         ),
                         onPressed: () {
-                          print("dfgd"+_fullname.text+"dfdf");
-
+                          
                           if(_fullname.text!="" && _email.text!="" && _password.text!="" && _confirmpassword.text!="")
                           {
-                            if(_password.text==_confirmpassword.text)
+                            if(Validator.validateEmail(_email.text))
+                            {
+                               if(_password.text==_confirmpassword.text)
                           {
                               addinfo();
                              print("next page");
@@ -183,6 +198,15 @@ builder: (BuildContext context) {
   return CustomAlertDialog(title: "Alert!",content: "Password not matched",);
 });
                           }
+
+                            }
+                            else{
+                              showDialog(context: context,
+builder: (BuildContext context) {
+  return CustomAlertDialog(title: "Alert!",content: "Email not Valid",);
+});
+                            }
+                           
                         }
                         else
                         {
@@ -208,6 +232,40 @@ builder: (BuildContext context) {
       ),
     );
   }
+/*  void _signUp(
+      {String fullname,
+      String number,
+      String email,
+      String password,
+      BuildContext context}) async {
+    if (Validator.validateName(fullname) &&
+        Validator.validateEmail(email) &&
+        Validator.validateNumber(number) &&
+        Validator.validatePassword(password)) {
+      try {
+       // SystemChannels.textInput.invokeMethod('TextInput.hide');
+       /*  _changeBlackVisible();
+        await Auth.signUp(email, password).then((uID) {
+          Auth.addUser(new User(
+              userID: uID,
+              email: email,
+              firstName: fullname,
+              profilePictureURL: ''));
+          onBackPress();
+        }); */
+      } catch (e) {
+        print("Error in sign up: $e");
+       // String exception = Auth.getExceptionText(e);
+     /*    _showErrorAlert(
+          title: "Signup failed",
+          content: exception,
+          onPressed: _changeBlackVisible,
+        ); */
+      }
+    }
+  }
+ */
+
 }
 
 /* Future<bool> showReview(context, String message) {

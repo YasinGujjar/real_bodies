@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/theme/palette.dart';
+import 'package:real_bodies/ui/widgets/custom_alert_dialog.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 import 'package:real_bodies/ui/widgets/newcarousel.dart';
 import 'package:real_bodies/ui/widgets/weight_chart.dart';
@@ -15,10 +16,9 @@ import 'package:image_picker/image_picker.dart';
 class ShowWeight extends StatefulWidget {
   final int id;
   final String weight;
-  final List imgList;
-  final List weightList;
+ 
 
-ShowWeight({this.id,this.weight,this.imgList,this.weightList});
+ShowWeight({this.id,this.weight});
   @override
   _ShowWeightState createState() => _ShowWeightState();
 }
@@ -144,11 +144,11 @@ http.post(uploadEndPoint,body: {
       child: Column(
         children: <Widget>[
           SizedBox(
-            height: 20.0,
+            height: 5.0,
           ),
           _weightField,
           SizedBox(
-            height: 20,
+            height: 10,
           ),
           Row(
             children: <Widget>[
@@ -194,7 +194,18 @@ http.post(uploadEndPoint,body: {
                           ),
                         ),
                         onPressed: () {
-                          startupload();
+                          if(_newweight.text!="")
+                          {
+                            startupload();
+                          }
+                          else
+                          {
+                             showDialog(context: context,
+builder: (BuildContext context) {
+  return CustomAlertDialog(title: "Alert!",content: "Must Fill the Weight",);
+});
+                          }
+                          
                         },
                       ),
           ),
@@ -208,7 +219,7 @@ http.post(uploadEndPoint,body: {
   void initState() {
     // TODO: implement initState
     super.initState();
-    print("iiiiiiiiiiiiiiiiiii"+widget.imgList.toString());
+   // print("iiiiiiiiiiiiiiiiiii"+widget.imgList.toString());
 
     checkinfo();
      _weightField = new CustomTextField(
@@ -217,6 +228,7 @@ http.post(uploadEndPoint,body: {
       errorColor: Colors.red,
       controller: _newweight,
       hint: "Add New Weight",
+      inputType: TextInputType.number,
       //validator: Validator.validateName,
     );
     /*  _imageField = new CustomTextField(
@@ -359,7 +371,7 @@ setState(() {
        
        builder: (context,snapshot){ 
          if (snapshot.hasData) {
-              return    CarouselDemo(id:widget.id,img :snapshot.data,weight: widget.weightList,);
+              return    CarouselDemo(id:widget.id,img :snapshot.data,);
 
          }
          else{
