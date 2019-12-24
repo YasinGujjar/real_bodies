@@ -7,6 +7,7 @@ import 'package:real_bodies/realbodyui/food_exercise_diary.dart';
 import 'package:real_bodies/realbodyui/meal_plan.dart';
 import 'package:real_bodies/realbodyui/search_add_food.dart';
 import 'package:real_bodies/realbodyui/show_weight.dart';
+import 'package:real_bodies/realbodyui/tracker_progress_weight.dart';
 import 'package:real_bodies/theme/my_flutter_app_icons.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:http/http.dart' as http;
@@ -78,7 +79,7 @@ class _DashBoardState extends State<DashBoard> {
       storeTab(context,widget.name,userName),
       ExercisePlan(id:widget.id),
       FoodExerciseDiary(id: widget.id,calorie:widget.calorie),
-      Center(child: Text('Coming Soon..',style: TextStyle(color: Colors.white,fontSize: 30),)),
+      ProgressTrackerWeight(id:widget.id),
       MealPlan(id:widget.id),
       ShowWeight(id:widget.id,weight:widget.weight,)
     ];

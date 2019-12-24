@@ -567,7 +567,7 @@ URL urldomain =URL();
                 fit: BoxFit.contain,
                 child: Text('Exercise Diary',style: TextStyle(color: Colors.white,fontSize: 30),)),),
        SizedBox(height: 3,),
-          ExerciseDiary(),
+          ExerciseDiary(title: "Training Week 1",),
 
 
 

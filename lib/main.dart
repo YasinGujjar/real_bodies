@@ -9,14 +9,12 @@ import 'package:real_bodies/realbodyui/fitnesslevel.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel2.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel3.dart';
 import 'package:real_bodies/realbodyui/payment.dart';
-import 'package:real_bodies/realbodyui/payment_done.dart';
 import 'package:real_bodies/realbodyui/register1.dart';
 
 import 'package:real_bodies/realbodyui/signin.dart';
 import 'package:real_bodies/realbodyui/splashscreen.dart';
 import 'package:real_bodies/realbodyui/step1.dart';
 import 'package:real_bodies/realbodyui/step3.dart';
-import 'package:real_bodies/realbodyui/stripe.dart';
 import 'package:real_bodies/ui/screens/desktop.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
@@ -44,9 +42,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-
       home: MyHomePage(),//MyHomePage(title: 'Demo'),
-      //MyHomePage(title: 'Demo'),
     );
   }
 }

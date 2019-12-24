@@ -22,6 +22,7 @@ class _SigninState extends State<Signin> {
   String _pass="";
   String argName = "";
   String argPassword="";
+  String argUserName="";
   final TextEditingController _email = new TextEditingController();
   final TextEditingController _password = new TextEditingController();
   CustomTextField _emailField;
@@ -53,11 +54,12 @@ URL urldomain =URL();
   print('commited');
   
   print('This is the idddddd   heloo$id');
+ argName=_email.text;
+                    argPassword=_password.text;
+                   argUserName=name;
+                    print("name:"+argName+" Password:"+argPassword+"userName:"+argUserName);
+                    saveNamePreference(argName,argPassword,argUserName);
 
- //  var gender=jsonResponse['gender'];
-   // var old=jsonResponse['old'];
-     //var height=jsonResponse['height'];
-     // var weight=jsonResponse['weight'];
 
  Navigator.push(
     context,
@@ -185,10 +187,7 @@ loadNamePreference().then(updateValue) ;
                            {
                              if(Validator.validateEmail(_email.text))
                              {
-                               argName=_email.text;
-                    argPassword=_password.text;
-                    print("name:"+argName+" Password:"+argPassword);
-                    saveNamePreference(argName,argPassword);
+                              
                           checkinfo();
                           print(_name);
     print(_password);
@@ -250,10 +249,12 @@ builder: (BuildContext context) {
 
 }
 
-Future<bool> saveNamePreference(String name, String password) async{
+Future<bool> saveNamePreference(String name, String password ,String userName) async{
   SharedPreferences pref = await SharedPreferences.getInstance();
   pref.setString('name', name);
  pref.setString('password', password);
+   pref.setString('userName', userName);
+
   return true;
 }
 
