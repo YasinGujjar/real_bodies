@@ -4,12 +4,14 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:real_bodies/models/walkthrough.dart';
 import 'package:real_bodies/pages/daily_workout_plan.dart';
+import 'package:real_bodies/realbodyui/calender.dart';
 import 'package:real_bodies/realbodyui/dashboard.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel2.dart';
 import 'package:real_bodies/realbodyui/fitnesslevel3.dart';
 import 'package:real_bodies/realbodyui/payment.dart';
 import 'package:real_bodies/realbodyui/register1.dart';
+import 'package:real_bodies/realbodyui/setting.dart';
 
 import 'package:real_bodies/realbodyui/signin.dart';
 import 'package:real_bodies/realbodyui/splashscreen.dart';
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: MyHomePage(),//MyHomePage(title: 'Demo'),
+      home: Setting(),//MyHomePage(title: 'Demo'),
     );
   }
 }

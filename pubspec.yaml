@@ -43,6 +43,7 @@ dependencies:
   #flutter_facebook_login: ^1.1.1
   shared_preferences: any
   auto_size_text: ^2.1.0
+  table_calendar: ^2.2.1
   #cloud_firestore: any
 
 dev_dependencies:
