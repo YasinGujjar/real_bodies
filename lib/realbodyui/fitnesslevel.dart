@@ -127,7 +127,8 @@ URL urldomain=URL();
                                   width: width * 0.30,
                                   child: Padding(
                                       padding: const EdgeInsets.only(left:20.0),
-                                    child: Checkbox(
+                                    child:
+                                    Checkbox(
                                   activeColor: Colors.white,
                                     value: level1,
                                     onChanged: (bool value) {

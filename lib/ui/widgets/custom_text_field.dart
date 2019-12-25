@@ -44,7 +44,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return
+      Card(
       elevation: 0.0,
       color: widget.colorfield,
       shape: RoundedRectangleBorder(
@@ -54,7 +55,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.0),
         child: TextField(
-          
+
           obscureText: widget.obscureText,
           onChanged: (text) {
             if (widget.onChanged != null) {
@@ -69,14 +70,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
             });
           }, 
           style: TextStyle(color: widget.textColor),
-          //keyboardType: widget.inputType,
+          keyboardType: widget.inputType,
           controller: widget.controller,
           decoration: InputDecoration(
             hintStyle: TextStyle(
               color: widget.baseColor,
               fontFamily: "OpenSans",
               fontWeight: FontWeight.w300,
-              
+
             ),
             border: InputBorder.none,
             hintText: widget.hint,

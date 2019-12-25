@@ -39,6 +39,7 @@ dependencies:
   video_player: any
   image_picker: ^0.6.2+2
   stripe_payment: ^1.0.6
+  flutter_picker: ^1.1.0
   #firebase_auth: ^0.6.6
   #flutter_facebook_login: ^1.1.1
   shared_preferences: any

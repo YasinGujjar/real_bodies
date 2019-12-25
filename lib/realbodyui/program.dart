@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:real_bodies/models/program.dart';
 import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/realbodyui/dashboard.dart';
+import 'package:real_bodies/realbodyui/payment.dart';
 import 'package:real_bodies/theme/palette.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
@@ -100,6 +101,7 @@ class _ProgramState extends State<Program> {
                                ProgramList(title:snapshot.data[index].title, description: snapshot.data[index].description,id: widget.id,name:widget.name,calorie:widget.calorie,email:widget.email,password:widget.password,
                                programId: snapshot.data[index].programId,
                                image: snapshot.data[index].image,
+                                 program: snapshot.data[index],
 
                                ),
                                SizedBox(height: 10)
@@ -132,8 +134,9 @@ class ProgramList extends StatefulWidget {
   final String calorie;
   final String email;
   final String password;
+  final ProgramPlan program;
 
-  ProgramList({this.title,this.description,this.id,this.programId,this.image,this.document,this.name,this.calorie,this.email,this.password});
+  ProgramList({this.program,this.title,this.description,this.id,this.programId,this.image,this.document,this.name,this.calorie,this.email,this.password});
 
   @override
   _ProgramListState createState() => _ProgramListState();
@@ -240,7 +243,11 @@ void buyProgram(int id, int programId ) async {
                                     borderRadius: new BorderRadius.circular(30.0),
                                   ),
                                   onPressed:  ()  {
-                                    buyProgram(widget.id, widget.programId);
+                                   // buyProgram(widget.id, widget.programId);
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => Payment(id:widget.id,program: widget.program,password: widget.password,name: widget.name,email: widget.email,)),
+                                    );
 
                                   },
                                   color: Palette.buttonjColor,
