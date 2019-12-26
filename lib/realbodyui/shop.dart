@@ -19,7 +19,7 @@ class _ShopState extends State<Shop> {
           centerTitle: true,
           title: Text("Shop",style: TextStyle(color: Color(0xff221E3A)),)
       ),
-      body: Container(child: Text('hello'),),
+      body: Container(child: Text('hello how are you'),),
     );
   }
 }
