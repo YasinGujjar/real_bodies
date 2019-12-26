@@ -95,6 +95,8 @@ flutter:
      - assets/images/lunch.jpg
      - assets/images/snacks.jpg
      - assets/images/sad.png
+     - assets/images/nutrition.png
+     - assets/images/product.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -12,6 +12,7 @@ import 'package:real_bodies/realbodyui/fitnesslevel3.dart';
 import 'package:real_bodies/realbodyui/payment.dart';
 import 'package:real_bodies/realbodyui/register1.dart';
 import 'package:real_bodies/realbodyui/setting.dart';
+import 'package:real_bodies/realbodyui/shop.dart';
 
 import 'package:real_bodies/realbodyui/signin.dart';
 import 'package:real_bodies/realbodyui/splashscreen.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        // canvasColor: Colors.transparent,
       ),
-      home: Setting(),//MyHomePage(title: 'Demo'),
+      home: Shop(),//MyHomePage(title: 'Demo'),
     );
   }
 }

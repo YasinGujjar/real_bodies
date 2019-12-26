@@ -10,8 +10,9 @@ class FoodDiary extends StatefulWidget {
   final int id;
   final Function() notifyParent;
   final String calorie;
+  final String incalorie;
   
-  FoodDiary({Key key, @required this.notifyParent,this.id,this.calorie}) : super(key: key);
+  FoodDiary({Key key, @required this.notifyParent,this.id,this.calorie,this.incalorie}) : super(key: key);
   @override
   _FoodDiaryState createState() => _FoodDiaryState();
 }
@@ -581,7 +582,7 @@ else if(requestresponse=="error")
          GestureDetector(
            onTap: (){
              Navigator.of(context)
-                 .push(MaterialPageRoute(builder: (context) => SearchFood(id:widget.id,category: FoodCategories.dinner,calorie:widget.calorie)));
+                 .push(MaterialPageRoute(builder: (context) => SearchFood(id:widget.id,category: FoodCategories.dinner,calorie:widget.calorie,incalorie:widget.incalorie)));
              /* dinnerList.add(   TableRowReturn(
                name: 'Cherry Coke',
                calories: "45",

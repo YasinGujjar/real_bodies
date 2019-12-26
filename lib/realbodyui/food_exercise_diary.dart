@@ -582,7 +582,8 @@ URL urldomain =URL();
                           color: Colors.white, fontSize: 30),)),),
                 FoodDiary(notifyParent: refresh,
                     id: widget.id,
-                    calorie: widget.calorie),
+                    calorie: widget.calorie,
+                    incalorie:takeCal),
 
                 Container(height: 50,
                   decoration: BoxDecoration(color: Palette.mainPurple,

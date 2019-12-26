@@ -18,9 +18,10 @@ class SearchAddFood extends StatefulWidget {
   final int id;
   final String category;
   final String calorie;
+  final String incalorie;
   
 
-  SearchAddFood({this.food,this.id,this.category,this.calorie});
+  SearchAddFood({this.food,this.id,this.category,this.calorie,this.incalorie});
 
   @override
   _SearchAddFoodState createState() => _SearchAddFoodState();
@@ -158,7 +159,7 @@ class _SearchAddFoodState extends State<SearchAddFood> {
                     Align(
                         alignment: Alignment.centerRight,
                         child: Text(
-                          "1600",
+                          widget.calorie,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.red
@@ -187,7 +188,7 @@ class _SearchAddFoodState extends State<SearchAddFood> {
                     Align(
                         alignment: Alignment.centerRight,
                         child: Text(
-                          "1000",
+                          widget.incalorie,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
