@@ -21,6 +21,6 @@ static Color lightPurple = Color(0xffb39ddb);
   static Color boldTextO = Color(0xffe65100);
 static Color buttonjColor = Color(0xffFF9A6C);
 static Color backGround = Color(0xffE1481F);
-
+static Color shopAppBarColor = Color(0xffE6E6E6);
 
 }
