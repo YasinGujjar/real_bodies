@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:real_bodies/models/chart_data.dart';
 import 'package:real_bodies/models/url.dart';
 import 'package:real_bodies/pages/exercise_diary.dart';
@@ -33,13 +34,17 @@ URL urldomain =URL();
    try
    {
       print("id diary"+widget.id.toString());
-      print(DateTime.now().toString());
+      //print(DateTime.now().toString());
        var url=urldomain.domain+"get_food_record";
     final response=await http.get(url+"&id="+widget.id.toString());
     print('Response body hh:${response.body}');
    
 
-  if(response.body=="null"){takeCal='0';}
+  if(response.body=="null")
+  {
+    takeCal='0';
+    print(takeCal+" val");
+  }
   else {
     var jsonResponse=json.decode(response.body);
     var takecalo = jsonResponse[0]["totalIntaked"];
@@ -142,7 +147,7 @@ URL urldomain =URL();
                           Align(
                               alignment: Alignment.centerRight,
                               child: Text(
-                                "Thursday, Nov 28",
+                                convertDateFromString(DateTime.now().toString()),
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 17.0
@@ -248,6 +253,7 @@ URL urldomain =URL();
                         ],
                       ),
                     ),
+                    
                     Container(
                       //  color: Colors.blue,
                       height: height * 0.04,
@@ -583,7 +589,8 @@ URL urldomain =URL();
                 FoodDiary(notifyParent: refresh,
                     id: widget.id,
                     calorie: widget.calorie,
-                    incalorie:takeCal),
+                    incalorie:takeCal
+                    ),
 
                 Container(height: 50,
                   decoration: BoxDecoration(color: Palette.mainPurple,
@@ -610,6 +617,11 @@ URL urldomain =URL();
   }
 }
 
+ String convertDateFromString(String strDate){
+ DateTime todayDate = DateTime.parse(strDate);
+String formattedDate = DateFormat('EEEE ,MMM dd').format(todayDate);
+  return formattedDate;
+ }
 
 
 

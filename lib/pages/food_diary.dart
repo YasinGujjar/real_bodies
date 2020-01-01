@@ -34,7 +34,8 @@ class _FoodDiaryState extends State<FoodDiary> {
       print(DateTime.now().toString());
        var url=urldomain.domain+"get_food_record";
     final response=await http.get(url+"&id="+widget.id.toString());
-    print('Response body:${response.body}');
+    print('Response body dairy:${response.body}');
+    
    var jsonResponse=json.decode(response.body);
   for(int i=0; i<jsonResponse.length; i++){
 if (jsonResponse[i]['category']=="breakfast")
@@ -52,6 +53,10 @@ if(jsonResponse[i]['category']=="dinner")
 if(jsonResponse[i]['category']=="snacks")
 {
   addbreakfast(snackList,jsonResponse,i);
+}
+if(jsonResponse=="null")
+{
+  print("NO Food in database");
 }
         // breakFastList.add(   TableRowReturn(
         //          name: jsonResponse[i]['name'],
@@ -376,7 +381,7 @@ else if(requestresponse=="error")
          GestureDetector(
              onTap: (){
                Navigator.of(context)
-                   .push(MaterialPageRoute(builder: (context) => SearchFood(id:widget.id,category: FoodCategories.breakfast,calorie:widget.calorie)));
+                   .push(MaterialPageRoute(builder: (context) => SearchFood(id:widget.id,category: FoodCategories.breakfast,calorie:widget.calorie,incalorie: widget.incalorie,)));
               /*  breakFastList.add(   TableRowReturn(
                  name: 'Cherry Coke',
                  calories: 45,

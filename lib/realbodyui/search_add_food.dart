@@ -159,6 +159,7 @@ class _SearchAddFoodState extends State<SearchAddFood> {
                     Align(
                         alignment: Alignment.centerRight,
                         child: Text(
+                         
                           widget.calorie,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -188,7 +189,7 @@ class _SearchAddFoodState extends State<SearchAddFood> {
                     Align(
                         alignment: Alignment.centerRight,
                         child: Text(
-                          widget.incalorie,
+                         widget.incalorie==null ? "0" : widget.incalorie,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
