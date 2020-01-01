@@ -11,6 +11,8 @@ import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:real_bodies/ui/widgets/loading_dialogue.dart';
+
 
 class registers extends StatefulWidget {
   @override
@@ -47,13 +49,15 @@ final TextEditingController _confirmpassword = new TextEditingController();
          Navigator.of(context)
                 .pushReplacement(MaterialPageRoute(builder: (context) => StepOne(id:id,name:_fullname.text,email:_email.text,password:_password.text))); 
       } else if (requestresponse == "error") {
+         Navigator.of(context).pop();
         print("error");
          showDialog(context: context,
 builder: (BuildContext context) {
-  return CustomAlertDialog(title: "Alert!",content: "ERROR...",);
+  return CustomAlertDialog(title: "Alert!",content: "ERROR...Try Again",);
 });
       }
       else if (requestresponse == "duplicate") {
+         Navigator.of(context).pop();
         print("Already");
          showDialog(context: context,
 builder: (BuildContext context) {
@@ -186,6 +190,10 @@ _nameField = new CustomTextField(
                             {
                                if(_password.text==_confirmpassword.text)
                           {
+                             showDialog(context: context,
+builder: (BuildContext context) {
+  return LoadingDialogue();
+});
                               addinfo();
                              print("next page");
                              /*  Navigator.of(context)

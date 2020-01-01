@@ -210,7 +210,7 @@ Widget storeTab(BuildContext context,String name,Future<String> userName) {
                     builder: (context,snapshot) {
                       if(snapshot.hasData) {
                         return
-                        Text("WELCOME ${snapshot.data}", //$name",
+                        Text("  WELCOME ${snapshot.data}", //$name",
                           style: TextStyle(
                               fontSize: 30.0, fontWeight: FontWeight
                               .w700, color: Colors.white),);

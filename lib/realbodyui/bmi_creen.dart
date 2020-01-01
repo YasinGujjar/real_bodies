@@ -20,7 +20,41 @@ class Bmi extends StatefulWidget {
 
 class _BmiState extends State<Bmi> {
   //ExpansionPanelsDemo epd=ExpansionPanelsDemo();
-  
+  String bmiStatus="";
+  check_status_bmi()
+  {
+    int valbmi=int.parse(widget.bmi);
+    if(valbmi<18.50)
+    {
+      setState(() {
+        bmiStatus="UnderWeight";
+      });
+    }
+     if(valbmi>18.50 && valbmi <24.99)
+    {
+      setState(() {
+        bmiStatus="NormalWeight";
+      });
+    }
+     if(valbmi>25.00 && valbmi<29.99)
+    {
+      setState(() {
+        bmiStatus="OverWeight";
+      });
+    }
+    if(valbmi>30.00)
+    {
+      setState(() {
+        bmiStatus="Obese";
+      });
+    }
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    check_status_bmi();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +97,7 @@ class _BmiState extends State<Bmi> {
                          children: <Widget>[
                            Center(child: Text(widget.bmi,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 40),)),
                            SizedBox(height: 20,),
-                           Center(child: Text("OverWeight",style: TextStyle(fontSize: 20,color: Colors.white),)),
+                           Center(child: Text(bmiStatus,style: TextStyle(fontSize: 20,color: Colors.white),)),
 
 
 

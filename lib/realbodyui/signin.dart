@@ -8,6 +8,7 @@ import 'package:real_bodies/theme/palette.dart';
 import 'package:real_bodies/ui/widgets/custom_alert_dialog.dart';
 import 'package:real_bodies/ui/widgets/custom_text_field.dart';
 import 'package:http/http.dart' as http;
+import 'package:real_bodies/ui/widgets/loading_dialogue.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
@@ -61,7 +62,7 @@ URL urldomain =URL();
                     saveNamePreference(argName,argPassword,argUserName);
 
 
- Navigator.push(
+ Navigator.pushReplacement(
     context,
     MaterialPageRoute(builder: (context) => DashBoard(id: id,name: name,weight:weight,calorie:calorie,indexnumber: 0,)),
   );
@@ -74,6 +75,7 @@ URL urldomain =URL();
   }
 else if(requestresponse=="error")
 {
+   Navigator.of(context).pop();
  showDialog(context: context,
 builder: (BuildContext context) {
   return CustomAlertDialog(title: "Alert!",content: "Invalid Email and Password",);
@@ -187,10 +189,13 @@ loadNamePreference().then(updateValue) ;
                            {
                              if(Validator.validateEmail(_email.text))
                              {
-                              
-                          checkinfo();
-                          print(_name);
-    print(_password);
+                               showDialog(context: context,
+builder: (BuildContext context) {
+  return LoadingDialogue();
+});
+                             checkinfo();
+                              print(_name); 
+                              print(_password);
                              }
                              else{
                                 showDialog(context: context,
@@ -269,3 +274,27 @@ Future<String> loadPasswordPreference() async{
   return password;
 }
 
+/* Future<bool> showReview(context) {
+    return showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext context) {
+        return Dialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0)),
+          
+                        child:Row(
+                          children: <Widget>[
+                            Container(
+                              height: 100,
+                              width: 100,
+                              child: Center(child: CircularProgressIndicator())),
+                              SizedBox(width: 12,),
+                              Text("Loading...",style: TextStyle(fontWeight: FontWeight.w600),)
+                          ],
+                        ),
+                
+                );
+      });
+}
+ */
